@@ -333,20 +333,6 @@ function showClassView(classId) {
   // Reset to quiz tab
   switchTab('quiz');
 
-  // Populate quiz unit filter
-  const quizUnitSelect = document.getElementById('quiz-unit-select');
-  if (quizUnitSelect && cls.qbank) {
-    quizUnitSelect.innerHTML = '<option value="all">All Units</option>';
-    const units = [...new Set(cls.qbank.map(q => q.unit).filter(u => u != null && !isNaN(Number(u))))]
-      .sort((a, b) => Number(a) - Number(b));
-    units.forEach(u => {
-      const opt = document.createElement('option');
-      opt.value = String(u);
-      opt.textContent = `Unit ${u}`;
-      quizUnitSelect.appendChild(opt);
-    });
-  }
-
   // Render all panels
   renderStudyGuides(cls);
   renderQBank(cls);
