@@ -56,11 +56,6 @@ const CLASSES = [
           'Fermentation (anaerobic): lactic acid fermentation or alcoholic fermentation; produces only 2 ATP net.',
           'The plasma membrane is a phospholipid bilayer with embedded proteins; it is selectively permeable.',
           'Passive transport: diffusion, osmosis, facilitated diffusion (no energy); active transport uses ATP.',
-        ]
-      },
-      {
-        title: 'Unit 3 — Photosynthesis & Cellular Respiration Details',
-        content: [
           'Chlorophyll a and b absorb red and blue light most efficiently; green light is reflected (why plants look green).',
           'The light-dependent reactions split water (photolysis) to produce O₂, ATP, and NADPH.',
           'Photosystem II absorbs light at ~680 nm; Photosystem I absorbs at ~700 nm.',

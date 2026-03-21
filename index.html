@@ -76,9 +76,9 @@
             <span class="stat-number" id="stat-classes">1</span>
             <span class="stat-label">Classes</span>
           </div>
-          <div class="stat-bubble" aria-label="Top score on leaderboard">
-            <span class="stat-number" id="stat-top-score">—</span>
-            <span class="stat-label">Top Score</span>
+          <div class="stat-bubble" aria-label="Total registered users">
+            <span class="stat-number" id="stat-total-users">—</span>
+            <span class="stat-label">Total Users</span>
           </div>
         </div>
       </div>
@@ -177,6 +177,12 @@
     <div id="panel-quiz" class="tab-panel" role="tabpanel" aria-labelledby="tab-quiz">
       <!-- Mode Selector -->
       <div id="quiz-mode-selector" class="quiz-mode-selector" aria-label="Choose quiz mode">
+        <div class="quiz-unit-filter" role="search" aria-label="Filter quiz questions by unit">
+          <label for="quiz-unit-select" class="qbank-filter-label">Filter by Unit:</label>
+          <select id="quiz-unit-select" aria-label="Filter quiz questions by unit">
+            <option value="all">All Units</option>
+          </select>
+        </div>
         <div
           class="mode-card"
           id="mode-timed"
