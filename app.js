@@ -333,6 +333,20 @@ function showClassView(classId) {
   // Reset to quiz tab
   switchTab('quiz');
 
+  // Populate quiz unit filter
+  const quizUnitSelect = document.getElementById('quiz-unit-select');
+  if (quizUnitSelect && cls.qbank) {
+    quizUnitSelect.innerHTML = '<option value="all">All Units</option>';
+    const units = [...new Set(cls.qbank.map(q => q.unit).filter(u => u != null && !isNaN(Number(u))))]
+      .sort((a, b) => Number(a) - Number(b));
+    units.forEach(u => {
+      const opt = document.createElement('option');
+      opt.value = String(u);
+      opt.textContent = `Unit ${u}`;
+      quizUnitSelect.appendChild(opt);
+    });
+  }
+
   // Render all panels
   renderStudyGuides(cls);
   renderQBank(cls);
@@ -535,7 +549,20 @@ function startQuiz(mode) {
   state.quizScore     = 0;
   state.quizAnswered  = 0;
   state.selectedChoice = null;
-  state.quizQuestions = shuffle(state.currentClass.quiz.slice());
+
+  const quizUnitSelect = document.getElementById('quiz-unit-select');
+  const selectedUnit   = quizUnitSelect ? quizUnitSelect.value : 'all';
+  const allQuestions   = state.currentClass.quiz.slice();
+  const filteredQuestions = selectedUnit === 'all'
+    ? allQuestions
+    : allQuestions.filter(q => q.unit != null && String(q.unit) === selectedUnit);
+
+  if (filteredQuestions.length === 0) {
+    showToast('No questions available for the selected unit.', 'info');
+    return;
+  }
+
+  state.quizQuestions = shuffle(filteredQuestions);
   state.timeLeft      = 900;
 
   document.getElementById('quiz-mode-selector').classList.add('hidden');
@@ -874,11 +901,9 @@ function renderLeaderboard(entries, containerId, limit) {
   const users     = aggregateUserScores(entries);
   const totalUsers = users.length;
 
-  // Update home stat with the top user's lifetime score
-  if (users.length > 0) {
-    const statEl = document.getElementById('stat-top-score');
-    if (statEl) statEl.textContent = String(users[0].lifetimeScore);
-  }
+  // Update home stat with total users count
+  const statEl = document.getElementById('stat-total-users');
+  if (statEl) statEl.textContent = String(totalUsers);
 
   // Identify the logged-in user in the aggregated list
   const currentUserId   = state.user?.id;
