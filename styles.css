@@ -25,9 +25,10 @@
   --radius-lg:     20px;
   --radius-xl:     32px;
   --transition:    0.25s ease;
-  --font-display:  'Cinzel', Georgia, serif;
-  --font-body:     'IM Fell English SC', Georgia, serif;
-  --font-hand:     'Caveat', cursive;
+  --font-display:  'Space Grotesk', system-ui, sans-serif;
+  --font-body:     'Inter', system-ui, sans-serif;
+  --font-hand:     'Nunito', system-ui, sans-serif;
+  --font-classic:  'Lora', Georgia, 'Times New Roman', serif;
   /* Glass helpers */
   --glass-bg:      rgba(255,255,255,0.07);
   --glass-bg-2:    rgba(255,255,255,0.11);
@@ -397,6 +398,8 @@ body {
 }
 
 .section-subtitle {
+  font-family: var(--font-classic);
+  font-style: italic;
   font-size: 0.9rem;
   color: var(--text-muted);
   margin-top: 0.25rem;
@@ -411,7 +414,7 @@ body {
 
 .filter-bar input,
 .filter-bar select {
-  font-family: var(--font-body);
+  font-family: var(--font-classic);
   font-size: 0.85rem;
   padding: 0.45em 0.85em;
   border: 1px solid var(--glass-border);
@@ -614,6 +617,45 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   width: 100%;
+}
+
+.quiz-unit-filter {
+  flex-basis: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.qbank-filter-label {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+
+.quiz-unit-filter select {
+  font-family: var(--font-classic);
+  font-size: 0.85rem;
+  padding: 0.4em 0.75em;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  background: var(--glass-bg-2);
+  color: var(--text-dark);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: border-color var(--transition);
+}
+
+.quiz-unit-filter select:focus {
+  outline: none;
+  border-color: var(--gold-main);
+}
+
+.quiz-unit-filter select option {
+  background: var(--navy-light);
+  color: var(--text-dark);
 }
 
 .mode-card {
@@ -1057,12 +1099,12 @@ body {
 }
 
 .qbank-filter select {
-  font-family: var(--font-body);
+  font-family: var(--font-classic);
   font-size: 0.85rem;
   padding: 0.4em 0.75em;
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-sm);
-  background: var(--glass-bg);
+  background: var(--glass-bg-2);
   color: var(--text-dark);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -1072,6 +1114,11 @@ body {
 .qbank-filter select:focus {
   outline: none;
   border-color: var(--gold-main);
+}
+
+.qbank-filter select option {
+  background: var(--navy-light);
+  color: var(--text-dark);
 }
 
 .qbank-count {
@@ -1251,6 +1298,144 @@ table.leaderboard-table {
   padding: 2rem;
   color: var(--text-muted);
   font-size: 0.9rem;
+}
+
+.lb-more-footer {
+  text-align: center;
+  padding: 0.65rem 1rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+  margin-top: -1px;
+}
+
+/* ── Rank tier badges ───────────────────────────────────── */
+.tier-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  padding: 0.2em 0.65em;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.tier-beginner { background: rgba(120,180,80,0.15);  color: #7aad50; border: 1px solid rgba(120,180,80,0.3); }
+.tier-amateur  { background: rgba(80,160,220,0.15);  color: #4da6e8; border: 1px solid rgba(80,160,220,0.3); }
+.tier-scholar  { background: rgba(160,110,220,0.15); color: #b07de8; border: 1px solid rgba(160,110,220,0.3); }
+.tier-advanced { background: rgba(212,168,67,0.15);  color: #d4a843; border: 1px solid rgba(212,168,67,0.3); }
+.tier-expert   { background: rgba(220,80,60,0.15);   color: #e86050; border: 1px solid rgba(220,80,60,0.3); }
+.tier-master   { background: rgba(212,168,67,0.25);  color: #f0c040; border: 1px solid rgba(212,168,67,0.5); text-shadow: 0 0 6px rgba(212,168,67,0.4); }
+
+.tier-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.tier-pts {
+  font-size: 0.68rem;
+  opacity: 0.75;
+  margin-left: 0.15em;
+}
+
+/* ── "You" tag pill ─────────────────────────────────────── */
+.you-tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  background: rgba(212,168,67,0.2);
+  color: #d4a843;
+  border: 1px solid rgba(212,168,67,0.45);
+  border-radius: 999px;
+  padding: 0.05em 0.5em;
+  vertical-align: middle;
+  margin-left: 0.4em;
+  text-transform: uppercase;
+}
+
+/* ── Highlighted row for the logged-in user ─────────────── */
+.lb-you-row {
+  background: rgba(212,168,67,0.08) !important;
+  outline: 1px solid rgba(212,168,67,0.25);
+  outline-offset: -1px;
+}
+
+.lb-you-row:hover {
+  background: rgba(212,168,67,0.14) !important;
+}
+
+/* ── Pinned "You" banner (full leaderboard) ─────────────── */
+.lb-you-banner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: rgba(212,168,67,0.1);
+  border-bottom: 1px solid rgba(212,168,67,0.3);
+  flex-wrap: wrap;
+}
+
+.lb-you-banner-preview {
+  border-radius: 10px;
+  border: 1px solid rgba(212,168,67,0.3);
+  margin-bottom: 0.75rem;
+}
+
+.lb-you-rank {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gold-main);
+  min-width: 3rem;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.lb-you-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.lb-you-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lb-you-sub {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.lb-you-stats {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+.lb-you-pts {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--gold-main);
+}
+
+.lb-you-quizzes {
+  font-size: 0.78rem;
+  color: var(--text-muted);
 }
 
 .leaderboard-loading {

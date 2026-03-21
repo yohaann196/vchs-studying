@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=IM+Fell+English+SC&family=Caveat:wght@400;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Nunito:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap"
     rel="stylesheet"
   />
 
@@ -76,9 +76,9 @@
             <span class="stat-number" id="stat-classes">1</span>
             <span class="stat-label">Classes</span>
           </div>
-          <div class="stat-bubble" aria-label="Top score on leaderboard">
-            <span class="stat-number" id="stat-top-score">—</span>
-            <span class="stat-label">Top Score</span>
+          <div class="stat-bubble" aria-label="Total registered users">
+            <span class="stat-number" id="stat-total-users">—</span>
+            <span class="stat-label">Total Users</span>
           </div>
         </div>
       </div>
@@ -121,7 +121,7 @@
         <div class="section-header">
           <div>
             <h2 class="section-title" id="lb-preview-heading">🏆 Leaderboard</h2>
-            <p class="section-subtitle">Top 5 global scores</p>
+            <p class="section-subtitle" id="lb-preview-subtitle">Top 5 users by lifetime points</p>
           </div>
           <button class="btn btn-secondary" id="view-full-lb-btn">View Full Leaderboard</button>
         </div>
@@ -284,7 +284,15 @@
   <div id="leaderboard-view" class="view hidden" role="main" aria-labelledby="lb-main-title">
     <div class="leaderboard-header">
       <h2 class="leaderboard-title" id="lb-main-title">🏆 Global Leaderboard</h2>
-      <p class="leaderboard-subtitle">Top 100 scores across all classes</p>
+      <p class="leaderboard-subtitle" id="lb-main-subtitle">All users ranked by lifetime points</p>
+      <div class="tier-legend" aria-label="Rank tier key">
+        <span class="tier-badge tier-beginner">🌱 Beginner <span class="tier-pts">0–99 pts</span></span>
+        <span class="tier-badge tier-amateur">⚡ Amateur <span class="tier-pts">100–499 pts</span></span>
+        <span class="tier-badge tier-scholar">📚 Scholar <span class="tier-pts">500–999 pts</span></span>
+        <span class="tier-badge tier-advanced">🎯 Advanced <span class="tier-pts">1000–2499 pts</span></span>
+        <span class="tier-badge tier-expert">🔥 Expert <span class="tier-pts">2500–4999 pts</span></span>
+        <span class="tier-badge tier-master">👑 Master <span class="tier-pts">5000+ pts</span></span>
+      </div>
     </div>
     <div class="leaderboard-table-wrap" aria-live="polite">
       <div id="lb-main-content">
