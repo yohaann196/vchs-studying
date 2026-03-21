@@ -1210,6 +1210,95 @@ table.leaderboard-table {
   margin-left: 0.15em;
 }
 
+/* ── "You" tag pill ─────────────────────────────────────── */
+.you-tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  background: rgba(212,168,67,0.2);
+  color: #d4a843;
+  border: 1px solid rgba(212,168,67,0.45);
+  border-radius: 999px;
+  padding: 0.05em 0.5em;
+  vertical-align: middle;
+  margin-left: 0.4em;
+  text-transform: uppercase;
+}
+
+/* ── Highlighted row for the logged-in user ─────────────── */
+.lb-you-row {
+  background: rgba(212,168,67,0.08) !important;
+  outline: 1px solid rgba(212,168,67,0.25);
+  outline-offset: -1px;
+}
+
+.lb-you-row:hover {
+  background: rgba(212,168,67,0.14) !important;
+}
+
+/* ── Pinned "You" banner (full leaderboard) ─────────────── */
+.lb-you-banner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: rgba(212,168,67,0.1);
+  border-bottom: 1px solid rgba(212,168,67,0.3);
+  flex-wrap: wrap;
+}
+
+.lb-you-rank {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gold-main);
+  min-width: 3rem;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.lb-you-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.lb-you-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lb-you-sub {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.lb-you-stats {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+.lb-you-pts {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--gold-main);
+}
+
+.lb-you-quizzes {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
 .leaderboard-loading {
   text-align: center;
   padding: 1.5rem;

@@ -828,8 +828,7 @@ async function loadLeaderboard(classId) {
       let query = state.supabase
         .from('leaderboard')
         .select('*')
-        .order('score', { ascending: false })
-        .limit(1000);
+        .order('score', { ascending: false });
 
       if (classId) {
         query = query.eq('class_id', classId);
@@ -852,8 +851,7 @@ function getLocalLeaderboard(classId) {
     const entries = JSON.parse(localStorage.getItem('leaderboard') || '[]');
     const filtered = classId ? entries.filter(e => e.class_id === classId) : entries;
     return filtered
-      .sort((a, b) => b.score - a.score)
-      .slice(0, 1000);
+      .sort((a, b) => b.score - a.score);
   } catch (_) {
     return [];
   }
@@ -862,23 +860,45 @@ function getLocalLeaderboard(classId) {
 /**
  * Render leaderboard entries into a container.
  * Raw entries are aggregated per-user before display.
+ * When no limit is given (full leaderboard), a pinned "You" banner is shown
+ * at the top and the current user's row is highlighted.
  * @param {Array}  entries   - Raw rows from Supabase / localStorage
  * @param {string} containerId
- * @param {number} [limit]   - Max number of users to show
+ * @param {number} [limit]   - Max number of users to show (omit for full)
  */
 function renderLeaderboard(entries, containerId, limit) {
   const container = document.getElementById(containerId);
   if (!container) return;
 
   // Aggregate raw quiz rows into one record per user
-  const users = aggregateUserScores(entries);
-  const rows  = limit ? users.slice(0, limit) : users;
+  const users     = aggregateUserScores(entries);
+  const totalUsers = users.length;
 
   // Update home stat with the top user's lifetime score
   if (users.length > 0) {
     const statEl = document.getElementById('stat-top-score');
     if (statEl) statEl.textContent = String(users[0].lifetimeScore);
   }
+
+  // Identify the logged-in user in the aggregated list
+  const currentUserId   = state.user?.id;
+  const currentUserIdx  = currentUserId
+    ? users.findIndex(u => u.user_id === currentUserId)
+    : -1;
+  const currentUserEntry = currentUserIdx >= 0 ? users[currentUserIdx] : null;
+  const currentUserRank  = currentUserIdx + 1; // 1-based
+
+  // Update subtitles with live user counts
+  const isFullView = !limit;
+  if (isFullView) {
+    const sub = document.getElementById('lb-main-subtitle');
+    if (sub) sub.textContent = `All ${totalUsers.toLocaleString()} user${totalUsers !== 1 ? 's' : ''} ranked by lifetime points`;
+  } else {
+    const sub = document.getElementById('lb-preview-subtitle');
+    if (sub) sub.textContent = `Top ${limit} of ${totalUsers.toLocaleString()} total user${totalUsers !== 1 ? 's' : ''}`;
+  }
+
+  const rows = limit ? users.slice(0, limit) : users;
 
   if (rows.length === 0) {
     container.innerHTML = `<div class="leaderboard-empty">No scores yet. Be the first to take a quiz!</div>`;
@@ -887,7 +907,31 @@ function renderLeaderboard(entries, containerId, limit) {
 
   const MEDALS = { 1: '🥇', 2: '🥈', 3: '🥉' };
 
+  // Build the pinned "You" banner for the full leaderboard view
+  let pinnedHtml = '';
+  if (isFullView && currentUserEntry) {
+    const tier   = getUserRank(currentUserEntry.lifetimeScore);
+    const topPct = totalUsers > 0
+      ? ((currentUserRank / totalUsers) * 100).toFixed(1)
+      : '100.0';
+    pinnedHtml = `
+      <div class="lb-you-banner">
+        <div class="lb-you-rank">#${currentUserRank}</div>
+        <div class="lb-you-info">
+          <span class="lb-you-name">${escapeHtml(currentUserEntry.username)} <span class="you-tag">You</span></span>
+          <span class="lb-you-sub">Top ${topPct}% · ${totalUsers.toLocaleString()} users total</span>
+        </div>
+        <div class="lb-you-stats">
+          <span class="tier-badge ${tier.cls}">${tier.emoji} ${tier.name}</span>
+          <span class="lb-you-pts">${currentUserEntry.lifetimeScore.toLocaleString()} pts</span>
+          <span class="lb-you-quizzes">${currentUserEntry.quizCount} quiz${currentUserEntry.quizCount !== 1 ? 'zes' : ''}</span>
+        </div>
+      </div>
+    `;
+  }
+
   const tableHtml = `
+    ${pinnedHtml}
     <table class="leaderboard-table" aria-label="Leaderboard scores">
       <thead>
         <tr>
@@ -900,17 +944,21 @@ function renderLeaderboard(entries, containerId, limit) {
       </thead>
       <tbody>
         ${rows.map((user, i) => {
-          const pos  = i + 1;
-          const posClass = pos <= 3 ? ` rank-${pos}` : '';
-          const medal    = MEDALS[pos] || pos;
-          const tier     = getUserRank(user.lifetimeScore);
+          const pos    = i + 1;
+          const isYou  = !!(currentUserId && user.user_id === currentUserId);
+          const posClass = [pos <= 3 ? `rank-${pos}` : '', isYou ? 'lb-you-row' : ''].filter(Boolean).join(' ');
+          const medal  = MEDALS[pos] || pos;
+          const tier   = getUserRank(user.lifetimeScore);
+          const nameHtml = isYou
+            ? `${escapeHtml(user.username)} <span class="you-tag">You</span>`
+            : escapeHtml(user.username);
           return `
-            <tr class="${posClass.trim()}" aria-label="Position ${pos}: ${escapeHtml(user.username)}">
+            <tr class="${posClass}" aria-label="Position ${pos}: ${escapeHtml(user.username)}${isYou ? ' (You)' : ''}">
               <td class="rank-cell">${medal}</td>
-              <td>${escapeHtml(user.username)}</td>
+              <td>${nameHtml}</td>
               <td><span class="tier-badge ${tier.cls}">${tier.emoji} ${tier.name}</span></td>
-              <td>${escapeHtml(String(user.lifetimeScore))}</td>
-              <td>${escapeHtml(String(user.quizCount))}</td>
+              <td>${user.lifetimeScore.toLocaleString()}</td>
+              <td>${user.quizCount}</td>
             </tr>
           `;
         }).join('')}
