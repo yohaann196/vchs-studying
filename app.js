@@ -953,6 +953,25 @@ function renderLeaderboard(entries, containerId, limit) {
         </div>
       </div>
     `;
+  } else if (!isFullView && currentUserEntry) {
+    const tier   = getUserRank(currentUserEntry.lifetimeScore);
+    const topPct = totalUsers > 0
+      ? ((currentUserRank / totalUsers) * 100).toFixed(1)
+      : '100.0';
+    pinnedHtml = `
+      <div class="lb-you-banner lb-you-banner-preview">
+        <div class="lb-you-rank">#${currentUserRank}</div>
+        <div class="lb-you-info">
+          <span class="lb-you-name">${escapeHtml(currentUserEntry.username)} <span class="you-tag">You</span></span>
+          <span class="lb-you-sub">Top ${topPct}% · ${totalUsers.toLocaleString()} users total</span>
+        </div>
+        <div class="lb-you-stats">
+          <span class="tier-badge ${tier.cls}">${tier.emoji} ${tier.name}</span>
+          <span class="lb-you-pts">${currentUserEntry.lifetimeScore.toLocaleString()} pts</span>
+          <span class="lb-you-quizzes">${currentUserEntry.quizCount} quiz${currentUserEntry.quizCount !== 1 ? 'zes' : ''}</span>
+        </div>
+      </div>
+    `;
   }
 
   const tableHtml = `
