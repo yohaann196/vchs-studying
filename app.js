@@ -974,6 +974,11 @@ function renderLeaderboard(entries, containerId, limit) {
     `;
   }
 
+  const moreUsersCount = totalUsers - rows.length;
+  const moreFooterHtml = (!isFullView && moreUsersCount > 0)
+    ? `<div class="lb-more-footer">…and <strong>${moreUsersCount.toLocaleString()}</strong> more user${moreUsersCount !== 1 ? 's' : ''} on the leaderboard</div>`
+    : '';
+
   const tableHtml = `
     ${pinnedHtml}
     <table class="leaderboard-table" aria-label="Leaderboard scores">
@@ -1008,6 +1013,7 @@ function renderLeaderboard(entries, containerId, limit) {
         }).join('')}
       </tbody>
     </table>
+    ${moreFooterHtml}
   `;
 
   container.innerHTML = tableHtml;

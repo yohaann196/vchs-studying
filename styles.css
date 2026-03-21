@@ -1185,6 +1185,15 @@ table.leaderboard-table {
   font-size: 0.9rem;
 }
 
+.lb-more-footer {
+  text-align: center;
+  padding: 0.65rem 1rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+  margin-top: -1px;
+}
+
 /* ── Rank tier badges ───────────────────────────────────── */
 .tier-badge {
   display: inline-flex;
