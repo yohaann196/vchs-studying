@@ -126,7 +126,7 @@ function updateAuthUI() {
   const usernameEl = document.getElementById('nav-username');
 
   if (state.user) {
-    const uname = state.user.user_metadata?.username || state.user.email?.split('@')[0] || 'User';
+    const uname = state.user.user_metadata?.username || 'User';
     usernameEl.textContent = escapeHtml(uname);
     btn.textContent = 'Sign Out';
     btn.setAttribute('aria-label', 'Sign out');
@@ -729,8 +729,7 @@ function endQuiz() {
 async function saveScore({ classId, className, pct, score, answered, mode }) {
   if (!state.user || !state.supabase) return;
 
-  const username = state.user.user_metadata?.username ||
-                   state.user.email?.split('@')[0] || 'Anonymous';
+  const username = state.user.user_metadata?.username || 'Anonymous';
 
   const row = {
     user_id:    state.user.id,
