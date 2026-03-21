@@ -1176,6 +1176,40 @@ table.leaderboard-table {
   font-size: 0.9rem;
 }
 
+/* ── Rank tier badges ───────────────────────────────────── */
+.tier-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  padding: 0.2em 0.65em;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.tier-beginner { background: rgba(120,180,80,0.15);  color: #7aad50; border: 1px solid rgba(120,180,80,0.3); }
+.tier-amateur  { background: rgba(80,160,220,0.15);  color: #4da6e8; border: 1px solid rgba(80,160,220,0.3); }
+.tier-scholar  { background: rgba(160,110,220,0.15); color: #b07de8; border: 1px solid rgba(160,110,220,0.3); }
+.tier-advanced { background: rgba(212,168,67,0.15);  color: #d4a843; border: 1px solid rgba(212,168,67,0.3); }
+.tier-expert   { background: rgba(220,80,60,0.15);   color: #e86050; border: 1px solid rgba(220,80,60,0.3); }
+.tier-master   { background: rgba(212,168,67,0.25);  color: #f0c040; border: 1px solid rgba(212,168,67,0.5); text-shadow: 0 0 6px rgba(212,168,67,0.4); }
+
+.tier-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.tier-pts {
+  font-size: 0.68rem;
+  opacity: 0.75;
+  margin-left: 0.15em;
+}
+
 .leaderboard-loading {
   text-align: center;
   padding: 1.5rem;
