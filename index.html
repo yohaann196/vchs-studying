@@ -27,6 +27,7 @@
 
     <ul class="nav-links" role="list">
       <li><a href="#" id="nav-home" aria-label="Home" role="button">Home</a></li>
+      <li><a href="#" id="nav-classes" aria-label="Classes" role="button">Classes</a></li>
       <li><a href="#" id="nav-leaderboard" aria-label="Leaderboard" role="button">Leaderboard</a></li>
     </ul>
 
@@ -112,6 +113,11 @@
 
       <div id="class-grid" class="class-grid" role="list" aria-label="Available classes">
         <!-- Rendered by renderClassGrid() -->
+      </div>
+
+      <div id="classes-more-banner" class="classes-more-banner hidden" aria-live="polite">
+        <p class="classes-more-text"></p>
+        <button class="btn btn-primary" id="view-all-classes-btn">View All Classes →</button>
       </div>
     </section>
 
@@ -269,6 +275,41 @@
     </div>
 
   </div><!-- /#class-view -->
+
+  <!-- ── Classes View ───────────────────────────────────── -->
+  <div id="classes-view" class="view hidden" role="main" aria-labelledby="all-classes-heading">
+
+    <div class="classes-view-header">
+      <div>
+        <h2 class="section-title" id="all-classes-heading">All Classes</h2>
+        <p class="section-subtitle">Browse every available class</p>
+      </div>
+      <button class="btn btn-secondary" id="all-classes-back-btn" aria-label="Back to home">← Back to Home</button>
+    </div>
+
+    <div class="filter-bar all-classes-filter" role="search" aria-label="Filter classes">
+      <label for="all-classes-search" class="sr-only">Search classes</label>
+      <input
+        type="search"
+        id="all-classes-search"
+        placeholder="Search classes…"
+        aria-label="Search classes"
+      />
+      <label for="all-classes-subject-filter" class="sr-only">Filter by subject</label>
+      <select id="all-classes-subject-filter" aria-label="Filter by subject">
+        <option value="">All Subjects</option>
+        <option value="Science">Science</option>
+        <option value="Math">Math</option>
+        <option value="English">English</option>
+        <option value="History">History</option>
+      </select>
+    </div>
+
+    <div id="all-classes-grid" class="class-grid" role="list" aria-label="All classes">
+      <!-- Rendered by renderAllClassesGrid() -->
+    </div>
+
+  </div><!-- /#classes-view -->
 
   <!-- ── Leaderboard View ────────────────────────────────── -->
   <div id="leaderboard-view" class="view hidden" role="main" aria-labelledby="lb-main-title">

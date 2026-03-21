@@ -304,7 +304,7 @@ async function handleAuthBtnClick() {
 /* ── View Navigation ──────────────────────────────────────── */
 
 function showView(viewId) {
-  ['home-view', 'class-view', 'leaderboard-view'].forEach(id => {
+  ['home-view', 'class-view', 'leaderboard-view', 'classes-view'].forEach(id => {
     const el = document.getElementById(id);
     if (el) {
       if (id === viewId) el.classList.remove('hidden');
@@ -360,6 +360,11 @@ function showLeaderboard() {
   loadLeaderboard().then(entries => renderLeaderboard(entries, 'lb-main-content'));
 }
 
+function showAllClasses() {
+  renderAllClassesGrid();
+  showView('classes-view');
+}
+
 /* ── Tab System ───────────────────────────────────────────── */
 
 function switchTab(tabName) {
@@ -381,47 +386,68 @@ function switchTab(tabName) {
 
 /* ── Class Grid Rendering ─────────────────────────────────── */
 
-function renderClassGrid(filter = '', subject = '') {
-  const grid = document.getElementById('class-grid');
-  if (!grid) return;
-
-  const filtered = CLASSES.filter(cls => {
+function filterClasses(filter, subject) {
+  return CLASSES.filter(cls => {
     const matchesFilter  = cls.name.toLowerCase().includes(filter.toLowerCase()) ||
                            cls.description.toLowerCase().includes(filter.toLowerCase());
     const matchesSubject = !subject || cls.unit === subject;
     return matchesFilter && matchesSubject;
   });
+}
+
+function classCardHtml(cls) {
+  const badgeClass = getBadgeClass(cls.unit);
+  return `
+    <article
+      class="class-card"
+      role="listitem"
+      tabindex="0"
+      data-class-id="${escapeHtml(cls.id)}"
+      aria-label="${escapeHtml(cls.name)} — ${escapeHtml(cls.unit)}"
+    >
+      <div class="class-card-icon" aria-hidden="true">${escapeHtml(cls.icon)}</div>
+      <div class="class-card-title">${escapeHtml(cls.name)}</div>
+      <p class="class-card-desc">${escapeHtml(cls.description)}</p>
+      <span class="badge ${badgeClass}">${escapeHtml(cls.unit)}</span>
+      <button
+        class="btn btn-primary"
+        aria-label="Study ${escapeHtml(cls.name)}"
+        data-action="open-class"
+        data-class-id="${escapeHtml(cls.id)}"
+      >Study Now →</button>
+    </article>
+  `;
+}
+
+function renderClassGrid(filter = '', subject = '') {
+  const grid = document.getElementById('class-grid');
+  if (!grid) return;
+
+  const filtered = filterClasses(filter, subject);
+
+  const LIMIT = 10;
+  const toShow = filtered.slice(0, LIMIT);
+  const hasMore = filtered.length > LIMIT;
 
   if (filtered.length === 0) {
     grid.innerHTML = '<div class="no-results">No classes found matching your search.</div>';
-    return;
+  } else {
+    grid.innerHTML = toShow.map(classCardHtml).join('');
   }
 
-  grid.innerHTML = filtered.map(cls => {
-    const badgeClass = getBadgeClass(cls.unit);
-    return `
-      <article
-        class="class-card"
-        role="listitem"
-        tabindex="0"
-        data-class-id="${escapeHtml(cls.id)}"
-        aria-label="${escapeHtml(cls.name)} — ${escapeHtml(cls.unit)}"
-      >
-        <div class="class-card-icon" aria-hidden="true">${escapeHtml(cls.icon)}</div>
-        <div class="class-card-title">${escapeHtml(cls.name)}</div>
-        <p class="class-card-desc">${escapeHtml(cls.description)}</p>
-        <span class="badge ${badgeClass}">${escapeHtml(cls.unit)}</span>
-        <button
-          class="btn btn-primary"
-          aria-label="Study ${escapeHtml(cls.name)}"
-          data-action="open-class"
-          data-class-id="${escapeHtml(cls.id)}"
-        >Study Now →</button>
-      </article>
-    `;
-  }).join('');
+  // Show "see all" banner when there are more than 10 matching classes
+  const moreBanner = document.getElementById('classes-more-banner');
+  if (moreBanner) {
+    if (hasMore) {
+      moreBanner.classList.remove('hidden');
+      moreBanner.querySelector('.classes-more-text').textContent =
+        `Showing ${LIMIT} of ${filtered.length} classes — there are more classes waiting for you!`;
+    } else {
+      moreBanner.classList.add('hidden');
+    }
+  }
 
-  // Update stat
+  // Update stats
   document.getElementById('stat-classes').textContent = String(CLASSES.length);
   const totalQ = CLASSES.reduce((sum, c) => sum + (c.qbank ? c.qbank.length : 0), 0);
   document.getElementById('stat-questions').textContent = String(totalQ);
@@ -435,6 +461,20 @@ function getBadgeClass(unit) {
     History: 'badge-history',
   };
   return map[unit] || 'badge-other';
+}
+
+function renderAllClassesGrid(filter = '', subject = '') {
+  const grid = document.getElementById('all-classes-grid');
+  if (!grid) return;
+
+  const filtered = filterClasses(filter, subject);
+
+  if (filtered.length === 0) {
+    grid.innerHTML = '<div class="no-results">No classes found matching your search.</div>';
+    return;
+  }
+
+  grid.innerHTML = filtered.map(classCardHtml).join('');
 }
 
 /* ── Study Guides Rendering ───────────────────────────────── */
@@ -1034,6 +1074,11 @@ function attachEventListeners() {
     showHome();
   });
 
+  document.getElementById('nav-classes').addEventListener('click', e => {
+    e.preventDefault();
+    showAllClasses();
+  });
+
   document.getElementById('nav-leaderboard').addEventListener('click', e => {
     e.preventDefault();
     showLeaderboard();
@@ -1043,7 +1088,7 @@ function attachEventListeners() {
 
   // Hero buttons
   document.getElementById('hero-start-btn').addEventListener('click', () => {
-    document.getElementById('classes-section').scrollIntoView({ behavior: 'smooth' });
+    showAllClasses();
   });
 
   document.getElementById('hero-lb-btn').addEventListener('click', () => {
@@ -1052,6 +1097,46 @@ function attachEventListeners() {
 
   document.getElementById('view-full-lb-btn').addEventListener('click', () => {
     showLeaderboard();
+  });
+
+  document.getElementById('view-all-classes-btn').addEventListener('click', () => {
+    showAllClasses();
+  });
+
+  // All classes view — back button
+  document.getElementById('all-classes-back-btn').addEventListener('click', () => {
+    showHome();
+  });
+
+  // All classes grid — delegate click
+  document.getElementById('all-classes-grid').addEventListener('click', e => {
+    const btn = e.target.closest('[data-action="open-class"]');
+    if (btn) {
+      showClassView(btn.dataset.classId);
+      return;
+    }
+    const card = e.target.closest('.class-card[data-class-id]');
+    if (card) showClassView(card.dataset.classId);
+  });
+
+  // All classes grid — keyboard
+  document.getElementById('all-classes-grid').addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      const card = e.target.closest('.class-card[data-class-id]');
+      if (card) {
+        e.preventDefault();
+        showClassView(card.dataset.classId);
+      }
+    }
+  });
+
+  // All classes search / subject filter
+  document.getElementById('all-classes-search').addEventListener('input', e => {
+    renderAllClassesGrid(e.target.value, document.getElementById('all-classes-subject-filter').value);
+  });
+
+  document.getElementById('all-classes-subject-filter').addEventListener('change', e => {
+    renderAllClassesGrid(document.getElementById('all-classes-search').value, e.target.value);
   });
 
   // Class grid — delegate

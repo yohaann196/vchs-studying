@@ -519,6 +519,52 @@ body {
   color: rgba(232,232,242,0.5);
 }
 
+/* ── "More Classes" Banner (Homepage) ───────────────────── */
+.classes-more-banner {
+  margin: 2rem auto 0;
+  max-width: 900px;
+  padding: 1.5rem 2rem;
+  background: linear-gradient(135deg, rgba(212,168,67,0.12) 0%, rgba(212,168,67,0.06) 100%);
+  border: 1px solid rgba(212,168,67,0.35);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.classes-more-text {
+  color: var(--text-dark);
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.classes-more-text::before {
+  content: '✨ ';
+}
+
+/* ── All Classes View ───────────────────────────────────── */
+#classes-view {
+  padding: 2.5rem 2rem 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.classes-view-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.all-classes-filter {
+  margin-bottom: 2rem;
+}
+
 /* ── Class Detail View ──────────────────────────────────── */
 #class-view {
   padding: 0 0 3rem;
