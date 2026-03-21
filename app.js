@@ -1192,6 +1192,10 @@ function attachEventListeners() {
     });
   });
 
+  // Quiz quick-links (Study Guides / Question Bank shortcuts)
+  document.getElementById('quiz-link-guides').addEventListener('click', () => switchTab('guides'));
+  document.getElementById('quiz-link-qbank').addEventListener('click',  () => switchTab('qbank'));
+
   // Quiz choices — delegate
   document.getElementById('quiz-choices').addEventListener('click', e => {
     const btn = e.target.closest('.choice-btn');
