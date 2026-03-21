@@ -319,6 +319,47 @@ function showHome() {
   stopTimer();
 }
 
+/* ── Unit Multi-Select Helpers ────────────────────────────── */
+
+function populateUnitMultiselect(dropdownId, btnId, units, onChange) {
+  const dropdown = document.getElementById(dropdownId);
+  if (!dropdown) return;
+  dropdown.innerHTML = '';
+  units.forEach(u => {
+    const label = document.createElement('label');
+    label.className = 'unit-multiselect-option';
+    const cb = document.createElement('input');
+    cb.type = 'checkbox';
+    cb.value = String(u);
+    cb.addEventListener('change', () => {
+      updateMultiselectLabel(btnId);
+      onChange();
+    });
+    label.appendChild(cb);
+    label.appendChild(document.createTextNode(`Unit ${u}`));
+    dropdown.appendChild(label);
+  });
+}
+
+function getSelectedUnits(dropdownId) {
+  const dropdown = document.getElementById(dropdownId);
+  if (!dropdown) return [];
+  return [...dropdown.querySelectorAll('input[type="checkbox"]:checked')].map(cb => cb.value);
+}
+
+function updateMultiselectLabel(btnId) {
+  const btn = document.getElementById(btnId);
+  if (!btn) return;
+  const ms = btn.closest('.unit-multiselect');
+  if (!ms) return;
+  const checked = [...ms.querySelectorAll('input[type="checkbox"]:checked')];
+  const labelEl = btn.querySelector('.unit-multiselect-text');
+  if (!labelEl) return;
+  labelEl.textContent = checked.length === 0
+    ? 'All Units'
+    : checked.map(cb => `Unit ${cb.value}`).join(', ');
+}
+
 function showClassView(classId) {
   const cls = CLASSES.find(c => c.id === classId);
   if (!cls) return;
@@ -333,17 +374,15 @@ function showClassView(classId) {
   // Reset to quiz tab
   switchTab('quiz');
 
-  // Populate quiz unit filter
-  const quizUnitSelect = document.getElementById('quiz-unit-select');
-  if (quizUnitSelect && cls.qbank) {
-    quizUnitSelect.innerHTML = '<option value="all">All Units</option>';
+  // Populate unit filter multi-selects
+  if (cls.qbank) {
     const units = [...new Set(cls.qbank.map(q => q.unit).filter(u => u != null && !isNaN(Number(u))))]
       .sort((a, b) => Number(a) - Number(b));
-    units.forEach(u => {
-      const opt = document.createElement('option');
-      opt.value = String(u);
-      opt.textContent = `Unit ${u}`;
-      quizUnitSelect.appendChild(opt);
+    populateUnitMultiselect('quiz-unit-dropdown', 'quiz-unit-btn', units, () => {
+      // Quiz filtering is applied when the quiz starts, no live re-render needed
+    });
+    populateUnitMultiselect('qbank-unit-dropdown', 'qbank-unit-btn', units, () => {
+      if (state.currentClass) renderQBank(state.currentClass);
     });
   }
 
@@ -518,26 +557,15 @@ function toggleGuideCard(idx) {
 
 /* ── Question Bank Rendering ──────────────────────────────── */
 
-function renderQBank(cls, unitFilter = 'all') {
+function renderQBank(cls) {
   const container = document.getElementById('qbank-list');
   const countEl   = document.getElementById('qbank-count');
-  const selectEl  = document.getElementById('qbank-unit-filter');
   if (!container || !cls.qbank) return;
 
-  // Populate unit filter options (only on first call)
-  if (selectEl && selectEl.options.length <= 1) {
-    const units = [...new Set(cls.qbank.map(q => q.unit))].sort((a, b) => a - b);
-    units.forEach(u => {
-      const opt = document.createElement('option');
-      opt.value = String(u);
-      opt.textContent = `Unit ${u}`;
-      selectEl.appendChild(opt);
-    });
-  }
-
-  const filtered = unitFilter === 'all'
+  const selectedUnits = getSelectedUnits('qbank-unit-dropdown');
+  const filtered = selectedUnits.length === 0
     ? cls.qbank
-    : cls.qbank.filter(q => String(q.unit) === unitFilter);
+    : cls.qbank.filter(q => selectedUnits.includes(String(q.unit)));
 
   if (countEl) countEl.textContent = `${filtered.length} question${filtered.length !== 1 ? 's' : ''}`;
 
@@ -590,12 +618,11 @@ function startQuiz(mode) {
   state.quizAnswered  = 0;
   state.selectedChoice = null;
 
-  const quizUnitSelect = document.getElementById('quiz-unit-select');
-  const selectedUnit   = quizUnitSelect ? quizUnitSelect.value : 'all';
+  const selectedUnits  = getSelectedUnits('quiz-unit-dropdown');
   const allQuestions   = state.currentClass.quiz.slice();
-  const filteredQuestions = selectedUnit === 'all'
+  const filteredQuestions = selectedUnits.length === 0
     ? allQuestions
-    : allQuestions.filter(q => q.unit != null && String(q.unit) === selectedUnit);
+    : allQuestions.filter(q => q.unit != null && selectedUnits.includes(String(q.unit)));
 
   if (filteredQuestions.length === 0) {
     showToast('No questions available for the selected unit.', 'info');
@@ -1240,9 +1267,38 @@ function attachEventListeners() {
     }
   });
 
-  // Question bank unit filter
-  document.getElementById('qbank-unit-filter').addEventListener('change', e => {
-    if (state.currentClass) renderQBank(state.currentClass, e.target.value);
+  // Unit multi-select dropdowns — toggle open/close
+  ['quiz-unit-btn', 'qbank-unit-btn'].forEach(btnId => {
+    const btn = document.getElementById(btnId);
+    if (!btn) return;
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const ms = btn.closest('.unit-multiselect');
+      if (!ms) return;
+      const dropdown = ms.querySelector('.unit-multiselect-dropdown');
+      const isOpen = !dropdown.classList.contains('hidden');
+      // Close all other dropdowns first
+      document.querySelectorAll('.unit-multiselect-dropdown').forEach(d => {
+        d.classList.add('hidden');
+        const parentMs = d.closest('.unit-multiselect');
+        if (parentMs) parentMs.querySelector('.unit-multiselect-btn').setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        dropdown.classList.remove('hidden');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  // Close unit multi-select dropdowns when clicking outside
+  document.addEventListener('click', e => {
+    if (!e.target.closest('.unit-multiselect')) {
+      document.querySelectorAll('.unit-multiselect-dropdown').forEach(d => {
+        d.classList.add('hidden');
+        const parentMs = d.closest('.unit-multiselect');
+        if (parentMs) parentMs.querySelector('.unit-multiselect-btn').setAttribute('aria-expanded', 'false');
+      });
+    }
   });
 
   // Auth overlay click-outside
