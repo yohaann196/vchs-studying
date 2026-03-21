@@ -28,6 +28,7 @@
   --font-display:  'Space Grotesk', system-ui, sans-serif;
   --font-body:     'Inter', system-ui, sans-serif;
   --font-hand:     'Nunito', system-ui, sans-serif;
+  --font-classic:  'Lora', Georgia, 'Times New Roman', serif;
   /* Glass helpers */
   --glass-bg:      rgba(255,255,255,0.07);
   --glass-bg-2:    rgba(255,255,255,0.11);
@@ -397,6 +398,8 @@ body {
 }
 
 .section-subtitle {
+  font-family: var(--font-classic);
+  font-style: italic;
   font-size: 0.9rem;
   color: var(--text-muted);
   margin-top: 0.25rem;
@@ -411,7 +414,7 @@ body {
 
 .filter-bar input,
 .filter-bar select {
-  font-family: var(--font-body);
+  font-family: var(--font-classic);
   font-size: 0.85rem;
   padding: 0.45em 0.85em;
   border: 1px solid var(--glass-border);
@@ -615,6 +618,36 @@ body {
   justify-content: center;
   gap: 0.75rem;
   margin-bottom: 0.5rem;
+}
+
+.qbank-filter-label {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+
+.quiz-unit-filter select {
+  font-family: var(--font-classic);
+  font-size: 0.85rem;
+  padding: 0.4em 0.75em;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  background: var(--glass-bg-2);
+  color: var(--text-dark);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: border-color var(--transition);
+}
+
+.quiz-unit-filter select:focus {
+  outline: none;
+  border-color: var(--gold-main);
+}
+
+.quiz-unit-filter select option {
+  background: var(--navy-light);
+  color: var(--text-dark);
 }
 
 .mode-card {
@@ -989,12 +1022,12 @@ body {
 }
 
 .qbank-filter select {
-  font-family: var(--font-body);
+  font-family: var(--font-classic);
   font-size: 0.85rem;
   padding: 0.4em 0.75em;
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-sm);
-  background: var(--glass-bg);
+  background: var(--glass-bg-2);
   color: var(--text-dark);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -1004,6 +1037,11 @@ body {
 .qbank-filter select:focus {
   outline: none;
   border-color: var(--gold-main);
+}
+
+.qbank-filter select option {
+  background: var(--navy-light);
+  color: var(--text-dark);
 }
 
 .qbank-count {
