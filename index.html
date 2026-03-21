@@ -177,29 +177,45 @@
     <div id="panel-quiz" class="tab-panel" role="tabpanel" aria-labelledby="tab-quiz">
       <!-- Mode Selector -->
       <div id="quiz-mode-selector" class="quiz-mode-selector" aria-label="Choose quiz mode">
-        <div
-          class="mode-card"
-          id="mode-timed"
-          role="button"
-          tabindex="0"
-          aria-label="Timed mode: 15-minute countdown"
-          data-mode="timed"
-        >
-          <div class="mode-card-icon" aria-hidden="true">⏱️</div>
-          <div class="mode-card-title">Timed</div>
-          <div class="mode-card-desc">15-minute countdown. Race against the clock.</div>
+        <div class="mode-cards-row">
+          <div
+            class="mode-card"
+            id="mode-timed"
+            role="button"
+            tabindex="0"
+            aria-label="Timed mode: 15-minute countdown"
+            data-mode="timed"
+          >
+            <div class="mode-card-icon" aria-hidden="true">⏱️</div>
+            <div class="mode-card-title">Timed</div>
+            <div class="mode-card-desc">15-minute countdown. Race against the clock.</div>
+          </div>
+          <div
+            class="mode-card"
+            id="mode-methodical"
+            role="button"
+            tabindex="0"
+            aria-label="Methodical mode: study at your own pace"
+            data-mode="methodical"
+          >
+            <div class="mode-card-icon" aria-hidden="true">🧘</div>
+            <div class="mode-card-title">Methodical</div>
+            <div class="mode-card-desc">No timer. Review each answer before moving on.</div>
+          </div>
         </div>
-        <div
-          class="mode-card"
-          id="mode-methodical"
-          role="button"
-          tabindex="0"
-          aria-label="Methodical mode: study at your own pace"
-          data-mode="methodical"
-        >
-          <div class="mode-card-icon" aria-hidden="true">🧘</div>
-          <div class="mode-card-title">Methodical</div>
-          <div class="mode-card-desc">No timer. Review each answer before moving on.</div>
+
+        <!-- Unit Filter -->
+        <div class="quiz-unit-filter" aria-label="Select units for quiz">
+          <div class="unit-filter-header">
+            <span class="unit-filter-label">Filter by Unit:</span>
+            <label class="unit-checkbox-label unit-select-all-label">
+              <input type="checkbox" id="unit-select-all" checked aria-label="Select all units" />
+              Select All
+            </label>
+          </div>
+          <div id="unit-checkboxes" class="unit-checkboxes" role="group" aria-label="Unit checkboxes">
+            <!-- Populated by populateUnitFilter() -->
+          </div>
         </div>
       </div>
 

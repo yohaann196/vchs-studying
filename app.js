@@ -525,17 +525,72 @@ function resetQuizPanel() {
   document.getElementById('quiz-mode-selector').classList.remove('hidden');
   document.getElementById('quiz-area').classList.add('hidden');
   document.getElementById('quiz-results').classList.add('hidden');
+
+  if (state.currentClass) populateUnitFilter(state.currentClass);
+}
+
+/**
+ * Populate the unit filter checkboxes for the given class.
+ * @param {Object} cls - The current class object
+ */
+function populateUnitFilter(cls) {
+  const container   = document.getElementById('unit-checkboxes');
+  const selectAllEl = document.getElementById('unit-select-all');
+  if (!container || !cls.qbank) return;
+
+  const units = [...new Set(cls.qbank.map(q => q.unit))].sort((a, b) => a - b);
+
+  container.innerHTML = units.map(u => `
+    <label class="unit-checkbox-label">
+      <input
+        type="checkbox"
+        class="unit-checkbox"
+        value="${escapeHtml(String(u))}"
+        checked
+        aria-label="Unit ${escapeHtml(String(u))}"
+      />
+      Unit ${escapeHtml(String(u))}
+      <span class="unit-q-count">(${cls.qbank.filter(q => q.unit === u).length})</span>
+    </label>
+  `).join('');
+
+  // Sync "Select All" checkbox state
+  if (selectAllEl) selectAllEl.checked = true;
 }
 
 function startQuiz(mode) {
   if (!state.currentClass) return;
+
+  // Collect selected units from unit filter checkboxes
+  const unitCheckboxes = document.querySelectorAll('.unit-checkbox');
+  const selectedUnits = new Set(
+    [...unitCheckboxes]
+      .filter(cb => cb.checked)
+      .map(cb => parseInt(cb.value, 10))
+  );
+
+  // Filter questions to only selected units (fall back to all if none selected)
+  const allQuestions = state.currentClass.quiz;
+  const filtered = selectedUnits.size > 0
+    ? allQuestions.filter(q => selectedUnits.has(q.unit))
+    : allQuestions;
+
+  if (selectedUnits.size === 0) {
+    showToast('Please select at least one unit.', 'error');
+    return;
+  }
+
+  if (filtered.length === 0) {
+    showToast('No questions available for the selected units.', 'error');
+    return;
+  }
 
   state.quizMode      = mode;
   state.quizIndex     = 0;
   state.quizScore     = 0;
   state.quizAnswered  = 0;
   state.selectedChoice = null;
-  state.quizQuestions = shuffle(state.currentClass.quiz.slice());
+  state.quizQuestions = shuffle(filtered.slice());
   state.timeLeft      = 900;
 
   document.getElementById('quiz-mode-selector').classList.add('hidden');
@@ -960,6 +1015,22 @@ function attachEventListeners() {
         startQuiz(card.dataset.mode);
       }
     });
+  });
+
+  // Unit filter — "Select All" checkbox
+  document.getElementById('unit-select-all').addEventListener('change', e => {
+    document.querySelectorAll('.unit-checkbox').forEach(cb => {
+      cb.checked = e.target.checked;
+    });
+  });
+
+  // Unit filter — individual checkboxes sync "Select All" state
+  document.getElementById('unit-checkboxes').addEventListener('change', () => {
+    const all = document.querySelectorAll('.unit-checkbox');
+    const checked = document.querySelectorAll('.unit-checkbox:checked');
+    const selectAllEl = document.getElementById('unit-select-all');
+    selectAllEl.checked = checked.length === all.length;
+    selectAllEl.indeterminate = checked.length > 0 && checked.length < all.length;
   });
 
   // Quiz choices — delegate
