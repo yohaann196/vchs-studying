@@ -639,6 +639,7 @@ table.leaderboard-table { width: 100%; border-collapse: collapse; background: va
 
 /* ── Footer ─────────────────────────────────────────────── */
 footer { text-align: center; padding: 2rem; background: #F5F0E8; color: var(--text-muted); font-size: 0.82rem; letter-spacing: 0.02em; border-top: 1px solid rgba(0,0,0,0.08); }
+.footer-disclaimer { margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid rgba(0,0,0,0.08); font-size: 0.76rem; color: var(--text-muted); max-width: 680px; margin-left: auto; margin-right: auto; line-height: 1.6; }
 
 /* ── Spinner ─────────────────────────────────────────────── */
 .spinner { display: inline-block; width: 20px; height: 20px; border: 2.5px solid rgba(2,132,199,0.12); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.7s linear infinite; }
