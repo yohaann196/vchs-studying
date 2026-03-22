@@ -734,10 +734,14 @@ function renderQuestion() {
   document.getElementById('quiz-progress').textContent = `Question ${idx + 1} / ${total}`;
   document.getElementById('quiz-score-display').textContent = `Score: ${state.quizScore}`;
 
-  // Question text
-  document.getElementById('quiz-question').textContent = q.q;
+  // Question text — animate entrance
+  const questionEl = document.getElementById('quiz-question');
+  questionEl.textContent = q.q;
+  questionEl.classList.remove('quiz-question-enter');
+  void questionEl.offsetWidth; // force reflow to restart animation
+  questionEl.classList.add('quiz-question-enter');
 
-  // Choices
+  // Choices — animate entrance
   const choicesEl = document.getElementById('quiz-choices');
   const LABELS = ['A', 'B', 'C', 'D'];
   choicesEl.innerHTML = q.choices.map((choice, ci) => `
@@ -752,6 +756,9 @@ function renderQuestion() {
       <span>${escapeHtml(choice)}</span>
     </button>
   `).join('');
+  choicesEl.classList.remove('quiz-choices-enter');
+  void choicesEl.offsetWidth;
+  choicesEl.classList.add('quiz-choices-enter');
 
   // Feedback / buttons
   document.getElementById('quiz-feedback').classList.add('hidden');
@@ -838,6 +845,10 @@ function endQuiz() {
   else if (pct >= 70) icon = '🎉';
   else if (pct >= 50) icon = '📚';
   else                icon = '💪';
+
+  const resultsEl = document.getElementById('quiz-results');
+  resultsEl.classList.remove('results-pass', 'results-fail');
+  resultsEl.classList.add(pct >= 70 ? 'results-pass' : 'results-fail');
 
   document.getElementById('results-icon').textContent    = icon;
   document.getElementById('results-pct').textContent     = `${pct}%`;
