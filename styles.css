@@ -673,82 +673,38 @@ body {
   color: var(--text-muted);
 }
 
-/* ── Unit Multi-Select ──────────────────────────────────── */
-.unit-multiselect {
-  position: relative;
-  display: inline-block;
+/* ── Unit Selector ──────────────────────────────────────── */
+.unit-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
 }
 
-.unit-multiselect-btn {
+.unit-chip {
   font-family: var(--font-classic);
   font-size: 0.85rem;
-  padding: 0.4em 0.75em;
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-sm);
+  padding: 0.4em 1em;
+  border: 1.5px solid var(--glass-border);
+  border-radius: 2em;
   background: var(--glass-bg-2);
   color: var(--text-dark);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  transition: border-color var(--transition);
   cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4em;
-}
-
-.unit-multiselect-btn:hover,
-.unit-multiselect-btn[aria-expanded="true"] {
-  border-color: var(--gold-main);
-  outline: none;
-}
-
-.unit-multiselect-arrow {
-  font-size: 0.7rem;
-  opacity: 0.7;
-  transition: transform var(--transition);
-}
-
-.unit-multiselect-btn[aria-expanded="true"] .unit-multiselect-arrow {
-  transform: rotate(180deg);
-}
-
-.unit-multiselect-dropdown {
-  position: absolute;
-  top: calc(100% + 4px);
-  left: 0;
-  z-index: 200;
-  background: var(--navy-light);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-sm);
-  padding: 0.35rem 0;
-  min-width: 140px;
-  box-shadow: var(--shadow-md);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-}
-
-.unit-multiselect-option {
-  display: flex;
-  align-items: center;
-  gap: 0.5em;
-  padding: 0.4em 0.85em;
-  cursor: pointer;
-  font-size: 0.85rem;
-  color: var(--text-dark);
-  transition: background var(--transition);
+  transition: border-color var(--transition), background var(--transition), color var(--transition);
   user-select: none;
 }
 
-.unit-multiselect-option:hover {
-  background: var(--glass-bg-2);
+.unit-chip:hover {
+  border-color: var(--gold-main);
 }
 
-.unit-multiselect-option input[type="checkbox"] {
-  accent-color: var(--gold-main);
-  cursor: pointer;
-  width: 14px;
-  height: 14px;
-  flex-shrink: 0;
+.unit-chip.active {
+  background: var(--gold-main);
+  border-color: var(--gold-main);
+  color: var(--navy-dark);
+  font-weight: 600;
 }
 
 
