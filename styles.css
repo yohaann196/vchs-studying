@@ -213,6 +213,8 @@ body {
   max-width: 520px; margin: 0 auto 2.5rem; line-height: 1.7; font-weight: 400;
 }
 .hero-cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3.5rem; }
+.hero-signup-cta { display: flex; justify-content: center; margin-bottom: 1.25rem; }
+.hero-signup-btn { font-size: 1.15rem !important; padding: 0.85em 2.75em !important; box-shadow: 0 6px 28px rgba(2,132,199,0.55) !important; letter-spacing: 0.03em; }
 .hero-cta .btn-primary { padding: 0.75em 2em; font-size: 0.95rem; box-shadow: 0 4px 20px rgba(2,132,199,0.5); }
 .hero-cta .btn-secondary {
   background: rgba(0,0,0,0.06); color: var(--text-dark);
@@ -284,7 +286,7 @@ body {
   color: var(--text-dark);
 }
 #leaderboard-preview .section-title { color: var(--text-dark); }
-#leaderboard-preview .section-subtitle { color: var(--text-muted); }
+#leaderboard-preview .section-subtitle { color: var(--text-dark); font-size: 1rem; font-weight: 600; }
 
 /* ── More Classes Banner ────────────────────────────────── */
 .classes-more-banner {
@@ -570,7 +572,7 @@ table.leaderboard-table { width: 100%; border-collapse: collapse; background: va
 .rank-2 { background: rgba(107,124,147,0.04); }
 .rank-3 { background: rgba(158,90,58,0.04); }
 .leaderboard-empty { text-align: center; padding: 2.5rem; color: var(--text-muted); font-size: 0.9rem; }
-.lb-more-footer { text-align: center; padding: 0.65rem 1rem; font-size: 0.85rem; color: var(--text-muted); border-top: 1px solid var(--border); margin-top: -1px; }
+.lb-more-footer { text-align: center; padding: 0.75rem 1rem; font-size: 1.05rem; font-weight: 700; color: var(--text-dark); border-top: 1px solid var(--border); margin-top: -1px; }
 
 /* ── Rank tier badges ───────────────────────────────────── */
 .tier-badge { display: inline-flex; align-items: center; gap: 0.3em; padding: 0.25em 0.75em; border-radius: 999px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.03em; white-space: nowrap; }
@@ -674,6 +676,15 @@ footer { text-align: center; padding: 2rem; background: #F5F0E8; color: var(--te
 .signup-lock-note { font-size: 0.85rem; color: var(--text-muted); }
 .signup-lock .btn { margin-top: 0.5rem; }
 
+/* ── Section Signup Notice ──────────────────────────────── */
+.section-signup-notice {
+  display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap;
+  margin: 1.5rem auto 0; max-width: 960px; padding: 1rem 1.75rem;
+  background: linear-gradient(135deg, rgba(2,132,199,0.07) 0%, rgba(14,165,233,0.07) 100%);
+  border: 1.5px solid rgba(2,132,199,0.18); border-radius: var(--radius-md);
+}
+.section-signup-notice-text { color: var(--text-dark); font-size: 1rem; font-weight: 600; }
+
 /* ── Notification / Toast ───────────────────────────────── */
 .toast {
   position: fixed; bottom: 1.5rem; right: 1.5rem;
@@ -711,6 +722,8 @@ footer { text-align: center; padding: 2rem; background: #F5F0E8; color: var(--te
   .hero-eyebrow { font-size: 0.75rem; }
   .hero-cta { flex-direction: column; align-items: center; }
   .hero-cta .btn-primary, .hero-cta .btn-secondary { width: 100%; max-width: 280px; }
+  .hero-signup-btn { width: 100%; max-width: 280px; }
+  .section-signup-notice { flex-direction: column; text-align: center; }
   .hero-stats { gap: 0.75rem; }
   .stat-bubble { padding: 0.75rem 1.25rem; }
   .stat-number { font-size: 1.5rem; }

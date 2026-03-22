@@ -158,19 +158,24 @@ function renderSignupLock(containerId, title) {
   }
 }
 
-/** Show signup locks or actual content based on auth state. */
+/** Show signup notices or hide them based on auth state. */
 function updatePreviewSections() {
-  if (!state.user) {
-    renderSignupLock('lb-preview-content', 'Sign up to view Leaderboards!');
-    renderSignupLock('class-grid', 'Sign up to view Courses!');
-  } else {
-    // Restore actual content
-    renderClassGrid(
-      document.getElementById('class-search')?.value || '',
-      document.getElementById('subject-filter')?.value || ''
-    );
-    loadLeaderboard().then(entries => renderLeaderboard(entries, 'lb-preview-content', 5));
-  }
+  const heroSignupCta = document.getElementById('hero-signup-cta');
+  const classesNotice = document.getElementById('classes-signup-notice');
+  const lbNotice      = document.getElementById('lb-signup-notice');
+  const notLoggedIn   = !state.user;
+
+  // Always render actual content so all users can browse
+  renderClassGrid(
+    document.getElementById('class-search')?.value || '',
+    document.getElementById('subject-filter')?.value || ''
+  );
+  loadLeaderboard().then(entries => renderLeaderboard(entries, 'lb-preview-content', 5));
+
+  // Show or hide signup prompts depending on auth state
+  if (heroSignupCta)  heroSignupCta.classList.toggle('hidden', !notLoggedIn);
+  if (classesNotice)  classesNotice.classList.toggle('hidden', !notLoggedIn);
+  if (lbNotice)       lbNotice.classList.toggle('hidden', !notLoggedIn);
 }
 
 /** Open the auth overlay on the given tab. */
@@ -397,6 +402,13 @@ function getSelectedUnits(selectorId) {
 function showClassView(classId) {
   const cls = CLASSES.find(c => c.id === classId);
   if (!cls) return;
+
+  // Require login before accessing class details
+  if (!state.user) {
+    openAuthModal('register');
+    showToast('Sign Up to Continue', 'info');
+    return;
+  }
 
   state.currentClass = cls;
 
@@ -1165,6 +1177,19 @@ function attachEventListeners() {
 
   document.getElementById('auth-btn').addEventListener('click', handleAuthBtnClick);
 
+  // Hero signup button (visible to non-logged-in users)
+  document.getElementById('hero-signup-btn').addEventListener('click', () => {
+    openAuthModal('register');
+  });
+
+  // Section signup notice buttons
+  document.getElementById('classes-signup-btn').addEventListener('click', () => {
+    openAuthModal('register');
+  });
+  document.getElementById('lb-signup-btn').addEventListener('click', () => {
+    openAuthModal('register');
+  });
+
   // Hero buttons
   document.getElementById('hero-start-btn').addEventListener('click', () => {
     showAllClasses();
@@ -1371,9 +1396,9 @@ document.addEventListener('DOMContentLoaded', () => {
     statQuestions.textContent = String(totalQ);
   }
 
-  // Show initial lock screens while auth is resolving
-  renderSignupLock('lb-preview-content', 'Sign up to view Leaderboards!');
-  renderSignupLock('class-grid', 'Sign up to view Courses!');
+  // Load actual content immediately so all users can browse
+  renderClassGrid('', '');
+  loadLeaderboard().then(entries => renderLeaderboard(entries, 'lb-preview-content', 5));
 
   initAuth();
   attachEventListeners();
