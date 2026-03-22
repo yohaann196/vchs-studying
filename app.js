@@ -329,11 +329,22 @@ function populateUnitSelector(selectorId, units, onChange) {
     const btn = document.createElement('button');
     btn.type = 'button';
     btn.className = 'unit-chip';
-    btn.textContent = `Unit ${u}`;
     btn.dataset.unit = String(u);
     btn.setAttribute('aria-pressed', 'false');
+
+    const checkEl = document.createElement('span');
+    checkEl.className = 'unit-chip-check';
+    checkEl.setAttribute('aria-hidden', 'true');
+
+    const labelEl = document.createElement('span');
+    labelEl.textContent = `Unit ${u}`;
+
+    btn.appendChild(checkEl);
+    btn.appendChild(labelEl);
+
     btn.addEventListener('click', () => {
       const isActive = btn.classList.toggle('active');
+      checkEl.textContent = isActive ? '✓' : '';
       btn.setAttribute('aria-pressed', String(isActive));
       onChange();
     });
