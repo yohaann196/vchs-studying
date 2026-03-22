@@ -1338,9 +1338,24 @@ function attachEventListeners() {
   // Leaderboard back button
   document.getElementById('lb-back-btn').addEventListener('click', showHome);
 
+  // Disclaimer modal
+  const disclaimerOverlay = document.getElementById('disclaimer-overlay');
+  document.getElementById('disclaimer-btn').addEventListener('click', () => {
+    disclaimerOverlay.classList.remove('hidden');
+  });
+  document.getElementById('disclaimer-modal-close').addEventListener('click', () => {
+    disclaimerOverlay.classList.add('hidden');
+  });
+  disclaimerOverlay.addEventListener('click', e => {
+    if (e.target === disclaimerOverlay) disclaimerOverlay.classList.add('hidden');
+  });
+
   // Escape key closes modal
   document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') closeAuthModal();
+    if (e.key === 'Escape') {
+      closeAuthModal();
+      disclaimerOverlay.classList.add('hidden');
+    }
   });
 }
 

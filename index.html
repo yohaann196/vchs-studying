@@ -407,18 +407,32 @@
   <!-- ── Toast notification ─────────────────────────────── -->
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
+  <!-- ── Disclaimer Modal ──────────────────────────────── -->
+  <div id="disclaimer-overlay" class="hidden" role="dialog" aria-modal="true" aria-labelledby="disclaimer-modal-title">
+    <div id="disclaimer-modal">
+      <button class="modal-close" id="disclaimer-modal-close" aria-label="Close disclaimer">✕</button>
+      <h2 class="modal-title" id="disclaimer-modal-title">⚠️ Disclaimer</h2>
+      <div class="disclaimer-body">
+        <p>Do not reproduce this site in any form.</p>
+        <p>All content and intellectual property belong to <strong>Yohaan Narayanan</strong>.</p>
+        <p>Do not claim this site as your own.</p>
+        <p>This site was built with the assistance of AI (Claude Haiku / Claude Sonnet).</p>
+        <p>This site is not for profit.</p>
+        <p>We do not sell or share your data.</p>
+      </div>
+    </div>
+  </div><!-- /#disclaimer-overlay -->
+
   <!-- ── Footer ─────────────────────────────────────────── -->
   <footer role="contentinfo">
     <p>© 2025 VCHS Studying · Built for Valley Christian High School Students</p>
-    <div class="footer-disclaimer">
-      <p>
-        ⚠️ <strong>Disclaimer:</strong> Do not reproduce this site in any form.
-        All content and intellectual property belong to <strong>Yohaan Narayanan</strong>.
-        Do not claim this site as your own.
-        This site was built with the assistance of AI (Claude Haiku / Claude Sonnet).
-        This site is not for profit.
-        We do not sell or share your data.
-      </p>
+    <div class="footer-links">
+      <a class="footer-github-link" href="https://github.com/yohaann196/vchs-studying" target="_blank" rel="noopener noreferrer" aria-label="View source on GitHub">
+        <svg class="footer-github-icon" aria-hidden="true" viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+        GitHub
+      </a>
+      <span class="footer-sep" aria-hidden="true">·</span>
+      <button class="footer-disclaimer-btn" id="disclaimer-btn" aria-haspopup="dialog">Disclaimer</button>
     </div>
   </footer>
 
