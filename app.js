@@ -135,6 +135,42 @@ function updateAuthUI() {
     btn.textContent = 'Sign In';
     btn.setAttribute('aria-label', 'Sign in or register');
   }
+
+  // Update preview sections based on auth state
+  updatePreviewSections();
+}
+
+/** Render a "sign up to view" lock screen in a container element. */
+function renderSignupLock(containerId, title) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+  container.innerHTML = `
+    <div class="signup-lock">
+      <div class="signup-lock-icon">🔒</div>
+      <div class="signup-lock-title">${escapeHtml(title)}</div>
+      <div class="signup-lock-note">No email required, just username and password.</div>
+      <button class="btn btn-primary signup-lock-btn" data-action="open-register">Sign Up</button>
+    </div>
+  `;
+  const btn = container.querySelector('.signup-lock-btn');
+  if (btn) {
+    btn.addEventListener('click', () => openAuthModal('register'));
+  }
+}
+
+/** Show signup locks or actual content based on auth state. */
+function updatePreviewSections() {
+  if (!state.user) {
+    renderSignupLock('lb-preview-content', 'Sign up to view Leaderboards!');
+    renderSignupLock('class-grid', 'Sign up to view Courses!');
+  } else {
+    // Restore actual content
+    renderClassGrid(
+      document.getElementById('class-search')?.value || '',
+      document.getElementById('subject-filter')?.value || ''
+    );
+    loadLeaderboard().then(entries => renderLeaderboard(entries, 'lb-preview-content', 5));
+  }
 }
 
 /** Open the auth overlay on the given tab. */
@@ -609,6 +645,13 @@ function resetQuizPanel() {
 
 function startQuiz(mode) {
   if (!state.currentClass) return;
+
+  // Require login before taking a quiz
+  if (!state.user) {
+    openAuthModal('register');
+    showToast('Please sign up or sign in to take a quiz.', 'info');
+    return;
+  }
 
   state.quizMode      = mode;
   state.quizIndex     = 0;
@@ -1293,13 +1336,19 @@ function attachEventListeners() {
 /* ── Initialisation ───────────────────────────────────────── */
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Update stats counters (always visible regardless of auth)
+  const statClasses = document.getElementById('stat-classes');
+  const statQuestions = document.getElementById('stat-questions');
+  if (statClasses) statClasses.textContent = String(CLASSES.length);
+  if (statQuestions) {
+    const totalQ = CLASSES.reduce((sum, c) => sum + (c.qbank ? c.qbank.length : 0), 0);
+    statQuestions.textContent = String(totalQ);
+  }
+
+  // Show initial lock screens while auth is resolving
+  renderSignupLock('lb-preview-content', 'Sign up to view Leaderboards!');
+  renderSignupLock('class-grid', 'Sign up to view Courses!');
+
   initAuth();
-  renderClassGrid();
-
-  // Populate leaderboard preview on home
-  loadLeaderboard().then(entries => {
-    renderLeaderboard(entries, 'lb-preview-content', 5);
-  });
-
   attachEventListeners();
 });
