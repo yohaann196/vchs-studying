@@ -625,7 +625,8 @@ table.leaderboard-table { width: 100%; border-collapse: collapse; background: va
 .lb-you-stats { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; flex-shrink: 0; }
 .lb-you-pts { font-size: 1.25rem; font-weight: 700; color: var(--accent); }
 .lb-pts-cell { font-size: 1rem; font-weight: 700; color: var(--text-dark); }
-.lb-you-quizzes { font-size: 0.78rem; color: var(--text-muted); }
+.lb-quizzes-cell { font-size: 1rem; font-weight: 700; color: var(--text-dark); }
+.lb-you-quizzes { font-size: 1rem; color: var(--text-muted); }
 .leaderboard-loading { text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.875rem; }
 
 /* ── Auth Modal ─────────────────────────────────────────── */
