@@ -6,7 +6,7 @@
 /* ── CSS Custom Properties ──────────────────────────────── */
 :root {
   /* Palette */
-  --bg-primary:    #BAE6FD;
+  --bg-primary:    #F5F5DC;
   --bg-secondary:  #7DD3FC;
   --bg-card:       #FFFFFF;
   --bg-card-hover: #F0F9FF;
@@ -209,24 +209,7 @@ body {
   height: 80px; background: linear-gradient(to bottom, transparent, var(--bg-primary));
   pointer-events: none;
 }
-.hero-clouds { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
-.cloud { position: absolute; opacity: 0.20; }
-.cloud-1 { top: 10%; left: -5%; animation: drift 22s linear infinite; }
-.cloud-2 { top: 40%; right: -8%; animation: drift 30s linear infinite reverse; }
-.cloud-3 { bottom: 5%; left: 20%; animation: drift 26s linear infinite 5s; }
-@keyframes drift { 0% { transform: translateX(0); } 50% { transform: translateX(40px); } 100% { transform: translateX(0); } }
 .hero-content { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; }
-
-/* ── Page background clouds ─────────────────────────────── */
-.bg-clouds { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
-.bg-cloud { position: absolute; opacity: 0.35; filter: drop-shadow(0 4px 12px rgba(255,255,255,0.4)); }
-.bg-cloud-a { top: 12%; left: -4%;  animation: bgDrift 32s linear infinite; }
-.bg-cloud-b { top: 45%; right: -6%; animation: bgDrift 44s linear infinite reverse 4s; }
-.bg-cloud-c { top: 70%; left: 15%;  animation: bgDrift 38s linear infinite 10s; }
-.bg-cloud-d { top: 28%; right: 20%; animation: bgDrift 50s linear infinite reverse 7s; }
-@keyframes bgDrift { 0% { transform: translateX(0); } 50% { transform: translateX(60px); } 100% { transform: translateX(0); } }
-/* Ensure all page content sits above the fixed background clouds */
-#navbar, .view, footer, #auth-overlay, #toast { position: relative; z-index: 1; }
 .hero-eyebrow {
   display: inline-flex; align-items: center; gap: 0.5em;
   font-family: var(--font-body); font-size: 0.82rem; font-weight: 600;
