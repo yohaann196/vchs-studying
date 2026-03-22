@@ -53,12 +53,12 @@ function escapeHtml(str) {
 
 /**
  * Wrap digit sequences in a <span class="num"> for modern-font rendering.
- * Use with innerHTML on strings that are safe (no user-controlled content).
- * @param {string} str
- * @returns {string}
+ * The input string is HTML-escaped before processing to prevent XSS.
+ * @param {string} str  Plain text string (must not contain pre-formed HTML)
+ * @returns {string} HTML string with numbers wrapped in <span class="num">
  */
 function wrapNums(str) {
-  return str.replace(/\d[\d,]*(?:\.\d+)?%?/g, '<span class="num">$&</span>');
+  return escapeHtml(str).replace(/\d[\d,]*(?:\.\d+)?%?/g, '<span class="num">$&</span>');
 }
 
 /**
@@ -636,7 +636,7 @@ function renderQBank(cls) {
       <div class="qbank-item-header">
         <span class="qbank-num">${i + 1}.</span>
         <span class="qbank-q">${escapeHtml(q.q)}</span>
-        <span class="qbank-unit-tag">Unit <span class="num">${escapeHtml(String(q.unit))}</span></span>
+        <span class="qbank-unit-tag">${wrapNums(`Unit ${q.unit}`)}</span>
       </div>
       <div class="qbank-choices">
         ${q.choices.map((c, ci) => `
