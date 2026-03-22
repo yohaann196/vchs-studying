@@ -319,45 +319,43 @@ function showHome() {
   stopTimer();
 }
 
-/* ── Unit Multi-Select Helpers ────────────────────────────── */
+/* ── Unit Selector Helpers ────────────────────────────────── */
 
-function populateUnitMultiselect(dropdownId, btnId, units, onChange) {
-  const dropdown = document.getElementById(dropdownId);
-  if (!dropdown) return;
-  dropdown.innerHTML = '';
+function populateUnitSelector(selectorId, units, onChange) {
+  const selector = document.getElementById(selectorId);
+  if (!selector) return;
+  selector.innerHTML = '';
   units.forEach(u => {
-    const label = document.createElement('label');
-    label.className = 'unit-multiselect-option';
-    const cb = document.createElement('input');
-    cb.type = 'checkbox';
-    cb.value = String(u);
-    cb.addEventListener('change', () => {
-      updateMultiselectLabel(btnId);
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'unit-chip';
+    btn.dataset.unit = String(u);
+    btn.setAttribute('aria-pressed', 'false');
+
+    const checkEl = document.createElement('span');
+    checkEl.className = 'unit-chip-check';
+    checkEl.setAttribute('aria-hidden', 'true');
+
+    const labelEl = document.createElement('span');
+    labelEl.textContent = `Unit ${u}`;
+
+    btn.appendChild(checkEl);
+    btn.appendChild(labelEl);
+
+    btn.addEventListener('click', () => {
+      const isActive = btn.classList.toggle('active');
+      checkEl.textContent = isActive ? '✓' : '';
+      btn.setAttribute('aria-pressed', String(isActive));
       onChange();
     });
-    label.appendChild(cb);
-    label.appendChild(document.createTextNode(`Unit ${u}`));
-    dropdown.appendChild(label);
+    selector.appendChild(btn);
   });
 }
 
-function getSelectedUnits(dropdownId) {
-  const dropdown = document.getElementById(dropdownId);
-  if (!dropdown) return [];
-  return [...dropdown.querySelectorAll('input[type="checkbox"]:checked')].map(cb => cb.value);
-}
-
-function updateMultiselectLabel(btnId) {
-  const btn = document.getElementById(btnId);
-  if (!btn) return;
-  const ms = btn.closest('.unit-multiselect');
-  if (!ms) return;
-  const checked = [...ms.querySelectorAll('input[type="checkbox"]:checked')];
-  const labelEl = btn.querySelector('.unit-multiselect-text');
-  if (!labelEl) return;
-  labelEl.textContent = checked.length === 0
-    ? 'All Units'
-    : checked.map(cb => `Unit ${cb.value}`).join(', ');
+function getSelectedUnits(selectorId) {
+  const selector = document.getElementById(selectorId);
+  if (!selector) return [];
+  return [...selector.querySelectorAll('.unit-chip.active')].map(btn => btn.dataset.unit);
 }
 
 function showClassView(classId) {
@@ -378,10 +376,10 @@ function showClassView(classId) {
   if (cls.qbank) {
     const units = [...new Set(cls.qbank.map(q => q.unit).filter(u => u != null && !isNaN(Number(u))))]
       .sort((a, b) => Number(a) - Number(b));
-    populateUnitMultiselect('quiz-unit-dropdown', 'quiz-unit-btn', units, () => {
+    populateUnitSelector('quiz-unit-selector', units, () => {
       // Quiz filtering is applied when the quiz starts, no live re-render needed
     });
-    populateUnitMultiselect('qbank-unit-dropdown', 'qbank-unit-btn', units, () => {
+    populateUnitSelector('qbank-unit-selector', units, () => {
       if (state.currentClass) renderQBank(state.currentClass);
     });
   }
@@ -562,7 +560,7 @@ function renderQBank(cls) {
   const countEl   = document.getElementById('qbank-count');
   if (!container || !cls.qbank) return;
 
-  const selectedUnits = getSelectedUnits('qbank-unit-dropdown');
+  const selectedUnits = getSelectedUnits('qbank-unit-selector');
   const filtered = selectedUnits.length === 0
     ? cls.qbank
     : cls.qbank.filter(q => selectedUnits.includes(String(q.unit)));
@@ -618,7 +616,7 @@ function startQuiz(mode) {
   state.quizAnswered  = 0;
   state.selectedChoice = null;
 
-  const selectedUnits  = getSelectedUnits('quiz-unit-dropdown');
+  const selectedUnits  = getSelectedUnits('quiz-unit-selector');
   const allQuestions   = state.currentClass.quiz.slice();
   const filteredQuestions = selectedUnits.length === 0
     ? allQuestions
@@ -1264,40 +1262,6 @@ function attachEventListeners() {
         e.preventDefault();
         toggleGuideCard(parseInt(header.dataset.guideIdx, 10));
       }
-    }
-  });
-
-  // Unit multi-select dropdowns — toggle open/close
-  ['quiz-unit-btn', 'qbank-unit-btn'].forEach(btnId => {
-    const btn = document.getElementById(btnId);
-    if (!btn) return;
-    btn.addEventListener('click', e => {
-      e.stopPropagation();
-      const ms = btn.closest('.unit-multiselect');
-      if (!ms) return;
-      const dropdown = ms.querySelector('.unit-multiselect-dropdown');
-      const isOpen = !dropdown.classList.contains('hidden');
-      // Close all other dropdowns first
-      document.querySelectorAll('.unit-multiselect-dropdown').forEach(d => {
-        d.classList.add('hidden');
-        const parentMs = d.closest('.unit-multiselect');
-        if (parentMs) parentMs.querySelector('.unit-multiselect-btn').setAttribute('aria-expanded', 'false');
-      });
-      if (!isOpen) {
-        dropdown.classList.remove('hidden');
-        btn.setAttribute('aria-expanded', 'true');
-      }
-    });
-  });
-
-  // Close unit multi-select dropdowns when clicking outside
-  document.addEventListener('click', e => {
-    if (!e.target.closest('.unit-multiselect')) {
-      document.querySelectorAll('.unit-multiselect-dropdown').forEach(d => {
-        d.classList.add('hidden');
-        const parentMs = d.closest('.unit-multiselect');
-        if (parentMs) parentMs.querySelector('.unit-multiselect-btn').setAttribute('aria-expanded', 'false');
-      });
     }
   });
 

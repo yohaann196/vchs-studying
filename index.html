@@ -185,14 +185,8 @@
       <div id="quiz-mode-selector" class="quiz-mode-selector" aria-label="Choose quiz mode">
         <div class="quiz-unit-filter" role="search" aria-label="Filter quiz questions by unit">
           <span class="qbank-filter-label">Filter by Unit:</span>
-          <div class="unit-multiselect" id="quiz-unit-multiselect">
-            <button type="button" class="unit-multiselect-btn" id="quiz-unit-btn" aria-haspopup="true" aria-expanded="false" aria-label="Select units to filter quiz questions">
-              <span class="unit-multiselect-text">All Units</span>
-              <span class="unit-multiselect-arrow" aria-hidden="true">▾</span>
-            </button>
-            <div class="unit-multiselect-dropdown hidden" id="quiz-unit-dropdown" role="listbox" aria-multiselectable="true">
-              <!-- Populated by JS -->
-            </div>
+          <div class="unit-selector" id="quiz-unit-selector" role="group" aria-label="Select units to filter quiz questions">
+            <!-- Populated by JS -->
           </div>
         </div>
         <div
@@ -276,14 +270,8 @@
     <div id="panel-qbank" class="tab-panel hidden" role="tabpanel" aria-labelledby="tab-qbank">
       <div class="qbank-filter" role="search" aria-label="Filter question bank">
         <span class="qbank-filter-label">Filter by Unit:</span>
-        <div class="unit-multiselect" id="qbank-unit-multiselect">
-          <button type="button" class="unit-multiselect-btn" id="qbank-unit-btn" aria-haspopup="true" aria-expanded="false" aria-label="Select units to filter questions">
-            <span class="unit-multiselect-text">All Units</span>
-            <span class="unit-multiselect-arrow" aria-hidden="true">▾</span>
-          </button>
-          <div class="unit-multiselect-dropdown hidden" id="qbank-unit-dropdown" role="listbox" aria-multiselectable="true">
-            <!-- Populated by JS -->
-          </div>
+        <div class="unit-selector" id="qbank-unit-selector" role="group" aria-label="Select units to filter questions">
+          <!-- Populated by JS -->
         </div>
         <span class="qbank-count" id="qbank-count" aria-live="polite"></span>
       </div>
