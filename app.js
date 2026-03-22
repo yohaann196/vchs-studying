@@ -1042,9 +1042,9 @@ function renderLeaderboard(entries, containerId, limit) {
   const users     = aggregateUserScores(entries);
   const totalUsers = users.length;
 
-  // Update home stat with total users count
+  // Update home stat with total users count (only when we have real data)
   const statEl = document.getElementById('stat-total-users');
-  if (statEl) statEl.textContent = String(totalUsers);
+  if (statEl && totalUsers > 0) statEl.textContent = String(totalUsers);
 
   // Identify the logged-in user in the aggregated list
   const currentUserId   = state.user?.id;
