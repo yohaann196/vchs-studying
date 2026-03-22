@@ -1125,8 +1125,8 @@ function renderLeaderboard(entries, containerId, limit) {
               <td class="rank-cell">${medal}</td>
               <td>${nameHtml}</td>
               <td><span class="tier-badge ${tier.cls}">${tier.emoji} ${tier.name}</span></td>
-              <td>${user.lifetimeScore.toLocaleString()}</td>
-              <td>${user.quizCount}</td>
+              <td class="lb-pts-cell">${user.lifetimeScore.toLocaleString()}</td>
+              <td class="lb-quizzes-cell">${user.quizCount}</td>
             </tr>
           `;
         }).join('')}
