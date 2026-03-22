@@ -52,6 +52,16 @@ function escapeHtml(str) {
 }
 
 /**
+ * Wrap digit sequences in a <span class="num"> for modern-font rendering.
+ * The input string is HTML-escaped before processing to prevent XSS.
+ * @param {string} str  Plain text string (must not contain pre-formed HTML)
+ * @returns {string} HTML string with numbers wrapped in <span class="num">
+ */
+function wrapNums(str) {
+  return escapeHtml(str).replace(/\d[\d,]*(?:\.\d+)?%?/g, '<span class="num">$&</span>');
+}
+
+/**
  * Format an ISO date string to 'MMM D, YYYY'.
  * @param {string} isoString
  * @returns {string}
@@ -525,8 +535,8 @@ function renderClassGrid(filter = '', subject = '') {
   if (moreBanner) {
     if (hasMore) {
       moreBanner.classList.remove('hidden');
-      moreBanner.querySelector('.classes-more-text').textContent =
-        `Showing ${LIMIT} of ${filtered.length} classes — there are more classes waiting for you!`;
+      moreBanner.querySelector('.classes-more-text').innerHTML =
+        wrapNums(`Showing ${LIMIT} of ${filtered.length} classes — there are more classes waiting for you!`);
     } else {
       moreBanner.classList.add('hidden');
     }
@@ -626,7 +636,7 @@ function renderQBank(cls) {
       <div class="qbank-item-header">
         <span class="qbank-num">${i + 1}.</span>
         <span class="qbank-q">${escapeHtml(q.q)}</span>
-        <span class="qbank-unit-tag">Unit ${escapeHtml(String(q.unit))}</span>
+        <span class="qbank-unit-tag">${wrapNums(`Unit ${q.unit}`)}</span>
       </div>
       <div class="qbank-choices">
         ${q.choices.map((c, ci) => `
@@ -865,8 +875,8 @@ function endQuiz() {
   document.getElementById('results-icon').textContent    = icon;
   document.getElementById('results-pct').textContent     = `${pct}%`;
   document.getElementById('results-title').textContent   = pct >= 70 ? 'Great Job!' : 'Keep Practising!';
-  document.getElementById('results-details').textContent =
-    `You answered ${correct} of ${total} questions correctly. Score: ${state.quizScore} pts. Mode: ${state.quizMode}.`;
+  document.getElementById('results-details').innerHTML =
+    wrapNums(`You answered ${correct} of ${total} questions correctly. Score: ${state.quizScore} pts. Mode: ${state.quizMode}.`);
 
   // Save to leaderboard
   if (state.currentClass) {
@@ -1048,10 +1058,10 @@ function renderLeaderboard(entries, containerId, limit) {
   const isFullView = !limit;
   if (isFullView) {
     const sub = document.getElementById('lb-main-subtitle');
-    if (sub) sub.textContent = `All ${totalUsers.toLocaleString()} user${totalUsers !== 1 ? 's' : ''} ranked by lifetime points`;
+    if (sub) sub.innerHTML = wrapNums(`All ${totalUsers.toLocaleString()} user${totalUsers !== 1 ? 's' : ''} ranked by lifetime points`);
   } else {
     const sub = document.getElementById('lb-preview-subtitle');
-    if (sub) sub.textContent = `Top ${limit} of ${totalUsers.toLocaleString()} total user${totalUsers !== 1 ? 's' : ''}`;
+    if (sub) sub.innerHTML = wrapNums(`Top ${limit} of ${totalUsers.toLocaleString()} total user${totalUsers !== 1 ? 's' : ''}`);
   }
 
   const rows = limit ? users.slice(0, limit) : users;
@@ -1075,7 +1085,7 @@ function renderLeaderboard(entries, containerId, limit) {
         <div class="lb-you-rank">#${currentUserRank}</div>
         <div class="lb-you-info">
           <span class="lb-you-name">${escapeHtml(currentUserEntry.username)} <span class="you-tag">You</span></span>
-          <span class="lb-you-sub">Top ${topPct}% · ${totalUsers.toLocaleString()} users total</span>
+          <span class="lb-you-sub">Top <span class="num">${topPct}%</span> · <span class="num">${totalUsers.toLocaleString()}</span> users total</span>
         </div>
         <div class="lb-you-stats">
           <span class="tier-badge ${tier.cls}">${tier.emoji} ${tier.name}</span>
@@ -1094,7 +1104,7 @@ function renderLeaderboard(entries, containerId, limit) {
         <div class="lb-you-rank">#${currentUserRank}</div>
         <div class="lb-you-info">
           <span class="lb-you-name">${escapeHtml(currentUserEntry.username)} <span class="you-tag">You</span></span>
-          <span class="lb-you-sub">Top ${topPct}% · ${totalUsers.toLocaleString()} users total</span>
+          <span class="lb-you-sub">Top <span class="num">${topPct}%</span> · <span class="num">${totalUsers.toLocaleString()}</span> users total</span>
         </div>
         <div class="lb-you-stats">
           <span class="tier-badge ${tier.cls}">${tier.emoji} ${tier.name}</span>
@@ -1107,7 +1117,7 @@ function renderLeaderboard(entries, containerId, limit) {
 
   const moreUsersCount = totalUsers - rows.length;
   const moreFooterHtml = (!isFullView && moreUsersCount > 0)
-    ? `<div class="lb-more-footer">…and <strong>${moreUsersCount.toLocaleString()}</strong> more user${moreUsersCount !== 1 ? 's' : ''} on the leaderboard</div>`
+    ? `<div class="lb-more-footer">…and <span class="num">${moreUsersCount.toLocaleString()}</span> more user${moreUsersCount !== 1 ? 's' : ''} on the leaderboard</div>`
     : '';
 
   const tableHtml = `
