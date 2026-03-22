@@ -639,7 +639,26 @@ table.leaderboard-table { width: 100%; border-collapse: collapse; background: va
 
 /* ── Footer ─────────────────────────────────────────────── */
 footer { text-align: center; padding: 2rem; background: #F5F0E8; color: var(--text-muted); font-size: 0.82rem; letter-spacing: 0.02em; border-top: 1px solid rgba(0,0,0,0.08); }
-.footer-disclaimer { margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid rgba(0,0,0,0.08); font-size: 0.76rem; color: var(--text-muted); max-width: 680px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+.footer-links { display: flex; align-items: center; gap: 0.6rem; margin-top: 0.6rem; flex-wrap: wrap; justify-content: center; }
+.footer-sep { color: var(--text-muted); }
+.footer-github-link { display: inline-flex; align-items: center; gap: 0.35rem; color: var(--text-muted); text-decoration: none; font-weight: 600; font-size: 0.82rem; transition: color var(--transition); }
+.footer-github-link:hover { color: var(--accent); }
+.footer-github-icon { flex-shrink: 0; }
+.footer-disclaimer-btn { background: none; border: none; color: var(--text-muted); font-family: var(--font-body); font-size: 0.82rem; font-weight: 600; cursor: pointer; padding: 0; letter-spacing: 0.02em; transition: color var(--transition); }
+.footer-disclaimer-btn:hover { color: var(--accent); }
+/* ── Disclaimer Modal ────────────────────────────────────── */
+#disclaimer-overlay {
+  position: fixed; inset: 0; background: rgba(15,23,42,0.70); z-index: 2000;
+  display: flex; align-items: center; justify-content: center; padding: 1rem;
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+}
+#disclaimer-modal {
+  background: var(--bg-card); border: 1.5px solid rgba(2,132,199,0.15);
+  border-radius: var(--radius-lg); padding: 2.25rem;
+  width: 100%; max-width: 480px; box-shadow: var(--shadow-xl); position: relative;
+}
+.disclaimer-body { font-size: 0.875rem; color: var(--text-muted); line-height: 1.7; display: flex; flex-direction: column; gap: 0.5rem; }
+.disclaimer-body p { margin: 0; }
 
 /* ── Spinner ─────────────────────────────────────────────── */
 .spinner { display: inline-block; width: 20px; height: 20px; border: 2.5px solid rgba(2,132,199,0.12); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.7s linear infinite; }
