@@ -6,8 +6,8 @@
 /* ── CSS Custom Properties ──────────────────────────────── */
 :root {
   /* Palette */
-  --bg-primary:    #F0F9FF;
-  --bg-secondary:  #E0F2FE;
+  --bg-primary:    #BAE6FD;
+  --bg-secondary:  #7DD3FC;
   --bg-card:       #FFFFFF;
   --bg-card-hover: #F0F9FF;
   --bg-dark:       #0C1A2E;
@@ -65,9 +65,10 @@
   --font-hand:    'IM Fell English', Georgia, serif;
   --font-classic: 'IM Fell English', Georgia, serif;
   --font-numbers: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-stats:   'Nunito', system-ui, -apple-system, sans-serif;
 
   /* Gradients */
-  --grad-hero:  linear-gradient(135deg, #0C1A2E 0%, #0C4A6E 40%, #0284C7 70%, #0EA5E9 100%);
+  --grad-hero:  linear-gradient(135deg, #0369A1 0%, #0284C7 35%, #0EA5E9 65%, #38BDF8 100%);
   --grad-brand: linear-gradient(135deg, #0284C7, #0EA5E9);
   --grad-card:  linear-gradient(145deg, rgba(255,255,255,1) 0%, rgba(238,240,255,0.5) 100%);
 
@@ -209,12 +210,23 @@ body {
   pointer-events: none;
 }
 .hero-clouds { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
-.cloud { position: absolute; opacity: 0.03; }
+.cloud { position: absolute; opacity: 0.20; }
 .cloud-1 { top: 10%; left: -5%; animation: drift 22s linear infinite; }
 .cloud-2 { top: 40%; right: -8%; animation: drift 30s linear infinite reverse; }
 .cloud-3 { bottom: 5%; left: 20%; animation: drift 26s linear infinite 5s; }
 @keyframes drift { 0% { transform: translateX(0); } 50% { transform: translateX(40px); } 100% { transform: translateX(0); } }
 .hero-content { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; }
+
+/* ── Page background clouds ─────────────────────────────── */
+.bg-clouds { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
+.bg-cloud { position: absolute; opacity: 0.35; filter: drop-shadow(0 4px 12px rgba(255,255,255,0.4)); }
+.bg-cloud-a { top: 12%; left: -4%;  animation: bgDrift 32s linear infinite; }
+.bg-cloud-b { top: 45%; right: -6%; animation: bgDrift 44s linear infinite reverse 4s; }
+.bg-cloud-c { top: 70%; left: 15%;  animation: bgDrift 38s linear infinite 10s; }
+.bg-cloud-d { top: 28%; right: 20%; animation: bgDrift 50s linear infinite reverse 7s; }
+@keyframes bgDrift { 0% { transform: translateX(0); } 50% { transform: translateX(60px); } 100% { transform: translateX(0); } }
+/* Ensure all page content sits above the fixed background clouds */
+#navbar, .view, footer, #auth-overlay, #toast { position: relative; z-index: 1; }
 .hero-eyebrow {
   display: inline-flex; align-items: center; gap: 0.5em;
   font-family: var(--font-body); font-size: 0.82rem; font-weight: 600;
@@ -623,10 +635,10 @@ table.leaderboard-table { width: 100%; border-collapse: collapse; background: va
 .lb-you-name { font-size: 1rem; font-weight: 700; color: var(--text-dark); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .lb-you-sub { font-size: 0.78rem; color: var(--text-muted); }
 .lb-you-stats { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; flex-shrink: 0; }
-.lb-you-pts { font-size: 1.25rem; font-weight: 700; color: var(--accent); }
-.lb-pts-cell { font-size: 1rem; font-weight: 700; color: var(--text-dark); }
-.lb-quizzes-cell { font-size: 1rem; font-weight: 700; color: var(--text-dark); }
-.lb-you-quizzes { font-size: 1rem; color: var(--text-muted); }
+.lb-you-pts { font-family: var(--font-stats); font-size: 1.25rem; font-weight: 700; color: var(--accent); }
+.lb-pts-cell { font-family: var(--font-stats); font-size: 1rem; font-weight: 700; color: var(--text-dark); }
+.lb-quizzes-cell { font-family: var(--font-stats); font-size: 1rem; font-weight: 700; color: var(--text-dark); }
+.lb-you-quizzes { font-family: var(--font-stats); font-size: 1rem; color: var(--text-muted); }
 .leaderboard-loading { text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.875rem; }
 
 /* ── Auth Modal ─────────────────────────────────────────── */
