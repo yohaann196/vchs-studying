@@ -72,14 +72,14 @@ Push to `main` — the GitHub Actions workflow deploys automatically.
 
 **Biology Honors** — 619 multiple-choice questions across 10 units with detailed study guides.
 
-**AP Human Geography** *(questions coming soon — awaiting study guide content)*
+**AP Human Geography** — 168 multiple-choice questions across 7 units with detailed study guides.
 - Unit 1: Geography: Its Nature and Perspective
 - Unit 2: Population Growth
 - Unit 3: Cultural Patterns and Processes
 - Unit 4: Political Organization of Space
 - Unit 5: Agricultural and Rural Land Use
-- Unit 6: Industrialization and Urban Development
-- Unit 7: Cities and Urban Land Use
+- Unit 6: Cities and Urban Land Use
+- Unit 7: Industrialization and Economic Development
 
 ---
 
