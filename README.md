@@ -70,12 +70,16 @@ Push to `main` — the GitHub Actions workflow deploys automatically.
 
 ## Course Data
 
-**Biology Honors** — 92 multiple-choice questions across:
-- Unit 1: Introduction to Biology (properties of life, taxonomy, scientific method, evolution)
-- Unit 2: Chemistry of Life (chemical bonds, pH, macromolecules, enzymes)
-- Unit 3: Cell Biology (organelles, membranes, photosynthesis, cellular respiration)
+**Biology Honors** — 619 multiple-choice questions across 10 units with detailed study guides.
 
-Plus 4 detailed study guides with 10–12 bullet points each.
+**AP Human Geography** *(questions coming soon — awaiting study guide content)*
+- Unit 1: Geography: Its Nature and Perspective
+- Unit 2: Population Growth
+- Unit 3: Cultural Patterns and Processes
+- Unit 4: Political Organization of Space
+- Unit 5: Agricultural and Rural Land Use
+- Unit 6: Industrialization and Urban Development
+- Unit 7: Cities and Urban Land Use
 
 ---
 

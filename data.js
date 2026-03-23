@@ -1015,5 +1015,28 @@ const CLASSES = [
     get quiz() {
       return this.qbank.slice();
     }
+  },
+  {
+    id: 'ap-human-geography',
+    name: 'AP Human Geography',
+    description: 'College-level study of human patterns on Earth — covering geographic perspectives, population, culture, politics, agriculture, industry, and urban land use.',
+    unit: 'Social Studies',
+    icon: '🌍',
+    studyGuides: [
+      // Study guides will be added once the detailed unit notes are provided.
+      { title: 'Unit 1 — Geography: Its Nature and Perspective', content: [] },
+      { title: 'Unit 2 — Population Growth', content: [] },
+      { title: 'Unit 3 — Cultural Patterns and Processes', content: [] },
+      { title: 'Unit 4 — Political Organization of Space', content: [] },
+      { title: 'Unit 5 — Agricultural and Rural Land Use', content: [] },
+      { title: 'Unit 6 — Industrialization and Urban Development', content: [] },
+      { title: 'Unit 7 — Cities and Urban Land Use', content: [] },
+    ],
+    qbank: [
+      // Practice questions will be added once the detailed study guides are provided.
+    ],
+    get quiz() {
+      return this.qbank.slice();
+    }
   }
 ];
