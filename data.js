@@ -25,7 +25,7 @@ const CLASSES = [
         ]
       },
       {
-        title: 'Unit 2 — Chemistry of Life',
+        title: 'Unit 2 — Cells: The Building Blocks of Life',
         content: [
           'All matter is made of atoms; atoms bond to form molecules.',
           'Covalent bonds share electrons; ionic bonds transfer electrons between atoms.',
@@ -42,7 +42,7 @@ const CLASSES = [
         ]
       },
       {
-        title: 'Unit 3 — Cell Biology',
+        title: 'Unit 3 — Functions of the Cell',
         content: [
           'Cell theory: all living things are made of cells; the cell is the basic unit of life; all cells come from pre-existing cells.',
           'Prokaryotic cells (Bacteria, Archaea): no membrane-bound nucleus, no membrane-bound organelles, smaller (~1–10 µm).',
@@ -69,7 +69,7 @@ const CLASSES = [
         ]
       },
       {
-        title: 'Unit 4 — Cell Reproduction & Genetics',
+        title: 'Unit 4 — Reproduction and Inheritance',
         content: [
           // ── Cell Reproduction ──────────────────────────────────────────────
           'Asexual reproduction produces offspring that are genetically identical to the parent (e.g., binary fission in bacteria, budding in yeast). Sexual reproduction combines genetic material from two parents, producing genetically unique offspring (e.g., human fertilization).',
@@ -113,7 +113,7 @@ const CLASSES = [
         ]
       },
       {
-        title: 'Unit 5 — Molecular Biology & DNA Technology',
+        title: 'Unit 5 — Molecular Biology',
         content: [
           // ── Topic 1: Discovery of DNA ─────────────────────────────────────
           'Griffith (1928): mixed killed pathogenic S-strain bacteria with live harmless R-strain bacteria → R-strain became pathogenic. Called this "transformation" but did NOT identify what the transforming principle was.',
@@ -160,7 +160,7 @@ const CLASSES = [
         ]
       },
       {
-        title: 'Unit 6 — Evolution, Speciation & Taxonomy',
+        title: 'Unit 6 — Evolution',
         content: [
           // ── Topic 1: Evolution Basics ─────────────────────────────────────────
           'Evolution = change in heritable traits of a population over successive generations. It is the core theme of biology. A mutation is a random change in genetic material. An adaptation is any heritable trait that increases survival and reproduction.',
@@ -192,7 +192,7 @@ const CLASSES = [
         ]
       },
       {
-        title: 'Unit 8 — Plants (Ch. 17, 31, 32)',
+        title: 'Unit 8 — Plant Life',
         content: [
           // ── Topic 1: Plant Origins & Land Adaptations (Ch. 17) ───────────────
           'The ancestors of plants are green algae, specifically charophytes (a group of freshwater green algae most closely related to land plants based on biochemical and structural similarities).',
@@ -238,7 +238,7 @@ const CLASSES = [
         ]
       },
       {
-        title: 'Unit 9 — Invertebrates & Vertebrates (Ch. 18–19)',
+        title: 'Unit 9 — Diversity of Animals',
         content: [
           // ── Ch. 18: Animal Body Plans & Development ───────────────────────────
           'All animals are heterotrophs — they obtain nutrients by consuming other organisms (or organic matter). The general animal life cycle: fertilized egg → cleavage (repeated mitotic cell divisions) → blastula (a hollow ball of cells) → gastrulation → gastrula (a three-layered structure whose germ layers eventually form all body tissues and organs).',
@@ -283,7 +283,7 @@ const CLASSES = [
         ]
       },
       {
-        title: 'Unit 10 — Animal Form and Function (Ch. 20–28)',
+        title: 'Unit 10 — Animal Form and Function',
         content: [
           // ── Ch. 20: Introduction — Anatomy, Physiology & Tissues ─────────────
           'Anatomy = the study of the structure and form of body parts. Physiology = the study of how body structures and systems function. Hierarchy of organization (organism → cellular): organism → organ system → organ → tissue → cell.',
@@ -362,7 +362,7 @@ const CLASSES = [
       { unit: 1, q: 'Which of the following best describes a community?', choices: ['Populations of different species living together in an area', 'All organisms and their abiotic environment', 'A single group of interbreeding organisms', 'All ecosystems on Earth'], answer: 0 },
       { unit: 1, q: 'The dependent variable in an experiment is the one that:', choices: ['Is deliberately manipulated by the researcher', 'Remains constant throughout the experiment', 'Is measured in response to changes', 'Is chosen randomly'], answer: 2 },
 
-      // ── UNIT 2 — Chemistry of Life ─────────────────────────────────────────
+      // ── UNIT 2 — Cells: The Building Blocks of Life ──────────────────────
       { unit: 2, q: 'What type of bond is formed when two atoms share electrons?', choices: ['Ionic bond', 'Covalent bond', 'Hydrogen bond', 'Van der Waals interaction'], answer: 1 },
       { unit: 2, q: 'Water molecules are attracted to each other through:', choices: ['Covalent bonds', 'Ionic bonds', 'Hydrogen bonds', 'Peptide bonds'], answer: 2 },
       { unit: 2, q: 'Which pH value represents a neutral solution?', choices: ['0', '7', '14', '4'], answer: 1 },
@@ -394,8 +394,32 @@ const CLASSES = [
       { unit: 2, q: 'Peptide bonds form between:', choices: ['Nucleotides', 'Monosaccharides', 'Amino acids', 'Fatty acids'], answer: 2 },
       { unit: 2, q: 'The unique properties of water (cohesion, high specific heat, etc.) arise primarily from:', choices: ['Its large molecular size', 'Its hydrogen bonds', 'Its ionic character', 'Its nonpolar nature'], answer: 1 },
       { unit: 2, q: 'Which of the following is a disaccharide?', choices: ['Glucose', 'Starch', 'Sucrose', 'Glycogen'], answer: 2 },
+      { unit: 2, q: 'The atomic number of an element equals the number of:', choices: ['Neutrons in the nucleus', 'Protons in the nucleus', 'Electrons in the outer shell', 'Neutrons plus protons combined'], answer: 1 },
+      { unit: 2, q: 'The mass number of an atom is calculated by:', choices: ['Adding protons and electrons', 'Adding protons and neutrons', 'Subtracting neutrons from protons', 'Multiplying the atomic number by 2'], answer: 1 },
+      { unit: 2, q: 'Isotopes of an element differ from each other in the number of:', choices: ['Protons', 'Electrons', 'Neutrons', 'Electron shells'], answer: 2 },
+      { unit: 2, q: 'A compound is best defined as:', choices: ['A pure substance consisting of one type of atom', 'A substance formed from two or more different elements chemically bonded together', 'A mixture of elements that are not bonded', 'An atom with extra neutrons'], answer: 1 },
+      { unit: 2, q: 'Which of the following is NOT a compound — it is a pure element?', choices: ['NaCl', 'H₂O', 'Au', 'HCl'], answer: 2 },
+      { unit: 2, q: 'How many electrons can the FIRST electron shell of an atom hold?', choices: ['1', '2', '4', '8'], answer: 1 },
+      { unit: 2, q: 'How many electrons can the SECOND and THIRD electron shells each hold?', choices: ['2', '4', '6', '8'], answer: 3 },
+      { unit: 2, q: 'Valence electrons are:', choices: ['Electrons in the innermost shell', 'Electrons that have been lost by the atom', 'Electrons in the outermost electron shell', 'Electrons shared inside the nucleus'], answer: 2 },
+      { unit: 2, q: 'Electronegativity describes an atom\'s ability to:', choices: ['Lose electrons during a chemical reaction', 'Attract shared electrons toward itself in a bond', 'Form hydrogen bonds with water', 'Hold extra neutrons in its nucleus'], answer: 1 },
+      { unit: 2, q: 'In a POLAR covalent bond, electrons are:', choices: ['Transferred completely from one atom to another', 'Shared equally between atoms of the same electronegativity', 'Shared unequally because one atom has higher electronegativity', 'Only shared between atoms in the second electron shell'], answer: 2 },
+      { unit: 2, q: 'In a water molecule, the oxygen atom carries a partial _____ charge because it is more electronegative than hydrogen.', choices: ['Positive', 'Neutral', 'Negative', 'Variable'], answer: 2 },
+      { unit: 2, q: 'Protons, electrons, and neutrons carry which charges, respectively?', choices: ['Positive, neutral, negative', 'Positive, negative, neutral', 'Neutral, positive, negative', 'Negative, positive, neutral'], answer: 1 },
+      { unit: 2, q: 'Why does ice float on liquid water?', choices: ['Ice has fewer hydrogen bonds than liquid water', 'The molecules in ice are more tightly packed than in liquid water', 'Hydrogen bonds in ice form a less dense, open lattice structure', 'Ice is a denser form of hydrogen and oxygen'], answer: 2 },
+      { unit: 2, q: 'In a solution, the substance present in the greater amount that does the dissolving is called the:', choices: ['Solute', 'Solvent', 'Buffer', 'Ionic compound'], answer: 1 },
+      { unit: 2, q: 'In a solution, the substance that is dissolved is called the:', choices: ['Solvent', 'Reactant', 'Solute', 'Product'], answer: 2 },
+      { unit: 2, q: 'In the reaction HCl + KMnO₄ → HMnO₄ + KCl, the REACTANTS are:', choices: ['HMnO₄ and KCl', 'HCl and KMnO₄', 'HCl and KCl', 'KMnO₄ and HMnO₄'], answer: 1 },
+      { unit: 2, q: 'In the reaction HCl + KMnO₄ → HMnO₄ + KCl, the PRODUCTS are:', choices: ['HCl and KMnO₄', 'HMnO₄ and KCl', 'HCl and HMnO₄', 'KMnO₄ and KCl'], answer: 1 },
+      { unit: 2, q: 'Adhesion in water refers to:', choices: ['Water molecules sticking to each other via hydrogen bonds', 'Water sticking to other polar or charged surfaces', 'Water resisting rapid temperature changes', 'Water dissolving ionic solutes'], answer: 1 },
+      { unit: 2, q: 'An ionic bond forms when:', choices: ['Electrons are shared equally between two atoms', 'Electrons are shared unequally between two atoms', 'One atom completely transfers electrons to another atom', 'Partial positive and partial negative areas attract'], answer: 2 },
+      { unit: 2, q: 'Which of the following is a trace element important to the human body?', choices: ['Carbon', 'Oxygen', 'Hydrogen', 'Iron'], answer: 3 },
+      { unit: 2, q: 'Trace elements are important to the human body because they:', choices: ['Form the bulk structural material of all tissues', 'Are the main source of chemical energy', 'Serve as essential components of enzymes, hemoglobin, and other molecules', 'Are required in large amounts for all metabolic reactions'], answer: 2 },
+      { unit: 2, q: 'Matter is best defined as:', choices: ['Anything that has energy and occupies space', 'Anything that has mass and takes up space', 'Any solid substance made of atoms', 'Any substance that can undergo a chemical reaction'], answer: 1 },
+      { unit: 2, q: 'The difference between mass number and atomic mass is:', choices: ['Mass number is always smaller than atomic mass', 'Mass number counts protons and neutrons; atomic mass is a weighted average of all isotopes of that element', 'Atomic mass counts protons and neutrons; mass number is a weighted average', 'There is no difference; the terms are interchangeable'], answer: 1 },
+      { unit: 2, q: 'A nonpolar covalent bond forms when:', choices: ['Electrons are transferred completely from one atom to another', 'Two atoms of similar electronegativity share electrons equally', 'A partial positive atom attracts a partial negative atom', 'One atom donates both electrons to the shared bond'], answer: 1 },
 
-      // ── UNIT 3 — Cell Biology ──────────────────────────────────────────────
+      // ── UNIT 3 — Functions of the Cell ────────────────────────────────────
       { unit: 3, q: 'Which organelle is known as the "powerhouse of the cell"?', choices: ['Nucleus', 'Ribosome', 'Mitochondria', 'Golgi apparatus'], answer: 2 },
       { unit: 3, q: 'Which organelle synthesizes proteins?', choices: ['Lysosome', 'Ribosome', 'Vacuole', 'Centrosome'], answer: 1 },
       { unit: 3, q: 'Prokaryotic cells differ from eukaryotic cells in that they:', choices: ['Have a larger size', 'Lack membrane-bound organelles', 'Have a nucleus', 'Contain mitochondria'], answer: 1 },
@@ -428,7 +452,7 @@ const CLASSES = [
       { unit: 3, q: 'In which stage of cellular respiration is CO₂ directly released?', choices: ['Glycolysis', 'Electron transport chain', 'Krebs cycle', 'Both B and C'], answer: 2 },
       { unit: 3, q: 'Which of the following transports electrons in cellular respiration?', choices: ['ATP and ADP', 'NADH and FADH₂', 'Glucose and fructose', 'CO₂ and H₂O'], answer: 1 },
 
-      // ── UNIT 4 — Cell Reproduction & Genetics ─────────────────────────────
+      // ── UNIT 4 — Reproduction and Inheritance ─────────────────────────────
       { unit: 4, q: 'Which type of reproduction produces offspring that are genetically identical to the parent?', choices: ['Sexual reproduction', 'Asexual reproduction', 'Meiotic reproduction', 'Cross-pollination'], answer: 1 },
       { unit: 4, q: 'Which type of reproduction is the primary driver of genetic variability in a population?', choices: ['Asexual reproduction', 'Binary fission', 'Sexual reproduction', 'Budding'], answer: 2 },
       { unit: 4, q: 'The primary purpose of mitosis is:', choices: ['To produce haploid gametes for reproduction', 'To create genetic diversity through crossing over', 'To produce genetically identical diploid cells for growth and repair', 'To reduce the chromosome number by half'], answer: 2 },
@@ -460,7 +484,7 @@ const CLASSES = [
       { unit: 4, q: 'A dihybrid cross differs from a monohybrid cross in that it:', choices: ['Uses haploid organisms', 'Studies the simultaneous inheritance of two different characters', 'Produces only recessive offspring', 'Requires self-pollination only'], answer: 1 },
       { unit: 4, q: 'Which of the following correctly ranks the chromosomal components from largest to smallest?', choices: ['Gene → Chromosome → Locus → Allele', 'Chromosome → Gene → Locus → Allele', 'Locus → Gene → Allele → Chromosome', 'Allele → Gene → Locus → Chromosome'], answer: 1 },
 
-      // ── UNIT 5 — Molecular Biology & DNA Technology ───────────────────────
+      // ── UNIT 5 — Molecular Biology ────────────────────────────────────────
       // Scientists
       { unit: 5, q: 'What did Griffith\'s transformation experiment show?', choices: ['Bacteria can transfer some genetic factor to other bacteria', 'DNA is made of proteins', 'Viruses inject DNA into bacteria', 'Heat destroys all genetic material'], answer: 0 },
       { unit: 5, q: 'Which experiment first identified DNA (not protein) as the transforming principle?', choices: ['Griffith\'s experiment', 'Avery\'s experiment', 'Hershey & Chase experiment', 'Watson & Crick\'s model'], answer: 1 },
@@ -509,7 +533,32 @@ const CLASSES = [
       { unit: 5, q: 'In CRISPR-Cas9 gene editing, what is the role of the guide RNA?', choices: ['It cuts both strands of the target DNA', 'It is complementary to the target DNA sequence and directs Cas9 to the correct location', 'It ligates the corrected DNA strand', 'It amplifies the target sequence before Cas9 acts'], answer: 1 },
       { unit: 5, q: 'What is cDNA (complementary DNA) and why is it useful?', choices: ['DNA made directly from a protein sequence', 'DNA made from mRNA using reverse transcriptase; contains only coding sequences (no introns)', 'A copy of chromosomal DNA including all introns and exons', 'Double-stranded RNA used in gene silencing'], answer: 1 },
       { unit: 5, q: 'Which statement correctly distinguishes DNA from RNA?', choices: ['DNA is single-stranded; RNA is double-stranded', 'DNA uses uracil; RNA uses thymine', 'DNA contains deoxyribose and is double-stranded; RNA contains ribose and is single-stranded', 'DNA is found only in the cytoplasm; RNA is found only in the nucleus'], answer: 2 },
-      // ── UNIT 6 — Evolution, Speciation & Taxonomy ─────────────────────────
+      { unit: 5, q: 'What type of virus infects bacteria?', choices: ['Retrovirus', 'Bacteriophage', 'Lentivirus', 'Poxvirus'], answer: 1 },
+      { unit: 5, q: 'In the Hershey-Chase experiment, radioactive sulfur (³⁵S) was used to label proteins because:', choices: ['Sulfur is a component of proteins but not DNA', 'Sulfur is a component of DNA but not proteins', 'Sulfur is found in equal amounts in DNA and protein', 'Sulfur makes proteins visible under a microscope'], answer: 0 },
+      { unit: 5, q: 'Which of the following bases are PYRIMIDINES?', choices: ['Adenine and Guanine', 'Thymine and Cytosine', 'Adenine and Thymine', 'Guanine and Cytosine'], answer: 1 },
+      { unit: 5, q: 'An origin of replication is:', choices: ['The site where DNA polymerase is manufactured', 'A specific sequence on DNA where replication begins', 'The end of a chromosome protected by telomeres', 'The RNA primer that starts replication'], answer: 1 },
+      { unit: 5, q: 'Why is the lagging strand synthesized in short fragments during DNA replication?', choices: ['DNA polymerase runs out of nucleotides periodically', 'DNA polymerase can only add nucleotides in the 5\'→3\' direction, but this strand runs antiparallel to the fork', 'Helicase unwinding creates gaps in the lagging strand', 'DNA ligase degrades the lagging strand periodically'], answer: 1 },
+      { unit: 5, q: 'A short RNA sequence required before DNA polymerase can begin adding nucleotides is called a(n):', choices: ['Origin of replication', 'Okazaki fragment', 'RNA primer', 'Promoter'], answer: 2 },
+      { unit: 5, q: 'The promoter sequence in a gene:', choices: ['Specifies the end of transcription', 'Codes for the first amino acid in the protein', 'Signals where RNA polymerase should begin transcription', 'Removes introns from pre-mRNA'], answer: 2 },
+      { unit: 5, q: 'A terminator sequence in a gene:', choices: ['Codes for a stop codon in the protein', 'Signals the end of transcription', 'Initiates ribosome binding to mRNA', 'Removes the 5\' cap from mRNA'], answer: 1 },
+      { unit: 5, q: 'Ribosomes are primarily made of:', choices: ['mRNA and tRNA', 'rRNA and proteins', 'DNA and histone proteins', 'Phospholipids and proteins'], answer: 1 },
+      { unit: 5, q: 'During translation, the A-site of the ribosome:', choices: ['Holds the growing polypeptide attached to its tRNA', 'Accepts the incoming tRNA carrying the next amino acid', 'Releases the completed polypeptide from the ribosome', 'Binds the 5\' cap of the mRNA'], answer: 1 },
+      { unit: 5, q: 'The genetic code is described as "redundant." This means:', choices: ['Every codon codes for exactly one amino acid with no overlap', 'Multiple different codons can code for the same amino acid', 'No two amino acids share the same codon', 'Every codon has more than one possible meaning'], answer: 1 },
+      { unit: 5, q: 'The genetic code is described as "not ambiguous." This means:', choices: ['One codon can specify more than one amino acid', 'Each codon specifies only one particular amino acid', 'All organisms use different genetic codes', 'Stop codons code for the same amino acid as start codons'], answer: 1 },
+      { unit: 5, q: 'If a DNA template strand reads AAGCTC, the resulting mRNA sequence after transcription is:', choices: ['AAGCTC', 'TTCGAG', 'UUCGAG', 'AAGCUC'], answer: 2 },
+      { unit: 5, q: 'A sample of DNA contains 20% adenine. According to Chargaff\'s rules, what percentage is guanine?', choices: ['20%', '30%', '40%', '10%'], answer: 1 },
+      { unit: 5, q: 'Alternative splicing allows one gene to produce multiple different proteins by:', choices: ['Replicating the same gene many times', 'Combining exons in different arrangements after introns are removed', 'Mutating the promoter separately for each protein variant', 'Using different ribosomes to translate the same mRNA differently'], answer: 1 },
+      { unit: 5, q: 'What is the role of a plasmid in gene cloning?', choices: ['To cut DNA at specific sequences', 'To serve as a vector that carries and replicates the foreign DNA inside bacteria', 'To transcribe the inserted gene into mRNA', 'To introduce random mutations into the target gene'], answer: 1 },
+      { unit: 5, q: 'Why must both the vector plasmid and the foreign DNA be cut with the SAME restriction enzyme in gene cloning?', choices: ['So the restriction enzyme can join the two DNA pieces together', 'So the resulting sticky ends are complementary and can base-pair with each other', 'So the foreign DNA can replicate independently in bacteria', 'So RNA polymerase can transcribe the inserted gene'], answer: 1 },
+      { unit: 5, q: 'A nucleic acid probe is used in molecular biology to:', choices: ['Cut specific sequences of DNA at restriction sites', 'Detect and locate a specific complementary DNA or RNA sequence', 'Amplify a target DNA sequence in large quantities', 'Reverse-transcribe mRNA into cDNA'], answer: 1 },
+      { unit: 5, q: 'Why can cDNA NOT be made from every gene in every cell?', choices: ['Some genes are too large for reverse transcriptase to copy', 'cDNA can only be made from genes that are actively being transcribed into mRNA in that cell', 'Reverse transcriptase only works on viral RNA', 'cDNA cannot be made without introns present'], answer: 1 },
+      { unit: 5, q: 'During PCR, the temperature is first raised to ~95°C. What happens at this step?', choices: ['DNA polymerase becomes most active at this temperature', 'Primers bind to the single-stranded DNA template', 'The DNA double helix is denatured and the two strands separate', 'The newly synthesized strands fold into their final shape'], answer: 2 },
+      { unit: 5, q: 'Starting with 1 molecule of DNA, approximately how many molecules are present after 5 PCR cycles?', choices: ['5', '10', '16', '32'], answer: 3 },
+      { unit: 5, q: 'In gel electrophoresis, DNA samples are loaded at the negative end. The DNA then migrates toward the positive electrode because:', choices: ['DNA is positively charged', 'DNA is negatively charged due to its phosphate backbone', 'The gel pushes DNA toward the positive pole', 'Heat from the positive electrode pulls DNA toward it'], answer: 1 },
+      { unit: 5, q: 'CODIS is:', choices: ['A type of restriction enzyme used for DNA fingerprinting', 'The national DNA database used by the FBI that stores STR profiles', 'A PCR technique using specific coded primers', 'A scoring method for interpreting gel electrophoresis results'], answer: 1 },
+      { unit: 5, q: 'Restriction enzymes do not cut the DNA of the bacteria that produce them because of _____ groups on the bacterial DNA.', choices: ['Phosphate', 'Methyl', 'Acetyl', 'Hydroxyl'], answer: 1 },
+
+      // ── UNIT 6 — Evolution ────────────────────────────────────────────────
       // Evolution Basics
       { unit: 6, q: 'What is evolution?', choices: ['The process by which an individual changes during its lifetime', 'Change in heritable traits of a population over generations', 'The development of an organism from embryo to adult', 'A sudden genetic change in a single organism'], answer: 1 },
       { unit: 6, q: 'What is the core theme of biology?', choices: ['Cell theory', 'Genetics', 'Evolution', 'Homeostasis'], answer: 2 },
@@ -581,7 +630,7 @@ const CLASSES = [
       { unit: 6, q: 'What is the ecological species concept?', choices: ['Defining a species by its DNA sequence', 'Defining a species by its unique ecological role (niche) in the environment', 'Defining a species by its physical features', 'Defining a species by reproductive compatibility'], answer: 1 },
       { unit: 6, q: 'What is the phylogenetic species concept?', choices: ['Defining a species by its niche', 'Defining a species by its physical anatomy', 'Defining a species as the smallest group sharing a unique common ancestor', 'Defining a species by reproductive compatibility'], answer: 2 },
       { unit: 6, q: 'Offspring produced from mating between individuals of two different species are called:', choices: ['Clones', 'Mutants', 'Hybrids', 'Variants'], answer: 2 },
-      // ── UNIT 8 — Plants (Ch. 17, 31, 32) ──────────────────────────────────
+      // ── UNIT 8 — Plant Life ───────────────────────────────────────────────
       // Plant Origins & Land Adaptations
       { unit: 8, q: 'What group of organisms are considered the ancestors of land plants?', choices: ['Red algae', 'Cyanobacteria', 'Charophytes (green algae)', 'Brown algae'], answer: 2 },
       { unit: 8, q: 'Which of the following is an ADVANTAGE of life on land for plants?', choices: ['No risk of desiccation', 'Abundant unfiltered sunlight', 'Easy water-based reproduction', 'Buoyancy for structural support'], answer: 1 },
@@ -701,7 +750,7 @@ const CLASSES = [
       { unit: 8, q: 'Which of the following is a plant micronutrient?', choices: ['Nitrogen (N)', 'Phosphorus (P)', 'Iron (Fe)', 'Magnesium (Mg)'], answer: 2 },
       { unit: 8, q: 'What is the purpose of root hairs in plants?', choices: ['Anchor the plant against strong winds', 'Increase surface area for water and mineral absorption', 'Produce food through photosynthesis', 'Store starch for the plant'], answer: 1 },
 
-      // ── UNIT 9 — Invertebrates & Vertebrates (Ch. 18–19) ──────────────────
+      // ── UNIT 9 — Diversity of Animals ─────────────────────────────────────
       // Ch. 18 Part I: Animal Characteristics, Porifera, Cnidaria, Ctenophora
       { unit: 9, q: 'How do all animals obtain their nutrients?', choices: ['By performing photosynthesis', 'By consuming other organisms (heterotrophy)', 'By absorbing dissolved minerals from the soil', 'By converting nitrogen gas into amino acids'], answer: 1 },
       { unit: 9, q: 'What is a blastula?', choices: ['A two-layered embryo with an outer and inner cell layer', 'A hollow ball of cells produced by cleavage of the fertilized egg', 'The stage at which germ layers first form', 'A larval stage found only in marine invertebrates'], answer: 1 },
