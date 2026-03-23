@@ -13,6 +13,18 @@ CREATE TABLE public.leaderboard (
 );
 
 CREATE INDEX idx_leaderboard_class ON public.leaderboard(class_id);
+CREATE INDEX idx_leaderboard_user ON public.leaderboard(user_id);
+
+-- Fast helper used by the homepage stat to count distinct users
+-- without fetching all leaderboard rows.
+CREATE OR REPLACE FUNCTION public.count_distinct_users()
+RETURNS integer
+LANGUAGE sql
+STABLE
+SECURITY INVOKER
+AS $$
+  SELECT COUNT(DISTINCT user_id)::integer FROM public.leaderboard;
+$$;
 
 -- Row-Level Security
 ALTER TABLE public.leaderboard ENABLE ROW LEVEL SECURITY;

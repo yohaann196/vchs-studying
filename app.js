@@ -112,6 +112,10 @@ function initAuth() {
       window.SUPABASE_ANON_KEY
     );
 
+    // Fetch the user count immediately with a lightweight RPC call
+    // so the homepage stat appears without waiting for the full leaderboard.
+    loadUserCount();
+
     // Restore session from local storage
     state.supabase.auth.getSession().then(({ data }) => {
       state.user = data?.session?.user ?? null;
@@ -976,6 +980,43 @@ function saveScoreToLocalStorage(row) {
     const existing = JSON.parse(localStorage.getItem('leaderboard') || '[]');
     existing.unshift({ ...row, id: Date.now(), created_at: new Date().toISOString() });
     localStorage.setItem('leaderboard', JSON.stringify(existing.slice(0, 200)));
+  } catch (_) { /* ignore */ }
+}
+
+/**
+ * Quickly fetch the total number of distinct users from the leaderboard
+ * using a lightweight RPC that returns a single integer.
+ * Falls back to counting distinct user_ids in localStorage.
+ * Updates the #stat-total-users element immediately.
+ */
+async function loadUserCount() {
+  const statEl = document.getElementById('stat-total-users');
+  if (!statEl) return;
+
+  if (state.supabase) {
+    try {
+      const timeoutPromise = new Promise((_, reject) =>
+        setTimeout(() => reject(new Error('User count fetch timed out')), 5000)
+      );
+      const { data, error } = await Promise.race([
+        state.supabase.rpc('count_distinct_users'),
+        timeoutPromise,
+      ]);
+      if (error) throw error;
+      if (data != null) {
+        statEl.textContent = String(data);
+        return;
+      }
+    } catch (err) {
+      console.warn('Failed to fetch user count via RPC, falling back:', err.message);
+    }
+  }
+
+  // Fallback: count distinct user_ids stored in localStorage
+  try {
+    const entries = JSON.parse(localStorage.getItem('leaderboard') || '[]');
+    const count = new Set(entries.map(e => e.user_id)).size;
+    statEl.textContent = String(count);
   } catch (_) { /* ignore */ }
 }
 
