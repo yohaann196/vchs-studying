@@ -372,6 +372,9 @@ body {
   transition: background var(--transition), opacity var(--transition);
 }
 .unit-chip.active .unit-chip-check { opacity: 1; background: rgba(255,255,255,0.25); }
+.unit-chip-label { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.25; }
+.unit-chip-count { font-size: 0.72em; opacity: 0.6; font-weight: 400; }
+.unit-chip.active .unit-chip-count { opacity: 0.85; }
 
 /* ── Mode Cards ─────────────────────────────────────────── */
 .mode-card {
