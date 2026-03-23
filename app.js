@@ -376,7 +376,7 @@ function showHome() {
 
 /* ── Unit Selector Helpers ────────────────────────────────── */
 
-function populateUnitSelector(selectorId, units, onChange) {
+function populateUnitSelector(selectorId, units, onChange, unitMeta = {}) {
   const selector = document.getElementById(selectorId);
   if (!selector) return;
   selector.innerHTML = '';
@@ -391,8 +391,23 @@ function populateUnitSelector(selectorId, units, onChange) {
     checkEl.className = 'unit-chip-check';
     checkEl.setAttribute('aria-hidden', 'true');
 
+    const meta = unitMeta[u] || {};
+    const titleText = meta.topic ? `Unit ${u} — ${meta.topic}` : `Unit ${u}`;
+
     const labelEl = document.createElement('span');
-    labelEl.textContent = `Unit ${u}`;
+    labelEl.className = 'unit-chip-label';
+
+    const titleEl = document.createElement('span');
+    titleEl.className = 'unit-chip-title';
+    titleEl.textContent = titleText;
+    labelEl.appendChild(titleEl);
+
+    if (typeof meta.count === 'number') {
+      const countEl = document.createElement('span');
+      countEl.className = 'unit-chip-count';
+      countEl.textContent = `${meta.count} question${meta.count === 1 ? '' : 's'}`;
+      labelEl.appendChild(countEl);
+    }
 
     btn.appendChild(checkEl);
     btn.appendChild(labelEl);
@@ -438,12 +453,27 @@ function showClassView(classId) {
   if (cls.qbank) {
     const units = [...new Set(cls.qbank.map(q => q.unit).filter(u => u != null && !isNaN(Number(u))))]
       .sort((a, b) => Number(a) - Number(b));
+
+    const unitMeta = {};
+    units.forEach(u => {
+      const count = cls.qbank.filter(q => Number(q.unit) === Number(u)).length;
+      const matchTitle   = new RegExp(`^Unit\\s+${u}\\b`, 'i');
+      const stripPrefix  = new RegExp(`^Unit\\s+${u}\\s*[—\\-]\\s*`, 'i');
+      const guide = cls.studyGuides
+        ? cls.studyGuides.find(g => g.title && matchTitle.test(g.title))
+        : null;
+      const topic = guide
+        ? guide.title.replace(stripPrefix, '').replace(/\s*\(Ch\.[^)]*\)/g, '').trim()
+        : null;
+      unitMeta[u] = { topic, count };
+    });
+
     populateUnitSelector('quiz-unit-selector', units, () => {
       // Quiz filtering is applied when the quiz starts, no live re-render needed
-    });
+    }, unitMeta);
     populateUnitSelector('qbank-unit-selector', units, () => {
       if (state.currentClass) renderQBank(state.currentClass);
-    });
+    }, unitMeta);
   }
 
   // Render all panels
