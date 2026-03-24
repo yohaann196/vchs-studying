@@ -1024,6 +1024,13 @@ async function loadUserCount() {
   const statEl = document.getElementById('stat-total-users');
   if (!statEl) return;
 
+  // Show the last cached value immediately so there's no flash of "—"
+  const cached = localStorage.getItem('stat-user-count-cache');
+  if (cached !== null) statEl.textContent = cached;
+
+  // Pulse the number while the real count is being fetched
+  statEl.classList.add('stat-loading');
+
   if (state.supabase) {
     try {
       const timeoutPromise = new Promise((_, reject) =>
@@ -1036,6 +1043,8 @@ async function loadUserCount() {
       if (error) throw error;
       if (data != null) {
         statEl.textContent = String(data);
+        statEl.classList.remove('stat-loading');
+        localStorage.setItem('stat-user-count-cache', String(data));
         return;
       }
     } catch (err) {
@@ -1048,7 +1057,9 @@ async function loadUserCount() {
     const entries = JSON.parse(localStorage.getItem('leaderboard') || '[]');
     const count = new Set(entries.map(e => e.user_id)).size;
     statEl.textContent = String(count);
-  } catch (_) { /* ignore */ }
+  } catch (_) { /* ignore */ } finally {
+    statEl.classList.remove('stat-loading');
+  }
 }
 
 /**
