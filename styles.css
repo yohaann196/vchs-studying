@@ -236,6 +236,7 @@ body {
 .stat-bubble:nth-child(3) { animation-delay: 1.6s; }
 @keyframes floatBubble { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
 .stat-number { display: block; font-family: var(--font-numbers); font-size: 1.75rem; font-weight: 800; color: var(--text-dark); letter-spacing: 0; line-height: 1.1; }
+.stat-number.stat-loading { animation: pulse 1s ease-in-out infinite; }
 .stat-label { display: block; font-size: 0.75rem; font-weight: 500; color: var(--text-muted); letter-spacing: 0.06em; text-transform: uppercase; margin-top: 0.15rem; }
 
 /* ── Class Grid Section ─────────────────────────────────── */
