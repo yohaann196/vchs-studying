@@ -432,6 +432,13 @@ body {
   background: var(--bg-card); border-left: 4px solid var(--accent);
   border-radius: 0 var(--radius-md) var(--radius-md) 0; box-shadow: var(--shadow-sm);
 }
+.quiz-code {
+  font-family: 'Courier New', Courier, monospace; font-size: 0.95rem; line-height: 1.6;
+  background: rgba(0,0,0,0.06); color: var(--text-dark);
+  margin-top: 0.85rem; padding: 0.9rem 1.1rem;
+  border-radius: var(--radius-sm); border-left: 3px solid var(--accent);
+  overflow-x: auto; white-space: pre; text-align: left;
+}
 
 /* ── Answer Choices ─────────────────────────────────────── */
 .quiz-choices { display: grid; gap: 0.85rem; margin-bottom: 1.5rem; }

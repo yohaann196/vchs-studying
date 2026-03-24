@@ -700,7 +700,7 @@ function renderQBank(cls) {
     <div class="qbank-item" role="article">
       <div class="qbank-item-header">
         <span class="qbank-num">${i + 1}.</span>
-        <span class="qbank-q">${escapeHtml(q.q)}</span>
+        <div class="qbank-q">${escapeHtml(q.q)}${q.code ? `<pre class="quiz-code"><code>${escapeHtml(q.code)}</code></pre>` : ''}</div>
         <span class="qbank-unit-tag">${wrapNums(`Unit ${q.unit}`)}</span>
       </div>
       <div class="qbank-choices">
@@ -824,6 +824,14 @@ function renderQuestion() {
   // Question text — animate entrance
   const questionEl = document.getElementById('quiz-question');
   questionEl.textContent = q.q;
+  if (q.code) {
+    const pre = document.createElement('pre');
+    pre.className = 'quiz-code';
+    const codeEl = document.createElement('code');
+    codeEl.textContent = q.code;
+    pre.appendChild(codeEl);
+    questionEl.appendChild(pre);
+  }
   questionEl.classList.remove('quiz-question-enter');
   void questionEl.offsetWidth; // force reflow to restart animation
   questionEl.classList.add('quiz-question-enter');
