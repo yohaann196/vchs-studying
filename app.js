@@ -535,7 +535,8 @@ function classCardHtml(cls) {
       aria-label="${escapeHtml(cls.name)} — ${escapeHtml(cls.unit)}"
     >
       <div class="class-card-icon" aria-hidden="true">${escapeHtml(cls.icon)}</div>
-      <div class="class-card-title">${escapeHtml(cls.name)} (${cls.qbank ? Number(cls.qbank.length) : 0})</div>
+      <div class="class-card-title">${escapeHtml(cls.name)}</div>
+      <div class="class-card-question-count">${cls.qbank ? cls.qbank.length : 0} ${cls.qbank && cls.qbank.length === 1 ? 'question' : 'questions'}</div>
       <p class="class-card-desc">${escapeHtml(cls.description)}</p>
       <span class="badge ${badgeClass}">${escapeHtml(cls.unit)}</span>
       <button
