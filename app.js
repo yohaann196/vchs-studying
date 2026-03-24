@@ -141,7 +141,7 @@ function updateAuthUI() {
 
   if (state.user) {
     const uname = state.user.user_metadata?.username || 'User';
-    usernameEl.textContent = escapeHtml(uname);
+    usernameEl.textContent = uname;
     btn.textContent = 'Sign Out';
     btn.setAttribute('aria-label', 'Sign out');
   } else {
@@ -442,9 +442,9 @@ function showClassView(classId) {
   state.currentClass = cls;
 
   // Populate header
-  document.getElementById('class-view-icon').textContent  = escapeHtml(cls.icon);
-  document.getElementById('class-view-title').textContent = escapeHtml(cls.name);
-  document.getElementById('class-view-desc').textContent  = escapeHtml(cls.description);
+  document.getElementById('class-view-icon').textContent  = cls.icon;
+  document.getElementById('class-view-title').textContent = cls.name;
+  document.getElementById('class-view-desc').textContent  = cls.description;
 
   // Reset to quiz tab
   switchTab('quiz');
