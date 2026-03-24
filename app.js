@@ -369,7 +369,33 @@ function showView(viewId) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+/**
+ * If a quiz is currently in progress (quiz area visible, at least one
+ * question answered), silently save the current score before navigating away.
+ */
+function maybeSaveQuizInProgress() {
+  if (!state.quizMode || state.quizQuestions.length === 0 || state.quizAnswered === 0) return;
+  const quizArea = document.getElementById('quiz-area');
+  if (!quizArea || quizArea.classList.contains('hidden')) return;
+
+  const total   = state.quizQuestions.length;
+  const correct = state.quizScore / 10;
+  const pct     = total > 0 ? Math.round((correct / total) * 100) : 0;
+
+  if (state.currentClass) {
+    saveScore({
+      classId:   state.currentClass.id,
+      className: state.currentClass.name,
+      pct,
+      score:     state.quizScore,
+      answered:  state.quizAnswered,
+      mode:      state.quizMode,
+    });
+  }
+}
+
 function showHome() {
+  maybeSaveQuizInProgress();
   showView('home-view');
   stopTimer();
 }
@@ -485,11 +511,15 @@ function showClassView(classId) {
 }
 
 function showLeaderboard() {
+  maybeSaveQuizInProgress();
+  stopTimer();
   showView('leaderboard-view');
   loadLeaderboard().then(entries => renderLeaderboard(entries, 'lb-main-content'));
 }
 
 function showAllClasses() {
+  maybeSaveQuizInProgress();
+  stopTimer();
   renderAllClassesGrid();
   showView('classes-view');
 }
