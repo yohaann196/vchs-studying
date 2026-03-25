@@ -3368,7 +3368,7 @@ const CLASSES = [
           'VECTOR BASICS: A vector v = ⟨a, b⟩ = ai + bj has magnitude |v| = √(a² + b²). The direction angle θ satisfies tan θ = b/a (adjust for the correct quadrant). Component form: v = |v|cos θ i + |v|sin θ j.',
           'UNIT VECTORS: A unit vector has magnitude 1. To find the unit vector in the direction of v: û = v/|v| = ⟨a/|v|, b/|v|⟩. To find a vector of magnitude k in the direction of v: k·û = k·v/|v|.',
           'VECTOR ARITHMETIC: If u = ⟨a, b⟩ and v = ⟨c, d⟩, then u + v = ⟨a+c, b+d⟩, u − v = ⟨a−c, b−d⟩, k·u = ⟨ka, kb⟩. The zero vector is ⟨0, 0⟩.',
-          'DIRECTION ANGLE: For v = ai + bj, the direction angle θ (measured from the positive x-axis) is found by tan θ = b/a. Choose the quadrant based on the signs of a (horizontal) and b (vertical). Example: v = 3i − 5j has |v| = √34 and θ = arctan(−5/3) ≈ −59° (or equivalently about 301° measured from +x-axis).',
+          'DIRECTION ANGLE: For v = ai + bj, the direction angle θ (measured from the positive x-axis) is: θ = arctan(b/a) for vectors in Quadrant I or IV (a > 0), and θ = π + arctan(b/a) for vectors in Quadrant II or III (a < 0). Example: v = 3i − 5j (Q IV) has |v| = √34 and θ = arctan(−5/3) ≈ −59° (≈ 301°). A vector −2i + 3j (Q II): θ = π + arctan(−3/2).',
           'DOT PRODUCT: u · v = ⟨a, b⟩ · ⟨c, d⟩ = ac + bd. Also u · v = |u||v| cos θ where θ is the angle between them. To find θ: cos θ = (u · v)/(|u||v|). Vectors are orthogonal (perpendicular) iff u · v = 0.',
           'VECTOR APPLICATIONS — EQUILIBRIUM: For a suspended weight W, each support rope at angle α from vertical carries tension T = W/(2 cos α). For two ropes each at angle α from vertical: 2T cos α = W.',
           'VECTOR APPLICATIONS — RESULTANT/CURRENT: The actual velocity = intended velocity + current velocity. Set up the vector equation and solve component by component. Use the coordinate system stated in the problem (e.g., +x = east, +y = north).',
@@ -3380,7 +3380,28 @@ const CLASSES = [
           "DE MOIVRE'S THEOREM: [r(cos θ + i sin θ)]ⁿ = rⁿ(cos nθ + i sin nθ). To raise a complex number to a power n: take the modulus to the nth power and multiply the argument by n.",
           'NTH ROOTS OF A COMPLEX NUMBER: The n distinct nth roots of r(cos θ + i sin θ) are: zₖ = r^(1/n) · [cos((θ + 2πk)/n) + i sin((θ + 2πk)/n)] for k = 0, 1, 2, ..., n−1. The roots are equally spaced on a circle of radius r^(1/n) in the complex plane.',
           'CONVERTING TO TRIG FORM FIRST FOR NTH ROOTS: Always convert the given complex number to trig form r cis θ before applying the nth root formula. Example: −64i = 64(cos(3π/2) + i sin(3π/2)), so the 6th roots have r = 64^(1/6) = 2 and θₖ = (3π/2 + 2πk)/6 = π/4 + πk/3 for k = 0,...,5.',
+          'EULER\'S FORMULA AND EXPONENTIAL FORM: Euler\'s formula states e^(iθ) = cos θ + i sin θ. This means the trig form r(cos θ + i sin θ) can also be written in exponential form as z = re^(iθ). All three forms are equivalent: standard form a + bi, trig form r cis θ, exponential form re^(iθ). Multiplication: r₁e^(iθ₁) · r₂e^(iθ₂) = r₁r₂ e^(i(θ₁+θ₂)).',
           'PLOTTING COMPLEX NUMBERS: Plot a + bi as the point (a, b) in the complex plane (real axis = x-axis, imaginary axis = y-axis). For trig form r cis θ, the point is at distance r from the origin at angle θ. Nth roots lie equally spaced on a circle.',
+        ]
+      },
+      {
+        title: 'Chapters 7–8 — Matrices',
+        content: [
+          'AUGMENTED MATRIX: A system of linear equations can be written as an augmented matrix [A|b]. For the system a₁x + b₁y + c₁z = d₁, a₂x + b₂y + c₂z = d₂, a₃x + b₃y + c₃z = d₃, the augmented matrix is [[a₁,b₁,c₁|d₁],[a₂,b₂,c₂|d₂],[a₃,b₃,c₃|d₃]]. Each row corresponds to one equation; each column (before the bar) corresponds to one variable.',
+          'ELEMENTARY ROW OPERATIONS: Three legal operations preserve the solution set: (1) Rᵢ ↔ Rⱼ — swap two rows. (2) kRᵢ → Rᵢ — multiply a row by a nonzero constant k. (3) Rᵢ + kRⱼ → Rᵢ — add k times one row to another row. These are used to transform the augmented matrix into RREF.',
+          'REDUCED ROW-ECHELON FORM (RREF): A matrix is in RREF when: (1) All zero rows are at the bottom. (2) The leading entry (pivot) in each nonzero row is 1. (3) Each pivot is to the right of the pivot in the row above. (4) Each pivot is the only nonzero entry in its column. When RREF is reached, each variable equals the corresponding constant in the augmented column.',
+          'GAUSS-JORDAN ELIMINATION: Systematic procedure to reach RREF. Step 1: Identify leftmost nonzero column (pivot column). Step 2: Swap rows if needed so the top entry of that column is nonzero, then scale to make it 1. Step 3: Use row operations to make all other entries in that column 0. Step 4: Ignore the current top row and repeat for the submatrix below. Continue until RREF is achieved.',
+          'MATRIX DIMENSIONS: An m×n matrix has m rows and n columns. Entry aᵢⱼ is in row i, column j. Two matrices can be ADDED/SUBTRACTED only if they have the same dimensions. Matrix multiplication A·B requires the number of columns of A to equal the number of rows of B (A is m×n and B is n×p gives an m×p product).',
+          'SCALAR MULTIPLICATION AND MATRIX ADDITION: (kA)ᵢⱼ = k·aᵢⱼ (multiply every entry by the scalar). (A + B)ᵢⱼ = aᵢⱼ + bᵢⱼ (add corresponding entries). (A − B)ᵢⱼ = aᵢⱼ − bᵢⱼ. Example: 3A − B means multiply every entry of A by 3, then subtract B entry-by-entry.',
+          'MATRIX MULTIPLICATION: The (i,j) entry of AB is the dot product of row i of A with column j of B: (AB)ᵢⱼ = Σₖ aᵢₖ bₖⱼ. Matrix multiplication is NOT commutative in general (AB ≠ BA). Dimensions: (m×n)·(n×p) = m×p. If inner dimensions don\'t match, the product is undefined.',
+          'IDENTITY MATRIX: The n×n identity matrix Iₙ has 1s on the main diagonal and 0s elsewhere. For any n×n matrix A: A·I = I·A = A. For any conformable rectangular matrix A (m×n): Iₘ·A = A and A·Iₙ = A.',
+          'MATRIX INVERSE (2×2 FORMULA): For A = [a b; c d], the inverse exists iff det(A) = ad − bc ≠ 0. Then A⁻¹ = (1/det(A)) · [d −b; −c a]. The 2×2 inverse swaps the diagonal entries, negates the off-diagonal entries, and divides by the determinant.',
+          'MATRIX INVERSE VIA GAUSS-JORDAN: To find A⁻¹ for any invertible square matrix A: write the augmented matrix [A|I] and apply Gauss-Jordan elimination. If A reduces to I on the left, then I reduces to A⁻¹ on the right: [A|I] → [I|A⁻¹]. If A cannot be reduced to I (a zero row appears on the left), then A is singular (non-invertible).',
+          'SINGULAR MATRIX: A matrix is singular (non-invertible) if its determinant equals 0. Geometrically, its rows/columns are linearly dependent. Example: [2 6; 1 3] has det = 2·3 − 6·1 = 0, so it is singular and has no inverse. A singular coefficient matrix means the system either has no solution or infinitely many solutions.',
+          '2×2 DETERMINANT: det[a b; c d] = ad − bc. This single number tells you whether the matrix is invertible (det ≠ 0) and gives the area scaling factor of the linear transformation.',
+          '3×3 DETERMINANT (COFACTOR EXPANSION): Expand along any row or column. Along row 1: det[a b c; d e f; g h i] = a·(ei − fh) − b·(di − fg) + c·(dh − eg). Signs of cofactors follow the checkerboard pattern: +−+ / −+− / +−+. Choose the row/column with the most zeros to simplify computation.',
+          '4×4 BLOCK MATRIX DETERMINANT: If a 4×4 matrix has block form [[A, 0],[0, D]] where A and D are 2×2 blocks and 0 is a 2×2 zero block, then det = det(A) · det(D). Example: det([[1,5,0,0],[3,4,0,0],[0,0,2,1],[0,0,3,4]]) = det([1,5;3,4]) · det([2,1;3,4]) = (4−15)(8−3) = (−11)(5) = −55.',
+          'COFACTOR EXPANSION STRATEGY: When computing a 3×3 or larger determinant, always look for rows or columns containing zeros — expanding along them reduces the number of 2×2 sub-determinants you need to compute. The cofactor Cᵢⱼ = (−1)^(i+j) · Mᵢⱼ where Mᵢⱼ is the minor (determinant of the submatrix obtained by deleting row i and column j).',
         ]
       },
     ],
@@ -4184,6 +4205,131 @@ const CLASSES = [
       { unit: 6, q: 'For k = 0, 1, 2, 3, 4, 5, the 6th roots of −64i all have modulus 2. They are plotted:', choices: ['At the vertices of a regular hexagon inscribed in a circle of radius 2', 'Equally spaced on the unit circle', 'At intervals of π/3 starting from π/4', 'Both A and C'], answer: 3 },
       { unit: 6, q: 'The first four cube roots of 8 are found using r = 8^(1/3) = 2 and θₖ = (0 + 2πk)/3. For k = 0, the root is:', choices: ['2 cis(0) = 2', '2 cis(π/3)', '2 cis(2π/3)', '2 cis(π)'], answer: 0 },
       { unit: 6, q: 'To find the 4th roots of 16, the modulus of each root is:', choices: ['4', '2', '√2', '8'], answer: 1 },
+
+      // Chapters 7–8 — Matrices (unit: 7)
+
+      // --- Augmented matrices and writing systems ---
+      { unit: 7, q: 'An augmented matrix separates the coefficient matrix from the constants vector using:', choices: ['A semicolon', 'A vertical bar', 'A horizontal bar', 'Parentheses'], answer: 1 },
+      { unit: 7, q: 'Write the system {−5x + 3y + 6z = 4, −3x + y + 5z = −5, −4x + 2y + z = 13} as an augmented matrix. The first row is:', choices: ['[−5, 3, 6 | 4]', '[4, 3, −5 | 6]', '[−5, 3, 4 | 6]', '[3, −5, 6 | 4]'], answer: 0 },
+      { unit: 7, q: 'The second row of the augmented matrix for {−5x+3y+6z=4, −3x+y+5z=−5, −4x+2y+z=13} is:', choices: ['[−3, 1, 5 | −5]', '[−5, −3, −4 | ?]', '[1, 5, −3 | −5]', '[−3, −5, 1 | 5]'], answer: 0 },
+      { unit: 7, q: 'The third row of the augmented matrix for {−5x+3y+6z=4, −3x+y+5z=−5, −4x+2y+z=13} is:', choices: ['[−4, 2, 1 | 13]', '[13, 2, −4 | 1]', '[2, −4, 1 | 13]', '[−4, 1, 2 | 13]'], answer: 0 },
+      { unit: 7, q: 'Which of the following is a valid elementary row operation?', choices: ['Add a row to itself', 'Multiply a row by 0', 'Add 3 times row 2 to row 1', 'Delete a row that is all zeros'], answer: 2 },
+      { unit: 7, q: 'The notation R₁ ↔ R₂ means:', choices: ['Multiply row 1 by 2', 'Add row 1 to row 2', 'Swap rows 1 and 2', 'Replace row 1 with row 2'], answer: 2 },
+      { unit: 7, q: 'The notation R₂ → R₂ + 3R₁ means:', choices: ['Replace R₂ with R₂ minus 3R₁', 'Replace R₂ with R₂ plus 3 times R₁', 'Multiply R₁ by 3 and add to itself', 'Swap R₁ and 3R₂'], answer: 1 },
+      { unit: 7, q: 'The notation (1/2)R₁ → R₁ means:', choices: ['Multiply every entry of row 1 by 1/2', 'Replace row 1 with half of row 2', 'Divide row 2 by row 1', 'Swap rows 1 and 2 and scale'], answer: 0 },
+
+      // --- RREF definition ---
+      { unit: 7, q: 'In reduced row-echelon form (RREF), the leading entry (pivot) in each row must be:', choices: ['Any nonzero number', 'The number 1', 'Greater than 1', 'Equal to the row index'], answer: 1 },
+      { unit: 7, q: 'In RREF, the pivot in each row must be:', choices: ['In the same column as the row above', 'To the left of the pivot in the row above', 'To the right of the pivot in the row above', 'In column 1 always'], answer: 2 },
+      { unit: 7, q: 'In RREF, every entry in a pivot column (other than the pivot itself) must be:', choices: ['1', '0', 'Equal to the pivot', 'Any real number'], answer: 1 },
+      { unit: 7, q: 'Which matrix is in RREF?', choices: ['[1 0 | 3; 0 1 | −2]', '[1 2 | 3; 0 1 | −2]', '[2 0 | 3; 0 1 | −2]', '[1 0 | 3; 0 0 | 1]'], answer: 0 },
+      { unit: 7, q: 'Once an augmented matrix is in RREF, the solution for each variable is:', choices: ['Found by back-substitution', 'Read directly from the augmented column', 'The negative of the augmented column', 'Always (0, 0, 0)'], answer: 1 },
+
+      // --- Gauss-Jordan: the specific test system −5x+3y+6z=4, −3x+y+5z=−5, −4x+2y+z=13 ---
+      { unit: 7, q: 'For the system {−5x+3y+6z=4, −3x+y+5z=−5, −4x+2y+z=13}, the solution is:', choices: ['x=2, y=−4, z=3', 'x=−2, y=4, z=−3', 'x=−2, y=−4, z=3', 'x=2, y=4, z=−3'], answer: 1 },
+      { unit: 7, q: 'Verify: for (x,y,z) = (−2, 4, −3) in −5x+3y+6z=4: −5(−2)+3(4)+6(−3) =', choices: ['10+12−18 = 4 ✓', '10−12+18 = 16', '−10+12−18 = −16', '10+12+18 = 40'], answer: 0 },
+      { unit: 7, q: 'Verify: for (x,y,z) = (−2, 4, −3) in −3x+y+5z=−5: −3(−2)+4+5(−3) =', choices: ['6+4−15 = −5 ✓', '6−4+15 = 17', '−6+4−15 = −17', '6+4+15 = 25'], answer: 0 },
+      { unit: 7, q: 'Verify: for (x,y,z) = (−2, 4, −3) in −4x+2y+z=13: −4(−2)+2(4)+(−3) =', choices: ['8+8−3 = 13 ✓', '8−8+3 = 3', '−8+8−3 = −3', '8+8+3 = 19'], answer: 0 },
+      { unit: 7, q: 'If Gauss-Jordan produces a row [0 0 0 | 5], the system has:', choices: ['A unique solution', 'Infinitely many solutions', 'No solution (inconsistent)', 'At most one solution'], answer: 2 },
+      { unit: 7, q: 'If Gauss-Jordan produces a row [0 0 0 | 0], the system has:', choices: ['No solution', 'Exactly one solution', 'Infinitely many solutions (a free variable)', 'A trivial solution only'], answer: 2 },
+
+      // --- Scalar multiplication and matrix arithmetic ---
+      { unit: 7, q: 'Given A = [3 1; 2 −2; 4 −1], what is 3A?', choices: ['[9 3; 6 −6; 12 −3]', '[9 1; 2 −6; 4 −1]', '[3 3; 6 −2; 4 −3]', '[6 2; 4 −4; 8 −2]'], answer: 0 },
+      { unit: 7, q: 'Given B = [0 2; 1 −3; 1 −1], what is −B?', choices: ['[0 2; 1 −3; 1 −1]', '[0 −2; −1 3; −1 1]', '[0 2; −1 3; −1 1]', '[0 −2; 1 3; 1 1]'], answer: 1 },
+      { unit: 7, q: 'Given 3A = [9 3; 6 −6; 12 −3] and B = [0 2; 1 −3; 1 −1], the entry in row 1 col 1 of 3A−B is:', choices: ['9', '9−0 = 9', '3−0 = 3', '9+0 = 9'], answer: 1 },
+      { unit: 7, q: 'Given 3A = [9 3; 6 −6; 12 −3] and B = [0 2; 1 −3; 1 −1], the entry in row 1 col 2 of 3A−B is:', choices: ['3−2 = 1', '3+2 = 5', '9−2 = 7', '3−(−2) = 5'], answer: 0 },
+      { unit: 7, q: 'Given 3A = [9 3; 6 −6; 12 −3] and B = [0 2; 1 −3; 1 −1], the entry in row 2 col 1 of 3A−B is:', choices: ['6−1 = 5', '6+1 = 7', '−6−1 = −7', '6−(−1) = 7'], answer: 0 },
+      { unit: 7, q: 'Given 3A = [9 3; 6 −6; 12 −3] and B = [0 2; 1 −3; 1 −1], the entry in row 2 col 2 of 3A−B is:', choices: ['−6−3 = −9', '−6−(−3) = −3', '6−(−3) = 9', '−6+3 = −3'], answer: 1 },
+      { unit: 7, q: 'Given 3A = [9 3; 6 −6; 12 −3] and B = [0 2; 1 −3; 1 −1], the entry in row 3 col 1 of 3A−B is:', choices: ['12−1 = 11', '12+1 = 13', '4−1 = 3', '−3−1 = −4'], answer: 0 },
+      { unit: 7, q: 'The full matrix 3A − B (where A = [3 1; 2 −2; 4 −1] and B = [0 2; 1 −3; 1 −1]) is:', choices: ['[9 1; 5 −3; 11 −2]', '[9 3; 5 −6; 12 −3]', '[3 1; 2 −2; 4 −1]', '[9 1; 5 3; 11 −2]'], answer: 0 },
+      { unit: 7, q: 'Can you add a 2×3 matrix to a 3×2 matrix?', choices: ['Yes, the result is 2×2', 'Yes, the result is 3×3', 'No, dimensions must match', 'Yes, transpose one first'], answer: 2 },
+
+      // --- Matrix multiplication dimensions ---
+      { unit: 7, q: 'For matrix multiplication A·B to be defined, the requirement is:', choices: ['A and B must be square', 'Rows of A = columns of B', 'Columns of A = rows of B', 'A and B must have the same dimensions'], answer: 2 },
+      { unit: 7, q: 'If A is 3×2 and B is 2×4, the product AB has dimensions:', choices: ['3×4', '2×2', '3×2', '2×4'], answer: 0 },
+      { unit: 7, q: 'If A is 2×3 and B is 3×2, the product AB has dimensions:', choices: ['2×2', '3×3', '2×3', '3×2'], answer: 0 },
+      { unit: 7, q: 'If A is 2×3 and B is 2×3, the product AB is:', choices: ['2×3', '3×2', '2×2', 'Undefined'], answer: 3 },
+
+      // --- 2×2 matrix multiplication ---
+      { unit: 7, q: 'Compute [2 1; 0 3]·[4 5; 1 −1]. The (1,1) entry is:', choices: ['2·4+1·1 = 9', '2·4+0·1 = 8', '2·1+1·4 = 6', '4+1 = 5'], answer: 0 },
+      { unit: 7, q: 'Compute [2 1; 0 3]·[4 5; 1 −1]. The (1,2) entry is:', choices: ['2·5+1·(−1) = 9', '2·5+1·1 = 11', '2·(−1)+1·5 = 3', '5+(−1) = 4'], answer: 0 },
+      { unit: 7, q: 'Compute [2 1; 0 3]·[4 5; 1 −1]. The (2,1) entry is:', choices: ['0·4+3·1 = 3', '0+1 = 1', '2·0+1·3 = 3', '0·1+3·4 = 12'], answer: 0 },
+      { unit: 7, q: 'Compute [2 1; 0 3]·[4 5; 1 −1]. The (2,2) entry is:', choices: ['0·5+3·(−1) = −3', '0·(−1)+3·5 = 15', '3·1+0·5 = 3', '3+5 = 8'], answer: 0 },
+      { unit: 7, q: 'The full product [2 1; 0 3]·[4 5; 1 −1] =', choices: ['[9 9; 3 −3]', '[8 10; 3 −3]', '[9 9; 0 −3]', '[9 9; 1 −3]'], answer: 0 },
+
+      // --- 3×2 × 2×2 matrix multiplication ---
+      { unit: 7, q: 'Compute [1 0; 0 1; 2 −3]·[4 5; −2 −1]. The (1,1) entry is:', choices: ['1·4+0·(−2) = 4', '1·(−2)+0·4 = −2', '4+0 = 4', '1+0 = 1'], answer: 0 },
+      { unit: 7, q: 'Compute [1 0; 0 1; 2 −3]·[4 5; −2 −1]. The (1,2) entry is:', choices: ['1·5+0·(−1) = 5', '1·(−1)+0·5 = −1', '5+0 = 5', '1·5−1·0 = 5'], answer: 0 },
+      { unit: 7, q: 'Compute [1 0; 0 1; 2 −3]·[4 5; −2 −1]. The (2,1) entry is:', choices: ['0·4+1·(−2) = −2', '0+1 = 1', '4−2 = 2', '0·4+0·(−2) = 0'], answer: 0 },
+      { unit: 7, q: 'Compute [1 0; 0 1; 2 −3]·[4 5; −2 −1]. The (3,1) entry is:', choices: ['2·4+(−3)·(−2) = 14', '2·4+(−3)·(−1) = 11', '2·(−2)+(−3)·4 = −16', '2+3 = 5'], answer: 0 },
+      { unit: 7, q: 'Compute [1 0; 0 1; 2 −3]·[4 5; −2 −1]. The (3,2) entry is:', choices: ['2·5+(−3)·(−1) = 13', '2·5+(−3)·4 = −2', '2·(−1)+(−3)·5 = −17', '5+3 = 8'], answer: 0 },
+      { unit: 7, q: 'The full product [1 0; 0 1; 2 −3]·[4 5; −2 −1] =', choices: ['[4 5; −2 −1; 14 13]', '[4 5; −2 −1; 8 10]', '[4 5; −2 1; 14 13]', '[4 5; 2 −1; 14 13]'], answer: 0 },
+
+      // --- 2×3 × 3×2 matrix multiplication ---
+      { unit: 7, q: 'Compute [1 −2 5; −3 4 0]·[3 −1; 0 4; −5 2]. The (1,1) entry is:', choices: ['1·3+(−2)·0+5·(−5) = −22', '1·3+(−2)·4+5·2 = 5', '1·3+2·0+5·5 = 28', '3+0−25 = −22'], answer: 0 },
+      { unit: 7, q: 'Compute [1 −2 5; −3 4 0]·[3 −1; 0 4; −5 2]. The (1,2) entry is:', choices: ['1·(−1)+(−2)·4+5·2 = 1', '1·(−1)+(−2)·4+5·2 = −1+−8+10 = 1', '−1+8+10 = 17', '−1−8−10 = −19'], answer: 1 },
+      { unit: 7, q: 'Compute [1 −2 5; −3 4 0]·[3 −1; 0 4; −5 2]. The (2,1) entry is:', choices: ['(−3)·3+4·0+0·(−5) = −9', '(−3)·3+4·0+0·(−5) = 9', '(−3)·(−1)+4·4+0·2 = 19', '−3+4+0 = 1'], answer: 0 },
+      { unit: 7, q: 'Compute [1 −2 5; −3 4 0]·[3 −1; 0 4; −5 2]. The (2,2) entry is:', choices: ['(−3)·(−1)+4·4+0·2 = 19', '(−3)·(−1)+4·4+0·2 = 3+16 = 19', '3+16+0 = 19', 'All three options give 19'], answer: 3 },
+      { unit: 7, q: 'The full product [1 −2 5; −3 4 0]·[3 −1; 0 4; −5 2] =', choices: ['[−22 1; −9 19]', '[−22 −1; −9 19]', '[22 1; 9 19]', '[−22 1; 9 19]'], answer: 0 },
+
+      // --- 2×2 inverse (formula) ---
+      { unit: 7, q: 'For a 2×2 matrix A = [a b; c d], the inverse formula A⁻¹ = (1/det A)·[? ? ; ? ?]. The correct rearrangement is:', choices: ['[d −b; −c a]', '[a b; c d]', '[d c; b a]', '[−d b; c −a]'], answer: 0 },
+      { unit: 7, q: 'The determinant of [1 3; 2 −2] is:', choices: ['1·(−2) − 3·2 = −8', '1·(−2) + 3·2 = 4', '1·2 − 3·(−2) = 8', '−2·2 − 3·1 = −7'], answer: 0 },
+      { unit: 7, q: 'The inverse of [1 3; 2 −2] is:', choices: ['(1/−8)·[−2 −3; −2 1]', '(1/8)·[−2 3; −2 1]', '(1/−8)·[2 3; 2 −1]', '(1/−8)·[2 −3; −2 1]'], answer: 0 },
+      { unit: 7, q: '[1 3; 2 −2]⁻¹ = (−1/8)·[−2 −3; −2 1]. Simplifying, the (1,1) entry is:', choices: ['(−1/8)·(−2) = 1/4', '(−1/8)·2 = −1/4', '1/8', '−1/8'], answer: 0 },
+      { unit: 7, q: '[1 3; 2 −2]⁻¹ = (−1/8)·[−2 −3; −2 1]. Simplifying, the (1,2) entry is:', choices: ['(−1/8)·(−3) = 3/8', '(−1/8)·3 = −3/8', '3/8', '−3/8'], answer: 0 },
+      { unit: 7, q: 'The determinant of [2 6; 1 3] is:', choices: ['2·3 − 6·1 = 0', '2·3 + 6·1 = 12', '6−2 = 4', '2·1 − 6·3 = −16'], answer: 0 },
+      { unit: 7, q: 'Since det([2 6; 1 3]) = 0, this matrix is:', choices: ['Invertible with inverse (1/0)·[3 −6; −1 2]', 'Singular — it has no inverse', 'Its own inverse', 'Invertible only over complex numbers'], answer: 1 },
+      { unit: 7, q: 'A system whose coefficient matrix is singular (det = 0) has:', choices: ['Exactly one solution always', 'Either no solution or infinitely many solutions', 'Infinitely many solutions always', 'No solution always'], answer: 1 },
+
+      // --- 3×3 inverse via Gauss-Jordan ---
+      { unit: 7, q: 'To find A⁻¹ for a 3×3 matrix A using Gauss-Jordan, you set up:', choices: ['[A | 0]', '[A | I₃]', '[I₃ | A]', '[A⁻¹ | I₃]'], answer: 1 },
+      { unit: 7, q: 'After applying Gauss-Jordan to [A | I₃], if the left side becomes I₃, then:', choices: ['A is singular', 'The right side is A⁻¹', 'The right side is A', 'The system is inconsistent'], answer: 1 },
+      { unit: 7, q: 'If during Gauss-Jordan on [A | I₃] a row of all zeros appears on the left side, this means:', choices: ['A⁻¹ = 0', 'A has no inverse (singular)', 'A = I₃', 'A⁻¹ = I₃'], answer: 1 },
+      { unit: 7, q: 'The determinant of [7 2 1; 0 3 −1; −3 4 −2] is:', choices: ['0', '1', '−1', '7'], answer: 1 },
+      { unit: 7, q: 'Since det([7 2 1; 0 3 −1; −3 4 −2]) = 1 ≠ 0, the matrix is:', choices: ['Singular', 'Invertible', 'Its own inverse', 'The zero matrix'], answer: 1 },
+      { unit: 7, q: 'When computing [7 2 1; 0 3 −1; −3 4 −2]⁻¹ via Gauss-Jordan, a natural first step is:', choices: ['Swap R1 and R3 to avoid small pivots', 'Scale R1 by 1/7 to create a leading 1', 'Replace R3 with R3 + (3/7)R1', 'Both B and C are valid starting steps'], answer: 3 },
+
+      // --- 2×2 determinants ---
+      { unit: 7, q: 'det[2 7; −1 5] =', choices: ['2·5 − 7·(−1) = 17', '2·5 + 7·1 = 17', '2·5 − 7·1 = 3', '2·(−1) − 7·5 = −37'], answer: 0 },
+      { unit: 7, q: 'det[−1 −5; 2 −6] =', choices: ['(−1)(−6) − (−5)(2) = 16', '(−1)(−6) + (−5)(2) = −4', '(−1)(2) − (−5)(−6) = −32', '6 − 10 = −4'], answer: 0 },
+      { unit: 7, q: 'Which formula correctly gives the 2×2 determinant of [a b; c d]?', choices: ['ab − cd', 'ad + bc', 'ad − bc', 'ac − bd'], answer: 2 },
+      { unit: 7, q: 'det[3 0; 0 4] =', choices: ['3+4 = 7', '3·4 − 0·0 = 12', '0', '3·0 − 0·4 = 0'], answer: 1 },
+      { unit: 7, q: 'det[5 2; 5 2] =', choices: ['5·2 − 2·5 = 0', '10+10 = 20', '5·5 − 2·2 = 21', '0'], answer: 0 },
+      { unit: 7, q: 'If two rows of a 2×2 matrix are identical, its determinant is:', choices: ['1', '0', '2 times one row', 'Undefined'], answer: 1 },
+
+      // --- 3×3 determinants ---
+      { unit: 7, q: 'The cofactor C₁₁ of [a b c; d e f; g h i] is:', choices: ['(−1)^(1+1)·det[e f; h i] = ei−fh', '(−1)^(1+1)·det[d f; g i] = di−fg', '(−1)^(1+1)·(e+i)', 'a·ei'], answer: 0 },
+      { unit: 7, q: 'The sign pattern for cofactors of a 3×3 matrix is:', choices: ['All positive', '[+−+; −+−; +−+]', '[+++;+++;+++]', '[+−;−+]'], answer: 1 },
+      { unit: 7, q: 'Expanding det[−1 −5 3; 0 4 2; −1 3 7] along row 1:', choices: ['−1·(4·7−2·3) − (−5)·(0·7−2·(−1)) + 3·(0·3−4·(−1))', '−1·(4·7−2·3) + (−5)·(0·7−2·(−1)) + 3·(0·3−4·(−1))', '−1·(4·7+2·3) − (−5)·(0·7+2·1) + 3·(0·3+4·1)', 'None of the above'], answer: 0 },
+      { unit: 7, q: 'For det[−1 −5 3; 0 4 2; −1 3 7]: the M₁₁ minor det[4 2; 3 7] =', choices: ['28−6 = 22', '28+6 = 34', '4·7+2·3 = 34', '4·3−7·2 = −2'], answer: 0 },
+      { unit: 7, q: 'For det[−1 −5 3; 0 4 2; −1 3 7]: the M₁₂ minor det[0 2; −1 7] =', choices: ['0·7−2·(−1) = 2', '0·7+2·(−1) = −2', '0·(−1)−2·7 = −14', '7−(−2) = 9'], answer: 0 },
+      { unit: 7, q: 'For det[−1 −5 3; 0 4 2; −1 3 7]: the M₁₃ minor det[0 4; −1 3] =', choices: ['0·3−4·(−1) = 4', '0·3+4·1 = 4', '0·3−4·(−1) = 4', 'All three give 4'], answer: 3 },
+      { unit: 7, q: 'det[−1 −5 3; 0 4 2; −1 3 7] = −1·22 − (−5)·2 + 3·4 =', choices: ['−22+10+12 = 0', '−22−10+12 = −20', '22+10+12 = 44', '−22+10−12 = −24'], answer: 0 },
+      { unit: 7, q: 'Since det[−1 −5 3; 0 4 2; −1 3 7] = 0, this matrix is:', choices: ['Invertible', 'Singular (non-invertible)', 'The identity', 'A rotation matrix'], answer: 1 },
+      { unit: 7, q: 'To evaluate det[1 0 2; 0 3 0; 4 0 5], the easiest row/column to expand along is:', choices: ['Row 1 (has one zero)', 'Row 2 (has two zeros)', 'Column 2 (has two zeros)', 'Both B and C are equally efficient'], answer: 3 },
+      { unit: 7, q: 'det[1 0 0; 0 5 0; 0 0 3] (diagonal matrix) =', choices: ['1+5+3 = 9', '1·5·3 = 15', '0', '1·(5·3−0·0) = 15'], answer: 1 },
+
+      // --- 4×4 block matrix determinant ---
+      { unit: 7, q: 'A 4×4 matrix with block structure [[A,0];[0,D]] where A,D are 2×2 and 0 is 2×2 zero. det =', choices: ['det(A) + det(D)', 'det(A) · det(D)', 'det(A) − det(D)', 'det(A·D)'], answer: 1 },
+      { unit: 7, q: 'For M = [[1,5,0,0];[3,4,0,0];[0,0,2,1];[0,0,3,4]], det(top-left block) = det[1 5; 3 4] =', choices: ['4−15 = −11', '4+15 = 19', '1·4+5·3 = 19', '1·3−5·4 = −17'], answer: 0 },
+      { unit: 7, q: 'For M = [[1,5,0,0];[3,4,0,0];[0,0,2,1];[0,0,3,4]], det(bottom-right block) = det[2 1; 3 4] =', choices: ['8−3 = 5', '8+3 = 11', '2·4+1·3 = 11', '2+4 = 6'], answer: 0 },
+      { unit: 7, q: 'det([[1,5,0,0];[3,4,0,0];[0,0,2,1];[0,0,3,4]]) =', choices: ['(−11)·5 = −55', '(−11)·(−5) = 55', '19·5 = 95', '(−11)+5 = −6'], answer: 0 },
+      { unit: 7, q: 'The block matrix property det([[A,0];[0,D]]) = det(A)·det(D) holds when:', choices: ['A and D are invertible', 'A and D are any square matrices and the off-diagonal blocks are zero', 'A = D', 'The block matrix is 4×4 only'], answer: 1 },
+      { unit: 7, q: 'det([[5,1,0,0];[2,3,0,0];[0,0,4,1];[0,0,2,3]]) = det[5,1;2,3]·det[4,1;2,3] =', choices: ['(15−2)·(12−2) = 13·10 = 130', '(15−2)·(12−2) = 130', '(5+3)·(4+3) = 56', 'Both A and B are the same answer'], answer: 3 },
+
+      // --- General matrix knowledge ---
+      { unit: 7, q: 'Matrix multiplication is commutative: AB = BA always.', choices: ['True for all matrices', 'False — AB ≠ BA in general', 'True only for square matrices', 'True only for invertible matrices'], answer: 1 },
+      { unit: 7, q: 'The identity matrix I₂ = [1 0; 0 1] satisfies:', choices: ['AI₂ = I₂A = A for any 2×2 matrix A', 'AI₂ = 0', 'I₂A = A⁻¹', 'I₂ is singular'], answer: 0 },
+      { unit: 7, q: 'If A is invertible, then A·A⁻¹ =', choices: ['0', 'A', 'I (identity matrix)', 'A²'], answer: 2 },
+      { unit: 7, q: 'What is (AB)⁻¹ in terms of A⁻¹ and B⁻¹ (when both A and B are invertible)?', choices: ['A⁻¹B⁻¹', 'B⁻¹A⁻¹', 'A⁻¹ + B⁻¹', '(BA)⁻¹'], answer: 1 },
+      { unit: 7, q: 'The transpose of a matrix A (written Aᵀ) is obtained by:', choices: ['Negating all entries', 'Swapping rows and columns', 'Taking the inverse', 'Multiplying by −1'], answer: 1 },
+      { unit: 7, q: 'The dimensions of a matrix A with 3 rows and 4 columns is:', choices: ['4×3', '3×4', '7×1', '12×1'], answer: 1 },
+      { unit: 7, q: 'A matrix with the same number of rows and columns is called:', choices: ['Rectangular', 'Square', 'Diagonal', 'Symmetric'], answer: 1 },
+      { unit: 7, q: 'If det(A) ≠ 0, then the system Ax = b has:', choices: ['No solution', 'Infinitely many solutions', 'Exactly one unique solution', 'At most two solutions'], answer: 2 },
+      { unit: 7, q: 'det(Iₙ) for any n×n identity matrix equals:', choices: ['0', '1', 'n', 'n²'], answer: 1 },
+      { unit: 7, q: 'If A is a 3×3 matrix with det(A) = 5, then det(2A) =', choices: ['10', '40', '5', '2·5 = 10'], answer: 1 },
+      { unit: 7, q: 'A zero row in a matrix (all entries are 0) means:', choices: ['The matrix is invertible', 'The determinant is 0 (matrix is singular)', 'The matrix equals the identity', 'The system has a unique solution'], answer: 1 },
     ],
     get quiz() {
       return this.qbank.slice();
