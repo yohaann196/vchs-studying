@@ -3424,6 +3424,24 @@ const CLASSES = [
           'CARD COUNTING — HAND PROBABILITIES: In a standard 52-card deck: 13 ranks, 4 suits, C(52,n) total n-card hands. No-repeating-suits 4-card hand: one card from each suit = 13⁴ = 28561. Three-of-a-kind in 4 cards: C(13,1)·C(4,3)·C(12,1)·C(4,1) = 2496, P = 2496/C(52,4) = 2496/270725. Straight flush in 5 cards: 10 straights × 4 suits = 40, P = 40/C(52,5) = 40/2598960 = 1/64974.',
         ]
       },
+      {
+        title: 'Chapter 10A — Conics',
+        content: [
+          'PARABOLA — VERTICAL AXIS: Standard form (x − h)² = 4p(y − k). Vertex: (h, k). Opens up if p > 0, down if p < 0. Focus: (h, k + p). Directrix: y = k − p. Axis of symmetry: x = h. The value |p| is the distance from vertex to focus (and vertex to directrix).',
+          'PARABOLA — HORIZONTAL AXIS: Standard form (y − k)² = 4p(x − h). Vertex: (h, k). Opens right if p > 0, left if p < 0. Focus: (h + p, k). Directrix: x = h − p. Axis of symmetry: y = k.',
+          'PARABOLA — FINDING STANDARD FORM: Given focus (a, b) and directrix y = c (vertical parabola): vertex is midpoint → h = a, k = (b+c)/2, and p = b − k. Given vertex and focus: p = (focus y) − k [vertical] or p = (focus x) − h [horizontal].',
+          'ELLIPSE — HORIZONTAL MAJOR AXIS: Standard form (x − h)²/a² + (y − k)²/b² = 1 with a > b > 0. Center: (h, k). Major vertices: (h ± a, k). Minor vertices: (h, k ± b). Foci: (h ± c, k) where c² = a² − b². Eccentricity: e = c/a (0 < e < 1).',
+          'ELLIPSE — VERTICAL MAJOR AXIS: Standard form (x − h)²/b² + (y − k)²/a² = 1 with a > b > 0. Center: (h, k). Major vertices: (h, k ± a). Minor vertices: (h ± b, k). Foci: (h, k ± c) where c² = a² − b².',
+          'ELLIPSE — KEY RELATIONS: c² = a² − b² (always, with c < a). Eccentricity e = c/a tells how "stretched" the ellipse is. If e ≈ 0 the ellipse is nearly circular; if e ≈ 1 it is very elongated. Semi-major axis a, semi-minor axis b, and focal distance c always satisfy a > b > 0 and a > c > 0.',
+          'HYPERBOLA — HORIZONTAL TRANSVERSE AXIS: Standard form (x − h)²/a² − (y − k)²/b² = 1. Center: (h, k). Vertices: (h ± a, k). Foci: (h ± c, k) where c² = a² + b². Asymptotes: y − k = ±(b/a)(x − h).',
+          'HYPERBOLA — VERTICAL TRANSVERSE AXIS: Standard form (y − k)²/a² − (x − h)²/b² = 1. Center: (h, k). Vertices: (h, k ± a). Foci: (h, k ± c) where c² = a² + b². Asymptotes: y − k = ±(a/b)(x − h).',
+          'HYPERBOLA — KEY RELATIONS: c² = a² + b² (note + sign, unlike ellipse). The transverse axis connects the two vertices and has length 2a. The conjugate axis is perpendicular to the transverse axis and has length 2b. Asymptote slopes are ±b/a (horizontal) or ±a/b (vertical).',
+          'COMPLETING THE SQUARE — IDENTIFYING CONICS: General form Ax² + Cy² + Dx + Ey + F = 0. If only one squared term → parabola. If A = C (and A ≠ 0) → circle. If A ≠ C but same sign → ellipse. If A and C have opposite signs → hyperbola. To convert: group x-terms and y-terms, factor leading coefficients, complete the square inside each group (add the same value to both sides), then divide to reach standard form.',
+          'COMPLETING THE SQUARE — EXAMPLE: 2y² − 8y + 3x + 14 = 0 → 2(y² − 4y) = −3x − 14 → 2(y − 2)² − 8 = −3x − 14 → 2(y − 2)² = −3x − 6 → (y − 2)² = −(3/2)(x + 2). This is a horizontal parabola (opens left) with vertex (−2, 2), p = −3/8, focus (−19/8, 2), directrix x = −13/8.',
+          'COMPLETING THE SQUARE — ELLIPSE EXAMPLE: 9x² + 4y² − 18x + 16y − 11 = 0 → 9(x−1)² + 4(y+2)² = 36 → (x−1)²/4 + (y+2)²/9 = 1. Ellipse, vertical major axis, center (1, −2), a = 3, b = 2, c = √5, major vertices (1, 1) and (1, −5), minor vertices (3, −2) and (−1, −2), foci (1, −2 ± √5).',
+          'COMPLETING THE SQUARE — HYPERBOLA EXAMPLE: 4x² − 9y² − 16x − 18y − 29 = 0 → 4(x−2)² − 9(y+1)² = 36 → (x−2)²/9 − (y+1)²/4 = 1. Hyperbola, horizontal transverse axis, center (2, −1), a = 3, b = 2, c = √13, vertices (−1, −1) and (5, −1), asymptotes y + 1 = ±(2/3)(x − 2).',
+        ]
+      },
     ],
     qbank: [
       // Chapter 1 — Functions (unit: 1)
@@ -4479,6 +4497,86 @@ const CLASSES = [
       { unit: 9, q: 'P(no two consecutive flips match in 6 flips) = 2/64 =', choices: ['1/32', '1/16', '1/64', '2/64'], answer: 0 },
       { unit: 9, q: 'P(at least one pair of consecutive same-result flips in 6 flips) = 1 − 1/32 =', choices: ['31/32', '30/32', '63/64', '1/32'], answer: 0 },
       { unit: 9, q: 'Using the complement, P(event occurs) = 1 − P(event does NOT occur). This is most useful when:', choices: ['The event is simple', 'The complement has fewer cases to count', 'The probability is greater than 1/2', 'The trials are dependent'], answer: 1 },
+
+      // Chapter 10A — Conics (unit: 10)
+
+      // --- Parabola identification ---
+      { unit: 10, q: 'The standard form of a parabola with vertical axis is:', choices: ['(y − k)² = 4p(x − h)', '(x − h)² = 4p(y − k)', '(x − h)²/a² + (y − k)²/b² = 1', '(x − h)²/a² − (y − k)²/b² = 1'], answer: 1 },
+      { unit: 10, q: 'The standard form of a parabola with horizontal axis is:', choices: ['(x − h)² = 4p(y − k)', '(y − k)² = 4p(x − h)', '(y − k)²/a² − (x − h)²/b² = 1', '(x − h)²/b² + (y − k)²/a² = 1'], answer: 1 },
+      { unit: 10, q: 'For the parabola (x − h)² = 4p(y − k), the parabola opens UP when:', choices: ['p < 0', 'p > 0', 'h > 0', 'k > 0'], answer: 1 },
+      { unit: 10, q: 'For the parabola (y − k)² = 4p(x − h), the focus is located at:', choices: ['(h, k + p)', '(h − p, k)', '(h + p, k)', '(h, k − p)'], answer: 2 },
+      { unit: 10, q: 'For the parabola (x − h)² = 4p(y − k), the directrix equation is:', choices: ['y = k + p', 'y = k − p', 'x = h − p', 'x = h + p'], answer: 1 },
+      { unit: 10, q: 'For the parabola (y − k)² = 4p(x − h), the directrix equation is:', choices: ['y = k − p', 'y = k + p', 'x = h + p', 'x = h − p'], answer: 3 },
+      { unit: 10, q: 'The vertex of the parabola (x + 2)² = −2(y − 4) is:', choices: ['(2, 4)', '(−2, −4)', '(−2, 4)', '(2, −4)'], answer: 2 },
+      { unit: 10, q: 'For the parabola (x + 2)² = −2(y − 4), identify p:', choices: ['2', '−1/2', '−2', '1/2'], answer: 1 },
+      { unit: 10, q: 'For the parabola (x + 2)² = −2(y − 4) with vertex (−2, 4) and p = −1/2, the focus is:', choices: ['(−2, 7/2)', '(−2, 9/2)', '(−2, 3/2)', '(−5/2, 4)'], answer: 0 },
+      { unit: 10, q: 'For the parabola (x + 2)² = −2(y − 4) with vertex (−2, 4) and p = −1/2, the directrix is:', choices: ['y = 7/2', 'y = 9/2', 'x = −5/2', 'x = −3/2'], answer: 1 },
+      { unit: 10, q: 'The vertex of the parabola (y + 1)² = −2(x − 3) is:', choices: ['(−1, 3)', '(3, −1)', '(3, 1)', '(−3, 1)'], answer: 1 },
+
+      // --- Parabola: standard form from given characteristics ---
+      { unit: 10, q: 'A parabola has vertex (−2, 4) and focus (−2, 7/2). Because the focus is BELOW the vertex, the parabola opens:', choices: ['Right', 'Left', 'Up', 'Down'], answer: 3 },
+      { unit: 10, q: 'A vertical parabola has vertex (−2, 4) and focus (−2, 7/2). What is p?', choices: ['p = 7/2', 'p = −1/2', 'p = 1/2', 'p = −2'], answer: 1 },
+      { unit: 10, q: 'A vertical parabola has vertex (−2, 4) and p = −1/2. Its standard form is:', choices: ['(x + 2)² = 2(y − 4)', '(x − 2)² = −2(y + 4)', '(x + 2)² = −2(y − 4)', '(y − 4)² = −2(x + 2)'], answer: 2 },
+      { unit: 10, q: 'A horizontal parabola has vertex (3, −1) and directrix x = 7/2. What is p?', choices: ['p = 1/2', 'p = −1/2', 'p = 7/2', 'p = −7/2'], answer: 1 },
+      { unit: 10, q: 'A horizontal parabola with vertex (3, −1) and p = −1/2 has standard form:', choices: ['(y + 1)² = 2(x − 3)', '(y − 1)² = −2(x − 3)', '(x − 3)² = −2(y + 1)', '(y + 1)² = −2(x − 3)'], answer: 3 },
+      { unit: 10, q: 'A parabola has focus (4, −2) and directrix y = 5. The vertex y-coordinate k = (−2 + 5)/2 =', choices: ['3/2', '7/2', '3', '1'], answer: 0 },
+      { unit: 10, q: 'A parabola has focus (4, −2) and directrix y = 5. With k = 3/2, p = (focus y) − k = −2 − 3/2 =', choices: ['−7/2', '7/2', '−1/2', '1/2'], answer: 0 },
+      { unit: 10, q: 'A vertical parabola with focus (4, −2), directrix y = 5 has standard form:', choices: ['(x − 4)² = 14(y − 3/2)', '(x − 4)² = −14(y − 3/2)', '(x − 4)² = −7(y − 3/2)', '(y + 2)² = −14(x − 4)'], answer: 1 },
+      { unit: 10, q: 'A horizontal parabola has focus (0, −7/4) and directrix x = 5/3. The vertex h-coordinate h = (0 + 5/3)/2 =', choices: ['5/6', '5/3', '0', '10/3'], answer: 0 },
+      { unit: 10, q: 'For the parabola with focus (0, −7/4) and directrix x = 5/3, p = (focus x) − h = 0 − 5/6 =', choices: ['−5/6', '5/6', '−5/3', '5/3'], answer: 0 },
+      { unit: 10, q: 'A horizontal parabola with vertex (5/6, −7/4) and 4p = −10/3 has standard form:', choices: ['(y + 7/4)² = (−10/3)(x − 5/6)', '(x − 5/6)² = (−10/3)(y + 7/4)', '(y − 7/4)² = (10/3)(x + 5/6)', '(y + 7/4)² = (10/3)(x − 5/6)'], answer: 0 },
+
+      // --- Ellipse identification ---
+      { unit: 10, q: 'For the ellipse (x−h)²/a² + (y−k)²/b² = 1 with a > b, the major axis is:', choices: ['Vertical', 'Horizontal', 'Diagonal', 'Along y = x'], answer: 1 },
+      { unit: 10, q: 'For an ellipse with a² = 25 and b² = 9 (horizontal major axis), the foci satisfy c² =', choices: ['25 + 9 = 34', '25 − 9 = 16', '25 × 9 = 225', '25/9'], answer: 1 },
+      { unit: 10, q: 'For the ellipse (x−1)²/4 + (y+2)²/9 = 1, the major axis is:', choices: ['Horizontal (a² = 9)', 'Vertical (a² = 9)', 'Horizontal (a² = 4)', 'Vertical (a² = 4)'], answer: 1 },
+      { unit: 10, q: 'For the ellipse (x−1)²/4 + (y+2)²/9 = 1, the center is:', choices: ['(1, 2)', '(−1, 2)', '(1, −2)', '(−1, −2)'], answer: 2 },
+      { unit: 10, q: 'For the ellipse (x−1)²/4 + (y+2)²/9 = 1, c² = a² − b² = 9 − 4 = 5, so c =', choices: ['5', '√5', '√13', '2'], answer: 1 },
+      { unit: 10, q: 'For the ellipse (x−1)²/4 + (y+2)²/9 = 1, the major vertices are:', choices: ['(1 ± 2, −2)', '(1, −2 ± 3)', '(1 ± 3, −2)', '(1, −2 ± 2)'], answer: 1 },
+      { unit: 10, q: 'For the ellipse (x−1)²/4 + (y+2)²/9 = 1, the foci are:', choices: ['(1 ± √5, −2)', '(1, −2 ± √5)', '(1, −2 ± √13)', '(1 ± 2, −2)'], answer: 1 },
+
+      // --- Ellipse: standard form from given characteristics ---
+      { unit: 10, q: 'An ellipse has vertices (2, −1) and (2, 9). The center is at:', choices: ['(2, 4)', '(2, 5)', '(2, 8)', '(4, 2)'], answer: 0 },
+      { unit: 10, q: 'An ellipse has vertices (2, −1) and (2, 9). With center (2, 4), the semi-major axis a =', choices: ['10', '5', '4', '9'], answer: 1 },
+      { unit: 10, q: 'An ellipse has vertices (2, −1),(2, 9) and minor axis of length 6. With a = 5 and b = 3, its standard form is:', choices: ['(x−2)²/9 + (y−4)²/25 = 1', '(x−2)²/25 + (y−4)²/9 = 1', '(x−2)²/25 + (y−4)²/9 = 1', '(x−4)²/9 + (y−2)²/25 = 1'], answer: 0 },
+      { unit: 10, q: 'An ellipse has center (−3, 2), vertex (1, 2), and eccentricity e = 3/4. So a = 4 and c = a·e =', choices: ['3', '4', '2', '1'], answer: 0 },
+      { unit: 10, q: 'An ellipse has center (−3, 2), a = 4, c = 3. Then b² = a² − c² =', choices: ['7', '25', '9', '1'], answer: 0 },
+      { unit: 10, q: 'An ellipse with center (−3, 2), a = 4 (horizontal), b² = 7 has standard form:', choices: ['(x+3)²/7 + (y−2)²/16 = 1', '(x+3)²/16 + (y−2)²/7 = 1', '(x−3)²/16 + (y+2)²/7 = 1', '(x+3)²/16 + (y+2)²/7 = 1'], answer: 1 },
+      { unit: 10, q: 'An ellipse has vertices (±√15, 0) and foci (±3, 0). Its standard form is:', choices: ['x²/9 + y²/15 = 1', 'x²/15 + y²/6 = 1', 'x²/15 + y²/9 = 1', 'x²/6 + y²/15 = 1'], answer: 1 },
+      { unit: 10, q: 'An ellipse has foci (0, ±3/2) and major axis of length 5. With a = 5/2 and c = 3/2, b² =', choices: ['16/4 = 4', '25/4 − 9/4 = 4', '9/4', 'Both A and B'], answer: 3 },
+      { unit: 10, q: 'An ellipse with foci (0, ±3/2), a = 5/2 (vertical), b = 2 has standard form:', choices: ['x²/4 + y²/(25/4) = 1', 'x²/(25/4) + y²/4 = 1', 'x²/4 + y²/(9/4) = 1', 'y²/4 + x²/(25/4) = 1'], answer: 0 },
+
+      // --- Hyperbola identification ---
+      { unit: 10, q: 'For the hyperbola (x−h)²/a² − (y−k)²/b² = 1, the transverse axis is:', choices: ['Vertical', 'Horizontal', 'Diagonal', 'Along the asymptotes'], answer: 1 },
+      { unit: 10, q: 'For the hyperbola (y−k)²/a² − (x−h)²/b² = 1, the vertices are at:', choices: ['(h ± a, k)', '(h, k ± a)', '(h ± c, k)', '(h, k ± c)'], answer: 1 },
+      { unit: 10, q: 'For a hyperbola, c² equals:', choices: ['a² − b²', 'a² + b²', 'b² − a²', 'a·b'], answer: 1 },
+      { unit: 10, q: 'The asymptote slopes of the hyperbola (x−h)²/a² − (y−k)²/b² = 1 are:', choices: ['±a/b', '±b/a', '±a²/b²', '±1/(ab)'], answer: 1 },
+      { unit: 10, q: 'The asymptote slopes of the hyperbola (y−k)²/a² − (x−h)²/b² = 1 are:', choices: ['±b/a', '±a/b', '±a²/b²', '±a'], answer: 1 },
+
+      // --- Hyperbola: standard form from given characteristics ---
+      { unit: 10, q: 'A hyperbola has vertices (1, −2) and (1, 4). The center is:', choices: ['(1, 2)', '(1, 1)', '(1, 3)', '(1, 0)'], answer: 1 },
+      { unit: 10, q: 'A hyperbola has vertices (1, −2) and (1, 4). With center (1, 1), a =', choices: ['6', '3', '4', '2'], answer: 1 },
+      { unit: 10, q: 'A hyperbola has center (1, 1), a = 3 (vertical), asymptotes y = 3x − 2 and y = −3x + 4. The asymptote slope = a/b = 3, so b =', choices: ['3', '1', '9', '1/3'], answer: 1 },
+      { unit: 10, q: 'A hyperbola with center (1, 1), a = 3, b = 1, vertical transverse axis has standard form:', choices: ['(x−1)²/9 − (y−1)²/1 = 1', '(y−1)²/9 − (x−1)²/1 = 1', '(y−1)²/1 − (x−1)²/9 = 1', '(x−1)²/1 − (y−1)²/9 = 1'], answer: 1 },
+      { unit: 10, q: 'A hyperbola has foci (−4, 1) and (6, 1), and asymptotes with slope ±3/4. The center is:', choices: ['(1, 1)', '(2, 1)', '(0, 1)', '(−1, 1)'], answer: 0 },
+      { unit: 10, q: 'A hyperbola has center (1, 1), c = 5, and asymptote slope b/a = 3/4. With a = 4k and b = 3k: c² = 25k² = 25, so k =', choices: ['5', '1', '4', '3'], answer: 1 },
+      { unit: 10, q: 'A hyperbola with center (1, 1), a = 4, b = 3, horizontal transverse axis has standard form:', choices: ['(y−1)²/16 − (x−1)²/9 = 1', '(x−1)²/16 − (y−1)²/9 = 1', '(x−1)²/9 − (y−1)²/16 = 1', '(x+1)²/16 − (y+1)²/9 = 1'], answer: 1 },
+
+      // --- Completing the square to standard form ---
+      { unit: 10, q: 'For 2y² − 8y + 3x + 14 = 0, completing the square on y gives 2(y − 2)² = −3x − 6. This conic is:', choices: ['Ellipse', 'Hyperbola', 'Parabola', 'Circle'], answer: 2 },
+      { unit: 10, q: 'For 2y² − 8y + 3x + 14 = 0, the standard form is (y − 2)² = −(3/2)(x + 2). The vertex is:', choices: ['(−2, 2)', '(2, −2)', '(2, 2)', '(−2, −2)'], answer: 0 },
+      { unit: 10, q: 'For (y − 2)² = −(3/2)(x + 2), 4p = −3/2, so p =', choices: ['−3/8', '3/8', '−3/2', '3/2'], answer: 0 },
+      { unit: 10, q: 'For 4x² − 9y² − 16x − 18y − 29 = 0, completing the square gives 4(x−2)² − 9(y+1)² = 36. Dividing by 36, this is:', choices: ['(x−2)²/9 + (y+1)²/4 = 1 (ellipse)', '(x−2)²/9 − (y+1)²/4 = 1 (hyperbola)', '(x−2)²/4 − (y+1)²/9 = 1 (hyperbola)', '(y+1)²/9 − (x−2)²/4 = 1 (hyperbola)'], answer: 1 },
+      { unit: 10, q: 'For the hyperbola (x−2)²/9 − (y+1)²/4 = 1, the center, a, and b are:', choices: ['center (2, −1), a = 9, b = 4', 'center (2, −1), a = 3, b = 2', 'center (−2, 1), a = 3, b = 2', 'center (2, 1), a = 3, b = 2'], answer: 1 },
+      { unit: 10, q: 'For (x−2)²/9 − (y+1)²/4 = 1 with a = 3, b = 2, the vertices are:', choices: ['(2 ± 3, −1) = (−1, −1) and (5, −1)', '(2, −1 ± 3) = (2, 2) and (2, −4)', '(2 ± 2, −1)', '(2, −1 ± 2)'], answer: 0 },
+      { unit: 10, q: 'For 9x² + 4y² − 18x + 16y − 11 = 0, completing the square gives (x−1)²/4 + (y+2)²/9 = 1. This conic is:', choices: ['Hyperbola', 'Parabola', 'Ellipse', 'Circle'], answer: 2 },
+      { unit: 10, q: 'For (x−1)²/4 + (y+2)²/9 = 1, which is larger — a² or b²?', choices: ['a² = 9 (denominator of y-term, vertical major axis)', 'b² = 4 (denominator of x-term)', 'a² = 4 (denominator of x-term)', 'Both are equal'], answer: 0 },
+      { unit: 10, q: 'For (x−1)²/4 + (y+2)²/9 = 1, the major vertices are:', choices: ['(1 ± 2, −2)', '(1, −2 ± 3) = (1, 1) and (1, −5)', '(1 ± 3, −2)', '(1, −2 ± 2)'], answer: 1 },
+      { unit: 10, q: 'For 3x² + 5y² + 12x − 30y + 42 = 0, completing the square gives (x+2)²/5 + (y−3)²/3 = 1. This is:', choices: ['Hyperbola', 'Parabola', 'Ellipse (horizontal major axis since a² = 5)', 'Circle'], answer: 2 },
+      { unit: 10, q: 'For (x+2)²/5 + (y−3)²/3 = 1, c² = a² − b² = 5 − 3 = 2. The foci are at:', choices: ['(−2 ± √2, 3)', '(−2, 3 ± √2)', '(−2 ± √5, 3)', '(−2 ± 2, 3)'], answer: 0 },
+      { unit: 10, q: 'For y² − 4x² − 6y − 16x − 23 = 0, completing the square gives (y−3)²/16 − (x+2)²/4 = 1. This is:', choices: ['Ellipse', 'Parabola', 'Hyperbola with vertical transverse axis', 'Circle'], answer: 2 },
+      { unit: 10, q: 'For (y−3)²/16 − (x+2)²/4 = 1 with a = 4, b = 2, c² = 16 + 4 = 20, the foci are:', choices: ['(−2, 3 ± 2√5)', '(−2 ± 2√5, 3)', '(−2, 3 ± √20) = same as A', 'Both A and C (2√5 = √20)'], answer: 3 },
+      { unit: 10, q: 'For (y−3)²/16 − (x+2)²/4 = 1, the asymptotes (vertical transverse axis) are:', choices: ['y − 3 = ±(1/2)(x + 2)', 'y − 3 = ±2(x + 2)', 'y − 3 = ±(4)(x + 2)', 'y − 3 = ±(1/4)(x + 2)'], answer: 1 },
     ],
     get quiz() {
       return this.qbank.slice();
