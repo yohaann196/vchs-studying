@@ -4707,6 +4707,37 @@ const CLASSES = [
           'The amount of hours (general or church) that must be completed by the end of 1st semester is 15.',
         ]
       },
+      {
+        title: 'Unit 2 — Genesis Part 1: Creation, Fall, Noah, Tower of Babel',
+        content: [
+          'Framework for studying Genesis 1 & 2 — three questions to ask of any biblical text: "Who is God?" (identity), "What is He like?" (character/nature), and "What has He done?" (actions). These questions help us understand God as revealed in Scripture.',
+          'Genesis 1 & 2 — "Who is God?" Answer: God is the Creator — the one who brought all of creation into existence out of nothing.',
+          'Genesis 1 & 2 — "What is He like?" Answer: God is holy (set apart, morally perfect) and He is love (relational by nature). Everything He created He declared "good," revealing His goodness and care.',
+          'Genesis 1 & 2 — "What has He done?" Answer: God created the heavens, the earth, and everything in them. He created humanity — male and female — in His own image (Imago Dei).',
+          'Imago Dei (Image of God): Being made in God\'s image means humans are designed to reflect God in three areas: (1) His intellect and freedom, (2) His holiness, and (3) His triune nature of relationship and love.',
+          'Psalm 145:8–9: "The LORD is gracious and compassionate, slow to anger and rich in love. The LORD is good to all; he has compassion on all he has made." This passage reveals what God is like: gracious, compassionate, slow to anger, rich in love, and good to all.',
+          'The Spirit-Empowered Gospel (Acts 2 — Breshears): To be a follower of Jesus Christ means to follow the Jesus of the Gospels as Lord and Savior. The Gospel is what God has done through Jesus.',
+          'The Gospel (Acts 2): Jesus is the promised Messiah — the snake-crushing King that Israel and the world had been waiting for (Genesis 3:15). He is God the Son who came among us and demonstrated His divine authority by performing miracles (Acts 2:22).',
+          'Jesus died on the cross according to God the Father\'s prophetic (foretold) purpose (Acts 2:23). In dying on the cross, Jesus took upon Himself the curse for our sins (Isaiah 53:4–6; 1 Peter 2:24).',
+          'God the Father raised Jesus from the dead, just as it was foretold in the Old Testament (Acts 2:24–32). After raising Jesus, God the Father exalted (glorified) Jesus to be at His right hand (Acts 2:33–35).',
+          'Because Jesus rose back to life, He triumphed over death and Satan and poured out the Holy Spirit, just as foretold in the Old Testament (Acts 2:33–35).',
+          'Our response to the Gospel (Acts 2): In response to what God has done, we realize our need for salvation — deliverance from sin. This realization forms into a confession of our sin and brokenness of the heart, and believing that what God has done for us is true.',
+          'The result of our confession and belief is repentance (Acts 2:36–37). Repentance is when the Holy Spirit empowers us to turn from our sin, resulting in a change of mind about who/what is God in our lives, what is important, and what is good and bad. Repentance also results in a change of behavior that flows from a personal change of values.',
+          'We choose to accept the truth about Jesus and place faith in Him (Acts 2:41). Faith means taking God at His word and trusting Him with our lives.',
+          'Baptism is an important step in our new faith. Baptism is the visible expression of our connection with the death and resurrection of Jesus through repentance (changed mind) and faith (trust in God).',
+          'What God gives: Because of Jesus\' death and resurrection, God forgives our sins and declares us righteous — we receive a new identity and a new status in Him (Acts 2:38). We are given membership into the community of the Holy Spirit, which is the Church. In this community God\'s power and love are exercised by all of its members (Acts 2:41–47).',
+          'Genesis 3 — The Fall of Man: The serpent (Satan) tempted Eve by twisting God\'s word ("Did God really say…?") and denying God\'s warning ("You will not surely die"). Eve saw the fruit was good for food, pleasing to the eye, and desirable for gaining wisdom — she ate it and gave some to Adam.',
+          'Consequences of the Fall: guilt, shame (they hid from God), broken relationship with God, conflict between humans, pain in childbirth, hard labor, spiritual death, and physical death. Sin corrupted all areas of creation.',
+          'Genesis 3:15 — The Protoevangelium ("first gospel"): God promises to put enmity between the serpent and the woman, and between his offspring (anti-seed) and her offspring (seed). The seed of the woman will crush the serpent\'s head, though the serpent will strike his heel. This is the first promise of the coming Messiah (Jesus).',
+          'Genesis Theme — Seed vs. Anti-Seed: The "seed" refers to those who align with God and His purposes (beginning with Seth, then through Noah and Abraham). The "anti-seed" refers to those who align with the serpent/Satan and oppose God (e.g., Cain, Lamech, the builders of Babel). This conflict runs throughout the entire Bible.',
+          'Genesis Theme — Faith vs. Doubt: Faith is seen in characters who trust God\'s word and act obediently even in difficult circumstances (Abel, Noah, Abraham). Doubt is seen in characters who question or reject God\'s word and goodness (Eve in the garden; the builders at Babel who acted independently of God).',
+          'Genesis Theme — Covenant Blessing & Promise: God\'s covenant promises to bless, restore, and redeem. Beginning with the Protoevangelium (Gen 3:15), continuing through Noah\'s covenant (the rainbow, Gen 9), and then through God\'s covenant with Abraham (Gen 12, 15, 17).',
+          'Noah: The world had become so corrupt that every inclination of the human heart was only evil all the time (Genesis 6:5). Noah, however, found favor with God and was a righteous man, blameless among the people of his time — he walked with God. Noah represents the "seed" line continuing through judgment.',
+          'The Flood and Noah\'s Covenant: God sent a great flood to judge the wickedness of humanity but preserved Noah and his family in the ark. After the flood, God made a covenant with Noah and all living creatures, promising never again to destroy all life with a flood. The sign of the covenant is the rainbow.',
+          'Tower of Babel (Genesis 11): The whole earth had one language. The people gathered in the plain of Shinar and decided to build a city with a tower that reached to the heavens in order to make a name for themselves — an act of pride and self-sufficiency apart from God.',
+          'God\'s response to Babel: God came down, confused their language so they could not understand each other, and scattered them over all the earth. This is why there are many different languages and peoples in the world. Babel illustrates the anti-seed impulse of human pride opposing God.',
+        ]
+      },
     ],
     qbank: [
       // ── UNIT 1 — Intro to Christian Scripture and God's Chosen People ─────
@@ -4756,6 +4787,62 @@ const CLASSES = [
       { unit: 1, q: 'Church hours for community service may be earned through:', choices: ['Any church the student has visited', 'Only large, well-known churches', 'The student\'s own church only', 'Any religious organization'], answer: 2 },
       { unit: 1, q: 'What is the system used to track community service hours called?', choices: ['ServiceNow', 'ServTrack', 'HoursPlus', 'TrackServe'], answer: 1 },
       { unit: 1, q: 'How many community service hours (general or church) must be completed by the end of 1st semester?', choices: ['5 hours', '10 hours', '15 hours', '20 hours'], answer: 2 },
+
+      // ── UNIT 2 — Genesis Part 1: Creation, Fall, Noah, Tower of Babel ─────
+
+      // Genesis 1 & 2 — Who is God / What is He like / What has He done
+      { unit: 2, q: 'Which three questions does the course use as a framework for studying Genesis 1 & 2?', choices: ['"When?", "Where?", and "How?"', '"Who is God?", "What is He like?", and "What has He done?"', '"What did God say?", "Why did He say it?", and "What happened next?"', '"Who wrote it?", "When was it written?", and "Why does it matter?"'], answer: 1 },
+      { unit: 2, q: 'In Genesis 1 & 2, the answer to "Who is God?" is:', choices: ['God is a judge', 'God is the Creator who brought everything into existence', 'God is a distant observer of the universe', 'God is one of many divine beings'], answer: 1 },
+      { unit: 2, q: 'In Genesis 1 & 2, the answer to "What has He done?" is:', choices: ['God sent the prophets to Israel', 'God gave the law on Mount Sinai', 'God created the heavens, earth, and humanity in His own image', 'God promised to send a Messiah'], answer: 2 },
+      { unit: 2, q: 'What does "Imago Dei" mean?', choices: ['Image of the earth', 'Image of God', 'Identity of God', 'Inspiration of God'], answer: 1 },
+      { unit: 2, q: 'Being made in God\'s image means humans are designed to reflect God in which three areas?', choices: ['Strength, beauty, and intelligence', 'Intellect & freedom, holiness, and triune nature of relationship and love', 'Creativity, emotion, and logic', 'Leadership, wisdom, and compassion'], answer: 1 },
+      { unit: 2, q: 'According to Psalm 145:8–9, which of the following best describes what God is like?', choices: ['Distant and unknowable', 'Strict and demanding', 'Gracious, compassionate, slow to anger, rich in love, and good to all', 'Powerful but indifferent to people'], answer: 2 },
+      { unit: 2, q: 'Psalm 145:8 says the LORD is "slow to __________ and rich in __________."', choices: ['change; power', 'anger; love', 'speak; wisdom', 'forgive; judgment'], answer: 1 },
+      { unit: 2, q: 'Which of the following reflects what God is like, based on the repeated declaration in Genesis 1?', choices: ['God is angry', 'God is indifferent', 'God is good — He declared each part of creation "good"', 'God is fearful'], answer: 2 },
+
+      // Acts 2 / Spirit-Empowered Gospel
+      { unit: 2, q: 'What does it mean to be a follower of Jesus Christ?', choices: ['To attend church occasionally', 'To follow the Jesus of the Gospels as Lord and Savior', 'To try to be a good person by your own effort', 'To study the Bible as a historical document'], answer: 1 },
+      { unit: 2, q: 'According to Acts 2, Jesus is the promised Messiah described as:', choices: ['The conquering Roman emperor', 'The snake-crushing King that Israel and the world had been waiting for', 'A great moral teacher only', 'The final prophet of Israel'], answer: 1 },
+      { unit: 2, q: 'According to Acts 2:22, how did Jesus demonstrate his divine authority while on earth?', choices: ['By writing the New Testament', 'By performing miracles', 'By leading a political revolution', 'By debating religious leaders in the Temple'], answer: 1 },
+      { unit: 2, q: 'According to Acts 2:23, Jesus died on the cross according to:', choices: ['The plan of the Roman government', 'A random historical accident', 'God the Father\'s prophetic (foretold) purpose', 'The disciples\' decision'], answer: 2 },
+      { unit: 2, q: 'According to Isaiah 53:4–6 and 1 Peter 2:24, what did Jesus take upon himself when he died?', choices: ['The sins of only the Jewish people', 'Nothing — his death was only symbolic', 'The curse and punishment for our sins', 'The Roman government\'s judgment'], answer: 2 },
+      { unit: 2, q: 'According to Acts 2:24–32, what did God the Father do to Jesus after his death?', choices: ['Left him in the tomb as a memorial', 'Raised him from the dead, as foretold in the Old Testament', 'Took him directly to heaven without a resurrection', 'Sent an angel in his place'], answer: 1 },
+      { unit: 2, q: 'According to Acts 2:33–35, after raising Jesus, God the Father:', choices: ['Sent him back to earth to reign as a king', 'Exalted (glorified) Jesus to be at his right hand', 'Had Jesus return to his former life', 'Sent Jesus to judge the living immediately'], answer: 1 },
+      { unit: 2, q: 'According to Acts 2:33–35, because Jesus rose to life he triumphed over death and Satan and:', choices: ['Established a new political nation', 'Wrote the New Testament', 'Poured out the Holy Spirit, as foretold in the Old Testament', 'Returned to Galilee to teach again'], answer: 2 },
+      { unit: 2, q: 'In response to what God has done, what do we first realize?', choices: ['That we are basically good people who just need improvement', 'Our need for salvation — deliverance from sin', 'That religion is a personal choice', 'That God does not care about our behavior'], answer: 1 },
+      { unit: 2, q: 'What is repentance, according to the Spirit-Empowered Gospel (Acts 2)?', choices: ['Feeling sorry for yourself', 'The Holy Spirit empowering us to turn from our sin, resulting in a change of mind and values', 'Saying a prayer once', 'Promising to attend church more often'], answer: 1 },
+      { unit: 2, q: 'What does repentance result in?', choices: ['Only a change of emotion', 'Only a change of words we say', 'A change of behavior that flows from a personal change of values', 'No outward change at all'], answer: 2 },
+      { unit: 2, q: 'According to Acts 2:41, what do we do when we accept the truth about Jesus?', choices: ['We receive a certificate of belief', 'We place faith in him', 'We join a synagogue', 'We memorize Scripture'], answer: 1 },
+      { unit: 2, q: 'How is faith defined in the Spirit-Empowered Gospel?', choices: ['Believing something without any evidence', 'Taking God at His word and trusting Him with our lives', 'An emotional feeling during worship', 'Agreeing with church doctrine'], answer: 1 },
+      { unit: 2, q: 'What is baptism, according to the Spirit-Empowered Gospel?', choices: ['A ritual required to earn salvation', 'A cultural tradition with no spiritual meaning', 'The visible expression of our connection with the death and resurrection of Jesus through repentance and faith', 'A ceremony for children only'], answer: 2 },
+      { unit: 2, q: 'According to Acts 2:38, what does God give because of Jesus\' death and resurrection?', choices: ['Wealth and prosperity', 'Forgiveness of sins', 'Political freedom', 'Perfect physical health'], answer: 1 },
+      { unit: 2, q: 'According to Acts 2:38, when God forgives us, He also declares us righteous. This means we receive:', choices: ['A new job and new friends', 'A new identity and a new status in God', 'Freedom from all future temptation', 'A guarantee that nothing bad will happen to us'], answer: 1 },
+      { unit: 2, q: 'The community of the Holy Spirit that believers are given membership into is:', choices: ['A political party', 'The Church', 'A secret society', 'A school community only'], answer: 1 },
+
+      // Genesis 3 — Fall of Man
+      { unit: 2, q: 'How did the serpent tempt Eve in Genesis 3?', choices: ['By offering her physical strength', 'By twisting God\'s word and denying God\'s warning ("You will not surely die")', 'By bribing her with gold', 'By threatening her with punishment'], answer: 1 },
+      { unit: 2, q: 'Why did Eve eat the fruit in Genesis 3?', choices: ['She was forced to by Adam', 'She saw it was good for food, pleasing to the eye, and desirable for gaining wisdom', 'She did not understand that God had forbidden it', 'The serpent physically forced her'], answer: 1 },
+      { unit: 2, q: 'What are the consequences of the Fall in Genesis 3?', choices: ['Only physical hardship, no spiritual effects', 'Humans became slightly less intelligent', 'Guilt, shame, broken relationship with God, conflict, pain, hard labor, spiritual death, and physical death', 'God destroyed the earth and started over'], answer: 2 },
+      { unit: 2, q: 'Genesis 3:15 is called the "Protoevangelium." What does this term mean?', choices: ['The last judgment', 'The original sin', 'The first gospel — the first promise of a coming Messiah (seed) who will crush the serpent', 'The first commandment'], answer: 2 },
+      { unit: 2, q: 'In Genesis 3:15, the "seed of the woman" ultimately refers to:', choices: ['All women in history', 'The nation of Israel collectively', 'Jesus, who would crush the serpent\'s head', 'Adam\'s physical descendants in general'], answer: 2 },
+
+      // Genesis Themes
+      { unit: 2, q: 'In Genesis, the "Seed" theme refers to:', choices: ['Agricultural farming practices in ancient Israel', 'Those who align with God and His purposes — the line that will produce the promised Messiah', 'The literal seeds planted in the Garden of Eden', 'The family of Abraham only'], answer: 1 },
+      { unit: 2, q: 'In Genesis, the "Anti-Seed" refers to:', choices: ['Female descendants of Eve', 'Those who align with Satan and oppose God (e.g., Cain, Lamech, builders of Babel)', 'Seeds that failed to grow', 'The enemies of Israel in battle'], answer: 1 },
+      { unit: 2, q: 'The theme of Faith in Genesis is illustrated by characters who:', choices: ['Achieved great wealth', 'Questioned God\'s existence', 'Trusted God\'s word and acted obediently, even in difficult circumstances (Abel, Noah, Abraham)', 'Followed the law perfectly'], answer: 2 },
+      { unit: 2, q: 'The theme of Doubt in Genesis is illustrated by characters who:', choices: ['Prayed frequently', 'Questioned or rejected God\'s word and acted independently of God (e.g., Eve, the builders of Babel)', 'Struggled with grief', 'Lacked military strength'], answer: 1 },
+      { unit: 2, q: 'The "Covenant Blessing & Promise" theme in Genesis tracks:', choices: ['The agricultural seasons of Israel', 'God\'s recurring covenant promises to bless, restore, and redeem — from the Protoevangelium through Noah and Abraham', 'Israel\'s military victories', 'The genealogies of the patriarchs only'], answer: 1 },
+
+      // Noah
+      { unit: 2, q: 'What was the state of the world in Noah\'s time, according to Genesis 6:5?', choices: ['People were mostly peaceful but lacked faith', 'Every inclination of the human heart was only evil all the time', 'The world was improving morally', 'Only a few individuals were wicked'], answer: 1 },
+      { unit: 2, q: 'How is Noah described in Genesis 6?', choices: ['A mighty warrior', 'A righteous man, blameless among the people of his time, who walked with God', 'The strongest man in the ancient world', 'A prophet who wrote Scripture'], answer: 1 },
+      { unit: 2, q: 'After the flood, God made a covenant with Noah. What was the sign of this covenant?', choices: ['A burning bush', 'A pillar of fire', 'The rainbow', 'Two stone tablets'], answer: 2 },
+      { unit: 2, q: 'What did God promise in his covenant with Noah?', choices: ['To give Noah the promised land', 'Never again to destroy all life with a flood', 'To make Noah\'s descendants a great nation', 'To give Noah the Ten Commandments'], answer: 1 },
+
+      // Tower of Babel
+      { unit: 2, q: 'What did the people at Babel decide to build, and why?', choices: ['A great temple to worship God properly', 'A city and a tower reaching to the heavens to make a name for themselves — an act of pride apart from God', 'A large army to defend against enemies', 'A school to preserve knowledge'], answer: 1 },
+      { unit: 2, q: 'How did God respond to the Tower of Babel?', choices: ['He destroyed the tower with fire', 'He sent a flood', 'He confused their language and scattered them over all the earth', 'He sent angels to arrest the builders'], answer: 2 },
+      { unit: 2, q: 'What does the Tower of Babel illustrate in relation to the Genesis themes?', choices: ['The seed line reaching its full potential', 'Human faith in God\'s promises', 'The anti-seed impulse of human pride and self-sufficiency opposing God', 'The fulfillment of the Protoevangelium'], answer: 2 },
     ],
     get quiz() {
       return this.qbank.slice();
