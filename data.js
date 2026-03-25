@@ -3404,6 +3404,26 @@ const CLASSES = [
           'COFACTOR EXPANSION STRATEGY: When computing a 3×3 or larger determinant, always look for rows or columns containing zeros — expanding along them reduces the number of 2×2 sub-determinants you need to compute. The cofactor Cᵢⱼ = (−1)^(i+j) · Mᵢⱼ where Mᵢⱼ is the minor (determinant of the submatrix obtained by deleting row i and column j).',
         ]
       },
+      {
+        title: 'Chapter 9 — Sequences, Series, and Probability',
+        content: [
+          'ARITHMETIC SEQUENCES: A sequence is arithmetic if consecutive terms differ by a constant d (the common difference). The nth term is aₙ = a₁ + (n−1)d. To find d: d = a₂ − a₁. Example: 9, 5, 1, … has d = −4 and aₙ = 9 + (n−1)(−4) = 13 − 4n.',
+          'ARITHMETIC SERIES (SIGMA NOTATION): The sum of an arithmetic sequence from index m to n has (n−m+1) terms. Sum = (# of terms)·(first + last)/2. Example: Σ_{k=3}^{14} (−3k+1): first term = −3(3)+1 = −8, last = −3(14)+1 = −41, 12 terms → sum = 12·(−8+(−41))/2 = 12·(−49/2) = −294.',
+          'GEOMETRIC SEQUENCES: A sequence is geometric if each term is multiplied by a constant r (the common ratio). The nth term is aₙ = a₁·r^(n−1). To find r: r = a₂/a₁. Example: 1, 1/2, 1/4, … has r = 1/2 and aₙ = (1/2)^(n−1).',
+          'FINITE GEOMETRIC SERIES: Sum of a geometric sequence with first term a₁, ratio r ≠ 1, and n terms: S = a₁·(1 − rⁿ)/(1 − r). Example: Σ_{k=2}^{10} (1/2)^(k−2) has a₁ = 1, r = 1/2, 9 terms → S = 1·(1−(1/2)⁹)/(1−1/2) = 2·(511/512) = 511/256.',
+          'INFINITE GEOMETRIC SERIES: If |r| < 1, the infinite series converges: S∞ = a₁/(1 − r). If |r| ≥ 1, the series diverges. Example: Σ_{n=0}^∞ (1/10)^(n+3) = (1/10)³ · Σ_{n=0}^∞ (1/10)^n = (1/1000)·(1/(1−1/10)) = (1/1000)·(10/9) = 1/900.',
+          'SIGMA NOTATION: Σ_{k=m}^{n} f(k) means sum f(m) + f(m+1) + … + f(n). For geometric sums use the geometric series formula; for arithmetic sums use the arithmetic series formula. Closed-form identities: Σ_{k=1}^{n} k = n(n+1)/2, Σ_{k=1}^{n} 1 = n.',
+          'BINOMIAL COEFFICIENTS: C(n,k) = n!/(k!(n−k)!), read "n choose k." Counts ways to choose k items from n without regard to order. Pascal\'s triangle: C(n,k) = C(n−1,k−1) + C(n−1,k). Example: C(16,5) = (16·15·14·13·12)/120 = 4368.',
+          'BINOMIAL THEOREM: (a + b)ⁿ = Σ_{k=0}^{n} C(n,k) aⁿ⁻ᵏ bᵏ. The (k+1)th term is C(n,k)·aⁿ⁻ᵏ·bᵏ. Signs alternate when b is negative. Example: (2x−y)⁶ = 64x⁶ − 192x⁵y + 240x⁴y² − 160x³y³ + 60x²y⁴ − 12xy⁵ + y⁶. Example: (5x+3y)³ = 125x³ + 225x²y + 135xy² + 27y³.',
+          'FACTORIALS AND PERMUTATIONS: n! = n·(n−1)·…·1 with 0! = 1. P(n,r) = n!/(n−r)! counts ordered arrangements of r items from n distinct items. Example: P(8,3) = 8·7·6 = 336. For a 9-digit number with no repeated digits divisible by 5, use case analysis on the last digit (0 or 5) and count valid first digits separately.',
+          'CIRCULAR PERMUTATIONS: Arrangements around a circle are identical if one is a rotation of another. Number of circular arrangements of n distinct objects = (n−1)!. When two specific people must be adjacent, treat them as one unit: (n−1)! × 2 (for pair\'s internal order). Example: 10 friends at circular table with Abby & Bryan adjacent = 2 × 8! = 80640.',
+          'PERMUTATIONS WITH REPEATED ELEMENTS: If n objects have groups of identical items of sizes n₁, n₂, …, nₖ, the number of distinct arrangements = n!/(n₁! · n₂! · … · nₖ!). Example: REDEEMER has 8 letters — R(2), E(4), D(1), M(1) → 8!/(2!·4!·1!·1!) = 40320/48 = 840.',
+          'COMBINATIONS: C(n,r) = n!/(r!(n−r)!) counts subsets of r items from n (order does not matter). To count with group constraints, multiply: C(6,2)·C(6,2) = 15·15 = 225 (2 boys from 6, 2 girls from 6). Multi-stage team selection: choose A-team first, then B-team from remainder: C(18,5)·C(13,5) = 8568·1287 = 11,027,016.',
+          'PROBABILITY AND COMPLEMENTARY COUNTING: P(event) = (favorable)/(total). Complementary rule: P(A) = 1 − P(Aᶜ). Use complement for "at least" problems. Example: P(at least 2 heads in 10 flips) = 1 − P(0 heads) − P(1 head) = 1 − 1/1024 − 10/1024 = 1013/1024. Example: P(at least one pair of consecutive same-result flips in 6 flips) = 1 − P(all alternating) = 1 − 2/64 = 31/32.',
+          'BINOMIAL PROBABILITY: For n independent Bernoulli trials each with success probability p, P(X=k) = C(n,k)·pᵏ·(1−p)^(n−k). Sum over k to get cumulative probabilities. For a fair coin, p = 1/2, so each term is C(n,k)/2ⁿ.',
+          'CARD COUNTING — HAND PROBABILITIES: In a standard 52-card deck: 13 ranks, 4 suits, C(52,n) total n-card hands. No-repeating-suits 4-card hand: one card from each suit = 13⁴ = 28561. Three-of-a-kind in 4 cards: C(13,1)·C(4,3)·C(12,1)·C(4,1) = 2496, P = 2496/C(52,4) = 2496/270725. Straight flush in 5 cards: 10 straights × 4 suits = 40, P = 40/C(52,5) = 40/2598960 = 1/64974.',
+        ]
+      },
     ],
     qbank: [
       // Chapter 1 — Functions (unit: 1)
@@ -4330,6 +4350,130 @@ const CLASSES = [
       { unit: 7, q: 'det(Iₙ) for any n×n identity matrix equals:', choices: ['0', '1', 'n', 'n²'], answer: 1 },
       { unit: 7, q: 'If A is a 3×3 matrix with det(A) = 5, then det(2A) =', choices: ['10', '40', '5', '2·5 = 10'], answer: 1 },
       { unit: 7, q: 'A zero row in a matrix (all entries are 0) means:', choices: ['The matrix is invertible', 'The determinant is 0 (matrix is singular)', 'The matrix equals the identity', 'The system has a unique solution'], answer: 1 },
+
+      // Chapter 9 — Sequences, Series, and Probability (unit: 8)
+
+      // --- Arithmetic sequences ---
+      { unit: 8, q: 'What is the formula for the nth term of an arithmetic sequence?', choices: ['aₙ = a₁ · rⁿ⁻¹', 'aₙ = a₁ + (n−1)d', 'aₙ = a₁ + nd', 'aₙ = a₁ · n + d'], answer: 1 },
+      { unit: 8, q: 'Find the common difference of the sequence 9, 5, 1, …', choices: ['4', '−4', '5', '−5'], answer: 1 },
+      { unit: 8, q: 'For the arithmetic sequence 9, 5, 1, …, the nth term formula is:', choices: ['aₙ = 9 − 4n', 'aₙ = 13 − 4n', 'aₙ = 9 + 4n', 'aₙ = 4n − 9'], answer: 1 },
+      { unit: 8, q: 'Verify: for the sequence 9, 5, 1, …, a₁ = 13 − 4(1) =', choices: ['9 ✓', '13', '8', '4'], answer: 0 },
+      { unit: 8, q: 'Verify: for the sequence 9, 5, 1, …, a₂ = 13 − 4(2) =', choices: ['5 ✓', '1', '9', '6'], answer: 0 },
+      { unit: 8, q: 'What is the 10th term of the arithmetic sequence with a₁ = 3 and d = 5?', choices: ['48', '53', '50', '45'], answer: 0 },
+      { unit: 8, q: 'An arithmetic sequence has a₁ = 2 and a₄ = 14. What is d?', choices: ['4', '3', '6', '12'], answer: 0 },
+      { unit: 8, q: 'What is the 20th term of the sequence 9, 5, 1, …? (aₙ = 13 − 4n)', choices: ['−67', '−63', '−71', '−75'], answer: 0 },
+
+      // --- Arithmetic series ---
+      { unit: 8, q: 'The number of terms in Σ_{n=3}^{14} (−3n+1) is:', choices: ['14', '12', '11', '13'], answer: 1 },
+      { unit: 8, q: 'The first term of Σ_{n=3}^{14} (−3n+1) (i.e., when n=3) is:', choices: ['−8', '−7', '8', '−9'], answer: 0 },
+      { unit: 8, q: 'The last term of Σ_{n=3}^{14} (−3n+1) (i.e., when n=14) is:', choices: ['−41', '−43', '−39', '−42'], answer: 0 },
+      { unit: 8, q: 'Σ_{n=3}^{14} (−3n+1) = 12·(−8 + (−41))/2 =', choices: ['−294', '−588', '−147', '294'], answer: 0 },
+      { unit: 8, q: 'The sum formula for an arithmetic series with n terms, first term a₁, last term aₙ is:', choices: ['n·a₁', 'n·(a₁+aₙ)/2', '(a₁+aₙ)/n', 'n·(a₁·aₙ)'], answer: 1 },
+      { unit: 8, q: 'Sum of the arithmetic series 1 + 2 + … + 100 =', choices: ['5000', '5050', '100·51', '4950'], answer: 1 },
+
+      // --- Geometric sequences ---
+      { unit: 8, q: 'The formula for the nth term of a geometric sequence is:', choices: ['aₙ = a₁ + (n−1)r', 'aₙ = a₁ · rⁿ⁻¹', 'aₙ = a₁ · rⁿ', 'aₙ = a₁ / rⁿ⁻¹'], answer: 1 },
+      { unit: 8, q: 'Find the common ratio of the sequence 1, 1/2, 1/4, …', choices: ['2', '1/2', '−1/2', '1/4'], answer: 1 },
+      { unit: 8, q: 'For Σ_{n=2}^{10} (1/2)^(n−2), the first term (n=2) is:', choices: ['1/2', '1', '1/4', '2'], answer: 1 },
+      { unit: 8, q: 'For Σ_{n=2}^{10} (1/2)^(n−2), the number of terms is:', choices: ['10', '8', '9', '11'], answer: 2 },
+      { unit: 8, q: 'Σ_{n=2}^{10} (1/2)^(n−2) using the geometric series formula S = a₁(1−rⁿ)/(1−r) with a₁=1, r=1/2, n=9:', choices: ['511/256', '255/256', '511/512', '1023/512'], answer: 0 },
+
+      // --- Finite geometric series: Σ (1/3)^n ---
+      { unit: 8, q: 'For Σ_{n=0}^{4} (1/3)^n, the first term (n=0) is:', choices: ['0', '1', '1/3', '3'], answer: 1 },
+      { unit: 8, q: 'For Σ_{n=0}^{4} (1/3)^n, the number of terms is:', choices: ['4', '3', '5', '6'], answer: 2 },
+      { unit: 8, q: 'For Σ_{n=0}^{4} (1/3)^n, the last term (n=4) is:', choices: ['1/81', '1/27', '1/243', '1/64'], answer: 0 },
+      { unit: 8, q: 'Σ_{n=0}^{4} (1/3)^n = (1−(1/3)⁵)/(1−1/3) =', choices: ['121/81', '242/243', '121/243', '81/121'], answer: 0 },
+
+      // --- Infinite geometric series ---
+      { unit: 8, q: 'An infinite geometric series Σ_{n=0}^∞ a·rⁿ converges when:', choices: ['r > 0', '|r| < 1', 'r > 1', '|r| = 1'], answer: 1 },
+      { unit: 8, q: 'The sum of the infinite geometric series with a₁ = 1, r = 1/2 is:', choices: ['2', '1', '3', '1/2'], answer: 0 },
+      { unit: 8, q: 'Σ_{n=0}^∞ (1/10)^(n+3) can be rewritten as:', choices: ['(1/10)³ · Σ_{n=0}^∞ (1/10)ⁿ', '(1/10)³ + Σ_{n=0}^∞ (1/10)ⁿ', 'Σ_{n=3}^∞ (1/10)ⁿ', 'Both A and C are equivalent'], answer: 3 },
+      { unit: 8, q: 'Σ_{n=0}^∞ (1/10)^(n+3) = (1/1000) × 1/(1−1/10) =', choices: ['1/900', '1/9000', '10/9000', '1/100'], answer: 0 },
+      { unit: 8, q: 'The infinite series 1 + 2 + 4 + 8 + … (r=2) diverges because:', choices: ['a₁ > 1', 'r ≥ 1', 'r is an integer', 'a₁ = 1'], answer: 1 },
+      { unit: 8, q: 'Find the sum: Σ_{n=0}^∞ (3/4)ⁿ', choices: ['3', '4', '7/4', '4/3 − 1'], answer: 1 },
+
+      // --- Binomial coefficients ---
+      { unit: 8, q: 'C(n,k) = n!/(k!(n−k)!). Compute C(5,2):', choices: ['10', '20', '5', '15'], answer: 0 },
+      { unit: 8, q: 'C(16,5) = (16·15·14·13·12)/120 =', choices: ['4368', '4320', '5460', '3360'], answer: 0 },
+      { unit: 8, q: 'Pascal\'s triangle identity: C(n,k) = C(n−1,k−1) + C(n−1,k). So C(5,2) =', choices: ['C(4,1)+C(4,2) = 4+6 = 10 ✓', 'C(4,1)+C(4,3) = 4+4 = 8', 'C(3,1)+C(4,2) = 3+6 = 9', 'C(5,1)+C(4,1) = 5+4 = 9'], answer: 0 },
+      { unit: 8, q: 'C(n,0) for any n equals:', choices: ['n', '0', '1', 'n!'], answer: 2 },
+      { unit: 8, q: 'C(n,n) for any n equals:', choices: ['n', '0', '1', 'n!'], answer: 2 },
+      { unit: 8, q: 'C(8,3) =', choices: ['56', '42', '336', '24'], answer: 0 },
+      { unit: 8, q: 'C(n,r) = C(n, n−r). So C(16,11) =', choices: ['C(16,5) = 4368', 'C(16,5) = 4380', '16!/11!', 'None of the above'], answer: 0 },
+
+      // --- Binomial theorem ---
+      { unit: 8, q: 'The general term of (a+b)ⁿ is:', choices: ['C(n,k)·aⁿbᵏ', 'C(n,k)·aⁿ⁻ᵏ·bᵏ', 'C(n,k)·aᵏ·bⁿ', 'n!·aⁿ⁻ᵏ·bᵏ'], answer: 1 },
+      { unit: 8, q: 'In (2x−y)⁶, the k=0 term C(6,0)(2x)⁶(−y)⁰ =', choices: ['64x⁶', '−64x⁶', '32x⁶', '1'], answer: 0 },
+      { unit: 8, q: 'In (2x−y)⁶, the k=1 term C(6,1)(2x)⁵(−y)¹ =', choices: ['−192x⁵y', '192x⁵y', '−96x⁵y', '−32x⁵y'], answer: 0 },
+      { unit: 8, q: 'In (2x−y)⁶, the k=2 term C(6,2)(2x)⁴(−y)² =', choices: ['240x⁴y²', '−240x⁴y²', '960x⁴y²', '60x⁴y²'], answer: 0 },
+      { unit: 8, q: 'In (2x−y)⁶, the k=3 term C(6,3)(2x)³(−y)³ =', choices: ['−160x³y³', '160x³y³', '−240x³y³', '−20x³y³'], answer: 0 },
+      { unit: 8, q: '(2x−y)⁶ fully expanded begins:', choices: ['64x⁶ − 192x⁵y + 240x⁴y² − 160x³y³ + …', '64x⁶ + 192x⁵y + 240x⁴y² + 160x³y³ + …', '32x⁶ − 96x⁵y + …', '64x⁶ − 192x⁵y − 240x⁴y² + …'], answer: 0 },
+      { unit: 8, q: 'In (5x+3y)³, the k=0 term is:', choices: ['125x³', '75x³', '25x³', '5x³'], answer: 0 },
+      { unit: 8, q: 'In (5x+3y)³, the k=1 term C(3,1)(5x)²(3y) =', choices: ['225x²y', '75x²y', '45x²y', '150x²y'], answer: 0 },
+      { unit: 8, q: 'In (5x+3y)³, the k=2 term C(3,2)(5x)(3y)² =', choices: ['135xy²', '45xy²', '270xy²', '90xy²'], answer: 0 },
+      { unit: 8, q: '(5x+3y)³ fully expanded is:', choices: ['125x³ + 225x²y + 135xy² + 27y³', '125x³ + 75x²y + 45xy² + 27y³', '125x³ + 225x²y + 135xy² + 9y³', '25x³ + 225x²y + 135xy² + 27y³'], answer: 0 },
+
+      // --- Permutations and counting ---
+      { unit: 8, q: '0! equals:', choices: ['0', '1', 'undefined', 'depends on context'], answer: 1 },
+      { unit: 8, q: 'P(n,r) = n!/(n−r)! counts:', choices: ['Unordered subsets of size r', 'Ordered arrangements of r items from n', 'Circular arrangements', 'Repeated arrangements'], answer: 1 },
+      { unit: 8, q: 'P(5,3) =', choices: ['10', '60', '20', '120'], answer: 1 },
+      { unit: 8, q: 'How many 9-digit numbers with no repeated digits are divisible by 5?', choices: ['362880', '685440', '322560', '1008000'], answer: 1 },
+      { unit: 8, q: 'For 9-digit numbers divisible by 5 (no repeats), when last digit = 0:', choices: ['9 × 8! = 362880', '8 × 8! = 322560', '9! = 362880', '8! = 40320'], answer: 0 },
+      { unit: 8, q: 'For 9-digit numbers divisible by 5 (no repeats), when last digit = 5 (0 must appear somewhere, first digit ≠ 0 or 5):', choices: ['8 × P(8,7) = 322560', '9 × P(8,7) = 362880', '7 × 8! = 282240', '8 × 8! = 322560'], answer: 0 },
+
+      // --- Circular permutations ---
+      { unit: 8, q: 'The number of circular arrangements of n distinct objects is:', choices: ['n!', '(n−1)!', 'n!/2', 'n·(n−1)!'], answer: 1 },
+      { unit: 8, q: '10 friends sit at a circular table. How many arrangements are there (without any restrictions)?', choices: ['10!', '9! = 362880', '10!/2', '9!/2'], answer: 1 },
+      { unit: 8, q: 'With Abby and Bryan seated together at the circular table of 10, treat them as one unit. How many units are there?', choices: ['10', '9', '8', '11'], answer: 1 },
+      { unit: 8, q: 'With Abby and Bryan together (as one unit), circular arrangements of the 9 units =', choices: ['9!', '8!', '(9−1)! = 8!', 'Both B and C'], answer: 3 },
+      { unit: 8, q: 'Abby and Bryan can switch places within the adjacent pair in how many ways?', choices: ['1', '2', '4', '6'], answer: 1 },
+      { unit: 8, q: '10 friends at a circular table, Abby and Bryan adjacent: total arrangements =', choices: ['2 × 8! = 80640', '2 × 9! = 725760', '8! = 40320', '9! = 362880'], answer: 0 },
+
+      // --- Permutations with repeated elements ---
+      { unit: 8, q: 'How many distinct arrangements of n objects with groups of identical items of sizes n₁, n₂, … exist?', choices: ['n!', 'n!/(n₁!·n₂!·…)', 'n!/(n₁+n₂+…)!', 'n·n₁!·n₂!'], answer: 1 },
+      { unit: 8, q: 'REDEEMER has how many total letters?', choices: ['7', '8', '9', '6'], answer: 1 },
+      { unit: 8, q: 'In REDEEMER, how many times does E appear?', choices: ['3', '4', '5', '2'], answer: 1 },
+      { unit: 8, q: 'In REDEEMER, how many times does R appear?', choices: ['1', '2', '3', '4'], answer: 1 },
+      { unit: 8, q: 'Unique arrangements of REDEEMER = 8! / (2! × 4!) =', choices: ['840', '420', '1680', '560'], answer: 0 },
+      { unit: 8, q: 'How many distinct arrangements of MISSISSIPPI (with M×1, I×4, S×4, P×2) are there?', choices: ['34650', '69300', '11! / (4!·4!·2!)', 'Both A and C'], answer: 3 },
+
+      // --- Combinations ---
+      { unit: 8, q: 'C(n,r) counts selections where order does NOT matter. C(6,2) =', choices: ['30', '15', '12', '10'], answer: 1 },
+      { unit: 8, q: 'In a class with 6 boys and 6 girls, how many groups of 4 with exactly 2 boys and 2 girls?', choices: ['C(6,2)·C(6,2) = 225', 'C(12,4) = 495', 'C(6,2)+C(6,2) = 30', 'C(6,4) = 15'], answer: 0 },
+      { unit: 8, q: 'C(6,2) =', choices: ['12', '30', '15', '36'], answer: 2 },
+      { unit: 8, q: 'C(6,2)·C(6,2) = 15·15 =', choices: ['30', '225', '90', '180'], answer: 1 },
+      { unit: 8, q: 'A team of 5-person A and 5-person B is selected from 18 players. First, C(18,5) A-team choices =', choices: ['8568', '8568', '15504', '1820'], answer: 0 },
+      { unit: 8, q: 'After selecting 5 for the A-team, C(13,5) ways to choose the B-team from the remaining 13 =', choices: ['1287', '715', '1716', '2002'], answer: 0 },
+      { unit: 8, q: 'Total ways to select both teams: C(18,5)·C(13,5) =', choices: ['11,027,016', '10,000,000', '8,568,000', '4,368,000'], answer: 0 },
+
+      // --- Card counting ---
+      { unit: 8, q: 'Total number of 4-card hands from a 52-card deck: C(52,4) =', choices: ['270725', '249900', '52·51·50·49', '6497400'], answer: 0 },
+      { unit: 8, q: 'Total number of 5-card hands from a 52-card deck: C(52,5) =', choices: ['2598960', '311875200', '52·51·50·49·48', '1000000'], answer: 0 },
+      { unit: 8, q: 'A 4-card hand with no repeating suits means one card from each of the 4 suits. Number of such hands =', choices: ['13⁴ = 28561', 'C(13,1)⁴ = 28561', '4 × 13 = 52', 'Both A and B (same value)'], answer: 3 },
+      { unit: 8, q: 'A 6-card hand with four-of-a-kind and a pair: choose rank for four-of-a-kind in C(13,1) ways, choose rank for pair in C(12,1) ways, choose 2 suits for pair in C(4,2) ways. Total =', choices: ['13·12·6 = 936', '13·12·4 = 624', '13·4·12·6 = 3744', '13·12 = 156'], answer: 0 },
+      { unit: 8, q: 'Favorable 4-card three-of-a-kind hands: C(13,1)·C(4,3)·C(12,1)·C(4,1) =', choices: ['2496', '3744', '2028', '4512'], answer: 0 },
+      { unit: 8, q: 'P(three-of-a-kind in 4-card hand) = 2496/C(52,4) =', choices: ['2496/270725', '2496/249900', '2496/52', '1/108'], answer: 0 },
+      { unit: 8, q: 'Number of possible 5-card straight flushes (10 straights × 4 suits) =', choices: ['36', '40', '48', '52'], answer: 1 },
+      { unit: 8, q: 'P(straight flush in 5 cards) = 40/C(52,5) = 40/2598960 =', choices: ['1/64974', '1/2598960', '40/2598960', 'Both A and C (same value)'], answer: 3 },
+      { unit: 8, q: 'For a 3-card hand with all different ranks and all different suits: favorable = C(13,3)·C(4,3)·3! =', choices: ['6864', '5148', '1716', '3432'], answer: 0 },
+      { unit: 8, q: 'Total 3-card hands = C(52,3) =', choices: ['22100', '24804', '52·51·50', '2652'], answer: 0 },
+      { unit: 8, q: 'P(3-card hand with all different ranks and suits) = 6864/22100 =', choices: ['132/425', '6/47', '1716/5525', 'Both A and C are equal fractions'], answer: 3 },
+
+      // --- Binomial probability ---
+      { unit: 8, q: 'The binomial probability formula P(X=k) for n independent trials with success probability p is:', choices: ['C(n,k)·pᵏ·(1−p)^(n−k)', 'C(n,k)·p^(n−k)·(1−p)ᵏ', 'n!·pᵏ·(1−p)^(n−k)', 'C(n,k)·pⁿ'], answer: 0 },
+      { unit: 8, q: 'P(0 heads in 10 fair coin flips) = C(10,0)·(1/2)^10 =', choices: ['1/1024', '10/1024', '1/512', '1/10'], answer: 0 },
+      { unit: 8, q: 'P(1 head in 10 fair coin flips) = C(10,1)·(1/2)^10 =', choices: ['10/1024', '1/1024', '10/512', '5/512'], answer: 0 },
+      { unit: 8, q: 'P(at least 2 heads in 10 flips) = 1 − P(0 heads) − P(1 head) =', choices: ['1 − 1/1024 − 10/1024 = 1013/1024', '1 − 11/1024 = 1013/1024', '1 − 1/1024 = 1023/1024', 'Both A and B (same computation)'], answer: 3 },
+      { unit: 8, q: 'P(at least 2 heads in 10 flips) =', choices: ['1013/1024', '1023/1024', '512/1024', '11/1024'], answer: 0 },
+      { unit: 8, q: 'P(exactly 3 heads in 6 fair coin flips) =', choices: ['C(6,3)/64 = 20/64 = 5/16', '3/6', 'C(6,3)/32 = 10/16', '1/8'], answer: 0 },
+
+      // --- Complementary probability ---
+      { unit: 8, q: 'The complementary rule of probability states P(A) = ', choices: ['P(Aᶜ)', '1 − P(Aᶜ)', '1 + P(Aᶜ)', '1/P(Aᶜ)'], answer: 1 },
+      { unit: 8, q: 'In 6 coin flips, how many total sequences are possible?', choices: ['12', '32', '64', '36'], answer: 2 },
+      { unit: 8, q: 'In 6 coin flips, the sequences where NO two consecutive flips match (fully alternating) are:', choices: ['HTHTHT and THTHTH only = 2 sequences', '6 sequences', '4 sequences', '8 sequences'], answer: 0 },
+      { unit: 8, q: 'P(no two consecutive flips match in 6 flips) = 2/64 =', choices: ['1/32', '1/16', '1/64', '2/64'], answer: 0 },
+      { unit: 8, q: 'P(at least one pair of consecutive same-result flips in 6 flips) = 1 − 1/32 =', choices: ['31/32', '30/32', '63/64', '1/32'], answer: 0 },
+      { unit: 8, q: 'Using the complement, P(event occurs) = 1 − P(event does NOT occur). This is most useful when:', choices: ['The event is simple', 'The complement has fewer cases to count', 'The probability is greater than 1/2', 'The trials are dependent'], answer: 1 },
     ],
     get quiz() {
       return this.qbank.slice();
