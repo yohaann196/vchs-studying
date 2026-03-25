@@ -3385,7 +3385,7 @@ const CLASSES = [
         ]
       },
       {
-        title: 'Chapter 7 — Matrices',
+        title: 'Chapters 7–8 — Matrices',
         content: [
           'AUGMENTED MATRIX: A system of linear equations can be written as an augmented matrix [A|b]. For the system a₁x + b₁y + c₁z = d₁, a₂x + b₂y + c₂z = d₂, a₃x + b₃y + c₃z = d₃, the augmented matrix is [[a₁,b₁,c₁|d₁],[a₂,b₂,c₂|d₂],[a₃,b₃,c₃|d₃]]. Each row corresponds to one equation; each column (before the bar) corresponds to one variable.',
           'ELEMENTARY ROW OPERATIONS: Three legal operations preserve the solution set: (1) Rᵢ ↔ Rⱼ — swap two rows. (2) kRᵢ → Rᵢ — multiply a row by a nonzero constant k. (3) Rᵢ + kRⱼ → Rᵢ — add k times one row to another row. These are used to transform the augmented matrix into RREF.',
@@ -3395,11 +3395,6 @@ const CLASSES = [
           'SCALAR MULTIPLICATION AND MATRIX ADDITION: (kA)ᵢⱼ = k·aᵢⱼ (multiply every entry by the scalar). (A + B)ᵢⱼ = aᵢⱼ + bᵢⱼ (add corresponding entries). (A − B)ᵢⱼ = aᵢⱼ − bᵢⱼ. Example: 3A − B means multiply every entry of A by 3, then subtract B entry-by-entry.',
           'MATRIX MULTIPLICATION: The (i,j) entry of AB is the dot product of row i of A with column j of B: (AB)ᵢⱼ = Σₖ aᵢₖ bₖⱼ. Matrix multiplication is NOT commutative in general (AB ≠ BA). Dimensions: (m×n)·(n×p) = m×p. If inner dimensions don\'t match, the product is undefined.',
           'IDENTITY MATRIX: The n×n identity matrix Iₙ has 1s on the main diagonal and 0s elsewhere. For any n×n matrix A: A·I = I·A = A. For any conformable rectangular matrix A (m×n): Iₘ·A = A and A·Iₙ = A.',
-        ]
-      },
-      {
-        title: 'Chapter 8 — Matrices: Inverses and Determinants',
-        content: [
           'MATRIX INVERSE (2×2 FORMULA): For A = [a b; c d], the inverse exists iff det(A) = ad − bc ≠ 0. Then A⁻¹ = (1/det(A)) · [d −b; −c a]. The 2×2 inverse swaps the diagonal entries, negates the off-diagonal entries, and divides by the determinant.',
           'MATRIX INVERSE VIA GAUSS-JORDAN: To find A⁻¹ for any invertible square matrix A: write the augmented matrix [A|I] and apply Gauss-Jordan elimination. If A reduces to I on the left, then I reduces to A⁻¹ on the right: [A|I] → [I|A⁻¹]. If A cannot be reduced to I (a zero row appears on the left), then A is singular (non-invertible).',
           'SINGULAR MATRIX: A matrix is singular (non-invertible) if its determinant equals 0. Geometrically, its rows/columns are linearly dependent. Example: [2 6; 1 3] has det = 2·3 − 6·1 = 0, so it is singular and has no inverse. A singular coefficient matrix means the system either has no solution or infinitely many solutions.',
@@ -4232,7 +4227,7 @@ const CLASSES = [
       { unit: 6, q: 'To find the 4th roots of 16, the modulus of each root is:', choices: ['4', '2', '√2', '8'], answer: 1 },
 
       // Chapters 7–8 — Matrices
-      // Chapter 7 — Matrices (unit: 7)
+      // Chapters 7–8 — Matrices (unit: 7)
 
       // --- Augmented matrices and writing systems ---
       { unit: 7, q: 'An augmented matrix separates the coefficient matrix from the constants vector using:', choices: ['A semicolon', 'A vertical bar', 'A horizontal bar', 'Parentheses'], answer: 1 },
@@ -4298,61 +4293,60 @@ const CLASSES = [
       { unit: 7, q: 'Compute [1 −2 5; −3 4 0]·[3 −1; 0 4; −5 2]. The (2,2) entry is:', choices: ['(−3)·(−1)+4·4+0·2 = 19', '(−3)·(−1)+4·4+0·2 = 3+16 = 19', '3+16+0 = 19', 'All three options give 19'], answer: 3 },
       { unit: 7, q: 'The full product [1 −2 5; −3 4 0]·[3 −1; 0 4; −5 2] =', choices: ['[−22 1; −9 19]', '[−22 −1; −9 19]', '[22 1; 9 19]', '[−22 1; 9 19]'], answer: 0 },
 
-      // Chapter 8 — Matrices: Inverses and Determinants (unit: 8)
 
       // --- 2×2 inverse (formula) ---
-      { unit: 8, q: 'For a 2×2 matrix A = [a b; c d], the inverse formula A⁻¹ = (1/det A)·[? ? ; ? ?]. The correct rearrangement is:', choices: ['[d −b; −c a]', '[a b; c d]', '[d c; b a]', '[−d b; c −a]'], answer: 0 },
-      { unit: 8, q: 'The determinant of [1 3; 2 −2] is:', choices: ['1·(−2) − 3·2 = −8', '1·(−2) + 3·2 = 4', '1·2 − 3·(−2) = 8', '−2·2 − 3·1 = −7'], answer: 0 },
-      { unit: 8, q: 'The inverse of [1 3; 2 −2] is:', choices: ['(1/−8)·[−2 −3; −2 1]', '(1/8)·[−2 3; −2 1]', '(1/−8)·[2 3; 2 −1]', '(1/−8)·[2 −3; −2 1]'], answer: 0 },
-      { unit: 8, q: '[1 3; 2 −2]⁻¹ = (−1/8)·[−2 −3; −2 1]. Simplifying, the (1,1) entry is:', choices: ['(−1/8)·(−2) = 1/4', '(−1/8)·2 = −1/4', '1/8', '−1/8'], answer: 0 },
-      { unit: 8, q: '[1 3; 2 −2]⁻¹ = (−1/8)·[−2 −3; −2 1]. Simplifying, the (1,2) entry is:', choices: ['(−1/8)·(−3) = 3/8', '(−1/8)·3 = −3/8', '3/8', '−3/8'], answer: 0 },
-      { unit: 8, q: 'The determinant of [2 6; 1 3] is:', choices: ['2·3 − 6·1 = 0', '2·3 + 6·1 = 12', '6−2 = 4', '2·1 − 6·3 = −16'], answer: 0 },
-      { unit: 8, q: 'Since det([2 6; 1 3]) = 0, this matrix is:', choices: ['Invertible with inverse (1/0)·[3 −6; −1 2]', 'Singular — it has no inverse', 'Its own inverse', 'Invertible only over complex numbers'], answer: 1 },
-      { unit: 8, q: 'A system whose coefficient matrix is singular (det = 0) has:', choices: ['Exactly one solution always', 'Either no solution or infinitely many solutions', 'Infinitely many solutions always', 'No solution always'], answer: 1 },
+      { unit: 7, q: 'For a 2×2 matrix A = [a b; c d], the inverse formula A⁻¹ = (1/det A)·[? ? ; ? ?]. The correct rearrangement is:', choices: ['[d −b; −c a]', '[a b; c d]', '[d c; b a]', '[−d b; c −a]'], answer: 0 },
+      { unit: 7, q: 'The determinant of [1 3; 2 −2] is:', choices: ['1·(−2) − 3·2 = −8', '1·(−2) + 3·2 = 4', '1·2 − 3·(−2) = 8', '−2·2 − 3·1 = −7'], answer: 0 },
+      { unit: 7, q: 'The inverse of [1 3; 2 −2] is:', choices: ['(1/−8)·[−2 −3; −2 1]', '(1/8)·[−2 3; −2 1]', '(1/−8)·[2 3; 2 −1]', '(1/−8)·[2 −3; −2 1]'], answer: 0 },
+      { unit: 7, q: '[1 3; 2 −2]⁻¹ = (−1/8)·[−2 −3; −2 1]. Simplifying, the (1,1) entry is:', choices: ['(−1/8)·(−2) = 1/4', '(−1/8)·2 = −1/4', '1/8', '−1/8'], answer: 0 },
+      { unit: 7, q: '[1 3; 2 −2]⁻¹ = (−1/8)·[−2 −3; −2 1]. Simplifying, the (1,2) entry is:', choices: ['(−1/8)·(−3) = 3/8', '(−1/8)·3 = −3/8', '3/8', '−3/8'], answer: 0 },
+      { unit: 7, q: 'The determinant of [2 6; 1 3] is:', choices: ['2·3 − 6·1 = 0', '2·3 + 6·1 = 12', '6−2 = 4', '2·1 − 6·3 = −16'], answer: 0 },
+      { unit: 7, q: 'Since det([2 6; 1 3]) = 0, this matrix is:', choices: ['Invertible with inverse (1/0)·[3 −6; −1 2]', 'Singular — it has no inverse', 'Its own inverse', 'Invertible only over complex numbers'], answer: 1 },
+      { unit: 7, q: 'A system whose coefficient matrix is singular (det = 0) has:', choices: ['Exactly one solution always', 'Either no solution or infinitely many solutions', 'Infinitely many solutions always', 'No solution always'], answer: 1 },
 
       // --- 3×3 inverse via Gauss-Jordan ---
-      { unit: 8, q: 'To find A⁻¹ for a 3×3 matrix A using Gauss-Jordan, you set up:', choices: ['[A | 0]', '[A | I₃]', '[I₃ | A]', '[A⁻¹ | I₃]'], answer: 1 },
-      { unit: 8, q: 'After applying Gauss-Jordan to [A | I₃], if the left side becomes I₃, then:', choices: ['A is singular', 'The right side is A⁻¹', 'The right side is A', 'The system is inconsistent'], answer: 1 },
-      { unit: 8, q: 'If during Gauss-Jordan on [A | I₃] a row of all zeros appears on the left side, this means:', choices: ['A⁻¹ = 0', 'A has no inverse (singular)', 'A = I₃', 'A⁻¹ = I₃'], answer: 1 },
-      { unit: 8, q: 'The determinant of [7 2 1; 0 3 −1; −3 4 −2] is:', choices: ['0', '1', '−1', '7'], answer: 1 },
-      { unit: 8, q: 'Since det([7 2 1; 0 3 −1; −3 4 −2]) = 1 ≠ 0, the matrix is:', choices: ['Singular', 'Invertible', 'Its own inverse', 'The zero matrix'], answer: 1 },
-      { unit: 8, q: 'When computing [7 2 1; 0 3 −1; −3 4 −2]⁻¹ via Gauss-Jordan, a natural first step is:', choices: ['Swap R1 and R3 to avoid small pivots', 'Scale R1 by 1/7 to create a leading 1', 'Replace R3 with R3 + (3/7)R1', 'Both B and C are valid starting steps'], answer: 3 },
+      { unit: 7, q: 'To find A⁻¹ for a 3×3 matrix A using Gauss-Jordan, you set up:', choices: ['[A | 0]', '[A | I₃]', '[I₃ | A]', '[A⁻¹ | I₃]'], answer: 1 },
+      { unit: 7, q: 'After applying Gauss-Jordan to [A | I₃], if the left side becomes I₃, then:', choices: ['A is singular', 'The right side is A⁻¹', 'The right side is A', 'The system is inconsistent'], answer: 1 },
+      { unit: 7, q: 'If during Gauss-Jordan on [A | I₃] a row of all zeros appears on the left side, this means:', choices: ['A⁻¹ = 0', 'A has no inverse (singular)', 'A = I₃', 'A⁻¹ = I₃'], answer: 1 },
+      { unit: 7, q: 'The determinant of [7 2 1; 0 3 −1; −3 4 −2] is:', choices: ['0', '1', '−1', '7'], answer: 1 },
+      { unit: 7, q: 'Since det([7 2 1; 0 3 −1; −3 4 −2]) = 1 ≠ 0, the matrix is:', choices: ['Singular', 'Invertible', 'Its own inverse', 'The zero matrix'], answer: 1 },
+      { unit: 7, q: 'When computing [7 2 1; 0 3 −1; −3 4 −2]⁻¹ via Gauss-Jordan, a natural first step is:', choices: ['Swap R1 and R3 to avoid small pivots', 'Scale R1 by 1/7 to create a leading 1', 'Replace R3 with R3 + (3/7)R1', 'Both B and C are valid starting steps'], answer: 3 },
 
       // --- 2×2 determinants ---
-      { unit: 8, q: 'det[2 7; −1 5] =', choices: ['2·5 − 7·(−1) = 17', '2·5 + 7·1 = 17', '2·5 − 7·1 = 3', '2·(−1) − 7·5 = −37'], answer: 0 },
-      { unit: 8, q: 'det[−1 −5; 2 −6] =', choices: ['(−1)(−6) − (−5)(2) = 16', '(−1)(−6) + (−5)(2) = −4', '(−1)(2) − (−5)(−6) = −32', '6 − 10 = −4'], answer: 0 },
-      { unit: 8, q: 'Which formula correctly gives the 2×2 determinant of [a b; c d]?', choices: ['ab − cd', 'ad + bc', 'ad − bc', 'ac − bd'], answer: 2 },
-      { unit: 8, q: 'det[3 0; 0 4] =', choices: ['3+4 = 7', '3·4 − 0·0 = 12', '0', '3·0 − 0·4 = 0'], answer: 1 },
-      { unit: 8, q: 'det[5 2; 5 2] =', choices: ['5·2 − 2·5 = 0', '10+10 = 20', '5·5 − 2·2 = 21', '0'], answer: 0 },
-      { unit: 8, q: 'If two rows of a 2×2 matrix are identical, its determinant is:', choices: ['1', '0', '2 times one row', 'Undefined'], answer: 1 },
+      { unit: 7, q: 'det[2 7; −1 5] =', choices: ['2·5 − 7·(−1) = 17', '2·5 + 7·1 = 17', '2·5 − 7·1 = 3', '2·(−1) − 7·5 = −37'], answer: 0 },
+      { unit: 7, q: 'det[−1 −5; 2 −6] =', choices: ['(−1)(−6) − (−5)(2) = 16', '(−1)(−6) + (−5)(2) = −4', '(−1)(2) − (−5)(−6) = −32', '6 − 10 = −4'], answer: 0 },
+      { unit: 7, q: 'Which formula correctly gives the 2×2 determinant of [a b; c d]?', choices: ['ab − cd', 'ad + bc', 'ad − bc', 'ac − bd'], answer: 2 },
+      { unit: 7, q: 'det[3 0; 0 4] =', choices: ['3+4 = 7', '3·4 − 0·0 = 12', '0', '3·0 − 0·4 = 0'], answer: 1 },
+      { unit: 7, q: 'det[5 2; 5 2] =', choices: ['5·2 − 2·5 = 0', '10+10 = 20', '5·5 − 2·2 = 21', '0'], answer: 0 },
+      { unit: 7, q: 'If two rows of a 2×2 matrix are identical, its determinant is:', choices: ['1', '0', '2 times one row', 'Undefined'], answer: 1 },
 
       // --- 3×3 determinants ---
-      { unit: 8, q: 'The cofactor C₁₁ of [a b c; d e f; g h i] is:', choices: ['(−1)^(1+1)·det[e f; h i] = ei−fh', '(−1)^(1+1)·det[d f; g i] = di−fg', '(−1)^(1+1)·(e+i)', 'a·ei'], answer: 0 },
-      { unit: 8, q: 'The sign pattern for cofactors of a 3×3 matrix is:', choices: ['All positive', '[+−+; −+−; +−+]', '[+++;+++;+++]', '[+−;−+]'], answer: 1 },
-      { unit: 8, q: 'Expanding det[−1 −5 3; 0 4 2; −1 3 7] along row 1:', choices: ['−1·(4·7−2·3) − (−5)·(0·7−2·(−1)) + 3·(0·3−4·(−1))', '−1·(4·7−2·3) + (−5)·(0·7−2·(−1)) + 3·(0·3−4·(−1))', '−1·(4·7+2·3) − (−5)·(0·7+2·1) + 3·(0·3+4·1)', 'None of the above'], answer: 0 },
-      { unit: 8, q: 'For det[−1 −5 3; 0 4 2; −1 3 7]: the M₁₁ minor det[4 2; 3 7] =', choices: ['28−6 = 22', '28+6 = 34', '4·7+2·3 = 34', '4·3−7·2 = −2'], answer: 0 },
-      { unit: 8, q: 'For det[−1 −5 3; 0 4 2; −1 3 7]: the M₁₂ minor det[0 2; −1 7] =', choices: ['0·7−2·(−1) = 2', '0·7+2·(−1) = −2', '0·(−1)−2·7 = −14', '7−(−2) = 9'], answer: 0 },
-      { unit: 8, q: 'For det[−1 −5 3; 0 4 2; −1 3 7]: the M₁₃ minor det[0 4; −1 3] =', choices: ['0·3−4·(−1) = 4', '0·3+4·1 = 4', '0·3−4·(−1) = 4', 'All three give 4'], answer: 3 },
-      { unit: 8, q: 'det[−1 −5 3; 0 4 2; −1 3 7] = −1·22 − (−5)·2 + 3·4 =', choices: ['−22+10+12 = 0', '−22−10+12 = −20', '22+10+12 = 44', '−22+10−12 = −24'], answer: 0 },
-      { unit: 8, q: 'Since det[−1 −5 3; 0 4 2; −1 3 7] = 0, this matrix is:', choices: ['Invertible', 'Singular (non-invertible)', 'The identity', 'A rotation matrix'], answer: 1 },
-      { unit: 8, q: 'To evaluate det[1 0 2; 0 3 0; 4 0 5], the easiest row/column to expand along is:', choices: ['Row 1 (has one zero)', 'Row 2 (has two zeros)', 'Column 2 (has two zeros)', 'Both B and C are equally efficient'], answer: 3 },
-      { unit: 8, q: 'det[1 0 0; 0 5 0; 0 0 3] (diagonal matrix) =', choices: ['1+5+3 = 9', '1·5·3 = 15', '0', '1·(5·3−0·0) = 15'], answer: 1 },
+      { unit: 7, q: 'The cofactor C₁₁ of [a b c; d e f; g h i] is:', choices: ['(−1)^(1+1)·det[e f; h i] = ei−fh', '(−1)^(1+1)·det[d f; g i] = di−fg', '(−1)^(1+1)·(e+i)', 'a·ei'], answer: 0 },
+      { unit: 7, q: 'The sign pattern for cofactors of a 3×3 matrix is:', choices: ['All positive', '[+−+; −+−; +−+]', '[+++;+++;+++]', '[+−;−+]'], answer: 1 },
+      { unit: 7, q: 'Expanding det[−1 −5 3; 0 4 2; −1 3 7] along row 1:', choices: ['−1·(4·7−2·3) − (−5)·(0·7−2·(−1)) + 3·(0·3−4·(−1))', '−1·(4·7−2·3) + (−5)·(0·7−2·(−1)) + 3·(0·3−4·(−1))', '−1·(4·7+2·3) − (−5)·(0·7+2·1) + 3·(0·3+4·1)', 'None of the above'], answer: 0 },
+      { unit: 7, q: 'For det[−1 −5 3; 0 4 2; −1 3 7]: the M₁₁ minor det[4 2; 3 7] =', choices: ['28−6 = 22', '28+6 = 34', '4·7+2·3 = 34', '4·3−7·2 = −2'], answer: 0 },
+      { unit: 7, q: 'For det[−1 −5 3; 0 4 2; −1 3 7]: the M₁₂ minor det[0 2; −1 7] =', choices: ['0·7−2·(−1) = 2', '0·7+2·(−1) = −2', '0·(−1)−2·7 = −14', '7−(−2) = 9'], answer: 0 },
+      { unit: 7, q: 'For det[−1 −5 3; 0 4 2; −1 3 7]: the M₁₃ minor det[0 4; −1 3] =', choices: ['0·3−4·(−1) = 4', '0·3+4·1 = 4', '0·3−4·(−1) = 4', 'All three give 4'], answer: 3 },
+      { unit: 7, q: 'det[−1 −5 3; 0 4 2; −1 3 7] = −1·22 − (−5)·2 + 3·4 =', choices: ['−22+10+12 = 0', '−22−10+12 = −20', '22+10+12 = 44', '−22+10−12 = −24'], answer: 0 },
+      { unit: 7, q: 'Since det[−1 −5 3; 0 4 2; −1 3 7] = 0, this matrix is:', choices: ['Invertible', 'Singular (non-invertible)', 'The identity', 'A rotation matrix'], answer: 1 },
+      { unit: 7, q: 'To evaluate det[1 0 2; 0 3 0; 4 0 5], the easiest row/column to expand along is:', choices: ['Row 1 (has one zero)', 'Row 2 (has two zeros)', 'Column 2 (has two zeros)', 'Both B and C are equally efficient'], answer: 3 },
+      { unit: 7, q: 'det[1 0 0; 0 5 0; 0 0 3] (diagonal matrix) =', choices: ['1+5+3 = 9', '1·5·3 = 15', '0', '1·(5·3−0·0) = 15'], answer: 1 },
 
       // --- 4×4 block matrix determinant ---
-      { unit: 8, q: 'A 4×4 matrix with block structure [[A,0];[0,D]] where A,D are 2×2 and 0 is 2×2 zero. det =', choices: ['det(A) + det(D)', 'det(A) · det(D)', 'det(A) − det(D)', 'det(A·D)'], answer: 1 },
-      { unit: 8, q: 'For M = [[1,5,0,0];[3,4,0,0];[0,0,2,1];[0,0,3,4]], det(top-left block) = det[1 5; 3 4] =', choices: ['4−15 = −11', '4+15 = 19', '1·4+5·3 = 19', '1·3−5·4 = −17'], answer: 0 },
-      { unit: 8, q: 'For M = [[1,5,0,0];[3,4,0,0];[0,0,2,1];[0,0,3,4]], det(bottom-right block) = det[2 1; 3 4] =', choices: ['8−3 = 5', '8+3 = 11', '2·4+1·3 = 11', '2+4 = 6'], answer: 0 },
-      { unit: 8, q: 'det([[1,5,0,0];[3,4,0,0];[0,0,2,1];[0,0,3,4]]) =', choices: ['(−11)·5 = −55', '(−11)·(−5) = 55', '19·5 = 95', '(−11)+5 = −6'], answer: 0 },
-      { unit: 8, q: 'The block matrix property det([[A,0];[0,D]]) = det(A)·det(D) holds when:', choices: ['A and D are invertible', 'A and D are any square matrices and the off-diagonal blocks are zero', 'A = D', 'The block matrix is 4×4 only'], answer: 1 },
-      { unit: 8, q: 'det([[5,1,0,0];[2,3,0,0];[0,0,4,1];[0,0,2,3]]) = det[5,1;2,3]·det[4,1;2,3] =', choices: ['(15−2)·(12−2) = 13·10 = 130', '(15−2)·(12−2) = 130', '(5+3)·(4+3) = 56', 'Both A and B are the same answer'], answer: 3 },
+      { unit: 7, q: 'A 4×4 matrix with block structure [[A,0];[0,D]] where A,D are 2×2 and 0 is 2×2 zero. det =', choices: ['det(A) + det(D)', 'det(A) · det(D)', 'det(A) − det(D)', 'det(A·D)'], answer: 1 },
+      { unit: 7, q: 'For M = [[1,5,0,0];[3,4,0,0];[0,0,2,1];[0,0,3,4]], det(top-left block) = det[1 5; 3 4] =', choices: ['4−15 = −11', '4+15 = 19', '1·4+5·3 = 19', '1·3−5·4 = −17'], answer: 0 },
+      { unit: 7, q: 'For M = [[1,5,0,0];[3,4,0,0];[0,0,2,1];[0,0,3,4]], det(bottom-right block) = det[2 1; 3 4] =', choices: ['8−3 = 5', '8+3 = 11', '2·4+1·3 = 11', '2+4 = 6'], answer: 0 },
+      { unit: 7, q: 'det([[1,5,0,0];[3,4,0,0];[0,0,2,1];[0,0,3,4]]) =', choices: ['(−11)·5 = −55', '(−11)·(−5) = 55', '19·5 = 95', '(−11)+5 = −6'], answer: 0 },
+      { unit: 7, q: 'The block matrix property det([[A,0];[0,D]]) = det(A)·det(D) holds when:', choices: ['A and D are invertible', 'A and D are any square matrices and the off-diagonal blocks are zero', 'A = D', 'The block matrix is 4×4 only'], answer: 1 },
+      { unit: 7, q: 'det([[5,1,0,0];[2,3,0,0];[0,0,4,1];[0,0,2,3]]) = det[5,1;2,3]·det[4,1;2,3] =', choices: ['(15−2)·(12−2) = 13·10 = 130', '(15−2)·(12−2) = 130', '(5+3)·(4+3) = 56', 'Both A and B are the same answer'], answer: 3 },
 
       // --- General matrix knowledge (Chapter 8) ---
-      { unit: 8, q: 'If A is invertible, then A·A⁻¹ =', choices: ['0', 'A', 'I (identity matrix)', 'A²'], answer: 2 },
-      { unit: 8, q: 'What is (AB)⁻¹ in terms of A⁻¹ and B⁻¹ (when both A and B are invertible)?', choices: ['A⁻¹B⁻¹', 'B⁻¹A⁻¹', 'A⁻¹ + B⁻¹', '(BA)⁻¹'], answer: 1 },
-      { unit: 8, q: 'If det(A) ≠ 0, then the system Ax = b has:', choices: ['No solution', 'Infinitely many solutions', 'Exactly one unique solution', 'At most two solutions'], answer: 2 },
-      { unit: 8, q: 'det(Iₙ) for any n×n identity matrix equals:', choices: ['0', '1', 'n', 'n²'], answer: 1 },
-      { unit: 8, q: 'If A is a 3×3 matrix with det(A) = 5, then det(2A) =', choices: ['10', '40', '5', '2·5 = 10'], answer: 1 },
-      { unit: 8, q: 'A zero row in a matrix (all entries are 0) means:', choices: ['The matrix is invertible', 'The determinant is 0 (matrix is singular)', 'The matrix equals the identity', 'The system has a unique solution'], answer: 1 },
+      { unit: 7, q: 'If A is invertible, then A·A⁻¹ =', choices: ['0', 'A', 'I (identity matrix)', 'A²'], answer: 2 },
+      { unit: 7, q: 'What is (AB)⁻¹ in terms of A⁻¹ and B⁻¹ (when both A and B are invertible)?', choices: ['A⁻¹B⁻¹', 'B⁻¹A⁻¹', 'A⁻¹ + B⁻¹', '(BA)⁻¹'], answer: 1 },
+      { unit: 7, q: 'If det(A) ≠ 0, then the system Ax = b has:', choices: ['No solution', 'Infinitely many solutions', 'Exactly one unique solution', 'At most two solutions'], answer: 2 },
+      { unit: 7, q: 'det(Iₙ) for any n×n identity matrix equals:', choices: ['0', '1', 'n', 'n²'], answer: 1 },
+      { unit: 7, q: 'If A is a 3×3 matrix with det(A) = 5, then det(2A) =', choices: ['10', '40', '5', '2·5 = 10'], answer: 1 },
+      { unit: 7, q: 'A zero row in a matrix (all entries are 0) means:', choices: ['The matrix is invertible', 'The determinant is 0 (matrix is singular)', 'The matrix equals the identity', 'The system has a unique solution'], answer: 1 },
 
       // --- General matrix knowledge (Chapter 7) ---
       { unit: 7, q: 'Matrix multiplication is commutative: AB = BA always.', choices: ['True for all matrices', 'False — AB ≠ BA in general', 'True only for square matrices', 'True only for invertible matrices'], answer: 1 },
