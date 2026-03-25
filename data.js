@@ -3442,6 +3442,24 @@ const CLASSES = [
           'COMPLETING THE SQUARE — HYPERBOLA EXAMPLE: 4x² − 9y² − 16x − 18y − 29 = 0 → 4(x−2)² − 9(y+1)² = 36 → (x−2)²/9 − (y+1)²/4 = 1. Hyperbola, horizontal transverse axis, center (2, −1), a = 3, b = 2, c = √13, vertices (−1, −1) and (5, −1), asymptotes y + 1 = ±(2/3)(x − 2).',
         ]
       },
+      {
+        title: 'Chapter 10B — Parametric Equations, Polar Coordinates, and Polar Curves',
+        content: [
+          'PARAMETRIC EQUATIONS: A curve is described by x = f(t) and y = g(t), where t is the parameter. To eliminate the parameter, solve one equation for t and substitute into the other, OR use a known identity (e.g., sin²θ + cos²θ = 1, csc²θ − cot²θ = 1, sec²θ = 1 + tan²θ). Be careful to identify any domain restrictions on the resulting rectangular equation.',
+          'ELIMINATING THE PARAMETER — POLYNOMIAL/LINEAR: If x = f(t) is easy to solve for t, substitute. Example: x = t + 1 → t = x − 1; then y = √(t + 3) = √(x − 1 + 3) = √(x + 2), with restriction x ≥ −2 (domain of square root). Example: x = t², y = t/4 → t = 4y, so x = (4y)² = 16y², or equivalently y² = x/16 with x ≥ 0.',
+          'ELIMINATING THE PARAMETER — TRIG: Use the Pythagorean identity. Example: x = 2 + 3 cos θ → cos θ = (x−2)/3; y = −3 + 5 sin θ → sin θ = (y+3)/5. Then cos²θ + sin²θ = 1 gives (x−2)²/9 + (y+3)²/25 = 1 (ellipse). Example: x = 3 csc θ → sin θ = 3/x; y = 4 cot θ; use csc²θ − cot²θ = 1: (x/3)² − (y/4)² = 1 (hyperbola).',
+          'ELIMINATING THE PARAMETER — LOGARITHM/EXPONENTIAL: Example: x = ln(3t) → 3t = eˣ → t = eˣ/3; then y = 4t^(3/2) = 4·(eˣ/3)^(3/2) = 4/(3^(3/2)) · e^(3x/2) = (4·3^(−3/2)) · e^(3x/2).',
+          'POLAR COORDINATES: A point is represented as (r, θ) where r is the radial distance (can be negative — a negative r reflects through the origin) and θ is the angle from the positive x-axis. Conversion formulas: x = r cos θ, y = r sin θ, r² = x² + y², tan θ = y/x. If r < 0: the point (r, θ) is the same as (−r, θ + π).',
+          'POLAR → RECTANGULAR: Compute x = r cos θ and y = r sin θ. Examples: (−3, 7π/6) → x = −3·cos(7π/6) = −3·(−√3/2) = 3√3/2, y = −3·sin(7π/6) = −3·(−1/2) = 3/2. (4, 8π/3) → 8π/3 reduces to 8π/3 − 2π = 2π/3, so x = 4 cos(2π/3) = −2, y = 4 sin(2π/3) = 2√3.',
+          'RECTANGULAR → POLAR: Compute r = √(x²+y²) and θ = atan2(y, x) (use the quadrant of (x,y) to find the correct angle). Exact angle: tan θ = y/x. Examples: (4, −4) → r = 4√2, tan θ = −1 → θ = −π/4 (or 7π/4). (−√3, √3) → r = √6, θ in QII → θ = 3π/4.',
+          'CONVERTING RECTANGULAR EQUATIONS TO POLAR: Replace x with r cos θ and y with r sin θ (or use r² = x²+y²). Example: y = −4 → r sin θ = −4 → r = −4/sin θ = −4 csc θ.',
+          'POLAR CURVES — CIRCLES AND LINES: r = a (circle of radius |a| centered at origin). r = a cos θ (circle tangent to y-axis, center (a/2, 0), radius |a/2|). r = a sin θ (circle tangent to x-axis, center (0, a/2), radius |a/2|). θ = k (line through origin at angle k).',
+          'POLAR CURVES — LIMAÇONS: r = a ± b cos θ or r = a ± b sin θ. If a/b > 1: convex limaçon. If a/b = 1: cardioid. If 0 < a/b < 1: limaçon with inner loop. If a = 0: rose or circle. Example: r = 4 − 3 cos θ is a dimpled limaçon (a/b = 4/3 > 1).',
+          'POLAR CURVES — ROSE CURVES: r = a cos(nθ) or r = a sin(nθ). If n is odd: n petals. If n is even: 2n petals. Amplitude (petal length) = |a|. Example: r = −2 cos 3θ has 3 petals of length 2.',
+          'POLAR CURVES — CONICS IN POLAR FORM: r = ed/(1 ± e cos θ) or r = ed/(1 ± e sin θ), where e = eccentricity and d = distance from focus to directrix. If e < 1: ellipse. If e = 1: parabola. If e > 1: hyperbola. The focus is at the origin. To identify: write in the form r = k/(A ± B·trig), then e = B/A (after dividing so leading coefficient = 1). Example: r = 4/(3 + 3 cos θ) = (4/3)/(1 + cos θ); e = 1, parabola. Example: r = 5/(3 − sin θ); divide: r = (5/3)/(1 − (1/3)sin θ); e = 1/3 < 1, ellipse.',
+          'CONIC IDENTIFICATION IN POLAR FORM — PROCEDURE: Write r = p/(1 ± e·trig θ) (divide numerator and denominator by the constant term). Read off e. If trig is cos θ: directrix is vertical. If trig is sin θ: directrix is horizontal. Sign of trig term tells which side the directrix is on. Then classify by e and sketch accordingly.',
+        ]
+      },
     ],
     qbank: [
       // Chapter 1 — Functions (unit: 1)
@@ -4577,6 +4595,76 @@ const CLASSES = [
       { unit: 10, q: 'For y² − 4x² − 6y − 16x − 23 = 0, completing the square gives (y−3)²/16 − (x+2)²/4 = 1. This is:', choices: ['Ellipse', 'Parabola', 'Hyperbola with vertical transverse axis', 'Circle'], answer: 2 },
       { unit: 10, q: 'For (y−3)²/16 − (x+2)²/4 = 1 with a = 4, b = 2, c² = 16 + 4 = 20, the foci are:', choices: ['(−2, 3 ± 2√5)', '(−2 ± 2√5, 3)', '(−2, 3 ± √20) = same as A', 'Both A and C (2√5 = √20)'], answer: 3 },
       { unit: 10, q: 'For (y−3)²/16 − (x+2)²/4 = 1, the asymptotes (vertical transverse axis) are:', choices: ['y − 3 = ±(1/2)(x + 2)', 'y − 3 = ±2(x + 2)', 'y − 3 = ±(4)(x + 2)', 'y − 3 = ±(1/4)(x + 2)'], answer: 1 },
+
+      // Chapter 10B — Parametric Equations, Polar Coordinates & Polar Curves (unit: 11)
+
+      // --- Parametric equations: eliminating the parameter ---
+      { unit: 11, q: 'For the parametric equations x = t², y = t/4, solving for t gives t = 4y. Substituting into x = t² yields:', choices: ['x = 16y²', 'x = y²/16', 'x = 4y²', 'y = x²/16'], answer: 0 },
+      { unit: 11, q: 'For x = t², y = t/4 → x = 16y², the domain restriction on the rectangular equation is:', choices: ['y ≥ 0', 'x ≥ 0 (since t² is always nonneg.)', 'All real numbers', 'x > 0'], answer: 1 },
+      { unit: 11, q: 'For x = t + 1, y = √(t + 3), solving for t gives t = x − 1. Substituting:', choices: ['y = √(x + 2)', 'y = √(x + 4)', 'y = √(x − 2)', 'y = √(x + 1)'], answer: 0 },
+      { unit: 11, q: 'For x = t + 1, y = √(t + 3) → y = √(x + 2), the domain restriction is:', choices: ['x ≥ −2', 'x > −2', 'x ≥ −3', 'All real numbers'], answer: 0 },
+      { unit: 11, q: 'For x = 2 + 3 cos θ, y = −3 + 5 sin θ, write cos θ and sin θ in terms of x and y:', choices: ['cos θ = (x−2)/3, sin θ = (y+3)/5', 'cos θ = (x+2)/3, sin θ = (y−3)/5', 'cos θ = (x−3)/2, sin θ = (y−5)/3', 'cos θ = (x−2)/5, sin θ = (y+3)/3'], answer: 0 },
+      { unit: 11, q: 'For x = 2 + 3 cos θ, y = −3 + 5 sin θ, using cos²θ + sin²θ = 1 yields:', choices: ['(x−2)²/9 + (y+3)²/25 = 1', '(x−2)²/25 + (y+3)²/9 = 1', '(x+2)²/9 + (y−3)²/25 = 1', '(x−2)²/9 − (y+3)²/25 = 1'], answer: 0 },
+      { unit: 11, q: 'The rectangular equation (x−2)²/9 + (y+3)²/25 = 1 represents what conic?', choices: ['Circle', 'Parabola', 'Ellipse', 'Hyperbola'], answer: 2 },
+      { unit: 11, q: 'For x = 3 csc θ, y = 4 cot θ, we use the identity csc²θ − cot²θ = 1. Rewriting in terms of x and y gives:', choices: ['(x/3)² − (y/4)² = 1', '(x/3)² + (y/4)² = 1', '(y/4)² − (x/3)² = 1', '(y/3)² − (x/4)² = 1'], answer: 0 },
+      { unit: 11, q: 'The rectangular equation (x/3)² − (y/4)² = 1 represents what conic?', choices: ['Ellipse', 'Circle', 'Parabola', 'Hyperbola with horizontal transverse axis'], answer: 3 },
+      { unit: 11, q: 'For x = ln(3t), y = 4t^(3/2), solving for t: 3t = eˣ → t = eˣ/3. Substituting into y = 4t^(3/2):', choices: ['y = (4/3^(3/2)) eˣ', 'y = (4/3^(3/2)) e^(3x/2)', 'y = 4 e^(x/3)', 'y = 4(eˣ/3)'], answer: 1 },
+      { unit: 11, q: 'For x = ln(3t), y = 4t^(3/2), the domain restriction is:', choices: ['t > 0 so x can be any real number', 't > 0 so x > −ln 3', 't > 0, so y > 0 and x is unrestricted', 't > 0 only when x > 0'], answer: 1 },
+
+      // --- Polar to rectangular ---
+      { unit: 11, q: 'To convert polar (r, θ) to rectangular (x, y), use:', choices: ['x = r sin θ, y = r cos θ', 'x = r cos θ, y = r sin θ', 'x = r/cos θ, y = r/sin θ', 'x = r tan θ, y = r'], answer: 1 },
+      { unit: 11, q: 'If r < 0 in polar coordinates, the point (r, θ) is the same as:', choices: ['(|r|, θ)', '(|r|, θ + π/2)', '(|r|, θ + π)', '(−r, θ − π)'], answer: 2 },
+      { unit: 11, q: 'Convert (−3, 7π/6) to rectangular. Since r = −3, treat as (3, 7π/6 + π) = (3, 13π/6) ≡ (3, π/6). x =', choices: ['3√3/2', '−3√3/2', '3/2', '−3/2'], answer: 0 },
+      { unit: 11, q: 'Convert (−3, 7π/6) to rectangular. y = r sin θ with r = −3, θ = 7π/6: y = −3 · sin(7π/6) = −3 · (−1/2) =', choices: ['3/2', '−3/2', '3√3/2', '−3√3/2'], answer: 0 },
+      { unit: 11, q: 'So the rectangular coordinates of (−3, 7π/6) are:', choices: ['(3√3/2, 3/2)', '(−3√3/2, −3/2)', '(3/2, 3√3/2)', '(−3/2, −3√3/2)'], answer: 0 },
+      { unit: 11, q: 'Convert (4, 8π/3) to rectangular. Since 8π/3 = 2π + 2π/3, the equivalent angle is 2π/3. cos(2π/3) =', choices: ['1/2', '−1/2', '√3/2', '−√3/2'], answer: 1 },
+      { unit: 11, q: 'Convert (4, 8π/3) to rectangular. sin(2π/3) = √3/2. So x = 4·(−1/2) = −2 and y =', choices: ['2√3', '−2√3', '4√3', '2'], answer: 0 },
+      { unit: 11, q: 'Convert (2, 3π/2) to rectangular. x = 2 cos(3π/2) = 0, y = 2 sin(3π/2) =', choices: ['2', '0', '−2', '√2'], answer: 2 },
+      { unit: 11, q: 'Convert (−3, 5π/3) to rectangular. r = −3, θ = 5π/3. cos(5π/3) = 1/2, sin(5π/3) = −√3/2. x = −3·(1/2) = −3/2, y = −3·(−√3/2) =', choices: ['3√3/2', '−3√3/2', '3/2', '−3/2'], answer: 0 },
+      { unit: 11, q: 'The rectangular coordinates of (−3, 5π/3) are:', choices: ['(−3/2, 3√3/2)', '(3/2, −3√3/2)', '(−3√3/2, −3/2)', '(3√3/2, 3/2)'], answer: 0 },
+      { unit: 11, q: 'Convert (−2, π) to rectangular. x = −2 cos π = −2·(−1) = 2, y = −2 sin π =', choices: ['0', '2', '−2', '1'], answer: 0 },
+      { unit: 11, q: 'The rectangular coordinates of (−2, π) are:', choices: ['(2, 0)', '(−2, 0)', '(0, 2)', '(0, −2)'], answer: 0 },
+
+      // --- Rectangular to polar ---
+      { unit: 11, q: 'To convert (x, y) to polar (r, θ), the formulas are:', choices: ['r = x² + y², tan θ = y/x', 'r = √(x² + y²), tan θ = y/x', 'r = |x + y|, θ = arctan(x/y)', 'r = x·y, θ = arctan(x/y)'], answer: 1 },
+      { unit: 11, q: 'Convert (4, −4) to polar. r = √(16 + 16) = 4√2. The point is in QIV, so θ =', choices: ['π/4', '−π/4 (or 7π/4)', '3π/4', '5π/4'], answer: 1 },
+      { unit: 11, q: 'The polar coordinates of (4, −4) are:', choices: ['(4√2, 7π/4)', '(4√2, π/4)', '(4, 5π/4)', '(√32, −π/4)'], answer: 0 },
+      { unit: 11, q: 'Convert (3, −√3) to polar. r = √(9 + 3) = √12 = 2√3. tan θ = −√3/3 = −1/√3, QIV → θ =', choices: ['5π/6', '−π/6 (or 11π/6)', 'π/6', '7π/6'], answer: 1 },
+      { unit: 11, q: 'The polar coordinates of (3, −√3) are:', choices: ['(2√3, 11π/6)', '(2√3, 5π/6)', '(√12, π/6)', '(2, 11π/6)'], answer: 0 },
+      { unit: 11, q: 'Convert (−√3, √3) to polar. r = √(3 + 3) = √6. tan θ = √3/(−√3) = −1, QII → θ =', choices: ['3π/4', 'π/4', '5π/4', '7π/4'], answer: 0 },
+      { unit: 11, q: 'Convert (−6, 0) to polar. r = 6. The angle for the negative x-axis is θ =', choices: ['0', 'π/2', 'π', '3π/2'], answer: 2 },
+      { unit: 11, q: 'The polar coordinates of (−6, 0) are:', choices: ['(6, π)', '(6, 0)', '(−6, π)', '(6, 3π/2)'], answer: 0 },
+      { unit: 11, q: 'Convert (−4, 4√3) to polar. r = √(16 + 48) = √64 = 8. tan θ = 4√3/(−4) = −√3, QII → θ =', choices: ['π/3', '2π/3', '4π/3', '5π/3'], answer: 1 },
+      { unit: 11, q: 'The polar coordinates of (−4, 4√3) are:', choices: ['(8, 2π/3)', '(8, π/3)', '(8, 4π/3)', '(4√3, 2π/3)'], answer: 0 },
+
+      // --- Converting rectangular equations to polar ---
+      { unit: 11, q: 'To convert y = −4 to polar, replace y with r sin θ:', choices: ['r cos θ = −4', 'r sin θ = −4', 'r = −4', 'r tan θ = −4'], answer: 1 },
+      { unit: 11, q: 'From r sin θ = −4, solving for r gives:', choices: ['r = −4 sin θ', 'r = −4/sin θ = −4 csc θ', 'r = 4 csc θ', 'r = 4/sin θ'], answer: 1 },
+      { unit: 11, q: 'The polar form of the line y = −4 is:', choices: ['r = −4 csc θ', 'r = 4 csc θ', 'r = 4 sec θ', 'r = −4 sec θ'], answer: 0 },
+
+      // --- Polar curve identification and sketching ---
+      { unit: 11, q: 'The polar equation r = 5 sin θ represents:', choices: ['A circle with radius 5 centered at origin', 'A circle tangent to x-axis, center (0, 5/2), radius 5/2', 'A limaçon', 'A rose curve'], answer: 1 },
+      { unit: 11, q: 'For r = 5 sin θ, the circle passes through the origin and the top of the circle is at what point?', choices: ['(0, 5) in rectangular', '(5, π/2) in polar = (0, 5) in rect.', '(0, 5/2)', 'Both A and B'], answer: 3 },
+      { unit: 11, q: 'The polar equation r = 4 − 3 cos θ is a limaçon with a = 4, b = 3. Since a/b = 4/3 > 1, it is:', choices: ['A cardioid', 'A limaçon with inner loop', 'A dimpled (convex) limaçon', 'A rose curve'], answer: 2 },
+      { unit: 11, q: 'For the limaçon r = 4 − 3 cos θ, the maximum r (θ = π) is:', choices: ['7', '1', '4', '3'], answer: 0 },
+      { unit: 11, q: 'For the limaçon r = 4 − 3 cos θ, the minimum r (θ = 0) is:', choices: ['7', '1', '4', '−3'], answer: 1 },
+      { unit: 11, q: 'The polar equation r = −2 cos 3θ is a rose curve. The number of petals is:', choices: ['6', '2', '3', '5'], answer: 2 },
+      { unit: 11, q: 'For r = −2 cos 3θ, the length of each petal is:', choices: ['3', '2', '6', '1'], answer: 1 },
+
+      // --- Conics in polar form ---
+      { unit: 11, q: 'The standard polar form of a conic with focus at the origin is r = ed/(1 ± e·trig θ). The eccentricity e determines the type: e < 1 is an __________.', choices: ['Parabola', 'Hyperbola', 'Ellipse', 'Circle'], answer: 2 },
+      { unit: 11, q: 'For the polar equation r = 4/(−sin θ + 3 cos θ), converting to rectangular: 4 = −r sin θ + 3r cos θ = −y + 3x → 3x − y = 4. This is a:', choices: ['Circle', 'Parabola', 'Line', 'Ellipse'], answer: 2 },
+      { unit: 11, q: 'For r = 4/(3 + 3 cos θ), divide by 3: r = (4/3)/(1 + cos θ). The eccentricity e =', choices: ['3', '1', '4/3', '3/4'], answer: 1 },
+      { unit: 11, q: 'Since e = 1 in r = (4/3)/(1 + cos θ), this is a:', choices: ['Ellipse', 'Parabola', 'Hyperbola', 'Circle'], answer: 1 },
+      { unit: 11, q: 'For r = 5/(3 − sin θ), divide by 3: r = (5/3)/(1 − (1/3) sin θ). The eccentricity e =', choices: ['3', '5/3', '1/3', '5'], answer: 2 },
+      { unit: 11, q: 'Since e = 1/3 < 1 in r = (5/3)/(1 − (1/3) sin θ), this is a:', choices: ['Parabola', 'Hyperbola', 'Line', 'Ellipse'], answer: 3 },
+      { unit: 11, q: 'For r = 2/(2 − 3 cos θ), divide by 2: r = 1/(1 − (3/2) cos θ). The eccentricity e =', choices: ['2', '3/2', '1/2', '3'], answer: 1 },
+      { unit: 11, q: 'Since e = 3/2 > 1 in r = 1/(1 − (3/2) cos θ), this is a:', choices: ['Ellipse', 'Parabola', 'Hyperbola', 'Circle'], answer: 2 },
+      { unit: 11, q: 'For r = 5/(2 + 5 sin θ), divide by 2: r = (5/2)/(1 + (5/2) sin θ). The eccentricity e =', choices: ['5/2', '2/5', '2', '5'], answer: 0 },
+      { unit: 11, q: 'Since e = 5/2 > 1 in r = (5/2)/(1 + (5/2) sin θ), this is a:', choices: ['Ellipse', 'Parabola', 'Circle', 'Hyperbola'], answer: 3 },
+      { unit: 11, q: 'In a polar conic r = k/(1 + e cos θ), the directrix is on the RIGHT side when:', choices: ['The denominator has a minus sign', 'e > 1', 'The denominator has a plus sign (1 + e cos θ)', 'e < 1'], answer: 2 },
+      { unit: 11, q: 'For r = 4/(3 + 3 cos θ) (parabola, e = 1), the vertex occurs at θ = 0 (closest approach): r(0) =', choices: ['4/6 = 2/3', '4/3', '4', '2/3'], answer: 0 },
+      { unit: 11, q: 'For the polar conic r = 5/(3 − sin θ) (ellipse), it uses sin θ so the major axis is:', choices: ['Along the x-axis (horizontal)', 'Along the y-axis (vertical)', 'Diagonal', 'Along the line θ = π/4'], answer: 1 },
     ],
     get quiz() {
       return this.qbank.slice();
