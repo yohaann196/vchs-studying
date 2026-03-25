@@ -3360,6 +3360,29 @@ const CLASSES = [
           'USING IDENTITIES TO FIND TRIG VALUES: Given one trig value and a quadrant condition, use Pythagorean identities to find others. Example: given cot x = 7/4 and sin x < 0. Since cot x > 0 and sin x < 0, both must be negative → Quadrant III. Construct a right triangle with opposite = 4, adjacent = 7, hypotenuse = √(16 + 49) = √65. Then cos x = −7/√65 (negative in QIII).',
         ]
       },
+      {
+        title: 'Chapter 6 — Vectors, Complex Numbers and Trigonometric Form',
+        content: [
+          'LAW OF SINES: a/sin A = b/sin B = c/sin C (or equivalently sin A/a = sin B/b = sin C/c). Use when you know AAS, ASA, or SSA (ambiguous case). The ambiguous (SSA) case may give 0, 1, or 2 triangles.',
+          'LAW OF COSINES: a² = b² + c² − 2bc cos A. Solve for the angle: cos A = (b² + c² − a²)/(2bc). Use when you know SAS or SSS. Always check that the resulting angle is consistent with the given information.',
+          'VECTOR BASICS: A vector v = ⟨a, b⟩ = ai + bj has magnitude |v| = √(a² + b²). The direction angle θ satisfies tan θ = b/a (adjust for the correct quadrant). Component form: v = |v|cos θ i + |v|sin θ j.',
+          'UNIT VECTORS: A unit vector has magnitude 1. To find the unit vector in the direction of v: û = v/|v| = ⟨a/|v|, b/|v|⟩. To find a vector of magnitude k in the direction of v: k·û = k·v/|v|.',
+          'VECTOR ARITHMETIC: If u = ⟨a, b⟩ and v = ⟨c, d⟩, then u + v = ⟨a+c, b+d⟩, u − v = ⟨a−c, b−d⟩, k·u = ⟨ka, kb⟩. The zero vector is ⟨0, 0⟩.',
+          'DIRECTION ANGLE: For v = ai + bj, the direction angle θ (measured from the positive x-axis) is found by tan θ = b/a. Choose the quadrant based on the signs of a (horizontal) and b (vertical). Example: v = 3i − 5j has |v| = √34 and θ = arctan(−5/3) ≈ −59° (or equivalently about 301° measured from +x-axis).',
+          'DOT PRODUCT: u · v = ⟨a, b⟩ · ⟨c, d⟩ = ac + bd. Also u · v = |u||v| cos θ where θ is the angle between them. To find θ: cos θ = (u · v)/(|u||v|). Vectors are orthogonal (perpendicular) iff u · v = 0.',
+          'VECTOR APPLICATIONS — EQUILIBRIUM: For a suspended weight W, each support rope at angle α from vertical carries tension T = W/(2 cos α). For two ropes each at angle α from vertical: 2T cos α = W.',
+          'VECTOR APPLICATIONS — RESULTANT/CURRENT: The actual velocity = intended velocity + current velocity. Set up the vector equation and solve component by component. Use the coordinate system stated in the problem (e.g., +x = east, +y = north).',
+          'TRIGONOMETRIC (POLAR) FORM OF A COMPLEX NUMBER: z = a + bi is written in trig form as z = r(cos θ + i sin θ) where r = |z| = √(a² + b²) (the modulus) and θ = arg(z) = arctan(b/a) (the argument, adjusted for quadrant). Also written r cis θ.',
+          'CONVERTING TO TRIG FORM: Given z = a + bi, compute r = √(a² + b²) and θ = arctan(b/a) (quadrant-adjusted). Write z = r(cos θ + i sin θ). Example: z = 3 − √3i → r = √(9+3) = 2√3, θ = arctan(−√3/3) = −π/6 (or 11π/6) → z = 2√3(cos(−π/6) + i sin(−π/6)).',
+          'CONVERTING FROM TRIG FORM: Given r(cos θ + i sin θ), evaluate cos θ and sin θ (use unit circle for standard angles), then a = r cos θ, b = r sin θ, and z = a + bi.',
+          'MULTIPLYING IN TRIG FORM: r₁ cis θ₁ · r₂ cis θ₂ = (r₁r₂) cis(θ₁ + θ₂). Multiply the moduli and add the arguments.',
+          'DIVIDING IN TRIG FORM: (r₁ cis θ₁)/(r₂ cis θ₂) = (r₁/r₂) cis(θ₁ − θ₂). Divide the moduli and subtract the arguments.',
+          "DE MOIVRE'S THEOREM: [r(cos θ + i sin θ)]ⁿ = rⁿ(cos nθ + i sin nθ). To raise a complex number to a power n: take the modulus to the nth power and multiply the argument by n.",
+          'NTH ROOTS OF A COMPLEX NUMBER: The n distinct nth roots of r(cos θ + i sin θ) are: zₖ = r^(1/n) · [cos((θ + 2πk)/n) + i sin((θ + 2πk)/n)] for k = 0, 1, 2, ..., n−1. The roots are equally spaced on a circle of radius r^(1/n) in the complex plane.',
+          'CONVERTING TO TRIG FORM FIRST FOR NTH ROOTS: Always convert the given complex number to trig form r cis θ before applying the nth root formula. Example: −64i = 64(cos(3π/2) + i sin(3π/2)), so the 6th roots have r = 64^(1/6) = 2 and θₖ = (3π/2 + 2πk)/6 = π/4 + πk/3 for k = 0,...,5.',
+          'PLOTTING COMPLEX NUMBERS: Plot a + bi as the point (a, b) in the complex plane (real axis = x-axis, imaginary axis = y-axis). For trig form r cis θ, the point is at distance r from the origin at angle θ. Nth roots lie equally spaced on a circle.',
+        ]
+      },
     ],
     qbank: [
       // Chapter 1 — Functions (unit: 1)
@@ -4037,6 +4060,130 @@ const CLASSES = [
       { unit: 5, q: 'Simplifying cot x/sec x: (cos x/sin x) · cos x = ?', choices: ['cos²x/sin x', 'cos x/sin x', 'cos x · cot x', 'sin x cos x'], answer: 0 },
       { unit: 5, q: 'Simplifying tan x/csc x: (sin x/cos x) · sin x = ?', choices: ['sin x/cos x', 'sin²x/cos x', 'tan x · sin x', 'cos x · tan x'], answer: 1 },
       { unit: 5, q: 'Adding cos²x/sin x + sin²x/cos x over LCD sin x cos x gives:', choices: ['(cos³x + sin³x)/(sin x cos x)', 'cos²x + sin²x = 1', '(sin²x + cos²x)/(sin x cos x) = 1/(sin x cos x) — only the cubes version matches the target', 'The sum matches sec x + csc x − sin x − cos x after factoring'], answer: 3 },
+
+      // Chapter 6 — Vectors, Complex Numbers and Trigonometric Form (unit: 6)
+
+      // --- Law of Sines ---
+      { unit: 6, q: 'The Law of Sines states:', choices: ['a/cos A = b/cos B = c/cos C', 'a/sin A = b/sin B = c/sin C', 'a² = b² + c² − 2bc cos A', 'sin A/b = sin B/a = sin C/c'], answer: 1 },
+      { unit: 6, q: 'You should use the Law of Sines when you know:', choices: ['Three sides (SSS)', 'Two sides and the included angle (SAS)', 'Two angles and any side (AAS or ASA)', 'All of the above'], answer: 2 },
+      { unit: 6, q: 'In triangle ABC, A = 40°, B = 75°, and a = 8. Find angle C.', choices: ['55°', '65°', '75°', '85°'], answer: 1 },
+      { unit: 6, q: 'The ambiguous case (SSA) in the Law of Sines can produce:', choices: ['Exactly one triangle always', 'Exactly two triangles always', 'No solution, one solution, or two solutions', 'Only no solution or two solutions'], answer: 2 },
+      { unit: 6, q: 'In triangle ABC with b = 10, B = 30°, and a = 5, the side a opposite the given angle A satisfies a < b · sin A/sin B. The number of triangles is:', choices: ['0', '1', '2', '3'], answer: 1 },
+      { unit: 6, q: 'Using the Law of Sines: In triangle ABC, A = 30°, a = 5, b = 8. Which equation sets up solving for B?', choices: ['sin B = 8 sin 30°/5', 'sin B = 5 sin 30°/8', 'cos B = (5² + 8² − 25)/(2·5·8)', 'tan B = 8/5'], answer: 0 },
+      { unit: 6, q: 'In triangle ABC, A = 60°, B = 75°, c = 12. To find a, use the Law of Sines. First find C =', choices: ['45°', '55°', '65°', '75°'], answer: 0 },
+      { unit: 6, q: 'For a triangle with sides a = 7, b = 10, and A = 30°, sin B = 10 sin 30°/7 ≈ 0.714. Since this is ≤ 1, there are:', choices: ['0 triangles', '1 triangle', '2 triangles', '3 triangles'], answer: 2 },
+
+      // --- Law of Cosines ---
+      { unit: 6, q: 'The Law of Cosines states (for side a):', choices: ['a = b + c − 2bc cos A', 'a² = b² + c² + 2bc cos A', 'a² = b² + c² − 2bc cos A', 'a² = b² − c² + 2bc cos A'], answer: 2 },
+      { unit: 6, q: 'You should use the Law of Cosines when you know:', choices: ['AAS or ASA', 'SSA only', 'SSS or SAS', 'Only SSS'], answer: 2 },
+      { unit: 6, q: 'To solve for angle A using the Law of Cosines, the formula is:', choices: ['cos A = (a² + b² − c²)/(2ab)', 'cos A = (b² + c² − a²)/(2bc)', 'cos A = (a² − b² − c²)/(2bc)', 'cos A = (b² − c² + a²)/(2ab)'], answer: 1 },
+      { unit: 6, q: 'In triangle ABC, a = 6, b = 8, C = 60°. Find c using the Law of Cosines.', choices: ['√52', '√28', '√76', '√88'], answer: 0 },
+      { unit: 6, q: 'In triangle ABC, a = 5, b = 7, c = 9. Find cos A.', choices: ['(49 + 81 − 25)/(2·7·9)', '(25 + 49 − 81)/(2·5·7)', '(25 + 81 − 49)/(2·5·9)', '(49 + 25 − 81)/(2·7·5)'], answer: 0 },
+      { unit: 6, q: 'A triangle has sides 3, 5, 7. The cosine of the largest angle is:', choices: ['(9 + 25 − 49)/(30) = −1/2', '(9 + 49 − 25)/(42) = 1/2', '(25 + 49 − 9)/(70) = 13/14', '(9 + 25 − 49)/(15) = −1'], answer: 0 },
+
+      // --- Vectors: basic definitions and operations ---
+      { unit: 6, q: 'The magnitude of v = 3i − 4j is:', choices: ['1', '5', '7', '25'], answer: 1 },
+      { unit: 6, q: 'The magnitude of v = 9i − 2j is:', choices: ['√85', '√77', '11', '7'], answer: 0 },
+      { unit: 6, q: 'The magnitude of v = 2i − 3j is:', choices: ['√5', '√13', '√7', '1'], answer: 1 },
+      { unit: 6, q: 'The magnitude of v = 3i − 5j is:', choices: ['√8', '√34', '√15', '2√2'], answer: 1 },
+      { unit: 6, q: 'The unit vector in the direction of v = 9i − 2j is:', choices: ['(9i − 2j)/√77', '(9i − 2j)/√85', '(9i − 2j)/11', '9i − 2j'], answer: 1 },
+      { unit: 6, q: 'The unit vector in the direction of v = ⟨3, 4⟩ is:', choices: ['⟨3/7, 4/7⟩', '⟨3/5, 4/5⟩', '⟨3/25, 4/25⟩', '⟨1, 4/3⟩'], answer: 1 },
+      { unit: 6, q: 'A vector of magnitude 5 in the direction of v = 2i − 3j equals (5/|v|)v =', choices: ['(10/√13)i − (15/√13)j', '(5/√13)(2i − 3j)', '10i − 15j', 'Both A and B (same answer)'], answer: 3 },
+      { unit: 6, q: 'If u = ⟨1, 2⟩ and v = ⟨3, −1⟩, then u + v =', choices: ['⟨4, 1⟩', '⟨2, 3⟩', '⟨−2, 3⟩', '⟨4, −1⟩'], answer: 0 },
+      { unit: 6, q: 'If u = ⟨5, 2⟩ and v = ⟨−1, 3⟩, then u − v =', choices: ['⟨4, 5⟩', '⟨6, −1⟩', '⟨−6, 1⟩', '⟨4, −1⟩'], answer: 1 },
+      { unit: 6, q: '3(2i − j) = ?', choices: ['6i − j', '6i − 3j', '2i − 3j', '5i − 4j'], answer: 1 },
+      { unit: 6, q: 'If |v| = 10 and v makes an angle of 60° with the positive x-axis, then v =', choices: ['5i + 5√3j', '10cos 60°i + 10sin 60°j = 5i + 5√3j', '5√3i + 5j', 'Both A and B'], answer: 3 },
+
+      // --- Direction angle ---
+      { unit: 6, q: 'For v = 3i − 5j, the direction angle θ (from positive x-axis) satisfies tan θ =', choices: ['3/5', '5/3', '−3/5', '−5/3'], answer: 3 },
+      { unit: 6, q: 'Since v = 3i − 5j has positive x-component and negative y-component, it lies in Quadrant:', choices: ['I', 'II', 'III', 'IV'], answer: 3 },
+      { unit: 6, q: '|v| for v = 3i − 5j is:', choices: ['√8', '2', '√34', '√15'], answer: 2 },
+      { unit: 6, q: 'v = |v|(cos θ i + sin θ j). If |v| = 3 and θ = 225°, then v =', choices: ['3(cos 225° i + sin 225° j) = −(3√2/2)i − (3√2/2)j', '−3i + 3j', '(3√2/2)i + (3√2/2)j', '3i + 3j'], answer: 0 },
+      { unit: 6, q: 'cos 225° =', choices: ['√2/2', '−√2/2', '√3/2', '−√3/2'], answer: 1 },
+      { unit: 6, q: 'sin 225° =', choices: ['√2/2', '−√2/2', '√3/2', '−√3/2'], answer: 1 },
+      { unit: 6, q: 'If |v| = 3 and v makes 225° with the x-axis, the i-component is:', choices: ['3√2/2', '−3√2/2', '3√3/2', '−3√3/2'], answer: 1 },
+      { unit: 6, q: 'For the vector v = ai + bj, the direction angle is found using:', choices: ['θ = arcsin(b/|v|)', 'θ = arctan(b/a), quadrant-adjusted', 'θ = arccos(a/|v|)', 'All three give the same quadrant-adjusted answer'], answer: 3 },
+
+      // --- Dot product ---
+      { unit: 6, q: 'The dot product u · v of u = ⟨a, b⟩ and v = ⟨c, d⟩ is:', choices: ['ac − bd', 'ac + bd', '⟨ac, bd⟩', 'ab + cd'], answer: 1 },
+      { unit: 6, q: 'Compute (−2i + 5j) · (−2j).', choices: ['4', '−10', '−10 + 4 = −6', '0 · (−2) + 5 · (−2) = −10'], answer: 3 },
+      { unit: 6, q: 'The formula relating dot product to the angle between vectors is:', choices: ['u · v = |u| + |v| cos θ', 'u · v = |u||v| sin θ', 'u · v = |u||v| cos θ', 'u · v = |u||v| tan θ'], answer: 2 },
+      { unit: 6, q: 'If |u| = 2, |v| = 5, and the angle between them is 5π/6, then u · v =', choices: ['5', '−5', '5√3', '−5√3'], answer: 1 },
+      { unit: 6, q: 'cos(5π/6) =', choices: ['√3/2', '−√3/2', '1/2', '−1/2'], answer: 1 },
+      { unit: 6, q: 'Two vectors are perpendicular (orthogonal) when:', choices: ['Their dot product equals 1', 'Their dot product equals 0', 'Their magnitudes are equal', 'Their direction angles differ by π'], answer: 1 },
+      { unit: 6, q: 'Find the angle between u = ⟨−2, 5⟩ and v = ⟨0, −2⟩. First compute u · v.', choices: ['0', '−10', '10', '4'], answer: 1 },
+      { unit: 6, q: 'For u = ⟨−2, 5⟩, |u| =', choices: ['√3', '√21', '√29', '7'], answer: 2 },
+      { unit: 6, q: 'For v = ⟨0, −2⟩, |v| =', choices: ['0', '2', '4', '√4'], answer: 1 },
+      { unit: 6, q: 'The angle θ between u = ⟨−2, 5⟩ and v = ⟨0, −2⟩: cos θ = (u·v)/(|u||v|) = −10/(√29 · 2). θ =', choices: ['arccos(−5/√29)', 'arccos(5/√29)', 'arccos(−10/√29)', 'arccos(10/(2√29))'], answer: 0 },
+      { unit: 6, q: 'If u · v = 0, the vectors are:', choices: ['Parallel', 'Perpendicular', 'Anti-parallel', 'Equal in magnitude'], answer: 1 },
+      { unit: 6, q: 'u · v = 2 · 5 · cos(5π/6) = 10 · (−√3/2) =', choices: ['5√3', '−5√3', '10', '−10'], answer: 1 },
+
+      // --- Vector application: equilibrium/tension ---
+      { unit: 6, q: 'A 5 N block is suspended by two ropes, each making 30° with the vertical. The equilibrium equation for the vertical components is:', choices: ['T sin 30° + T sin 30° = 5', 'T cos 30° + T cos 30° = 5', '2T sin 30° = 5', 'T + T = 5'], answer: 1 },
+      { unit: 6, q: 'From 2T cos 30° = 5 (with cos 30° = √3/2), solve for T:', choices: ['T = 5√3/6', 'T = 5/(√3)', 'T = 5√3/3', 'T = 5/(2cos 30°) = 5/√3 = 5√3/3'], answer: 3 },
+      { unit: 6, q: 'Each rope at 30° from vertical carries tension T = 5/(2cos 30°). Numerically (rationalised), T =', choices: ['5√3/6 N', '5√3/3 N', '5/2 N', '5/(√3) N'], answer: 1 },
+      { unit: 6, q: 'A 10 N weight hangs from two ropes each at 45° from vertical. The tension in each rope is:', choices: ['5 N', '5√2 N', '10/(√2) = 5√2 N', 'Both B and C'], answer: 3 },
+      { unit: 6, q: 'When two ropes each make angle α with the vertical and support weight W, the tension in each rope is:', choices: ['T = W / (2 sin α)', 'T = W / (2 cos α)', 'T = W cos α / 2', 'T = W / sin α'], answer: 1 },
+
+      // --- Vector application: current/resultant ---
+      { unit: 6, q: 'A fish swims south at 2 m/s. The actual velocity is 3 m/s at 30° east of south. In component form (east=+x, north=+y), the fish\'s intended velocity is:', choices: ['⟨0, −2⟩', '⟨−2, 0⟩', '⟨0, 2⟩', '⟨2, 0⟩'], answer: 0 },
+      { unit: 6, q: 'The actual velocity at 3 m/s, 30° east of south, in (east=+x, north=+y) components, is:', choices: ['⟨3sin 30°, −3cos 30°⟩ = ⟨3/2, −3√3/2⟩', '⟨3cos 30°, −3sin 30°⟩', '⟨−3/2, −3√3/2⟩', '⟨3/2, 3√3/2⟩'], answer: 0 },
+      { unit: 6, q: 'Current velocity = actual velocity − fish\'s intended velocity. The x-component of the current is:', choices: ['3/2 − 0 = 3/2', '0 − 3/2 = −3/2', '3 − 2 = 1', '3cos 30°'], answer: 0 },
+      { unit: 6, q: 'The y-component of the current in the fish problem is:', choices: ['−3√3/2 − (−2) = 2 − 3√3/2', '−3√3/2 + 2', '2 − 3√3/2', 'All three are the same expression'], answer: 3 },
+      { unit: 6, q: 'The vector equation relating actual velocity, fish velocity, and current is:', choices: ['v_actual = v_fish + v_current', 'v_current = v_actual − v_fish', 'v_fish = v_actual − v_current', 'All three are equivalent'], answer: 3 },
+
+      // --- Trigonometric form of complex numbers ---
+      { unit: 6, q: 'The modulus (magnitude) of the complex number z = a + bi is:', choices: ['a + b', 'a² + b²', '√(a² + b²)', '|a| + |b|'], answer: 2 },
+      { unit: 6, q: 'The modulus of z = 3 − √3i is:', choices: ['3 + √3', '3 − √3', '2√3', '√6'], answer: 2 },
+      { unit: 6, q: 'The argument (angle) of z = 3 − √3i: tan θ = (−√3)/3 = −1/√3. Since Re > 0 and Im < 0 (Quadrant IV), θ =', choices: ['π/6', '−π/6', '5π/6', '11π/6'], answer: 1 },
+      { unit: 6, q: 'The trigonometric form of z = 3 − √3i is:', choices: ['2√3(cos(π/6) + i sin(π/6))', '2√3(cos(−π/6) + i sin(−π/6))', '√12(cos(π/6) + i sin(π/6))', '4(cos(−π/6) + i sin(−π/6))'], answer: 1 },
+      { unit: 6, q: 'The modulus of z = −1 + i is:', choices: ['0', '√2', '2', '1'], answer: 1 },
+      { unit: 6, q: 'The argument of z = −1 + i (Quadrant II) is:', choices: ['π/4', '3π/4', '5π/4', '7π/4'], answer: 1 },
+      { unit: 6, q: 'The trig form of z = −1 + i is:', choices: ['√2 (cos(π/4) + i sin(π/4))', '√2 (cos(3π/4) + i sin(3π/4))', '2(cos(π/4) + i sin(π/4))', '√2 (cos(5π/4) + i sin(5π/4))'], answer: 1 },
+      { unit: 6, q: 'The modulus of z = 1 + i√3 is:', choices: ['2', '√2', '√(1+3) = 2', 'Both A and C'], answer: 3 },
+      { unit: 6, q: 'The argument of z = 1 + i√3 (Quadrant I) is:', choices: ['π/6', 'π/3', 'π/4', '2π/3'], answer: 1 },
+      { unit: 6, q: 'Convert √3(cos(5π/6) + i sin(5π/6)) to standard form. cos(5π/6) = −√3/2 and sin(5π/6) = 1/2, so the result is:', choices: ['−3/2 + (√3/2)i', '√3·(−√3/2) + √3·(1/2)i = −3/2 + (√3/2)i', '3/2 + (√3/2)i', 'Both A and B (same expression)'], answer: 3 },
+      { unit: 6, q: 'Convert 2(cos(5π/3) + i sin(5π/3)) to standard form. cos(5π/3) = 1/2, sin(5π/3) = −√3/2.', choices: ['1 − i√3', '1 + i√3', '−1 − i√3', '2 − 2i√3'], answer: 0 },
+      { unit: 6, q: 'Which expression is the standard form of 2(cos(π/2) + i sin(π/2))?', choices: ['2', '2i', '0 + 2i', 'Both B and C'], answer: 3 },
+      { unit: 6, q: 'The argument θ of a negative real number (on the negative real axis) is:', choices: ['0', 'π/2', 'π', '3π/2'], answer: 2 },
+      { unit: 6, q: 'Express −4 in trigonometric form.', choices: ['4(cos 0 + i sin 0)', '4(cos π + i sin π)', '4(cos(π/2) + i sin(π/2))', '4(cos(3π/2) + i sin(3π/2))'], answer: 1 },
+      { unit: 6, q: 'Express 5i in trigonometric form.', choices: ['5(cos 0 + i sin 0)', '5(cos(π/2) + i sin(π/2))', '5(cos π + i sin π)', '5(cos(3π/2) + i sin(3π/2))'], answer: 1 },
+      { unit: 6, q: 'Express −64i in trigonometric form.', choices: ['64(cos(π/2) + i sin(π/2))', '64(cos(3π/2) + i sin(3π/2))', '64(cos π + i sin π)', '64(cos 0 + i sin 0)'], answer: 1 },
+
+      // --- Multiplying and dividing in trig form ---
+      { unit: 6, q: 'To multiply two complex numbers in trig form r₁ cis θ₁ · r₂ cis θ₂:', choices: ['Multiply the moduli and multiply the arguments', 'Add the moduli and add the arguments', 'Multiply the moduli and add the arguments', 'Add the moduli and multiply the arguments'], answer: 2 },
+      { unit: 6, q: 'To divide r₁ cis θ₁ by r₂ cis θ₂:', choices: ['Divide the moduli and divide the arguments', 'Subtract the moduli and subtract the arguments', 'Divide the moduli and subtract the arguments', 'Add the moduli and divide the arguments'], answer: 2 },
+      { unit: 6, q: 'Express in standard form: (cos(5π/3) + i sin(5π/3))(cos(π/2) + i sin(π/2))(cos(π/6) + i sin(π/6)). First add the arguments: 5π/3 + π/2 + π/6 =', choices: ['2π', '7π/3', '5π/2', '3π'], answer: 0 },
+      { unit: 6, q: 'Since the product has modulus 1 and argument 2π, the standard form is:', choices: ['0 + i', '1 + 0i', '0 − i', '−1 + 0i'], answer: 1 },
+      { unit: 6, q: 'Compute (cos(4π/3) + i sin(4π/3)) / (cos(π/6) + i sin(π/6)). The argument is 4π/3 − π/6 =', choices: ['π', '7π/6', 'π/6', '5π/6'], answer: 1 },
+      { unit: 6, q: 'cos(7π/6) + i sin(7π/6) = ? (in standard form)', choices: ['−√3/2 + (1/2)i', '(√3/2) − (1/2)i', '−√3/2 − (1/2)i', '−1/2 + (√3/2)i'], answer: 2 },
+      { unit: 6, q: '(cos(4π/3) + i sin(4π/3)) / (cos(π/6) + i sin(π/6)) in standard form is:', choices: ['−√3/2 − (1/2)i', '−√3/2 + (1/2)i', '√3/2 − (1/2)i', '−1/2 − (√3/2)i'], answer: 0 },
+
+      // --- De Moivre's Theorem ---
+      { unit: 6, q: "De Moivre's Theorem states: [r(cos θ + i sin θ)]ⁿ =", choices: ['nrⁿ(cos θ + i sin θ)', 'rⁿ(cos nθ + i sin nθ)', 'rⁿ(cos(θ/n) + i sin(θ/n))', 'rⁿ · n(cos θ + i sin θ)'], answer: 1 },
+      { unit: 6, q: 'To calculate (1 − √3i)⁷, first find the modulus |1 − √3i| =', choices: ['√(1 + 3) = 2', '√(1 − 3)', '1 + √3', '√2'], answer: 0 },
+      { unit: 6, q: 'The argument of z = 1 − √3i (Quadrant IV, tan θ = −√3) is:', choices: ['π/3', '−π/3 (or 5π/3)', '2π/3', '4π/3'], answer: 1 },
+      { unit: 6, q: 'Using De Moivre\'s: (1 − √3i)⁷ = [2 cis(−π/3)]⁷ = 2⁷ cis(−7π/3) = 128 cis(−7π/3). Since −7π/3 + 4π = 5π/3, standard form is 128 cis(5π/3) =', choices: ['128(1/2 − i√3/2) = 64 − 64i√3', '128(−1/2 + i√3/2)', '128(1/2 + i√3/2)', '128(−√3/2 − i/2)'], answer: 0 },
+      { unit: 6, q: 'To calculate (−3 + 3i)⁴, find modulus |−3 + 3i| =', choices: ['3√2', '6', '3', '√18'], answer: 0 },
+      { unit: 6, q: 'The argument of z = −3 + 3i (Quadrant II) is:', choices: ['π/4', '3π/4', '5π/4', '7π/4'], answer: 1 },
+      { unit: 6, q: '(−3 + 3i)⁴ = [3√2 cis(3π/4)]⁴ = (3√2)⁴ cis(3π) = 324 cis(3π). Since 3π ≡ π (mod 2π), this equals:', choices: ['324(cos π + i sin π) = −324 + 0i = −324', '324(cos 0 + i sin 0) = 324', '324i', '−324i'], answer: 0 },
+      { unit: 6, q: '(3√2)⁴ = ?', choices: ['81', '162', '324', '648'], answer: 2 },
+      { unit: 6, q: 'cos 3π + i sin 3π =', choices: ['0 + i', '−1 + 0i', '0 − i', '1 + 0i'], answer: 1 },
+      { unit: 6, q: 'To compute z⁷ using De Moivre\'s, you multiply the argument by:', choices: ['1/7', '7', '2', 'z²'], answer: 1 },
+
+      // --- nth roots of complex numbers ---
+      { unit: 6, q: 'The nth roots of r(cos θ + i sin θ) are given by zₖ = r^(1/n) cis((θ + 2πk)/n) for k =', choices: ['k = 1 to n', 'k = 0 to n', 'k = 0 to n−1', 'k = 1 to n−1'], answer: 2 },
+      { unit: 6, q: 'How many 6th roots does any nonzero complex number have?', choices: ['2', '3', '6', '12'], answer: 2 },
+      { unit: 6, q: 'The nth roots of a complex number lie equally spaced on a circle of radius:', choices: ['r', 'r^n', 'r^(1/n)', '1/r'], answer: 2 },
+      { unit: 6, q: 'The angular spacing between consecutive nth roots (in radians) is:', choices: ['π/n', '2π/n', 'θ/n', 'π/(2n)'], answer: 1 },
+      { unit: 6, q: 'Express −64i in trig form: −64i = 64(cos(3π/2) + i sin(3π/2)). The 6th roots have modulus:', choices: ['64', '2', '4', '8'], answer: 1 },
+      { unit: 6, q: '64^(1/6) = (2⁶)^(1/6) =', choices: ['6', '4', '2', '√64'], answer: 2 },
+      { unit: 6, q: 'For z⁶ = −64i = 64 cis(3π/2), the k=0 root has argument θ₀ = (3π/2)/6 =', choices: ['π/4', 'π/2', 'π/3', '3π/4'], answer: 0 },
+      { unit: 6, q: 'The argument of the k=1 root of z⁶ = −64i is θ₁ = (3π/2 + 2π)/6 =', choices: ['π/4 + π/6 = 5π/12', 'π/4 + π/3 = 7π/12', 'π/4 + 2π/3 = 11π/12', 'π/4 + π/6'], answer: 1 },
+      { unit: 6, q: 'The general formula for the argument of the kth root of z⁶ = −64i is:', choices: ['π/4 + kπ/3', 'π/4 + kπ/6', 'π/4 + 2πk/6 = π/4 + πk/3', 'Both A and C (same expression)'], answer: 3 },
+      { unit: 6, q: 'For k = 0, 1, 2, 3, 4, 5, the 6th roots of −64i all have modulus 2. They are plotted:', choices: ['At the vertices of a regular hexagon inscribed in a circle of radius 2', 'Equally spaced on the unit circle', 'At intervals of π/3 starting from π/4', 'Both A and C'], answer: 3 },
+      { unit: 6, q: 'The first four cube roots of 8 are found using r = 8^(1/3) = 2 and θₖ = (0 + 2πk)/3. For k = 0, the root is:', choices: ['2 cis(0) = 2', '2 cis(π/3)', '2 cis(2π/3)', '2 cis(π)'], answer: 0 },
+      { unit: 6, q: 'To find the 4th roots of 16, the modulus of each root is:', choices: ['4', '2', '√2', '8'], answer: 1 },
     ],
     get quiz() {
       return this.qbank.slice();
