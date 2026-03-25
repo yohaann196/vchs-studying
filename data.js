@@ -3336,6 +3336,30 @@ const CLASSES = [
           'COTERMINAL ANGLES: Two angles are coterminal if they differ by a multiple of 2π (360°). To find a coterminal angle in [0, 2π), add or subtract 2π as needed.',
         ]
       },
+      {
+        title: 'Chapter 5 — Trigonometric Identities and Equations',
+        content: [
+          'PYTHAGOREAN IDENTITIES (must memorize all three forms): sin²x + cos²x = 1 → sin²x = 1 − cos²x and cos²x = 1 − sin²x. 1 + tan²x = sec²x → tan²x = sec²x − 1. 1 + cot²x = csc²x → cot²x = csc²x − 1.',
+          'RECIPROCAL IDENTITIES: csc x = 1/sin x, sec x = 1/cos x, cot x = 1/tan x = cos x/sin x, tan x = sin x/cos x.',
+          'QUOTIENT IDENTITIES: tan x = sin x/cos x, cot x = cos x/sin x.',
+          'CO-FUNCTION IDENTITIES: sin(π/2 − x) = cos x, cos(π/2 − x) = sin x, tan(π/2 − x) = cot x, csc(π/2 − x) = sec x, sec(π/2 − x) = csc x, cot(π/2 − x) = tan x.',
+          'EVEN/ODD IDENTITIES: cos(−x) = cos x (even), sin(−x) = −sin x (odd), tan(−x) = −tan x (odd), csc(−x) = −csc x, sec(−x) = sec x, cot(−x) = −cot x.',
+          'STRATEGY FOR VERIFYING IDENTITIES: Work on one side only (usually the more complex side). Convert everything to sin and cos. Combine fractions over a common denominator. Factor when possible. Use Pythagorean identities to substitute. NEVER cross-multiply or move terms across the equals sign.',
+          'SUM AND DIFFERENCE FORMULAS: sin(A ± B) = sin A cos B ± cos A sin B. cos(A ± B) = cos A cos B ∓ sin A sin B. tan(A ± B) = (tan A ± tan B)/(1 ∓ tan A tan B).',
+          'EVALUATING WITH SUM/DIFFERENCE FORMULAS: To find tan(5π/12), write 5π/12 = π/4 + π/6, then apply the tan addition formula with tan(π/4) = 1 and tan(π/6) = √3/3.',
+          'DOUBLE-ANGLE FORMULAS: sin(2x) = 2 sin x cos x. cos(2x) = cos²x − sin²x = 1 − 2sin²x = 2cos²x − 1. tan(2x) = 2tan x/(1 − tan²x).',
+          'THREE FORMS OF cos(2x): cos(2x) = cos²x − sin²x (use when both appear). cos(2x) = 1 − 2sin²x (use when only sin appears). cos(2x) = 2cos²x − 1 (use when only cos appears).',
+          'HALF-ANGLE FORMULAS: sin(x/2) = ±√((1 − cos x)/2). cos(x/2) = ±√((1 + cos x)/2). tan(x/2) = ±√((1 − cos x)/(1 + cos x)) = sin x/(1 + cos x) = (1 − cos x)/sin x. The ± depends on the quadrant of x/2.',
+          'POWER-REDUCING FORMULAS (reduce even powers): sin²x = (1 − cos 2x)/2. cos²x = (1 + cos 2x)/2. tan²x = (1 − cos 2x)/(1 + cos 2x). Use these to rewrite expressions like sin²x·cos²x in first-power cosine form.',
+          'PRODUCT-TO-SUM FORMULAS: sin A sin B = ½[cos(A−B) − cos(A+B)]. cos A cos B = ½[cos(A−B) + cos(A+B)]. sin A cos B = ½[sin(A+B) + sin(A−B)]. cos A sin B = ½[sin(A+B) − sin(A−B)].',
+          'SUM-TO-PRODUCT FORMULAS: sin x + sin y = 2 sin((x+y)/2) cos((x−y)/2). sin x − sin y = 2 cos((x+y)/2) sin((x−y)/2). cos x + cos y = 2 cos((x+y)/2) cos((x−y)/2). cos x − cos y = −2 sin((x+y)/2) sin((x−y)/2).',
+          'SOLVING BASIC TRIG EQUATIONS: Isolate the trig function, find the reference angle, then list all solutions in [0, 2π) by considering the correct quadrants. For general solutions add + 2nπ (or + nπ for tan/cot).',
+          'SOLVING QUADRATIC TRIG EQUATIONS: Factor or use the quadratic formula after substituting u = sin x (or cos x, etc.). Each factor gives a simpler equation to solve. Check that solutions are in the domain.',
+          'EXTRANEOUS SOLUTIONS: When squaring both sides or multiplying by expressions that could be zero, always check each solution in the ORIGINAL equation. Extraneous solutions satisfy the transformed equation but not the original.',
+          'SOLVING TRIG EQUATIONS WITH MULTIPLE ANGLES: For equations involving 2x, find all solutions of 2x in [0, 4π) first, then divide by 2 to get x in [0, 2π). For x/2, find solutions of x/2 in [0, π), then multiply by 2.',
+          'USING IDENTITIES TO FIND TRIG VALUES: Given one trig value and a quadrant condition, use Pythagorean identities to find others. Example: given cot x = 7/4 and sin x < 0. Since cot x > 0 and sin x < 0, both must be negative → Quadrant III. Construct a right triangle with opposite = 4, adjacent = 7, hypotenuse = √(16 + 49) = √65. Then cos x = −7/√65 (negative in QIII).',
+        ]
+      },
     ],
     qbank: [
       // Chapter 1 — Functions (unit: 1)
@@ -3854,6 +3878,165 @@ const CLASSES = [
       { unit: 4, q: 'Which of the following is NOT a valid value of sin θ?', choices: ['0', '1', '−1', '2'], answer: 3 },
       { unit: 4, q: 'For what values of θ is cos θ = 0?', choices: ['θ = 0 + nπ', 'θ = π/2 + nπ', 'θ = π/4 + nπ', 'θ = π/3 + nπ'], answer: 1 },
       { unit: 4, q: 'What are the vertical asymptotes of y = tan(x)?', choices: ['x = nπ', 'x = π/2 + nπ', 'x = π/4 + nπ', 'x = 2nπ'], answer: 1 },
+
+      // Chapter 5 — Trigonometric Identities and Equations (unit: 5)
+
+      // --- Pythagorean identities (recognition & application) ---
+      { unit: 5, q: 'Which is the fundamental Pythagorean identity?', choices: ['sin²x + cos²x = 2', 'sin²x − cos²x = 1', 'sin²x + cos²x = 1', 'sin x + cos x = 1'], answer: 2 },
+      { unit: 5, q: 'Which identity follows from dividing sin²x + cos²x = 1 by cos²x?', choices: ['1 + cot²x = csc²x', 'sec²x − tan²x = 1', '1 + tan²x = sec²x', 'tan²x + cot²x = 1'], answer: 2 },
+      { unit: 5, q: 'Which identity follows from dividing sin²x + cos²x = 1 by sin²x?', choices: ['1 + tan²x = sec²x', '1 + cot²x = csc²x', 'sin²x + 1 = csc²x', 'cot²x − 1 = csc²x'], answer: 1 },
+      { unit: 5, q: 'Express cos²x in terms of sin x using a Pythagorean identity.', choices: ['1 + sin²x', 'sin²x − 1', '1 − sin²x', '−sin²x'], answer: 2 },
+      { unit: 5, q: 'Express sin²x in terms of cos x using a Pythagorean identity.', choices: ['1 + cos²x', '1 − cos²x', 'cos²x − 1', '−cos²x'], answer: 1 },
+      { unit: 5, q: 'Express tan²x in terms of sec x.', choices: ['sec²x + 1', 'sec²x − 1', '1 − sec²x', '1/sec²x'], answer: 1 },
+      { unit: 5, q: 'Express cot²x in terms of csc x.', choices: ['csc²x + 1', 'csc²x − 1', '1 − csc²x', '1/csc²x'], answer: 1 },
+      { unit: 5, q: 'Which expression equals sec²x − 1?', choices: ['sin²x', 'cos²x', 'tan²x', 'cot²x'], answer: 2 },
+      { unit: 5, q: 'Which expression equals csc²x − 1?', choices: ['tan²x', 'sin²x', 'sec²x', 'cot²x'], answer: 3 },
+      { unit: 5, q: 'If sin x = 3/5 and x is in Quadrant I, find cos x.', choices: ['4/5', '3/4', '5/3', '5/4'], answer: 0 },
+      { unit: 5, q: 'If cos x = −5/13 and x is in Quadrant III, find sin x.', choices: ['12/13', '−12/13', '5/13', '−5/13'], answer: 1 },
+      { unit: 5, q: 'Given cot x = 7/4 and sin x < 0 (Quadrant III), find cos x. (hyp = √65)', choices: ['7/√65', '−7/√65', '4/√65', '−4/√65'], answer: 1 },
+      { unit: 5, q: 'Given cot x = 7/4 and sin x < 0 (Quadrant III), find sin x. (hyp = √65)', choices: ['4/√65', '−4/√65', '7/√65', '−7/√65'], answer: 1 },
+      { unit: 5, q: 'If tan x = −3/4 and cos x > 0, find sin x.', choices: ['3/5', '−3/5', '4/5', '−4/5'], answer: 1 },
+      { unit: 5, q: 'If sec x = 13/5 and x is in Quadrant IV, find sin x.', choices: ['12/13', '−12/13', '5/13', '−5/12'], answer: 1 },
+
+      // --- Reciprocal/quotient identities ---
+      { unit: 5, q: 'Simplify: sin x · csc x', choices: ['0', '1', 'sin²x', 'csc²x'], answer: 1 },
+      { unit: 5, q: 'Simplify: cos x · sec x', choices: ['0', '1', 'cos²x', 'sec²x'], answer: 1 },
+      { unit: 5, q: 'Simplify: tan x · cot x', choices: ['0', '1', 'tan²x', 'cot²x'], answer: 1 },
+      { unit: 5, q: 'Simplify: sin x / cos x', choices: ['cot x', 'tan x', 'sec x', 'csc x'], answer: 1 },
+      { unit: 5, q: 'Simplify: cos x / sin x', choices: ['tan x', 'cot x', 'sec x', 'csc x'], answer: 1 },
+      { unit: 5, q: 'Which expression is equivalent to (sin²x + cos²x)/cos²x?', choices: ['1/cos²x', 'sec²x', 'sin²x/cos²x + 1', 'All of the above'], answer: 3 },
+      { unit: 5, q: 'Simplify: (1 − cos²x)/sin x', choices: ['sin x', 'cos x', 'tan x', 'csc x'], answer: 0 },
+      { unit: 5, q: 'Simplify: (sec²x − 1)/tan x', choices: ['cot x', 'tan x', 'sec x', 'csc x'], answer: 1 },
+      { unit: 5, q: 'Simplify: sin x · cot x', choices: ['tan x', 'cos x', 'sec x', 'csc x'], answer: 1 },
+      { unit: 5, q: 'Simplify: cos x · tan x', choices: ['cot x', 'sin x', 'sec x', 'csc x'], answer: 1 },
+
+      // --- Verifying identities: recognizing valid steps ---
+      { unit: 5, q: 'When verifying an identity, which step is NOT allowed?', choices: ['Converting to sin and cos', 'Factoring one side', 'Adding a term to both sides simultaneously', 'Using a known identity to substitute'], answer: 2 },
+      { unit: 5, q: 'The identity cos²x − sin²x = 2cos²x − 1 follows from substituting which Pythagorean identity?', choices: ['sin²x = 1 − cos²x', 'cos²x = 1 − sin²x', '1 + tan²x = sec²x', '1 + cot²x = csc²x'], answer: 0 },
+      { unit: 5, q: 'To verify: (sec x − 1)/(1 − cos x) = sec x. Which step starts the proof?', choices: ['Multiply numerator and denominator by cos x', 'Replace sec x with 1/cos x', 'Square both sides', 'Add 1 to both sides'], answer: 1 },
+      { unit: 5, q: 'Simplify (1/cos x + 1) + (1/cos x − 1) over a common denominator of cos²x − 1.', choices: ['0', '2cos x/(cos²x − 1)', '2/cos x', '−2cos x/(1 − cos²x)'], answer: 1 },
+      { unit: 5, q: 'Since cos²x − 1 = −sin²x, the expression 2cos x/(cos²x − 1) equals:', choices: ['2csc x cot x', '−2csc x cot x', '2 sin x cot x', '−2 sin x sec x'], answer: 1 },
+      { unit: 5, q: 'Verify: cot²x/csc x = (1 − sin²x)/sin x. The key substitution is:', choices: ['cot²x = cos²x/sin²x and csc x = 1/sin x', 'cot²x = csc²x − 1', '1 − sin²x = cos²x', 'Both A and C together'], answer: 3 },
+      { unit: 5, q: 'Which expression is equivalent to (cos x − cos y)/(sin x + sin y) + (sin x − sin y)/(cos x + cos y)?', choices: ['0', '1', '2', '−1'], answer: 0 },
+      { unit: 5, q: 'To simplify cot x/sec x + tan x/csc x, the key first step is:', choices: ['Convert all to sin x and cos x', 'Use Pythagorean identity', 'Factor sin x', 'Multiply by csc x'], answer: 0 },
+
+      // --- Sum and difference formulas ---
+      { unit: 5, q: 'sin(A + B) equals:', choices: ['sin A cos B − cos A sin B', 'sin A cos B + cos A sin B', 'cos A cos B − sin A sin B', 'cos A cos B + sin A sin B'], answer: 1 },
+      { unit: 5, q: 'sin(A − B) equals:', choices: ['sin A cos B − cos A sin B', 'sin A cos B + cos A sin B', 'cos A cos B − sin A sin B', 'sin A sin B − cos A cos B'], answer: 0 },
+      { unit: 5, q: 'cos(A + B) equals:', choices: ['cos A cos B + sin A sin B', 'cos A cos B − sin A sin B', 'sin A cos B + cos A sin B', 'sin A cos B − cos A sin B'], answer: 1 },
+      { unit: 5, q: 'cos(A − B) equals:', choices: ['cos A cos B − sin A sin B', 'cos A cos B + sin A sin B', 'sin A cos B − cos A sin B', 'sin A cos B + cos A sin B'], answer: 1 },
+      { unit: 5, q: 'tan(A + B) equals:', choices: ['(tan A + tan B)/(1 − tan A tan B)', '(tan A − tan B)/(1 + tan A tan B)', '(tan A + tan B)/(1 + tan A tan B)', 'tan A + tan B'], answer: 0 },
+      { unit: 5, q: 'tan(A − B) equals:', choices: ['(tan A − tan B)/(1 + tan A tan B)', '(tan A + tan B)/(1 − tan A tan B)', '(tan A − tan B)/(1 − tan A tan B)', 'tan A − tan B'], answer: 0 },
+      { unit: 5, q: 'Calculate tan(5π/12). Write 5π/12 = π/4 + π/6 and apply the addition formula. What is the result?', choices: ['2 + √3', '2 − √3', '√3 − 1', '√3 + 1'], answer: 0 },
+      { unit: 5, q: 'Evaluate sin(75°) using the sum formula sin(45° + 30°).', choices: ['(√6 − √2)/4', '(√6 + √2)/4', '(√2 + √3)/4', '(√2 − √3)/4'], answer: 1 },
+      { unit: 5, q: 'Evaluate cos(15°) using the difference formula cos(45° − 30°).', choices: ['(√6 − √2)/4', '(√6 + √2)/4', '(√2 − √3)/2', '(√2 + √3)/2'], answer: 1 },
+      { unit: 5, q: 'Evaluate sin(π/12) = sin(π/4 − π/6).', choices: ['(√6 + √2)/4', '(√6 − √2)/4', '(√2 + √3)/4', '(√2 − √3)/4'], answer: 1 },
+      { unit: 5, q: 'cos(5π/4 − x) expands to:', choices: ['−(√2/2)(cos x − sin x)', '(√2/2)(cos x + sin x)', '−(√2/2)(cos x + sin x)', '(√2/2)(cos x − sin x)'], answer: 2 },
+      { unit: 5, q: 'Using cos(A+B), verify: cos(x + y)cos(x − y) = cos²x − sin²y. The key expansion gives:', choices: ['cos²x − sin²y', 'cos²x + sin²y', 'cos²y − sin²x', 'cos²x cos²y − sin²x sin²y'], answer: 0 },
+
+      // --- Double-angle formulas ---
+      { unit: 5, q: 'sin(2x) equals:', choices: ['2 sin x cos x', 'sin²x − cos²x', 'cos²x − sin²x', '2 sin x'], answer: 0 },
+      { unit: 5, q: 'cos(2x) equals (all forms — which is NOT a valid form)?', choices: ['cos²x − sin²x', '1 − 2sin²x', '2cos²x − 1', '2cos x − 1'], answer: 3 },
+      { unit: 5, q: 'tan(2x) equals:', choices: ['2 tan x / (1 + tan²x)', 'tan²x / (1 − tan²x)', '2 tan x / (1 − tan²x)', '(1 − tan²x) / (2 tan x)'], answer: 2 },
+      { unit: 5, q: 'Which form of cos(2x) would you use if the expression already contains only cos?', choices: ['cos²x − sin²x', '1 − 2sin²x', '2cos²x − 1', 'Any form'], answer: 2 },
+      { unit: 5, q: 'Solve for x in [0, 2π): sin(2x) sin(x) = cos(x). After applying the double-angle formula, what is the factored form?', choices: ['cos x (2sin²x − 1) = 0', 'cos x (2sin x − 1) = 0', '(2sin x cos x − 1) cos x = 0', 'cos x (2sin x cos x − 1) = 0'], answer: 0 },
+      { unit: 5, q: 'If sin x = 1/2 and x is in Quadrant I, find sin(2x).', choices: ['1/2', '√3/2', '√3/4', '1/4'], answer: 1 },
+      { unit: 5, q: 'If cos x = 3/5 and x is in Quadrant I, find cos(2x).', choices: ['7/25', '−7/25', '24/25', '−24/25'], answer: 0 },
+      { unit: 5, q: 'The identity cos(2x) = 2cos²x − 1 can be rearranged to show cos²x =', choices: ['(1 − cos(2x))/2', '(1 + cos(2x))/2', '(cos(2x) − 1)/2', '1 − cos(2x)'], answer: 1 },
+      { unit: 5, q: 'The identity cos(2x) = 1 − 2sin²x can be rearranged to show sin²x =', choices: ['(1 + cos(2x))/2', '(1 − cos(2x))/2', '1 − cos(2x)', '(cos(2x) + 1)/2'], answer: 1 },
+
+      // --- Half-angle formulas ---
+      { unit: 5, q: 'sin(x/2) equals:', choices: ['±√((1 + cos x)/2)', '±√((1 − cos x)/2)', '±√(cos x/2)', '(1 − cos x)/(2 sin x)'], answer: 1 },
+      { unit: 5, q: 'cos(x/2) equals:', choices: ['±√((1 − cos x)/2)', '±√((1 + cos x)/2)', '±√(cos x)', '(1 + cos x)/(2 cos x)'], answer: 1 },
+      { unit: 5, q: 'tan(x/2) equals (alternative form using sin and 1 + cos):', choices: ['(1 + cos x)/sin x', 'sin x/(1 + cos x)', '(1 − cos x)/sin x', 'sin x/(1 − cos x)'], answer: 2 },
+      { unit: 5, q: 'Solve 3tan(x/2) − √3 = 0 for x in [0, 2π). First isolate tan(x/2) = √3/3, giving x/2 =', choices: ['π/3', 'π/6', 'π/4', 'π/3 or 7π/3'], answer: 1 },
+      { unit: 5, q: 'After solving 3tan(x/2) = √3 → x/2 = π/6, the solution for x is:', choices: ['π/6', 'π/3', 'π/12', 'π/3 or π/3 + π'], answer: 1 },
+      { unit: 5, q: 'Evaluate cos(π/8) using the half-angle formula with cos(π/4) = √2/2.', choices: ['√(1 − √2/2)/2', '√((2 + √2)/4)', '√((2 − √2)/4)', '√(2 + √2)/2'], answer: 3 },
+      { unit: 5, q: 'The sign (±) in the half-angle formulas is determined by:', choices: ['The value of the original angle', 'The quadrant in which x/2 lies', 'Whether x is positive or negative', 'Whether the angle is acute'], answer: 1 },
+
+      // --- Power-reducing formulas ---
+      { unit: 5, q: 'The power-reducing formula for sin²x is:', choices: ['(1 + cos 2x)/2', '(1 − cos 2x)/2', '(1 + cos x)/2', '(1 − cos x)/2'], answer: 1 },
+      { unit: 5, q: 'The power-reducing formula for cos²x is:', choices: ['(1 − cos 2x)/2', '(1 + cos 2x)/2', '(1 − cos x)/2', '(1 + cos x)/2'], answer: 1 },
+      { unit: 5, q: 'The power-reducing formula for tan²x is:', choices: ['(1 + cos 2x)/(1 − cos 2x)', '(1 − cos 2x)/(1 + cos 2x)', '(1 + cos x)/(1 − cos x)', '(1 − cos x)/(1 + cos x)'], answer: 1 },
+      { unit: 5, q: 'Rewrite tan²x cos⁴x using power-reducing formulas. The first step is to write tan²x cos⁴x = sin²x cos²x, which equals:', choices: ['sin²x cos²x = (1/4)sin²(2x)', '(1/4)sin(2x)', '(1/4)(1 − cos 4x)/2', '(1/4)(1 + cos 4x)/2'], answer: 0 },
+      { unit: 5, q: 'The final answer for tan²x cos⁴x in terms of first powers of cosine is:', choices: ['(1 − cos 4x)/8', '(1 + cos 4x)/8', '(1 − cos 2x)/4', '(1 + cos 4x)/4'], answer: 0 },
+      { unit: 5, q: 'Rewrite sin⁴x using power-reducing formulas.', choices: ['(3 − 4cos 2x + cos 4x)/8', '(3 + 4cos 2x + cos 4x)/8', '(3 − cos 4x)/4', '(1 − cos 2x)²/4'], answer: 0 },
+      { unit: 5, q: 'Rewrite cos⁴x using power-reducing formulas.', choices: ['(3 + 4cos 2x + cos 4x)/8', '(3 − 4cos 2x + cos 4x)/8', '(3 + cos 4x)/4', '(1 + cos 2x)²/4'], answer: 0 },
+      { unit: 5, q: 'Rewrite sin²x cos²x using power-reducing formulas.', choices: ['(1 − cos 4x)/8', '(1 + cos 4x)/8', '(1 − cos 2x)/4', '(1 − cos 4x)/4'], answer: 0 },
+
+      // --- Solving basic trig equations ---
+      { unit: 5, q: 'Solve: √3 csc x − 2 = 0. Isolate csc x to get:', choices: ['csc x = √3/2', 'csc x = 2/√3', 'csc x = 2√3/3', 'Both B and C (they are equal)'], answer: 3 },
+      { unit: 5, q: 'From csc x = 2√3/3 (equivalently sin x = √3/2), the solutions in [0, 2π) are:', choices: ['x = π/3 and 2π/3', 'x = π/6 and 5π/6', 'x = π/3 and 4π/3', 'x = π/6 and π/3'], answer: 0 },
+      { unit: 5, q: 'Solve: tan x − √3 = 0 for x in [0, 2π). The solutions are:', choices: ['x = π/3 and 4π/3', 'x = π/6 and 7π/6', 'x = π/4 and 5π/4', 'x = π/3 and π/3 + π/2'], answer: 0 },
+      { unit: 5, q: 'Solve: sin x = −1/2 for x in [0, 2π).', choices: ['x = 7π/6 and 11π/6', 'x = π/6 and 5π/6', 'x = 5π/6 and 7π/6', 'x = π/3 and 2π/3'], answer: 0 },
+      { unit: 5, q: 'Solve: cos x = −√3/2 for x in [0, 2π).', choices: ['x = π/6 and 11π/6', 'x = 5π/6 and 7π/6', 'x = π/3 and 2π/3', 'x = 2π/3 and 5π/3'], answer: 1 },
+      { unit: 5, q: 'Solve: tan x = −1 for x in [0, 2π).', choices: ['x = π/4 and 5π/4', 'x = 3π/4 and 7π/4', 'x = π/4 and 3π/4', 'x = 5π/4 and 7π/4'], answer: 1 },
+      { unit: 5, q: 'Solve: sec x = 2 for x in [0, 2π).', choices: ['x = π/6 and 11π/6', 'x = π/3 and 5π/3', 'x = π/4 and 7π/4', 'x = 2π/3 and 4π/3'], answer: 1 },
+      { unit: 5, q: 'Solve: csc x = −2 for x in [0, 2π).', choices: ['x = π/6 and 5π/6', 'x = 7π/6 and 11π/6', 'x = 5π/6 and 7π/6', 'x = π/3 and 2π/3'], answer: 1 },
+      { unit: 5, q: 'Solve: cot x = 1 for x in [0, 2π).', choices: ['x = π/4 and 5π/4', 'x = 3π/4 and 7π/4', 'x = π/4 and 3π/4', 'x = π/6 and 7π/6'], answer: 0 },
+      { unit: 5, q: 'Solve: 2 sin x − 1 = 0 for x in [0, 2π).', choices: ['x = π/6 and 5π/6', 'x = π/3 and 2π/3', 'x = π/4 and 3π/4', 'x = 7π/6 and 11π/6'], answer: 0 },
+      { unit: 5, q: 'Solve: 2 cos x + √2 = 0 for x in [0, 2π).', choices: ['x = π/4 and 7π/4', 'x = 3π/4 and 5π/4', 'x = π/3 and 5π/3', 'x = 2π/3 and 4π/3'], answer: 1 },
+      { unit: 5, q: 'Solve: √3 tan x + 1 = 0 for x in [0, 2π).', choices: ['x = 5π/6 and 11π/6', 'x = π/6 and 7π/6', 'x = 2π/3 and 5π/3', 'x = π/3 and 4π/3'], answer: 0 },
+
+      // --- Solving quadratic trig equations ---
+      { unit: 5, q: 'Solve: 2cos²x + cos x − 1 = 0. Factor the left side.', choices: ['(2cos x + 1)(cos x − 1) = 0', '(2cos x − 1)(cos x + 1) = 0', '(cos x + 1)(cos x − 1) = 0', '(2cos x + 1)(cos x + 1) = 0'], answer: 1 },
+      { unit: 5, q: 'From (2cos x − 1)(cos x + 1) = 0, what are the solutions in [0, 2π)?', choices: ['x = π/3, 5π/3, π', 'x = π/3, 2π/3, π', 'x = π/6, 11π/6, π', 'x = π/6, 5π/6, π'], answer: 0 },
+      { unit: 5, q: 'Solve: sec x csc x = 2 csc x. Rearrange to get:', choices: ['sec x = 2 (when csc x ≠ 0)', 'sec x csc x − 2 csc x = 0 → csc x(sec x − 2) = 0', 'sec x = 2 or csc x = 0', 'Both B and then sec x = 2 (csc x = 0 has no solution)'], answer: 3 },
+      { unit: 5, q: 'From sec x csc x = 2 csc x → sec x = 2, the solutions in [0, 2π) are:', choices: ['x = π/3 and 5π/3', 'x = π/6 and 11π/6', 'x = π/4 and 7π/4', 'x = 2π/3 and 4π/3'], answer: 0 },
+      { unit: 5, q: 'Solve: 2sin²x − sin x − 1 = 0 for x in [0, 2π).', choices: ['x = π/2, 7π/6, 11π/6', 'x = π/2, π/6, 5π/6', 'x = 3π/2, π/6, 5π/6', 'x = π/2, π/3, 2π/3'], answer: 2 },
+      { unit: 5, q: 'Solve: cos²x − cos x = 0 for x in [0, 2π).', choices: ['x = π/2 and 3π/2', 'x = 0, π/2, 3π/2', 'x = 0, π/2, π, 3π/2', 'x = 0 and π'], answer: 1 },
+      { unit: 5, q: 'Solve: tan²x − 3 = 0 for x in [0, 2π).', choices: ['x = π/3 and 2π/3', 'x = π/3, 2π/3, 4π/3, 5π/3', 'x = π/6, 5π/6, 7π/6, 11π/6', 'x = π/3 and 4π/3'], answer: 1 },
+      { unit: 5, q: 'Solve: 2sec²x + tan²x − 3 = 0. Substitute tan²x = sec²x − 1.', choices: ['3sec²x = 4 → sec²x = 4/3', '3sec²x − 4 = 0 → sec²x = 4/3', 'sec²x = 1 → x = 0, π', '2sec²x − 4 = 0 → sec²x = 2'], answer: 1 },
+      { unit: 5, q: 'Continuing 2sec²x + tan²x − 3 = 0 → 3sec²x − 4 = 0 → cos²x = 3/4. Solutions in [0, 2π):', choices: ['x = π/6, 5π/6, 7π/6, 11π/6', 'x = π/3, 2π/3, 4π/3, 5π/3', 'x = π/4, 3π/4, 5π/4, 7π/4', 'x = π/6 and 11π/6'], answer: 0 },
+      { unit: 5, q: 'Solve: sin²x = 3cos²x. Divide both sides by cos²x to get:', choices: ['tan²x = 3 → tan x = ±√3', 'sin²x − 3cos²x = 0 → tan x = √3', 'sin²x = 3(1 − sin²x) → 4sin²x = 3', 'Both A and C lead to tan x = ±√3'], answer: 3 },
+      { unit: 5, q: 'From tan x = ±√3, the solutions in [0, 2π) are:', choices: ['x = π/3 and 2π/3', 'x = π/3, 2π/3, 4π/3, 5π/3', 'x = π/6, 5π/6, 7π/6, 11π/6', 'x = π/4 and 5π/4'], answer: 1 },
+      { unit: 5, q: 'Solve: 4sin²x − 1 = 0 for x in [0, 2π).', choices: ['x = π/6, 5π/6', 'x = π/6, 5π/6, 7π/6, 11π/6', 'x = π/3, 2π/3, 4π/3, 5π/3', 'x = π/4, 3π/4, 5π/4, 7π/4'], answer: 1 },
+
+      // --- Solving with multiple/double angles ---
+      { unit: 5, q: 'To solve sin(2x) sin(x) = cos(x) for x in [0, 2π), substitute sin(2x) = 2sin x cos x to get:', choices: ['2sin x cos x sin x = cos x', '2sin²x cos x − cos x = 0', 'cos x(2sin²x − 1) = 0', 'Both B and C are equivalent'], answer: 3 },
+      { unit: 5, q: 'From cos x(2sin²x − 1) = 0, when cos x = 0, x =', choices: ['0 and π', 'π/2 and 3π/2', 'π/4 and 5π/4', 'π/3 and 2π/3'], answer: 1 },
+      { unit: 5, q: 'From cos x(2sin²x − 1) = 0, when 2sin²x = 1 → sin x = ±√2/2, x =', choices: ['π/4, 3π/4, 5π/4, 7π/4', 'π/3, 2π/3, 4π/3, 5π/3', 'π/6, 5π/6, 7π/6, 11π/6', 'π/4 and 3π/4'], answer: 0 },
+      { unit: 5, q: 'How many solutions does sin(2x) sin(x) = cos(x) have in [0, 2π)?', choices: ['2', '4', '6', '8'], answer: 2 },
+      { unit: 5, q: 'To solve a trig equation with 2x, you should first find all solutions of the double-angle equation in the interval:', choices: ['[0, 2π)', '[0, 4π)', '[0, π)', '[−π, π)'], answer: 1 },
+
+      // --- Extraneous solutions ---
+      { unit: 5, q: 'Solve csc x + cot x = 1 (check for extraneous). Square both sides after isolating: csc x = 1 − cot x. The resulting equation involves which substitution?', choices: ['1/sin x = 1 − cos x/sin x', 'Multiply by sin x: 1 = sin x − cos x', 'csc²x = 1 − 2cot x + cot²x then 1 + cot²x = csc²x', 'All of the above steps are used together'], answer: 3 },
+      { unit: 5, q: 'After solving csc x + cot x = 1, we get a candidate solution. Why must we check back in the original equation?', choices: ['Squaring can introduce extraneous solutions', 'Multiplying by sin x could equal zero', 'csc x is undefined at certain values', 'All of the above reasons'], answer: 3 },
+      { unit: 5, q: 'When is x = π an extraneous solution to csc x + cot x = 1?', choices: ['csc π is undefined', 'cot π = 0 but csc π is undefined', 'sin π = 0 makes csc π undefined', 'Both B and C'], answer: 3 },
+      { unit: 5, q: 'The valid solution to csc x + cot x = 1 in [0, 2π) (after removing extraneous) is:', choices: ['x = π/2', 'x = π', 'x = 0', 'x = 3π/2'], answer: 0 },
+      { unit: 5, q: 'After squaring an equation in the process of solving a trig equation, the extra step of __ is always required.', choices: ['Differentiating', 'Checking all solutions in the original equation', 'Adding 2nπ to each solution', 'Converting to degrees'], answer: 1 },
+
+      // --- Even/odd and cofunction identities ---
+      { unit: 5, q: 'sin(−x) equals:', choices: ['sin x', '−sin x', 'cos x', '−cos x'], answer: 1 },
+      { unit: 5, q: 'cos(−x) equals:', choices: ['−cos x', 'cos x', 'sin x', '−sin x'], answer: 1 },
+      { unit: 5, q: 'tan(−x) equals:', choices: ['tan x', '−tan x', 'cot x', '−cot x'], answer: 1 },
+      { unit: 5, q: 'csc(−x) equals:', choices: ['csc x', '−csc x', 'sec x', '−sec x'], answer: 1 },
+      { unit: 5, q: 'sec(−x) equals:', choices: ['sec x', '−sec x', 'csc x', '−csc x'], answer: 0 },
+      { unit: 5, q: 'cot(−x) equals:', choices: ['cot x', '−cot x', 'tan x', '−tan x'], answer: 1 },
+      { unit: 5, q: 'sin(π/2 − x) equals:', choices: ['−cos x', 'cos x', 'sin x', '−sin x'], answer: 1 },
+      { unit: 5, q: 'cos(π/2 − x) equals:', choices: ['cos x', 'sin x', '−cos x', '−sin x'], answer: 1 },
+      { unit: 5, q: 'tan(π/2 − x) equals:', choices: ['tan x', 'cot x', '−tan x', '−cot x'], answer: 1 },
+
+      // --- Product-to-sum and sum-to-product ---
+      { unit: 5, q: 'sin A sin B equals:', choices: ['½[cos(A+B) − cos(A−B)]', '½[cos(A−B) − cos(A+B)]', '½[sin(A+B) + sin(A−B)]', '½[sin(A−B) − sin(A+B)]'], answer: 1 },
+      { unit: 5, q: 'cos A cos B equals:', choices: ['½[cos(A−B) + cos(A+B)]', '½[cos(A+B) − cos(A−B)]', '½[sin(A+B) + sin(A−B)]', '½[cos(A−B) − cos(A+B)]'], answer: 0 },
+      { unit: 5, q: 'sin A cos B equals:', choices: ['½[sin(A+B) + sin(A−B)]', '½[sin(A+B) − sin(A−B)]', '½[cos(A−B) − cos(A+B)]', '½[cos(A+B) + cos(A−B)]'], answer: 0 },
+      { unit: 5, q: 'sin x + sin y equals:', choices: ['2 sin((x+y)/2) cos((x−y)/2)', '2 cos((x+y)/2) sin((x−y)/2)', '2 sin((x+y)/2) sin((x−y)/2)', '2 cos((x+y)/2) cos((x−y)/2)'], answer: 0 },
+      { unit: 5, q: 'cos x + cos y equals:', choices: ['2 sin((x+y)/2) sin((x−y)/2)', '2 cos((x+y)/2) sin((x−y)/2)', '2 cos((x+y)/2) cos((x−y)/2)', '−2 sin((x+y)/2) sin((x−y)/2)'], answer: 2 },
+      { unit: 5, q: 'cos x − cos y equals:', choices: ['2 cos((x+y)/2) cos((x−y)/2)', '−2 sin((x+y)/2) sin((x−y)/2)', '2 sin((x+y)/2) cos((x−y)/2)', '2 cos((x+y)/2) sin((x−y)/2)'], answer: 1 },
+
+      // --- General trig knowledge for Ch5 ---
+      { unit: 5, q: 'Which set of identities allows you to go from cos²x − sin²x to 2cos²x − 1?', choices: ['Replace sin²x with 1 + cos²x', 'Replace sin²x with 1 − cos²x', 'Replace cos²x with 1 − sin²x', 'Use tan²x = sec²x − 1'], answer: 1 },
+      { unit: 5, q: 'To prove 1/(cos x + 1) + 1/(cos x − 1) = −2 csc x cot x, the LCD is:', choices: ['cos x + 1', 'cos²x − 1', '(cos x + 1)(cos x − 1)', 'Both B and C (same thing)'], answer: 3 },
+      { unit: 5, q: 'After combining 1/(cos x + 1) + 1/(cos x − 1) over LCD cos²x − 1, the numerator is:', choices: ['2cos x', '−2cos x', '2', '−2'], answer: 0 },
+      { unit: 5, q: 'Since cos²x − 1 = −sin²x, the expression 2cos x/(cos²x − 1) simplifies to:', choices: ['2cos x/sin²x = 2 csc x cot x', '−2cos x/sin²x = −2 csc x cot x', '2/sin x = 2 csc x', '−2/sin x = −2 csc x'], answer: 1 },
+      { unit: 5, q: 'To verify (sec x − 1)/(1 − cos x) = sec x, replace sec x with 1/cos x and simplify. The expression becomes:', choices: ['(1 − cos x)/(cos x · (1 − cos x)) = 1/cos x = sec x', '(1/cos x − 1)/(1 − cos x) = 1/cos x', '(1 − cos x)/cos x ÷ (1 − cos x) = 1/cos x', 'All three paths lead to sec x'], answer: 3 },
+      { unit: 5, q: 'Verify: cot²x/csc x = (1 − sin²x)/sin x. Start with the right side: (1 − sin²x)/sin x = ?', choices: ['cos²x/sin x', 'cot²x · sin x', 'cos²x · csc x', '(cos x/sin x)² · sin x = cos²x/sin x'], answer: 3 },
+      { unit: 5, q: 'Which step completes: cos²x/sin x = cot²x/csc x?', choices: ['cos²x/sin x = (cos²x/sin²x) · sin x/1 which equals cot²x/csc x only if rewritten', 'cos²x/sin x = cos²x · (1/sin x) = cos²x · csc x ... then divide by csc²x gives cot²x/csc x', 'Multiply top and bottom by csc x: cos²x csc x/(sin x csc x) = cos²x csc x/1 — does not match', 'cos²x/sin x = (cos x/sin x)² · sin x = cot²x sin x; then cot²x sin x = cot²x/csc x since sin x = 1/csc x'], answer: 3 },
+      { unit: 5, q: 'Which is a valid first step to verify: cot x/sec x + tan x/csc x = sec x + csc x − sin x − cos x?', choices: ['Convert left side: (cos x/sin x)/(1/cos x) + (sin x/cos x)/(1/sin x)', 'Cross-multiply', 'Factor the right side', 'Take the derivative of both sides'], answer: 0 },
+      { unit: 5, q: 'Simplifying cot x/sec x: (cos x/sin x) · cos x = ?', choices: ['cos²x/sin x', 'cos x/sin x', 'cos x · cot x', 'sin x cos x'], answer: 0 },
+      { unit: 5, q: 'Simplifying tan x/csc x: (sin x/cos x) · sin x = ?', choices: ['sin x/cos x', 'sin²x/cos x', 'tan x · sin x', 'cos x · tan x'], answer: 1 },
+      { unit: 5, q: 'Adding cos²x/sin x + sin²x/cos x over LCD sin x cos x gives:', choices: ['(cos³x + sin³x)/(sin x cos x)', 'cos²x + sin²x = 1', '(sin²x + cos²x)/(sin x cos x) = 1/(sin x cos x) — only the cubes version matches the target', 'The sum matches sec x + csc x − sin x − cos x after factoring'], answer: 3 },
     ],
     get quiz() {
       return this.qbank.slice();
