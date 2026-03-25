@@ -4670,5 +4670,95 @@ const CLASSES = [
     get quiz() {
       return this.qbank.slice();
     }
+  },
+
+  // ── INTRO TO BIBLICAL INTERPRETATION ──────────────────────────────────────
+  {
+    id: 'intro-to-biblical-interpretation',
+    name: 'Intro to Biblical Interpretation',
+    description: 'A foundational course examining Christian Scripture, worldview, the Messiah Arc from Luke 24, the purpose of the Bible, and how to approach the Old Testament as God\'s self-revelation.',
+    unit: 'Religion',
+    icon: '✝️',
+    studyGuides: [
+      {
+        title: 'Unit 1 — Intro to Christian Scripture and God\'s Chosen People',
+        content: [
+          'Worldview is a set of assumptions (a lens) through which a person sees and interprets all of reality. Everyone has a worldview, whether consciously or not, and it shapes the way we understand the world, make decisions, and determine what is true, good, and meaningful.',
+          'The four worldview questions are: (1) What is real? / Where did everything come from? (2) What is wrong with the world? (3) What is the solution/remedy? (4) What is the purpose or goal of life?',
+          'The Christian faith answers the four worldview questions: (1) God created everything — He is the ultimate reality. (2) Sin and the Fall — humanity\'s rebellion against God has broken the world. (3) Jesus Christ — God\'s redemptive plan through the life, death, and resurrection of Christ. (4) Eternal life and restoration — God\'s purpose is to redeem and restore all creation through Christ.',
+          'According to Luke 24, the Messiah Arc is the story of Jesus as presented throughout the Old Testament: the Messiah (Christ) would suffer, die, and rise from the dead on the third day, and repentance and forgiveness of sins would be proclaimed in his name to all nations.',
+          '"Messiah" is the Hebrew word meaning "Anointed One." The Greek equivalent is "Christ." Both words refer to the same person — Jesus — who was anointed by God as King, Priest, and Prophet.',
+          'According to Luke 24, the disciples had false ideas that Jesus would be a powerful political and military deliverer who would free Israel from Roman rule and establish an earthly kingdom.',
+          'According to Luke 24, Jesus believed that he was the fulfillment of all that was written about the Messiah in the Law of Moses, the Prophets, and the Psalms (the entire Old Testament). He understood that it was necessary for the Messiah to suffer and rise from the dead.',
+          'According to Luke 24, Jesus used the Law of Moses (the Torah), the Prophets, and the Psalms — in other words, the entire Old Testament — to re-educate the disciples about who the Messiah truly was.',
+          'According to 2 Timothy 3:16–17, all Scripture is God-breathed (inspired by God) and is useful for teaching, rebuking, correcting, and training in righteousness, so that the servant of God may be thoroughly equipped for every good work.',
+          'According to Proverbs 1:1–6, the purpose of Scripture is to attain wisdom and instruction; to understand words of insight; to receive instruction in prudent behavior, doing what is right and just and fair; to give prudence to those who are simple, knowledge and discretion to the young.',
+          'Four things that can make the Bible difficult to understand (remembered with the phrase "Grandma Nana"): (1) The Gap of time and culture — the Bible was written thousands of years ago in a very different world. (2) The Language barrier — the Bible was not originally written in English (it was written in Hebrew, Aramaic, and Greek). (3) We can be Not interested or assume the Bible is irrelevant. (4) We often read into the Bible what we Already believe (eisegesis — making the text say what we want it to say).',
+          'Solutions to the language roadblock: Use a reliable modern translation of the Bible, use Bible study tools such as commentaries, dictionaries, and lexicons, and study with teachers who know the original languages.',
+          'Solutions to reading into the Bible what we want (eisegesis): Practice exegesis — letting the text speak for itself; study the context; be humble and willing to be corrected; read what the original author intended to communicate.',
+          '"The Bible is God\'s self-revelation" means that through the Bible God has chosen to make Himself known to humanity. The Bible is not merely a human book; it is God speaking to us about who He is, what He is like, and what He has done. God reveals His character, His purposes, and His plan of salvation through Scripture.',
+          'Community Service theme verse: Matthew 20:28 — "Just as the Son of Man did not come to be served, but to serve, and to give his life as a ransom for many."',
+          'The primary reason for Community Service is to follow the example of Jesus Christ, who came to serve others. Service is an act of worship and reflects Christ\'s love.',
+          'Each school year, a student must complete 30 hours of community service.',
+          'Our school community desires to live a life of service modeled after Jesus Christ.',
+          'Service opportunities will be placed on the school calendar / community service board located within learn.vcs.net.',
+          'The system used to track community service hours is called ServTrack (or the school\'s designated service tracking portal).',
+          'General hours may be earned through a non-profit organization, VCS, or a recognized community-based organization. Church hours may be earned through a student\'s own church only.',
+          'The amount of hours (general or church) that must be completed by the end of 1st semester is 15.',
+        ]
+      },
+    ],
+    qbank: [
+      // ── UNIT 1 — Intro to Christian Scripture and God's Chosen People ─────
+
+      // Worldview
+      { unit: 1, q: 'What is a worldview?', choices: ['A scientific theory about the origin of the universe', 'A set of assumptions or a lens through which a person sees and interprets all of reality', 'A religious belief system only', 'A political ideology'], answer: 1 },
+      { unit: 1, q: 'Why is worldview important?', choices: ['It determines how much money a person earns', 'It has no real impact on daily decisions', 'It shapes the way we understand the world, make decisions, and determine what is true and meaningful', 'It is only relevant to philosophers and theologians'], answer: 2 },
+      { unit: 1, q: 'Which of the following is NOT one of the four worldview questions?', choices: ['What is real / where did everything come from?', 'What is wrong with the world?', 'How much does the universe weigh?', 'What is the solution or remedy?'], answer: 2 },
+      { unit: 1, q: 'What is the fourth worldview question?', choices: ['Who created the universe?', 'What is the purpose or goal of life?', 'How should we worship?', 'What does science say about origins?'], answer: 1 },
+      { unit: 1, q: 'How does the Christian faith answer the question "What is wrong with the world?"', choices: ['Lack of education', 'Political corruption', 'Sin and the Fall — humanity\'s rebellion against God', 'Environmental destruction'], answer: 2 },
+      { unit: 1, q: 'How does the Christian faith answer the question "What is the solution?"', choices: ['Following moral rules', 'Political reform', 'Education and self-improvement', 'Jesus Christ — God\'s redemptive plan through Christ\'s life, death, and resurrection'], answer: 3 },
+      { unit: 1, q: 'How does the Christian faith answer "What is real / where did everything come from?"', choices: ['The universe created itself through natural processes', 'God created everything — He is the ultimate reality', 'Multiple gods created different parts of the universe', 'Reality is an illusion'], answer: 1 },
+
+      // Luke 24 — Messiah Arc
+      { unit: 1, q: 'According to Luke 24, what is the Messiah Arc?', choices: ['A physical structure in Jerusalem', 'The story that the Messiah would suffer, die, rise from the dead, and that forgiveness would be proclaimed to all nations', 'A summary of the New Testament only', 'A prophecy about the end of the world'], answer: 1 },
+      { unit: 1, q: 'What is another word for "Messiah"?', choices: ['Prophet', 'Apostle', 'Christ', 'Disciple'], answer: 2 },
+      { unit: 1, q: 'What does "Messiah" mean?', choices: ['Son of God', 'Savior', 'Anointed One', 'Redeemer'], answer: 2 },
+      { unit: 1, q: 'According to Luke 24, what false ideas did the disciples have about Jesus?', choices: ['They thought he was a Roman spy', 'They thought he would be a political and military deliverer who would free Israel from Rome', 'They did not believe he was real', 'They thought he was only a teacher and not the Messiah'], answer: 1 },
+      { unit: 1, q: 'According to Luke 24, what did Jesus believe about himself?', choices: ['He believed he was only a prophet', 'He was uncertain about his own identity', 'He believed he was the fulfillment of all that was written about the Messiah in the OT and that the Messiah had to suffer and rise', 'He believed his mission was to lead a military revolution'], answer: 2 },
+      { unit: 1, q: 'According to Luke 24, what did Jesus use to re-educate the disciples?', choices: ['New revelations not found in Scripture', 'Only the book of Psalms', 'The Law of Moses, the Prophets, and the Psalms — the entire Old Testament', 'Miracles and signs'], answer: 2 },
+      { unit: 1, q: 'The three parts of the Old Testament that Jesus referenced in Luke 24 are:', choices: ['Genesis, Psalms, and Revelation', 'The Law of Moses, the Prophets, and the Psalms', 'The Gospels, the Epistles, and the Psalms', 'Torah, Talmud, and Midrash'], answer: 1 },
+      { unit: 1, q: 'According to the Messiah Arc, on which day did Jesus rise from the dead?', choices: ['The first day', 'The second day', 'The third day', 'The seventh day'], answer: 2 },
+
+      // Purpose of Scripture
+      { unit: 1, q: 'According to 2 Timothy 3:16–17, all Scripture is:', choices: ['Written by human authors alone', 'God-breathed (inspired by God)', 'Only useful for historical study', 'Limited to moral guidelines'], answer: 1 },
+      { unit: 1, q: 'According to 2 Timothy 3:16–17, Scripture is useful for all of the following EXCEPT:', choices: ['Teaching', 'Entertainment', 'Rebuking', 'Training in righteousness'], answer: 1 },
+      { unit: 1, q: 'According to 2 Timothy 3:16–17, the goal of Scripture is that the servant of God may be:', choices: ['Wealthy and successful', 'Thoroughly equipped for every good work', 'Free from all suffering', 'Able to predict the future'], answer: 1 },
+      { unit: 1, q: 'According to Proverbs 1:1–6, which of the following is a stated purpose of Scripture?', choices: ['To entertain readers', 'To give wisdom, instruction, and understanding', 'To explain scientific discoveries', 'To provide a legal code for society'], answer: 1 },
+      { unit: 1, q: 'According to Proverbs 1:1–6, to whom does Scripture give prudence and knowledge?', choices: ['Only to scholars', 'To kings and rulers', 'To those who are simple and to the young', 'To pastors and priests only'], answer: 2 },
+
+      // Bible Difficulties
+      { unit: 1, q: 'What is one of the four things that can make the Bible difficult to understand (Grandma Nana)?', choices: ['The Bible is too short to contain enough information', 'The gap of time and culture between the ancient world and today', 'The Bible was written in English but is hard to read', 'Modern technology makes the Bible obsolete'], answer: 1 },
+      { unit: 1, q: 'The Bible was not originally written in which language?', choices: ['Hebrew', 'Aramaic', 'Greek', 'English'], answer: 3 },
+      { unit: 1, q: 'What is the solution to the language roadblock in studying the Bible?', choices: ['Ignore the original languages and only trust your feelings', 'Use a reliable modern translation and Bible study tools such as commentaries and lexicons', 'Only read the King James Version', 'Avoid studying the Bible altogether'], answer: 1 },
+      { unit: 1, q: 'What is "eisegesis"?', choices: ['Letting the text speak for itself', 'Reading into the Bible what you already believe or want it to say', 'A Greek word meaning "to study"', 'A method of prayer'], answer: 1 },
+      { unit: 1, q: 'What is the solution to the problem of eisegesis?', choices: ['Read the Bible less frequently', 'Practice exegesis — let the text speak for itself, study context, and be willing to be corrected', 'Only read parts of the Bible you already agree with', 'Rely entirely on personal feelings and experiences'], answer: 1 },
+      { unit: 1, q: 'The statement "The Bible is God\'s self-revelation" means that:', choices: ['The Bible was written entirely by God\'s hand without any human authors', 'Through the Bible God has chosen to make Himself known — it is God speaking to us about who He is, what He is like, and what He has done', 'The Bible is a collection of human opinions about God', 'God revealed himself only through miracles, not through written words'], answer: 1 },
+
+      // Community Service
+      { unit: 1, q: 'What is the theme verse for Community Service?', choices: ['John 3:16', 'Philippians 4:13', 'Matthew 20:28', 'Romans 8:28'], answer: 2 },
+      { unit: 1, q: 'According to the Community Service theme verse (Matthew 20:28), the Son of Man came to:', choices: ['Be served by others', 'Establish a political kingdom', 'Serve and give his life as a ransom for many', 'Teach only in the synagogues'], answer: 2 },
+      { unit: 1, q: 'What is the primary reason for Community Service at VCS?', choices: ['To fulfill a government mandate', 'To earn college scholarships', 'To follow the example of Jesus Christ who came to serve others', 'To improve the school\'s public image'], answer: 2 },
+      { unit: 1, q: 'Each school year, a student must complete how many hours of community service?', choices: ['10 hours', '20 hours', '25 hours', '30 hours'], answer: 3 },
+      { unit: 1, q: 'Our school community desires to live a life of service modeled after:', choices: ['A famous historical humanitarian', 'The apostle Paul', 'Jesus Christ', 'The school\'s founding principal'], answer: 2 },
+      { unit: 1, q: 'Where are service opportunities posted for students?', choices: ['On the school bulletin board in the gym', 'On social media accounts', 'On the school calendar / community service board within learn.vcs.net', 'In the school newspaper'], answer: 2 },
+      { unit: 1, q: 'General community service hours may be earned through which of the following?', choices: ['Any organization, regardless of its mission', 'Only VCS-sponsored events', 'A non-profit organization, VCS, or a recognized community-based organization', 'Only government-approved programs'], answer: 2 },
+      { unit: 1, q: 'Church hours for community service may be earned through:', choices: ['Any church the student has visited', 'Only large, well-known churches', 'The student\'s own church only', 'Any religious organization'], answer: 2 },
+      { unit: 1, q: 'What is the system used to track community service hours called?', choices: ['ServiceNow', 'ServTrack', 'HoursPlus', 'TrackServe'], answer: 1 },
+      { unit: 1, q: 'How many community service hours (general or church) must be completed by the end of 1st semester?', choices: ['5 hours', '10 hours', '15 hours', '20 hours'], answer: 2 },
+    ],
+    get quiz() {
+      return this.qbank.slice();
+    }
   }
 ];
