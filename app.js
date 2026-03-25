@@ -418,7 +418,8 @@ function populateUnitSelector(selectorId, units, onChange, unitMeta = {}) {
     checkEl.setAttribute('aria-hidden', 'true');
 
     const meta = unitMeta[u] || {};
-    const titleText = meta.topic ? `Unit ${u} — ${meta.topic}` : `Unit ${u}`;
+    const displayUnit = meta.label || String(u);
+    const titleText = meta.topic ? `Unit ${displayUnit} — ${meta.topic}` : `Unit ${displayUnit}`;
 
     const labelEl = document.createElement('span');
     labelEl.className = 'unit-chip-label';
@@ -483,6 +484,7 @@ function showClassView(classId) {
     const unitMeta = {};
     units.forEach(u => {
       const count = cls.qbank.filter(q => Number(q.unit) === Number(u)).length;
+      const label = String(cls.unitLabels?.[u] ?? u);
       const matchTitle   = new RegExp(`^Unit\\s+${u}\\b`, 'i');
       const stripPrefix  = new RegExp(`^Unit\\s+${u}\\s*[—\\-]\\s*`, 'i');
       const guide = cls.studyGuides
@@ -491,7 +493,7 @@ function showClassView(classId) {
       const topic = guide
         ? guide.title.replace(stripPrefix, '').replace(/\s*\(Ch\.[^)]*\)/g, '').trim()
         : null;
-      unitMeta[u] = { topic, count };
+      unitMeta[u] = { label, topic, count };
     });
 
     populateUnitSelector('quiz-unit-selector', units, () => {
@@ -699,12 +701,13 @@ function renderQBank(cls) {
   }
 
   const LABELS = ['A', 'B', 'C', 'D'];
+  const unitLabels = cls.unitLabels || {};
   container.innerHTML = filtered.map((q, i) => `
     <div class="qbank-item" role="article">
       <div class="qbank-item-header">
         <span class="qbank-num">${i + 1}.</span>
         <div class="qbank-q">${escapeHtml(q.q)}${q.code ? `<pre class="quiz-code"><code>${escapeHtml(q.code)}</code></pre>` : ''}</div>
-        <span class="qbank-unit-tag">${wrapNums(`Unit ${q.unit}`)}</span>
+        <span class="qbank-unit-tag">${wrapNums(`Unit ${unitLabels[q.unit] ?? q.unit}`)}</span>
       </div>
       <div class="qbank-choices">
         ${q.choices.map((c, ci) => `

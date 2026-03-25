@@ -3248,6 +3248,7 @@ const CLASSES = [
     description: 'Accelerated precalculus covering functions, transformations, compositions, inverses, polynomials, complex numbers, and rational functions with asymptotes.',
     unit: 'Math',
     icon: '📐',
+    unitLabels: { 7: '7-8', 10: '10A', 11: '10B' },
     studyGuides: [
       {
         title: 'Chapter 1 — Functions',
