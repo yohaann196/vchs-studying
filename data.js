@@ -4738,6 +4738,30 @@ const CLASSES = [
           'God\'s response to Babel: God came down, confused their language so they could not understand each other, and scattered them over all the earth. This is why there are many different languages and peoples in the world. Babel illustrates the anti-seed impulse of human pride opposing God.',
         ]
       },
+      {
+        title: 'Unit 3 — Genesis Part 2: The Patriarchs and Joseph',
+        content: [
+          'Memory Verse — Philippians 4:4–7: "Rejoice in the Lord always. I will say it again: Rejoice! Let your gentleness be evident to all. The Lord is near. Do not be anxious about anything, but in every situation, by prayer and petition, with thanksgiving, present your requests to God. And the peace of God, which transcends all understanding, will guard your hearts and your minds in Christ Jesus."',
+          'Philippians 4:4 — We are commanded to rejoice in the Lord always, not just when circumstances are good. The repetition ("I will say it again: Rejoice!") emphasizes urgency and importance.',
+          'Philippians 4:5 — We are to let our gentleness (graciousness, reasonableness) be evident to all people. The reason given is that "The Lord is near" — His presence motivates godly character.',
+          'Philippians 4:6 — We are instructed not to be anxious about anything. Instead, in every situation we are to bring our concerns to God through prayer and petition, accompanied by thanksgiving.',
+          'Philippians 4:7 — The result of bringing everything to God in prayer is that the peace of God — a peace that surpasses all human understanding — will guard (stand watch over) our hearts and minds in Christ Jesus.',
+          'Genesis 37 — Joseph\'s Dreams: Joseph was the son of Jacob (Israel) whom Jacob loved more than his other sons, shown by giving him a richly ornamented robe. His brothers hated him because of this favoritism.',
+          'In his first dream (Genesis 37:6–7), Joseph and his brothers were binding sheaves of grain, and his brothers\' sheaves gathered around and bowed down to his. This dream suggested Joseph would rule over his brothers.',
+          'In his second dream (Genesis 37:9), the sun, moon, and eleven stars bowed down to Joseph. Jacob rebuked Joseph but kept the matter in mind, recognizing it might be a message from God.',
+          'Genesis 37 — The Betrayal: When Joseph came to check on his brothers in the field, they plotted to kill him. Instead they threw him into a pit and sold him to Ishmaelite traders headed to Egypt for twenty shekels of silver. They told their father Jacob that a ferocious animal had killed him.',
+          'Timeless Principle from Joseph\'s story: God must work CHARACTER in you before He works PURPOSE through you. Difficult experiences are not accidents — they are God\'s preparation process for the work He plans to accomplish through us.',
+          'God\'s School — Purpose 1 (John 17:3): To KNOW God and Jesus Christ. Jesus prayed, "Now this is eternal life: that they know you, the only true God, and Jesus Christ, whom you have sent." Trials deepen our personal knowledge of and intimacy with God.',
+          'God\'s School — Purpose 2 (Romans 8:28–29): To CONFORM our character to be like Christ. "And we know that in all things God works for the good of those who love him, who have been called according to his purpose. For those God foreknew he also predestined to be conformed to the image of his Son." Hardship shapes us to look more like Jesus.',
+          'God\'s School — Purpose 3 (Ephesians 2:10): To DEPLOY you to advance God\'s kingdom in this world. "For we are God\'s handiwork, created in Christ Jesus to do good works, which God prepared in advance for us to do." Trials prepare and position us for the specific good works God designed for us.',
+          'God\'s School — Purpose 4 (John 15:11–17): To give inexpressible JOY, supernatural PEACE, and unconditional LOVE in the process. Jesus said, "I have told you this so that my joy may be in you and that your joy may be complete." And, "Greater love has no one than this: to lay down one\'s life for one\'s friends."',
+          'Genesis 39 — Joseph and Potiphar\'s Wife: After being sold into slavery, Joseph was purchased by Potiphar, an Egyptian official of Pharaoh and captain of the guard. The LORD was with Joseph and blessed everything in Potiphar\'s household because of him. Potiphar put Joseph in charge of his entire household.',
+          'Faithfulness Check (Genesis 39): Will Joseph choose what\'s BEST or what\'s EASIEST? The BEST decision was to refuse Potiphar\'s wife and flee, honoring his master and God. The EASIEST decision would have been to give in to her advances since no one appeared to be watching.',
+          'Word Check (Genesis 39): Will Joseph speak the TRUTH even though it might be hard? Joseph ADDRESSED the situation directly, telling Potiphar\'s wife he could not betray his master or sin against God. He could have SWEPT it under the rug by staying silent and going along with the situation.',
+          'Integrity Check (Genesis 39): Will Joseph give in to pressure, or do the right thing even if it doesn\'t go right? Joseph\'s CONVICTION led him to flee and refuse sin, even at great personal cost. COMPROMISE would have led him to short-term comfort but long-term moral and spiritual damage.',
+          'The consequence of Joseph\'s integrity: Potiphar\'s wife falsely accused Joseph, and he was thrown into prison. Yet even in prison, the LORD was with Joseph, showed him kindness, and gave him favor in the eyes of the prison warden.',
+        ]
+      },
     ],
     qbank: [
       // ── UNIT 1 — Intro to Christian Scripture and God's Chosen People ─────
@@ -4843,6 +4867,59 @@ const CLASSES = [
       { unit: 2, q: 'What did the people at Babel decide to build, and why?', choices: ['A great temple to worship God properly', 'A city and a tower reaching to the heavens to make a name for themselves — an act of pride apart from God', 'A large army to defend against enemies', 'A school to preserve knowledge'], answer: 1 },
       { unit: 2, q: 'How did God respond to the Tower of Babel?', choices: ['He destroyed the tower with fire', 'He sent a flood', 'He confused their language and scattered them over all the earth', 'He sent angels to arrest the builders'], answer: 2 },
       { unit: 2, q: 'What does the Tower of Babel illustrate in relation to the Genesis themes?', choices: ['The seed line reaching its full potential', 'Human faith in God\'s promises', 'The anti-seed impulse of human pride and self-sufficiency opposing God', 'The fulfillment of the Protoevangelium'], answer: 2 },
+
+      // ── UNIT 3 — Genesis Part 2: The Patriarchs and Joseph ─────────────────
+
+      // Memory Verse — Philippians 4:4-7
+      { unit: 3, q: 'What is the memory verse for Unit 3?', choices: ['John 3:16 — "For God so loved the world…"', 'Philippians 4:4–7 — "Rejoice in the Lord always…do not be anxious about anything…"', 'Romans 8:28 — "All things work together for good…"', 'Psalm 23:1 — "The LORD is my shepherd…"'], answer: 1 },
+      { unit: 3, q: 'According to Philippians 4:4, how often should we rejoice in the Lord?', choices: ['On Sundays only', 'When things are going well', 'Always', 'In times of suffering only'], answer: 2 },
+      { unit: 3, q: 'According to Philippians 4:5, what should be evident to all?', choices: ['Our strength', 'Our gentleness', 'Our wisdom', 'Our wealth'], answer: 1 },
+      { unit: 3, q: 'Philippians 4:5 says "The Lord is ________."', choices: ['mighty', 'holy', 'near', 'faithful'], answer: 2 },
+      { unit: 3, q: 'According to Philippians 4:6, what should we NOT do?', choices: ['Pray', 'Give thanks', 'Be anxious about anything', 'Make requests to God'], answer: 2 },
+      { unit: 3, q: 'According to Philippians 4:6, HOW should we present our requests to God?', choices: ['By fasting alone', 'By prayer and petition, with thanksgiving', 'By sacrifice and ritual', 'By good works only'], answer: 1 },
+      { unit: 3, q: 'According to Philippians 4:7, what will guard our hearts and minds in Christ Jesus?', choices: ['The power of prayer', 'The peace of God, which transcends all understanding', 'Our own willpower and discipline', 'A community of believers'], answer: 1 },
+      { unit: 3, q: 'Philippians 4:7 describes the peace of God as one that:', choices: ['Is easily understood by all', 'Only comes after suffering ends', 'Transcends (surpasses) all understanding', 'Must be earned through obedience'], answer: 2 },
+
+      // Genesis 37 — Joseph's Dreams / Timeless Principle
+      { unit: 3, q: 'In Genesis 37, what significant thing did Joseph receive from his father Jacob?', choices: ['The birthright of the firstborn', 'A richly ornamented robe (a coat of many colors)', 'A flock of sheep', 'Permission to travel to Egypt'], answer: 1 },
+      { unit: 3, q: 'Why did Joseph\'s brothers hate him?', choices: ['He stole their food', 'Jacob loved Joseph more than the other brothers and gave him a special robe', 'Joseph refused to work in the fields', 'Joseph claimed to be a prophet'], answer: 1 },
+      { unit: 3, q: 'In Joseph\'s first dream (Genesis 37), what did the sheaves of grain do?', choices: ['His brothers\' sheaves bowed down to his sheave', 'His sheave withered while his brothers\' grew', 'The sheaves all fell to the ground', 'His sheave became a tree reaching to heaven'], answer: 0 },
+      { unit: 3, q: 'In Joseph\'s second dream (Genesis 37), what bowed down to him?', choices: ['His brothers and father', 'The sun, moon, and eleven stars', 'Angels in heaven', 'The animals of the field'], answer: 1 },
+      { unit: 3, q: 'What did Jacob\'s reaction to the second dream suggest?', choices: ['He believed the dream was from God and celebrated immediately', 'He rebuked Joseph but also kept the matter in mind', 'He burned Joseph\'s robe in anger', 'He sent Joseph away immediately'], answer: 1 },
+      { unit: 3, q: 'What did Joseph\'s brothers do when they saw him coming to check on them in the field?', choices: ['They welcomed him warmly', 'They plotted to kill him, threw him into a pit, and eventually sold him to Ishmaelite traders going to Egypt', 'They ran away from him', 'They gave him a gift to appease their father'], answer: 1 },
+      { unit: 3, q: 'The Timeless Principle from the Joseph story states that God must work _________ in you before He works _________ through you.', choices: ['around; quickly', 'silently; publicly', 'first; second', 'character; purpose'], answer: 3 },
+      { unit: 3, q: 'The Timeless Principle teaches us that difficult experiences (like Joseph\'s) are part of God\'s process of:', choices: ['Punishing us for our sins', 'Preparing us for His purposes before using us for those purposes', 'Testing whether we deserve blessing', 'Showing others our weaknesses'], answer: 1 },
+
+      // God's School — 4 Purposes
+      { unit: 3, q: 'According to John 17:3, the first purpose of God\'s "school" (trials/difficult experiences) is:', choices: ['To make us famous', 'To know God and Jesus Christ — eternal life is knowing the one true God', 'To build our self-confidence', 'To earn our salvation'], answer: 1 },
+      { unit: 3, q: 'John 17:3 says that eternal life is:', choices: ['Living forever in a perfect world', 'Knowing God and Jesus Christ whom He has sent', 'Following all of God\'s commands perfectly', 'Having a near-death experience'], answer: 1 },
+      { unit: 3, q: 'According to Romans 8:28–29, the second purpose of God\'s school is:', choices: ['To punish sin', 'To conform us to the image of Christ — to shape our character', 'To make us wealthy', 'To build our reputation'], answer: 1 },
+      { unit: 3, q: 'Romans 8:28 says that "in all things God works for the _______ of those who love him."', choices: ['comfort', 'good', 'success', 'safety'], answer: 1 },
+      { unit: 3, q: 'Romans 8:29 says God predestined those He foreknew to be conformed to the image of:', choices: ['Moses', 'Abraham', 'His Son (Jesus)', 'The angels'], answer: 2 },
+      { unit: 3, q: 'According to Ephesians 2:10, the third purpose of God\'s school is:', choices: ['To give us a comfortable life', 'To prepare and deploy us to advance God\'s kingdom in this world through good works', 'To remove all suffering from our lives', 'To make us leaders in politics'], answer: 1 },
+      { unit: 3, q: 'Ephesians 2:10 says we are God\'s handiwork, created in Christ Jesus to:', choices: ['Earn our salvation through effort', 'Do good works which God prepared in advance for us to do', 'Build churches and temples', 'Preach on street corners'], answer: 1 },
+      { unit: 3, q: 'According to John 15:11–17, the fourth purpose of God\'s school is to give us:', choices: ['Power over our enemies', 'Inexpressible joy, supernatural peace, and unconditional love in the process', 'Freedom from all hardship', 'Knowledge of all Scripture'], answer: 1 },
+      { unit: 3, q: 'John 15:11 says Jesus told his disciples these things so that:', choices: ['They would fear God more', 'His joy may be in them and their joy may be complete', 'They would understand prophecy', 'They would obey the law more carefully'], answer: 1 },
+      { unit: 3, q: 'John 15:13 says, "Greater love has no one than this: to lay down one\'s life for one\'s ________."', choices: ['enemies', 'country', 'friends', 'family'], answer: 2 },
+
+      // Genesis 39 — Joseph and Potiphar's Wife: Faithfulness Check
+      { unit: 3, q: 'In Genesis 39, who was Potiphar?', choices: ['Joseph\'s brother who reconciled with him', 'A Hebrew priest in Canaan', 'An Egyptian official of Pharaoh and captain of the guard who purchased Joseph', 'The king of Egypt'], answer: 2 },
+      { unit: 3, q: 'According to Genesis 39, why did the LORD bless Potiphar\'s household?', choices: ['Because Potiphar was a righteous man', 'Because of Joseph — the LORD blessed everything in Potiphar\'s household for Joseph\'s sake', 'Because Potiphar was generous to the poor', 'Because Pharaoh commanded it'], answer: 1 },
+      { unit: 3, q: 'The "Faithfulness Check" in Genesis 39 asks: Will Joseph choose what\'s _______ or what\'s _______?', choices: ['safe; risky', 'best; easiest', 'righteous; wrong', 'godly; profitable'], answer: 1 },
+      { unit: 3, q: 'What was the BEST decision Joseph made in Genesis 39 regarding Potiphar\'s wife?', choices: ['He asked Potiphar to send his wife away', 'He refused her advances and fled, honoring God and his master', 'He ignored her completely without any response', 'He reported her to Pharaoh immediately'], answer: 1 },
+      { unit: 3, q: 'What would have been the EASIEST decision for Joseph in Genesis 39?', choices: ['To pray and wait for God to resolve the situation', 'To give in to Potiphar\'s wife\'s advances since no one would know', 'To flee Egypt entirely', 'To ask other servants for help'], answer: 1 },
+
+      // Genesis 39 — Word Check
+      { unit: 3, q: 'The "Word Check" in Genesis 39 asks: Will Joseph speak the _______ even though it might be hard?', choices: ['Bible', 'truth', 'law', 'prayer'], answer: 1 },
+      { unit: 3, q: 'How did Joseph ADDRESS the situation with Potiphar\'s wife (Word Check)?', choices: ['He pretended nothing happened', 'He told her directly that he could not betray his master or sin against God', 'He wrote a letter to Potiphar explaining her behavior', 'He refused to speak to her at all'], answer: 1 },
+      { unit: 3, q: 'How could Joseph have SWEPT the situation under the rug (Word Check)?', choices: ['By speaking boldly in front of all the servants', 'By staying silent, going along with her advances, and saying nothing to expose the wrong', 'By threatening to leave Potiphar\'s service', 'By praying out loud so everyone would hear'], answer: 1 },
+
+      // Genesis 39 — Integrity Check
+      { unit: 3, q: 'The "Integrity Check" in Genesis 39 asks: Will Joseph give in to pressure or do the right thing _______ if it doesn\'t go right?', choices: ['only', 'even', 'especially', 'always'], answer: 1 },
+      { unit: 3, q: 'How did Joseph\'s CONVICTION lead him in Genesis 39?', choices: ['It led him to negotiate a compromise with Potiphar\'s wife', 'It led him to flee and refuse to sin against God, even at great personal cost (being thrown in prison)', 'It led him to seek power so no one could harm him', 'It led him to confess to Potiphar immediately'], answer: 1 },
+      { unit: 3, q: 'How would COMPROMISE have led Joseph in Genesis 39?', choices: ['To greater influence and power in Potiphar\'s house short-term, but at the cost of his integrity and relationship with God', 'To immediate freedom from slavery', 'To reconciliation with his brothers', 'To becoming a trusted advisor to Pharaoh sooner'], answer: 0 },
+      { unit: 3, q: 'What happened to Joseph AFTER he did the right thing in Genesis 39?', choices: ['He was immediately rewarded and promoted', 'Potiphar\'s wife falsely accused him and he was thrown in prison', 'He was freed from slavery', 'He was sent back to Canaan'], answer: 1 },
+      { unit: 3, q: 'Even in prison, what did Genesis 39 say about the LORD\'s relationship with Joseph?', choices: ['God abandoned Joseph because of his misfortune', 'The LORD was with Joseph, showed him kindness, and gave him favor in the eyes of the prison warden', 'Joseph was left alone to figure things out on his own', 'God promised Joseph he would be released within a year'], answer: 1 },
     ],
     get quiz() {
       return this.qbank.slice();
