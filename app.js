@@ -619,6 +619,9 @@ function getBadgeClass(unit) {
     Math: 'badge-math',
     English: 'badge-english',
     History: 'badge-history',
+    Language: 'badge-language',
+    'Social Studies': 'badge-social-studies',
+    'Computer Science': 'badge-cs',
   };
   return map[unit] || 'badge-other';
 }
