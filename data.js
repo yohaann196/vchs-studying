@@ -2637,6 +2637,7 @@ const CLASSES = [
     description: 'Intermediate Spanish covering school life, extracurricular activities, daily routines, shopping, community errands, childhood memories, family celebrations, weather events, and health, with grammar including saber/conocer, reflexive verbs, the preterite, the imperfect, and more.',
     unit: 'Language',
     icon: '🇪🇸',
+    unitLabels: { 1: '1A', 2: '1B', 3: '2A', 4: '2B', 5: '3A', 6: '4A', 7: '4B', 8: '5A', 9: '5B' },
     unitTopics: {
       1: 'School & Classroom',
       2: 'Extracurricular Activities',
