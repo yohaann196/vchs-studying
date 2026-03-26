@@ -4088,7 +4088,7 @@ const CLASSES = [
       { unit: 5, q: 'Solve: cos²x − cos x = 0 for x in [0, 2π).', choices: ['x = π/2 and 3π/2', 'x = 0, π/2, 3π/2', 'x = 0, π/2, π, 3π/2', 'x = 0 and π'], answer: 1 },
       { unit: 5, q: 'Solve: tan²x − 3 = 0 for x in [0, 2π).', choices: ['x = π/3 and 2π/3', 'x = π/3, 2π/3, 4π/3, 5π/3', 'x = π/6, 5π/6, 7π/6, 11π/6', 'x = π/3 and 4π/3'], answer: 1 },
       { unit: 5, q: 'Solve: 2sec²x + tan²x − 3 = 0. Substitute tan²x = sec²x − 1.', choices: ['3sec²x = 4 → sec²x = 4/3', '3sec²x − 4 = 0 → sec²x = 4/3', 'sec²x = 1 → x = 0, π', '2sec²x − 4 = 0 → sec²x = 2'], answer: 1 },
-      { unit: 5, q: 'Solve 2sec²x + tan²x − 3 = 0 (substitute tan²x = sec²x − 1 and simplify). Solutions in [0, 2π):', choices: ['x = π/6, 5π/6, 7π/6, 11π/6', 'x = π/3, 2π/3, 4π/3, 5π/3', 'x = π/4, 3π/4, 5π/4, 7π/4', 'x = π/6 and 11π/6'], answer: 0 },
+      { unit: 5, q: 'Solve 2sec²x + tan²x − 3 = 0 in [0, 2π):', choices: ['x = π/6, 5π/6, 7π/6, 11π/6', 'x = π/3, 2π/3, 4π/3, 5π/3', 'x = π/4, 3π/4, 5π/4, 7π/4', 'x = π/6 and 11π/6'], answer: 0 },
       { unit: 5, q: 'Solve: sin²x = 3cos²x. Divide both sides by cos²x to get:', choices: ['tan²x = 3 → tan x = ±√3', 'sin²x − 3cos²x = 0 → tan x = √3', 'sin²x = 3(1 − sin²x) → 4sin²x = 3', 'Both A and C lead to tan x = ±√3'], answer: 3 },
       { unit: 5, q: 'From tan x = ±√3, the solutions in [0, 2π) are:', choices: ['x = π/3 and 2π/3', 'x = π/3, 2π/3, 4π/3, 5π/3', 'x = π/6, 5π/6, 7π/6, 11π/6', 'x = π/4 and 5π/4'], answer: 1 },
       { unit: 5, q: 'Solve: 4sin²x − 1 = 0 for x in [0, 2π).', choices: ['x = π/6, 5π/6', 'x = π/6, 5π/6, 7π/6, 11π/6', 'x = π/3, 2π/3, 4π/3, 5π/3', 'x = π/4, 3π/4, 5π/4, 7π/4'], answer: 1 },
@@ -4600,16 +4600,16 @@ const CLASSES = [
       // Chapter 10B — Parametric Equations, Polar Coordinates & Polar Curves (unit: 11)
 
       // --- Parametric equations: eliminating the parameter ---
-      { unit: 11, q: 'For the parametric equations x = t², y = t/4, substituting into x = t² yields:', choices: ['x = 16y²', 'x = y²/16', 'x = 4y²', 'y = x²/16'], answer: 0 },
+      { unit: 11, q: 'For the parametric equations x = t², y = t/4, eliminating the parameter gives:', choices: ['x = 16y²', 'x = y²/16', 'x = 4y²', 'y = x²/16'], answer: 0 },
       { unit: 11, q: 'For x = t², y = t/4 → x = 16y², the domain restriction on the rectangular equation is:', choices: ['y ≥ 0', 'x ≥ 0 (since t² is always nonneg.)', 'All real numbers', 'x > 0'], answer: 1 },
-      { unit: 11, q: 'For x = t + 1, y = √(t + 3), substituting to eliminate the parameter gives:', choices: ['y = √(x + 2)', 'y = √(x + 4)', 'y = √(x − 2)', 'y = √(x + 1)'], answer: 0 },
+      { unit: 11, q: 'For x = t + 1, y = √(t + 3), eliminating the parameter gives:', choices: ['y = √(x + 2)', 'y = √(x + 4)', 'y = √(x − 2)', 'y = √(x + 1)'], answer: 0 },
       { unit: 11, q: 'For x = t + 1, y = √(t + 3) → y = √(x + 2), the domain restriction is:', choices: ['x ≥ −2', 'x > −2', 'x ≥ −3', 'All real numbers'], answer: 0 },
       { unit: 11, q: 'For x = 2 + 3 cos θ, y = −3 + 5 sin θ, write cos θ and sin θ in terms of x and y:', choices: ['cos θ = (x−2)/3, sin θ = (y+3)/5', 'cos θ = (x+2)/3, sin θ = (y−3)/5', 'cos θ = (x−3)/2, sin θ = (y−5)/3', 'cos θ = (x−2)/5, sin θ = (y+3)/3'], answer: 0 },
       { unit: 11, q: 'For x = 2 + 3 cos θ, y = −3 + 5 sin θ, using cos²θ + sin²θ = 1 yields:', choices: ['(x−2)²/9 + (y+3)²/25 = 1', '(x−2)²/25 + (y+3)²/9 = 1', '(x+2)²/9 + (y−3)²/25 = 1', '(x−2)²/9 − (y+3)²/25 = 1'], answer: 0 },
       { unit: 11, q: 'The rectangular equation (x−2)²/9 + (y+3)²/25 = 1 represents what conic?', choices: ['Circle', 'Parabola', 'Ellipse', 'Hyperbola'], answer: 2 },
       { unit: 11, q: 'For x = 3 csc θ, y = 4 cot θ, we use the identity csc²θ − cot²θ = 1. Rewriting in terms of x and y gives:', choices: ['(x/3)² − (y/4)² = 1', '(x/3)² + (y/4)² = 1', '(y/4)² − (x/3)² = 1', '(y/3)² − (x/4)² = 1'], answer: 0 },
       { unit: 11, q: 'The rectangular equation (x/3)² − (y/4)² = 1 represents what conic?', choices: ['Ellipse', 'Circle', 'Parabola', 'Hyperbola with horizontal transverse axis'], answer: 3 },
-      { unit: 11, q: 'For x = ln(3t), y = 4t^(3/2), substituting into y = 4t^(3/2) to eliminate the parameter gives:', choices: ['y = (4/3^(3/2)) eˣ', 'y = (4/3^(3/2)) e^(3x/2)', 'y = 4 e^(x/3)', 'y = 4(eˣ/3)'], answer: 1 },
+      { unit: 11, q: 'For x = ln(3t), y = 4t^(3/2), eliminating the parameter gives:', choices: ['y = (4/3^(3/2)) eˣ', 'y = (4/3^(3/2)) e^(3x/2)', 'y = 4 e^(x/3)', 'y = 4(eˣ/3)'], answer: 1 },
       { unit: 11, q: 'For x = ln(3t), y = 4t^(3/2), the domain restriction is:', choices: ['t > 0 so x can be any real number', 't > 0 so x > −ln 3', 't > 0, so y > 0 and x is unrestricted', 't > 0 only when x > 0'], answer: 1 },
 
       // --- Polar to rectangular ---
@@ -4618,7 +4618,7 @@ const CLASSES = [
       { unit: 11, q: 'Convert (−3, 7π/6) to rectangular. What is x?', choices: ['3√3/2', '−3√3/2', '3/2', '−3/2'], answer: 0 },
       { unit: 11, q: 'Convert (−3, 7π/6) to rectangular. What is y?', choices: ['3/2', '−3/2', '3√3/2', '−3√3/2'], answer: 0 },
       { unit: 11, q: 'So the rectangular coordinates of (−3, 7π/6) are:', choices: ['(3√3/2, 3/2)', '(−3√3/2, −3/2)', '(3/2, 3√3/2)', '(−3/2, −3√3/2)'], answer: 0 },
-      { unit: 11, q: 'Convert (4, 8π/3) to rectangular. What is x = r cos θ?', choices: ['1/2', '−1/2', '√3/2', '−√3/2'], answer: 1 },
+      { unit: 11, q: 'Convert (4, 8π/3) to rectangular. What is cos(8π/3)?', choices: ['1/2', '−1/2', '√3/2', '−√3/2'], answer: 1 },
       { unit: 11, q: 'Convert (4, 8π/3) to rectangular. What is y = r sin θ?', choices: ['2√3', '−2√3', '4√3', '2'], answer: 0 },
       { unit: 11, q: 'Convert (2, 3π/2) to rectangular. What is y = r sin θ?', choices: ['2', '0', '−2', '√2'], answer: 2 },
       { unit: 11, q: 'Convert (−3, 5π/3) to rectangular. What is y = r sin θ?', choices: ['3√3/2', '−3√3/2', '3/2', '−3/2'], answer: 0 },
