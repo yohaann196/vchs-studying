@@ -490,9 +490,10 @@ function showClassView(classId) {
       const guide = cls.studyGuides
         ? cls.studyGuides.find(g => g.title && matchTitle.test(g.title))
         : null;
-      const topic = guide
-        ? guide.title.replace(stripPrefix, '').replace(/\s*\(Ch\.[^)]*\)/g, '').trim()
-        : null;
+      const topic = cls.unitTopics?.[u]
+        ?? (guide
+          ? guide.title.replace(stripPrefix, '').replace(/\s*\(Ch\.[^)]*\)/g, '').trim()
+          : null);
       unitMeta[u] = { label, topic, count };
     });
 

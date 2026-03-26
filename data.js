@@ -2637,6 +2637,17 @@ const CLASSES = [
     description: 'Intermediate Spanish covering school life, extracurricular activities, daily routines, shopping, community errands, childhood memories, family celebrations, weather events, and health, with grammar including saber/conocer, reflexive verbs, the preterite, the imperfect, and more.',
     unit: 'Language',
     icon: '🇪🇸',
+    unitTopics: {
+      1: 'School & Classroom',
+      2: 'Extracurricular Activities',
+      3: 'Daily Routine & Getting Ready',
+      4: 'Shopping & Clothing',
+      5: 'Community & Errands',
+      6: 'Childhood Memories',
+      7: 'Family Celebrations & Customs',
+      8: 'Weather Events & News',
+      9: 'Health & Injuries',
+    },
     studyGuides: [
       {
         title: 'Chapter 1A — School & Classroom',
@@ -3249,6 +3260,18 @@ const CLASSES = [
     unit: 'Math',
     icon: '📐',
     unitLabels: { 7: '7-8', 10: '10A', 11: '10B' },
+    unitTopics: {
+      1: 'Functions',
+      2: 'Polynomial and Rational Functions',
+      3: 'Exponential and Logarithmic Functions',
+      4: 'Trigonometric Functions',
+      5: 'Trigonometric Identities and Equations',
+      6: 'Vectors, Complex Numbers and Trigonometric Form',
+      7: 'Matrices',
+      9: 'Sequences, Series, and Probability',
+      10: 'Conics',
+      11: 'Parametric Equations, Polar Coordinates, and Polar Curves',
+    },
     studyGuides: [
       {
         title: 'Chapter 1 — Functions',
