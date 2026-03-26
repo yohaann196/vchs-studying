@@ -13,7 +13,7 @@ Deployed via GitHub Pages: [https://yohaann196.github.io/vchs-studying](https://
 | Layer | Technology |
 |-------|-----------|
 | Frontend | HTML5, CSS3, Vanilla JavaScript (no frameworks) |
-| Database / Auth | Supabase (PostgreSQL + Supabase Auth) |
+| Database / Auth | Supabase (PostgreSQL + Supabase Auth + Edge Functions) |
 | Client SDK | `@supabase/supabase-js` v2 loaded via CDN (jsDelivr) |
 | Hosting | GitHub Pages (static) |
 | CI/CD | GitHub Actions (`deploy.yml`) — trigger on push to `main` |
@@ -27,62 +27,54 @@ Deployed via GitHub Pages: [https://yohaann196.github.io/vchs-studying](https://
 - 🗃️ **Question Bank** — All questions with unit filter; correct answers revealed
 - 🏆 **Global Leaderboard** — Powered by Supabase; falls back to localStorage offline
 - 🔐 **Auth** — Username/password login and registration (no real email required)
+- 🛡️ **Account protections** — Profanity filtering on usernames + IP-based progressive rate limiting via a Supabase Edge Function
 
 ---
 
 ## File Structure
 
 ```
-index.html           ← HTML shell (single-page app)
-app.js               ← All application logic
-data.js              ← Course/question data (Biology Honors, 92 questions)
-styles.css           ← All styling (~1,800 lines)
-config.js            ← Supabase credentials
-package.json         ← Dev dependencies (jsdom)
+index.html                        ← HTML shell (single-page app)
+app.js                            ← All application logic
+data.js                           ← Course/question data
+styles.css                        ← All styling
+config.js                         ← Supabase credentials (URL + anon key)
+package.json                      ← Dev dependencies
 supabase/
-  schema.sql         ← Leaderboard table DDL + RLS policies
+  schema.sql                      ← Full database DDL + RLS policies
+  DEPLOY.md                       ← Step-by-step Supabase deployment guide
+  functions/
+    register/
+      index.ts                    ← Edge Function: rate-limited account creation
 .github/
   workflows/
-    deploy.yml       ← GitHub Pages deployment workflow
-README.md            ← This file
+    deploy.yml                    ← GitHub Pages deployment workflow
+README.md                         ← This file
 ```
 
 ---
 
 ## Setup
 
-### 1. Configure Supabase
+> **For a complete, step-by-step guide see [`supabase/DEPLOY.md`](supabase/DEPLOY.md).**
 
-1. Create a project at [supabase.com](https://supabase.com)
-2. Run `supabase/schema.sql` in the Supabase SQL Editor
-3. Enable **Email Auth** (users sign up with a fake `@vchs-study.local` address)
-4. Update `config.js` with your project URL and anon key:
-   ```js
-   window.SUPABASE_URL      = 'https://your-project-id.supabase.co';
-   window.SUPABASE_ANON_KEY = 'your-anon-key';
-   ```
+### Quick summary
 
-### 2. Deploy to GitHub Pages
+1. **Create a Supabase project** at [supabase.com](https://supabase.com)
+2. **Run `supabase/schema.sql`** in the Supabase SQL Editor (creates the `leaderboard` and `registration_attempts` tables)
+3. **Deploy the `register` Edge Function** (handles rate-limited, profanity-filtered account creation)
+4. **Set the `IP_HASH_SALT` secret** on the Edge Function so IPs are hashed securely
+5. **Update `config.js`** with your project URL and anon key
+6. Push to `main` — GitHub Actions deploys to GitHub Pages automatically
 
-Push to `main` — the GitHub Actions workflow deploys automatically.
-
----
-
-## Course Data
-
-**Biology Honors** — 92 multiple-choice questions across:
-- Unit 1: Introduction to Biology (properties of life, taxonomy, scientific method, evolution)
-- Unit 2: Chemistry of Life (chemical bonds, pH, macromolecules, enzymes)
-- Unit 3: Cell Biology (organelles, membranes, photosynthesis, cellular respiration)
-
-Plus 4 detailed study guides with 10–12 bullet points each.
+See [`supabase/DEPLOY.md`](supabase/DEPLOY.md) for the exact commands / dashboard clicks for each step.
 
 ---
 
 ## Design Theme
 
-Warm parchment (`#f5f0e4`) + dark navy (`#0f1f3d`) with gold accents (`#c9820a`).
-Fonts: Cinzel, IM Fell English SC, Caveat (Google Fonts).
+Grey liquid-glass + gold accents on a dark navy background.
+Fonts: Space Grotesk, Inter, Nunito, Lora (Google Fonts).
 
 ---
 
