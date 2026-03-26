@@ -251,11 +251,80 @@ function switchAuthTab(tab) {
   clearAuthErrors();
 }
 
-/** Validate username: max 20 chars, only [a-zA-Z0-9_] */
+// ── Profanity filter ──────────────────────────────────────────────────────
+
+const BAD_WORDS_CLIENT = new Set([
+  'fuck','fuk','fck','fucker','fucking','fucked','motherfucker',
+  'shit','sht','bullshit','shitty',
+  'ass','asshole','arsehole','arse',
+  'bitch','biatch',
+  'cunt',
+  'dick','dickhead',
+  'pussy',
+  'cock','cocksucker',
+  'piss','pissed',
+  'bastard',
+  'damn',
+  'crap',
+  'prick',
+  'twat',
+  'wank','wanker',
+  'bollocks',
+  'bugger',
+  'nigger','nigga',
+  'faggot','fagg','fag',
+  'dyke',
+  'tranny',
+  'retard','retarded',
+  'spic','spick',
+  'kike',
+  'chink',
+  'gook',
+  'wetback',
+  'cracker',
+  'coon',
+  'honky',
+  'spook',
+  'porn','porno',
+  'penis','peni',
+  'vagina',
+  'dildo',
+  'cum','cumshot',
+  'jizz',
+  'boobs','titties','tits',
+  'anal',
+  'blowjob',
+  'handjob',
+  'horny',
+  'slut',
+  'whore',
+]);
+
+/** Normalise a username for profanity checking (strip common leetspeak substitutions). */
+function normalizeForProfanity(name) {
+  return name
+    .toLowerCase()
+    .replace(/0/g, 'o').replace(/1/g, 'i').replace(/3/g, 'e')
+    .replace(/4/g, 'a').replace(/5/g, 's').replace(/7/g, 't')
+    .replace(/@/g, 'a').replace(/\$/g, 's').replace(/!/g, 'i')
+    .replace(/\+/g, 't').replace(/_/g, '');
+}
+
+/** Returns true if the username contains an inappropriate word. */
+function containsBadWordClient(username) {
+  const normalized = normalizeForProfanity(username);
+  for (const word of BAD_WORDS_CLIENT) {
+    if (normalized.includes(word)) return true;
+  }
+  return false;
+}
+
+/** Validate username: max 20 chars, only [a-zA-Z0-9_], no profanity */
 function validateUsername(username) {
   if (!username || username.trim() === '') return 'Username is required.';
   if (username.length > 20) return 'Username must be 20 characters or fewer.';
   if (!/^[a-zA-Z0-9_]+$/.test(username)) return 'Username can only contain letters, numbers, and underscores.';
+  if (containsBadWordClient(username)) return 'Username contains inappropriate language.';
   return null;
 }
 
@@ -323,13 +392,27 @@ async function handleRegister(e) {
   }
 
   try {
-    const email = `${username}@vchs-study.local`;
-    const { error } = await state.supabase.auth.signUp({
-      email,
-      password,
-      options: { data: { username } }
+    // Call the Edge Function which enforces server-side rate limiting and profanity checks.
+    const fnUrl = `${window.SUPABASE_URL}/functions/v1/register`;
+    const res = await fetch(fnUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${window.SUPABASE_ANON_KEY}`,
+      },
+      body: JSON.stringify({ username, password }),
     });
-    if (error) throw error;
+
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) {
+      throw new Error(data.error || 'Registration failed.');
+    }
+
+    // Sign in after the account has been created by the Edge Function.
+    const email = `${username}@vchs-study.local`;
+    const { error: signInErr } = await state.supabase.auth.signInWithPassword({ email, password });
+    if (signInErr) throw signInErr;
+
     closeAuthModal();
     showToast(`Account created! Welcome, ${escapeHtml(username)}!`, 'success');
   } catch (err) {

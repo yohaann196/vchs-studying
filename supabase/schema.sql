@@ -1,4 +1,20 @@
--- Leaderboard table
+-- Registration-attempt tracking (used by the `register` Edge Function for rate limiting)
+CREATE TABLE public.registration_attempts (
+  id         BIGSERIAL    PRIMARY KEY,
+  ip_hash    TEXT         NOT NULL,           -- SHA-256 of IP + server-side salt (never raw IP)
+  created_at TIMESTAMPTZ  NOT NULL DEFAULT NOW()
+);
+
+CREATE INDEX idx_reg_attempts_ip_time ON public.registration_attempts(ip_hash, created_at DESC);
+
+-- The service-role key (used only by the Edge Function) bypasses RLS, so no policies
+-- are needed for inserts/selects by the function.
+-- Deny all access via the anon/authenticated roles so the table is not publicly readable.
+ALTER TABLE public.registration_attempts ENABLE ROW LEVEL SECURITY;
+
+-- No SELECT/INSERT/UPDATE/DELETE policies → effectively blocks all client-side access.
+
+-- ── Leaderboard table
 CREATE TABLE public.leaderboard (
   id         BIGSERIAL    PRIMARY KEY,
   user_id    UUID         NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
