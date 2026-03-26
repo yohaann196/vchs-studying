@@ -96,6 +96,149 @@ function showToast(message, type = 'info') {
   }, 3200);
 }
 
+/* ── Profanity Filter ─────────────────────────────────────── */
+
+/**
+ * Words checked against user-visible text (usernames).
+ * Stored as a plain array so no external dependency is required.
+ *
+ * "substring" words are long enough that a substring match is unlikely to
+ * produce false positives (e.g. 'fuckhead' in any legitimate name is
+ * essentially impossible).
+ *
+ * "segment" words are short and could appear inside legitimate words
+ * (e.g. 'cock' inside 'hancock').  These are only matched when they form an
+ * entire underscore-delimited segment of the username.
+ */
+const PROFANITY_SUBSTRING = [
+  'fuck', 'fuk', 'fuq', 'fvck', 'f4ck',
+  'shit', 'sh1t', 'shyt',
+  'bitch', 'b1tch', 'biatch',
+  'cunt',
+  'pussy',
+  'piss',
+  'asshole', 'a55',
+  'bastard',
+  'slut', 'sl0t',
+  'whore', 'wh0re',
+  'nigger', 'nigga', 'n1gger', 'n1gga',
+  'faggot',
+  'retard',
+  'jackass', 'dumbass', 'smartass',
+  'bullshit', 'horseshit', 'dipshit',
+  'dickhead', 'shithead', 'fuckhead', 'cockhead',
+  'motherfucker',
+  'cumshot', 'jizz',
+  'penis', 'vagina',
+];
+
+/**
+ * Short words that are only matched when they form an entire
+ * underscore-delimited username segment (e.g. "my_dick" is blocked but
+ * "hendrick" is allowed).
+ */
+const PROFANITY_SEGMENT_EXACT = [
+  'cock', 'c0ck',
+  'dick', 'd1ck',
+  'arse',
+  'fag', 'f4g',
+  'turd',
+  'crap',
+  'prick',
+  'cum',
+];
+
+/**
+ * Check whether a username contains inappropriate language.
+ *  – Substring words are checked against the entire normalised username
+ *    (underscores removed) to defeat bypass attempts like f_uck.
+ *  – Segment-exact words are only matched against each underscore-delimited
+ *    part to avoid false positives like "hancock" or "hendrick".
+ * @param {string} text
+ * @returns {boolean}
+ */
+function containsProfanity(text) {
+  if (!text) return false;
+  // Remove underscores for the substring pass (defeats f_uck-style bypasses)
+  const noUnder = text.toLowerCase().replace(/_/g, '');
+  if (PROFANITY_SUBSTRING.some(word => noUnder.includes(word))) return true;
+
+  // Exact-segment pass: split by underscores and check each part individually
+  const segments = text.toLowerCase().split('_');
+  if (PROFANITY_SEGMENT_EXACT.some(word => segments.includes(word))) return true;
+
+  return false;
+}
+
+/* ── Rate Limiting ────────────────────────────────────────── */
+
+/**
+ * Per-action rate limit config.
+ *  max       – maximum attempts allowed in the window
+ *  windowMs  – sliding window duration in milliseconds
+ */
+const RATE_LIMIT_CONFIG = {
+  login:     { max: 5,  windowMs: 15 * 60 * 1000 }, // 5 attempts per 15 min
+  register:  { max: 3,  windowMs: 60 * 60 * 1000 }, // 3 attempts per hour
+  saveScore: { max: 10, windowMs:  1 * 60 * 1000 }, // 10 saves per minute
+};
+
+/**
+ * Check whether an action is currently rate-limited and, if not, record
+ * the attempt.  Uses localStorage so limits persist across page reloads.
+ *
+ * @param {'login'|'register'|'saveScore'} action
+ * @returns {{ allowed: boolean, waitMs?: number }}
+ *   allowed  – false when the limit has been reached
+ *   waitMs   – milliseconds until the oldest blocking attempt expires
+ */
+function checkRateLimit(action) {
+  const cfg = RATE_LIMIT_CONFIG[action];
+  if (!cfg) {
+    console.warn(`checkRateLimit: unknown action "${action}"`);
+    return { allowed: true };
+  }
+
+  const key = `rl_${action}`;
+  const now = Date.now();
+
+  let attempts = [];
+  try {
+    attempts = JSON.parse(localStorage.getItem(key) || '[]');
+  } catch (_) { /* corrupt storage — start fresh */ }
+
+  // Discard timestamps outside the current window
+  const recent = attempts.filter(t => now - t < cfg.windowMs);
+
+  if (recent.length >= cfg.max) {
+    // The user must wait until the oldest attempt in the window expires
+    const oldestInWindow = Math.min(...recent);
+    const waitMs = cfg.windowMs - (now - oldestInWindow);
+    return { allowed: false, waitMs };
+  }
+
+  // Record this new attempt
+  recent.push(now);
+  try {
+    localStorage.setItem(key, JSON.stringify(recent));
+  } catch (_) { /* storage quota exceeded — proceed anyway */ }
+
+  return { allowed: true };
+}
+
+/**
+ * Format a duration in milliseconds to a human-readable string like
+ * "2 minutes" or "45 seconds".
+ * @param {number} ms
+ * @returns {string}
+ */
+function formatWaitTime(ms) {
+  const secs = Math.ceil(ms / 1000);
+  if (secs < 90) return `${secs} second${secs !== 1 ? 's' : ''}`;
+  const mins = Math.round(secs / 60);
+  return `${mins} minute${mins !== 1 ? 's' : ''}`;
+}
+
 /* ── Supabase Initialisation ──────────────────────────────── */
 
 function initAuth() {
@@ -251,11 +394,12 @@ function switchAuthTab(tab) {
   clearAuthErrors();
 }
 
-/** Validate username: max 20 chars, only [a-zA-Z0-9_] */
+/** Validate username: max 20 chars, only [a-zA-Z0-9_], no profanity */
 function validateUsername(username) {
   if (!username || username.trim() === '') return 'Username is required.';
   if (username.length > 20) return 'Username must be 20 characters or fewer.';
   if (!/^[a-zA-Z0-9_]+$/.test(username)) return 'Username can only contain letters, numbers, and underscores.';
+  if (containsProfanity(username)) return 'Username contains inappropriate language. Please choose a different username.';
   return null;
 }
 
@@ -275,6 +419,13 @@ async function handleLogin(e) {
   if (unErr) { showAuthError('login', unErr); return; }
   const pwErr = validatePassword(password);
   if (pwErr) { showAuthError('login', pwErr); return; }
+
+  // Rate-limit login attempts to prevent brute-force attacks
+  const rl = checkRateLimit('login');
+  if (!rl.allowed) {
+    showAuthError('login', `Too many login attempts. Please wait ${formatWaitTime(rl.waitMs)} before trying again.`);
+    return;
+  }
 
   const btn = document.getElementById('login-submit-btn');
   btn.disabled = true;
@@ -310,6 +461,13 @@ async function handleRegister(e) {
   if (unErr) { showAuthError('register', unErr); return; }
   const pwErr = validatePassword(password);
   if (pwErr) { showAuthError('register', pwErr); return; }
+
+  // Rate-limit registrations to prevent account spam
+  const rl = checkRateLimit('register');
+  if (!rl.allowed) {
+    showAuthError('register', `Too many registration attempts. Please wait ${formatWaitTime(rl.waitMs)} before trying again.`);
+    return;
+  }
 
   const btn = document.getElementById('register-submit-btn');
   btn.disabled = true;
@@ -1024,6 +1182,13 @@ function aggregateUserScores(rawEntries) {
 /** Save a score row to Supabase. Silently skips if user is not logged in. */
 async function saveScore({ classId, className, pct, score, answered, mode }) {
   if (!state.user || !state.supabase) return;
+
+  // Rate-limit score submissions to prevent leaderboard spam
+  const rl = checkRateLimit('saveScore');
+  if (!rl.allowed) {
+    showToast(`Score not saved — too many submissions. Wait ${formatWaitTime(rl.waitMs)}.`, 'error');
+    return;
+  }
 
   const username = state.user.user_metadata?.username || 'Anonymous';
 
