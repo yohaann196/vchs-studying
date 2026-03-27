@@ -68,14 +68,7 @@ Push to `main` — the GitHub Actions workflow deploys automatically.
 
 ---
 
-## Course Data
-
-**Biology Honors** — 92 multiple-choice questions across:
-- Unit 1: Introduction to Biology (properties of life, taxonomy, scientific method, evolution)
-- Unit 2: Chemistry of Life (chemical bonds, pH, macromolecules, enzymes)
-- Unit 3: Cell Biology (organelles, membranes, photosynthesis, cellular respiration)
-
-Plus 4 detailed study guides with 10–12 bullet points each.
+## over 4k practice questions!
 
 ---
 
